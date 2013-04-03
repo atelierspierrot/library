@@ -1,0 +1,60 @@
+<?php
+if (empty($debug) || empty($reporter)) return '';
+if (empty($message)) $message = $debug->renderMessages();
+?>
+
+<?php if (!empty($title)) : ?>
+<div id="<?php echo $reporter->getId('page_header'); ?>" class="header">
+    <h1><?php echo $title; ?></h1>
+</div>
+<?php endif; ?>
+
+<div id="<?php echo $reporter->getId('page_content'); ?>" class="content">
+
+	<?php if (!empty($flash_message)) : ?>
+    <div class="<?php echo( !empty($flash_message_class) ? $flash_message_class : 'ok' ); ?>_message">
+		<?php echo $flash_message; ?>
+    </div>
+	<?php endif; ?>
+
+    <div class="debugger">
+
+        <br class="clear" />
+        <div class="header_info">
+            <?php echo $debug->profiler->renderProfilingInfo(); ?>
+        </div>
+        <br class="clear" />
+
+<?php if (!empty($message)) : ?>
+        <br class="clear" />
+        <div class="debug_message">
+            <?php echo $message; ?>
+        </div>
+        <br class="clear" />
+<?php endif; ?>
+
+        <div id="<?php echo $reporter->getId('page_menu'); ?>" class="debug_menu">
+            <a id="<?php echo $reporter->getId('debug_menu'); ?>"></a>
+            <ul>
+<?php foreach ($debug->getStacks() as $_i=>$_stack) : ?>
+	<?php if ($_stack->getType()!='message') : ?>
+                <li><a href="#<?php echo $_i; ?>"><?php echo $_stack->getTitle(); ?></a></li>
+	<?php endif; ?>
+<?php endforeach; ?>
+            </ul>
+        </div>
+
+<?php foreach ($debug->getStacks() as $_i=>$_stack) : ?>
+	<?php if ($_stack->getType()=='object') : ?>
+		<h3><a id="<?php echo $_i; ?>"></a><?php echo $_stack->getTitle(); ?></h3>
+		<pre><?php print_r( $_stack->getEntity() ); ?></pre>
+		<div class="back_link">[ <a href="#<?php echo $reporter->getId('debug_menu'); ?>">back to menu</a> ]</div>
+	<?php elseif ($_stack->getType()!='message') : ?>
+		<h3><a id="<?php echo $_i; ?>"></a><?php echo $_stack->getTitle(); ?></h3>
+		<?php echo $_stack; ?>
+		<div class="back_link">[ <a href="#<?php echo $reporter->getId('debug_menu'); ?>">back to menu</a> ]</div>
+	<?php endif; ?>
+<?php endforeach; ?>
+
+    </div>
+</div>
