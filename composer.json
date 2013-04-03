@@ -13,5 +13,5 @@
     }],
     "require": { "php": ">=5.3.0" },
     "require-dev": { "sami/sami": "dev-master" },
-    "autoload": { "psr-0": {  "Patterns": "src" } }
+    "autoload": { "psr-0": {  "Library": "src" } }
 }
