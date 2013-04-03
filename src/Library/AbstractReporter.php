@@ -10,12 +10,20 @@
 namespace Library;
 
 /**
- * @author 		Pierre Cassat & contributors <piero.wbmstr@gmail.com>
+ * The base class for all content Reporters
+ *
+ * @author      Pierre Cassat & contributors <piero.wbmstr@gmail.com>
  */
 abstract class AbstractReporter extends ReporterTemplate
 {
 
-    abstract public function render();
+    /**
+     * This must return the actual rendering of the Reporter
+     *
+     * @param misc $content The content to parse, in various types
+     * @return string The result of the parsed content
+     */
+    abstract public function render($content = null);
 
 }
 
