@@ -1,0 +1,15 @@
+<?php
+if (empty($debug) || empty($reporter)) return '';
+?>
+
+<style type="text/css">
+<?php @include $style_filepath; ?>
+</style>
+
+<script language="javascript">
+<?php @include $script_filepath; ?>
+</script>
+
+<?php @include $profiler_content_filepath; ?>
+
+<?php @include $profiler_footer_filepath; ?>

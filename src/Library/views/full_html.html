@@ -1,0 +1,25 @@
+<?php
+if (empty($debug) || empty($reporter)) return '';
+if (empty($charset)) $charset = 'UTF-8';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
+    <meta name="robots" content="none" /> 
+    <title><?php echo @$title; ?></title>
+<style type="text/css">
+<?php @include $style_filepath; ?>
+</style>
+<script language="javascript">
+<?php @include $script_filepath; ?>
+</script>
+</head>
+<body>
+
+<?php @include $profiler_content_filepath; ?>
+
+<?php @include $profiler_footer_filepath; ?>
+
+</body>
+</html>

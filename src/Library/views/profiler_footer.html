@@ -1,0 +1,20 @@
+<?php
+if (empty($debug) || empty($reporter)) return '';
+?>
+<div id="<?php echo $reporter->getId('page_footer'); ?>" class="footer">
+	Request: <?php echo $_SERVER['REQUEST_URI']; ?>
+	&nbsp;|&nbsp;
+	<?php echo date('d M Y H:i:s').' '.date_default_timezone_get(); ?>
+	&nbsp;|&nbsp;
+    UserAgent: <?php echo $_SERVER['HTTP_USER_AGENT']; ?>
+	&nbsp;|&nbsp;
+    PHP: <?php echo phpversion(); ?> (<?php echo php_sapi_name(); ?> - <?php echo php_uname(); ?>)
+	&nbsp;|&nbsp;
+    Web server: <?php echo apache_get_version(); ?>
+	&nbsp;|&nbsp;
+	Page rendered in <?php echo round((microtime(true) - $_SERVER['REQUEST_TIME']), 3); ?> seconds
+    <div class="profiler-right">
+		[ <a href="javascript:history(-1);" title='Return to normal page'>back to previous page</a> ]
+	</div>
+</div>
+

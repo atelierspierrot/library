@@ -1,0 +1,17 @@
+{
+    "name": "atelierspierrot/library",
+    "type": "framework",
+    "description": "The PHP library package of Les Ateliers Pierrot.",
+    "keywords": [ "php", "library", "helpers" ],
+    "homepage": "https://github.com/atelierspierrot/library",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "authors": [{
+            "name": "Pierre Cassat",
+            "email": "piero.wbmstr@gmail.com",
+            "homepage": "https://github.com/PieroWbmstr"
+    }],
+    "require": { "php": ">=5.3.0" },
+    "require-dev": { "sami/sami": "dev-master" },
+    "autoload": { "psr-0": {  "Patterns": "src" } }
+}
