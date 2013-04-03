@@ -21,11 +21,16 @@ class Command
 
     protected $cache = array();
     
-    public function addCache($command, $result, $error, $cwd = null, $env = null, $options = null)
+    public function addCache($command, $result, $error, $status = 0, $cwd = null, $env = null, $options = null)
     {
         $this->cache[] = array(
-            'command'=>$command, 'cwd' => $cwd, 'env' => $env, 'options' => $options,
-            'result'=>$result, 'error'=>$error
+            'command'   =>$command,
+            'cwd'       =>$cwd,
+            'env'       =>$env,
+            'options'   =>$options,
+            'result'    =>$result,
+            'error'     =>$error,
+            'status'    =>$status,
         );
     }
 
@@ -58,51 +63,52 @@ class Command
 // Process
 // ---------------------
 
-	/**
-	 * Run a command on a Lilnux/UNIX system reading it from cache if so
-	 *
-	 * @param string $command The command to run
-	 * @param string $path The path to go to
-	 * @param bool $force Force the command to really run (avoid caching)
-	 * @return array An array like ( result , error , status )
-	 */
-	public function run($command, $path = null, $force = false)
-	{
-	    if (true!==$force && $this->isCached($command, $path)) {
-	        return $this->getCached($command, $path);
-	    }
-	    return $this->runCommand($command, $path);
-	}
-	
-	/**
-	 * Run a command on a Lilnux/UNIX system
-	 *
-	 * Accepts a shell command to run
-	 *
-	 * @param string $command The command to run
-	 * @param string $path The path to go to
-	 * @return array An array like ( stdout , status , stderr )
-	 */
-	public function runCommand($command, $path = null)
-	{
- 		$descriptorspec = array(
-			1 => array('pipe', 'w'),
-			2 => array('pipe', 'w'),
-		);
-		$pipes = array();
-		$resource = proc_open($command, $descriptorspec, $pipes, $path);
+    /**
+     * Run a command on a Linux/UNIX system reading it from cache if so
+     *
+     * @param string $command The command to run
+     * @param string $path The path to go to
+     * @param bool $force Force the command to really run (avoid caching)
+     * @return array An array like ( stdout , status , stderr )
+     */
+    public function run($command, $path = null, $force = false)
+    {
+        if (true!==$force && $this->isCached($command, $path)) {
+            $cached = $this->getCached($command, $path);
+            return array($cached['result'], $cached['status'], $cached['error']);
+        }
+        return $this->runCommand($command, $path);
+    }
+    
+    /**
+     * Run a command on a Linux/UNIX system
+     *
+     * Accepts a shell command to run
+     *
+     * @param string $command The command to run
+     * @param string $path The path to go to
+     * @return array An array like ( stdout , status , stderr )
+     */
+    public function runCommand($command, $path = null)
+    {
+        $descriptorspec = array(
+            1 => array('pipe', 'w'),
+            2 => array('pipe', 'w'),
+        );
+        $pipes = array();
+        $resource = proc_open($command, $descriptorspec, $pipes, $path);
 
-		$stdout = stream_get_contents($pipes[1]);
-		$stderr = stream_get_contents($pipes[2]);
-		foreach ($pipes as $pipe) {
-			fclose($pipe);
-		}
+        $stdout = stream_get_contents($pipes[1]);
+        $stderr = stream_get_contents($pipes[2]);
+        foreach ($pipes as $pipe) {
+            fclose($pipe);
+        }
 
-		$status = trim(proc_close($resource));
-		$stdout = rtrim($stdout, PHP_EOL);
-		$this->addCache($command, $stdout, $stderr, $path);
-		return array( $stdout, $status, $stderr );
-	}
+        $status = trim(proc_close($resource));
+        $stdout = rtrim($stdout, PHP_EOL);
+        $this->addCache($command, $stdout, $stderr, $status, $path);
+        return array( $stdout, $status, $stderr );
+    }
 
     /**
      * Get the system path of a command
