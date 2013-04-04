@@ -25,7 +25,7 @@ class Url
      * @param bool $no_file Do you want just the base URL path, without the input file and any URI (default is FALSE)
      * @return string The URL found
      */
-    public static function getCurrentUrl($entities = false, $base = false, $no_file = false)
+    public static function getRequestUrl($entities = false, $base = false, $no_file = false)
     {
         $protocl = self::getHttpProtocol();
         if (!isset($GLOBALS['REQUEST_URI'])) {
@@ -70,7 +70,7 @@ class Url
      * @param string $url The URL to parse (required)
      * @return array An array of the URL components
      */
-    public static function urlParser($url)
+    public static function parse($url)
     {
         if (!strlen($url)) return;
         $_urls = array_merge( @parse_url($url), array('params'=>array()) );
@@ -81,6 +81,29 @@ class Url
     }
     
     /**
+     * Renvoie l'URL passée en paramètre nettoyée des './', '../' etc
+     *
+     * [reprise de SPIP]
+     * @param string $url L'URL à résoudre | NECESSAIRE
+     * @param boolean $realpath Doit-on tenter de renvoyer le realpath ou non (FLASE par défaut)
+     * @return string L'URL résolue, en realpath si le second paramètre est TRUE et qu'il est soluble
+     */
+    public static function resolvePath($url, $realpath = false)
+    {
+        while (
+            preg_match(',/\.?/,', $url, $regs)		# supprime // et /./
+            || preg_match(',/[^/]*/\.\./,S', $url, $regs)	# supprime /toto/../
+            || preg_match(',^/\.\./,S', $url, $regs)		# supprime les /../ du haut
+        ) {
+            $url = str_replace($regs[0], '/', $url);
+        }
+        $url = '/'.preg_replace(',^/,S', '', $url);
+        if ($realpath && $ok = @realpath($url) )
+            return $ok;
+        return $url;		
+    }
+
+    /**
      * Validate an URL
      *
      * @param string $url The string to validate
@@ -90,7 +113,7 @@ class Url
      */
     public static function isUrl($url = null, $protocols = array('http','https','ftp'), $localhost = false)
     { 
-        if (is_null($url) || !$url || !is_string($url)) return;
+        if (is_null($url) || !$url || !is_string($url)) return false;
         if ($localhost) {
             if (!is_string($localhost)) $localhost = 'localhost';
             if (substr_count($url, $localhost)) return true;
@@ -106,7 +129,7 @@ class Url
      */
     public static function isEmail($email = null)
     {
-        if (is_null($email) || !$email || !is_string($email)) return;
+        if (is_null($email) || !$email || !is_string($email)) return false;
 		return (bool) preg_match('/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/', $email);
     }
 
