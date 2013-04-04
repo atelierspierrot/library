@@ -100,10 +100,11 @@ $classLoader->register();
 
     <p>The <var>Helpers</var> of the package all defines some static methods.</p>
 
+<h4 id="url">Library\Helper\Url</h4>
     <pre class="code" data-language="php">
 <?php
-echo 'echo Library\Helper\Url::getCurrentUrl();'."\n";
-echo '=> '.Library\Helper\Url::getCurrentUrl();
+echo 'echo Library\Helper\Url::getRequestUrl();'."\n";
+echo '=> '.Library\Helper\Url::getRequestUrl();
 
 echo "\n\n";
 echo 'echo $str = "test";'."\n";
@@ -126,6 +127,48 @@ echo 'echo $str2 = "mail@google.fr";'."\n";
 echo 'echo Library\Helper\Url::isEmail($str2);'."\n";
 $str2 = "mail@google.fr";
 echo '=> '.var_export(Library\Helper\Url::isEmail($str2),1);
+
+echo "\n\n";
+echo 'echo $str = "http://google.fr/azerty/../test/string/?url=this-url&q=search";'."\n";
+echo 'echo Library\Helper\Url::resolvePath($str);'."\n";
+$str = "http://google.fr/azerty/../test/string/?url=this-url&q=search";
+echo '=> '.var_export(Library\Helper\Url::resolvePath($str),1);
+?>
+    </pre>
+
+<h4 id="url">Library\Helper\Text</h4>
+    <pre class="code" data-language="php">
+<?php
+echo 'echo $str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";'."\n";
+echo 'echo Library\Helper\Text::cut($str, 32);'."\n";
+$str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+echo '=> '.Library\Helper\Text::cut($str, 32);
+?>
+    </pre>
+
+<h4 id="url">Library\Helper\Request</h4>
+    <pre class="code" data-language="php">
+<?php
+echo 'echo Library\Helper\Request::isCli();'."\n";
+echo '=> '.var_export(Library\Helper\Request::isCli(),1);
+
+echo "\n\n";
+echo 'echo Library\Helper\Request::isAjax();'."\n";
+echo '=> '.var_export(Library\Helper\Request::isCli(),1);
+
+echo "\n\n";
+echo 'echo Library\Helper\Request::getUserIp();'."\n";
+echo '=> '.var_export(Library\Helper\Request::getUserIp(),1);
+?>
+    </pre>
+
+<h4 id="url">Library\Helper\File</h4>
+    <pre class="code" data-language="php">
+<?php
+echo 'echo $str = "My ! special éàè§ text file name";'."\n";
+echo 'echo Library\Helper\File::formatFilename($str);'."\n";
+$str = "My ! special éàè§ text file name";
+echo '=> '.var_export(Library\Helper\File::formatFilename($str),1);
 ?>
     </pre>
 
