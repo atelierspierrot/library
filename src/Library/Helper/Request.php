@@ -14,6 +14,10 @@ namespace Library\Helper;
  *
  * As for all helpers, all methods are statics.
  *
+ * For convenience, the best practice is to use:
+ *
+ *     use Library\Helper\Request as RequestHelper;
+ *
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
 class Request
@@ -29,6 +33,11 @@ class Request
         return (php_sapi_name() == 'cli');
     }
 
+    /**
+     * Check if the request is sent via AJAX
+     *
+     * @return boolean TRUE if it is so ...
+     */
     public static function isAjax()
     {
         return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&

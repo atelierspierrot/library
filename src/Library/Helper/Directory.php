@@ -14,6 +14,10 @@ namespace Library\Helper;
  *
  * As for all helpers, all methods are statics.
  *
+ * For convenience, the best practice is to use:
+ *
+ *     use Library\Helper\Directory as DirectoryHelper;
+ *
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
 class Directory
