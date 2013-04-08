@@ -14,6 +14,10 @@ namespace Library\Helper;
  *
  * As for all helpers, all methods are statics.
  *
+ * For convenience, the best practice is to use:
+ *
+ *     use Library\Helper\File as FileHelper;
+ *
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
 class File
@@ -21,6 +25,7 @@ class File
 
     /**
      * Returns a filename or directory that does not exist in the destination
+     *
      * @param string $filename The name of the file or folder you want to create
      * @param string $dir The destination directory
      * @param boolean $force_file Should we force the creation of a file, adding an extension? (TRUE by default)

@@ -14,17 +14,21 @@ namespace Library\Helper;
  *
  * As for all helpers, all methods are statics.
  *
+ * For convenience, the best practice is to use:
+ *
+ *     use Library\Helper\Text as TextHelper;
+ *
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
 class Text
 {
 
     /**
-     * Fonction qui tronque un texte en fonction d'une longueur specifiee, et lui ajoute ou non '...'
+     * Truncate a string at a maximum length, adding it a suffix like '...'
      *
-     * @param string $string La chaîne à couper
-     * @param integer $length La longueur voulue, sans compter l'ajout final (par défaut 20)
-     * @param string $end_str Chaîne finale à ajouter (par defaut '...')
+     * @param string $string The string to cut
+     * @param integer $length The maximum length to keep (`120` by default)
+     * @param string $end_str The suffix to add if the string was cut (` ...` by default)
      * @return string
      */
     public static function cut($string = '', $length = 120, $end_str = ' ...')
