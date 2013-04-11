@@ -133,7 +133,6 @@ class Url
      */
     public static function getAbsoluteUrl($url)
     {
-        // Si c'est déjà une URL absolue, on renvoi
         if (self::isUrl($url)) return $url;
         $url = self::resolvePath($url);
         $current_url = self::getRequestUrl(true, true);
@@ -142,50 +141,57 @@ class Url
     }
 
     /**
-     * Rebuilds a complete URL based on its elements as an array
-     * 
-     * @param array $_urls An array of URLs elements : `scheme`, `user`, `pass`, `host`, `port`,
-     *                  `path`, `params`, `hash`
-     * @param string/array $not_toput An element or an array of elements to NOT include
-     * @return string The rebuilt URL
+     * Global URL builder
+     *
+     * @param string/array/null $param A parameter to set, or an array like `param => value` to set in URL
+     * @param string/null $value The value of the `$param` argument (if it is a string)
+     * @param string/null $url The URL to work on (`self::getRequestUrl()` by default)
+     * @return string The final rebuilt URL
      */
-    public static function build(array $_urls = array(), $not_toput = false)
+    public static function url($param = null, $value = null, $url = null)
     {
-        if (0===count($_urls)) return;
-        $_ntp = $not_toput ? ( is_array($not_toput) ? $not_toput : array($not_toput) ) : array();
-        if (isset($_urls['params']))
-            $_urls['params'] = array_filter($_urls['params']);
-        $n_url = 
-            ( (isset($_urls['scheme']) && !in_array('scheme', $_ntp)) ? $_urls['scheme'].'://' : 'http://')
-            .( (isset($_urls['user']) && !in_array('user', $_ntp)) ? $_urls['user'] : '')
-            .( (isset($_urls['pass']) && !in_array('pass', $_ntp)) ? ':'.$_urls['pass'] : '')
-            .( ((isset($_urls['user']) && !in_array('user', $_ntp)) || (isset($_urls['pass']) && !in_array('pass', $_ntp))) ? '@' : '')
-            .( (isset($_urls['host']) && !in_array('host', $_ntp)) ? $_urls['host'] : '')
-            .( (isset($_urls['port']) && !in_array('port', $_ntp)) ? ':'.$_urls['port'] : '')
-            .( (isset($_urls['path']) && !in_array('path', $_ntp)) ? $_urls['path'] : '')
-            .( (isset($_urls['params']) && !in_array('params', $_ntp)) ? '?'.http_build_query($_urls['params']) : '')
-            .( (isset($_urls['hash']) && !in_array('hash', $_ntp)) ? '#'.$_urls['hash'] : '');
-        return trim($n_url, '?&');
+        if (is_null($url) OR !strlen($url)) 
+            $url = self::getRequestUrl();
+
+        if (!is_null($param)) {
+            if (is_array($param) && is_null($value)) {
+                foreach($param as $param_p=>$value_p) {
+                    $url = self::setParameter($param_p, $value_p, $url);
+                }
+            } elseif (is_null($value)) {
+                $parsed_url = self::parse($url);
+                if (isset($parsed_url['params']) && isset($parsed_url['params'][$param])) {
+                    return $parsed_url['params'][$param];
+                }
+                return false;
+            } elseif (!is_null($value)) {
+                $url = self::setParameter($param, $value, $url);
+            }
+        }
+
+        return self::build(self::parse($url));
     }
 
     /**
-     * Get an URL parameter by its name
+     * Get the value of an URL parameter
      *
-     * @param string $url The URL to parse ({@link self::getRequestUrl()} by default)
-     * @param string $param The parameter name to get ; if `false` (by default), returns the array of parameters
-     * @return string/array The retrieved value for the given parameter or the array of parameters
+     * @param string/null $url The URL to work on (`self::getRequestUrl()` by default)
+     * @param string/bool $param A parameter to get, or `false` to get the global parameters array
+     * @return string/array The parameter value or the global array of parameters
      */
-    public static function getParam($url = false, $param = false)
+    public static function getParameter($param = false, $url = false)
     {
         if (!$url || !strlen($url))
             $url = self::getRequestUrl();
+
         $parsed_url = self::parse($url);
         $params = (isset($parsed_url['params']) && count($parsed_url['params'])) 
             ? $parsed_url['params'] : false;
+
         if ($param && strlen($param)) {
             if ($params) {
                 foreach($params as $p=>$v) {
-                    if($p==$param) return $v;
+                    if ($p==$param) return $v;
                 }
             }
             return false;
@@ -194,15 +200,15 @@ class Url
     }
 
     /**
-     * Set or overwrite an URL parameter
+     * Set the value of an URL parameter
      *
-     * @param string $url The URL to parse ({@link self::getRequestUrl()} by default)
-     * @param string $var The name of the parameter to set
-     * @param string $val The value to set for the parameter `$var`
-     * @param bool $rebuild Returns a `self::build()` URL or not (default is `true`)
-     * @return string/array The full URL or the array of complete URLs elements
+     * @param string/null $url The URL to work on (`self::getRequestUrl()` by default)
+     * @param string/bool $param A parameter to get, or `false` to get the global parameters array
+     * @param string/null $value The value of the `$param` argument (if `null`, the argument is stripped)
+     * @param boolean $rebuild Return a rebuilt URL (`true` by dfault - if `false`, the URL components array is returned)
+     * @return string/array The final URL
      */
-    public static function setParam($url = false, $var = '', $val = false, $rebuild = true)
+    public static function setParameter($var = '', $val = false, $url = false, $rebuild = true)
     {
         $url_entree = $url;
         if (!$url || !is_array($url)) {
@@ -212,6 +218,37 @@ class Url
         $url['params'][$var] = $val;
         if ($rebuild) return self::build($url);
         return $url;
+    }
+
+    /**
+     * Rebuild a full URL string from an array of elements
+     * 
+     * @param array $url_components The array of the URL components:: `scheme`, `user`,
+     *                  `pass`, `host`, `port`, `path`, `params`, `hash`
+     * @param string/array/boolean $not_toput The name of an array of elements to not include
+     * @return string The final URL as a string
+     */
+    public static function build(array $url_components = null, $not_toput = null)
+    {
+        if (!is_array($url_components)) return;
+
+        $_ntp = $not_toput ? (is_array($not_toput) ? $not_toput : array($not_toput)) : array();
+
+        if (isset($_urls['params']))
+            $_urls['params'] = array_filter($_urls['params']);
+
+        $n_url = 
+            ( (isset($url_components['scheme']) && !in_array('scheme', $_ntp)) ? $url_components['scheme'].'://' : 'http://')
+            .( (isset($url_components['user']) && !in_array('user', $_ntp)) ? $url_components['user'] : '')
+            .( (isset($url_components['pass']) && !in_array('pass', $_ntp)) ? ':'.$url_components['pass'] : '')
+            .( ((isset($url_components['user']) && !in_array('user', $_ntp)) || (isset($url_components['pass']) && !in_array('pass', $_ntp))) ? '@' : '')
+            .( (isset($url_components['host']) && !in_array('host', $_ntp)) ? $url_components['host'] : '')
+            .( (isset($url_components['port']) && !in_array('port', $_ntp)) ? ':'.$url_components['port'] : '')
+            .( (isset($url_components['path']) && !in_array('path', $_ntp)) ? $url_components['path'] : '')
+            .( (isset($url_components['params']) && !in_array('params', $_ntp)) ? '?'.http_build_query($url_components['params']) : '')
+            .( (isset($url_components['hash']) && !in_array('hash', $_ntp)) ? '#'.$url_components['hash'] : '');
+
+        return trim($n_url, '?&');
     }
 
     /**
