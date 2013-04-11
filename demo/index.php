@@ -136,6 +136,28 @@ echo '=> '.var_export(Library\Helper\Url::resolvePath($str),1);
 ?>
     </pre>
 
+<?php $_urlstr = 'http://www.google.fr/aspecialpage/?a=param1&b=param2&c[]=param3-1&c[]=param3-2'; ?>
+<p>Working on URL <var><?php echo $_urlstr; ?></var>:</p>
+
+    <pre class="code" data-language="php">
+<?php
+echo 'echo Library\Helper\Url::getParameter("a", $_urlstr);'."\n";
+echo '=> '.Library\Helper\Url::getParameter("a", $_urlstr);
+echo "\n\n";
+echo 'echo Library\Helper\Url::getParameter("b", $_urlstr);'."\n";
+echo '=> '.Library\Helper\Url::getParameter("b", $_urlstr);
+echo "\n\n";
+echo 'echo Library\Helper\Url::getParameter("c", $_urlstr);'."\n";
+echo '=> '.var_export(Library\Helper\Url::getParameter("c", $_urlstr),1);
+echo "\n\n";
+echo 'echo Library\Helper\Url::setParameter("a", "newval", $_urlstr);'."\n";
+echo '=> '.urldecode(Library\Helper\Url::setParameter("a", "newval", $_urlstr));
+echo "\n\n";
+echo 'echo Library\Helper\Url::setParameter("a", array("newval-1", "newval-2"), $_urlstr);'."\n";
+echo '=> '.urldecode(Library\Helper\Url::setParameter("a", array("newval-1", "newval-2"), $_urlstr));
+?>
+    </pre>
+
 <h4 id="url">Library\Helper\Text</h4>
     <pre class="code" data-language="php">
 <?php
@@ -185,6 +207,68 @@ echo '=> '.var_export($command->run("whoami"),1);
 echo "\n";
 echo 'echo $command->run("pwd");'."\n";
 echo '=> '.var_export($command->run("pwd"),1);
+
+?>
+    </pre>
+
+<h3 id="command">Library\Crypt</h3>
+
+    <pre class="code" data-language="php">
+<?php
+echo '$str="what ever";'."\n";
+echo '$salt = "g(UmYZ[?25=%Fns8kK}&UrzRGPp?A-^gV}BP@!?c;f,Vl}X(Ob,pZ~=ABSXv_9yZ";'."\n";
+echo '$encryptor = new Library\Crypt($salt);'."\n";
+
+$str="what ever";
+$salt = "g(UmYZ[?25=%Fns8kK}&UrzRGPp?A-^gV}BP@!?c;f,Vl}X(Ob,pZ~=ABSXv_9yZ";
+$encryptor = new Library\Crypt($salt);
+
+echo "\n";
+echo '$crypted = $encryptor->crypt($str);'."\n";
+echo 'echo $crypted;'."\n";
+$crypted = $encryptor->crypt($str);
+echo '=> '.$crypted."\n";
+
+echo "\n";
+echo '$uncrypted = $encryptor->uncrypt($crypted);'."\n";
+echo 'echo $uncrypted;'."\n";
+$uncrypted = $encryptor->uncrypt($crypted);
+echo '=> '.$uncrypted."\n";
+?>
+    </pre>
+
+<h3 id="command">Library\Reporter</h3>
+
+<p>Using the <var>Html</var> adapter:</p>
+
+    <pre class="code" data-language="php">
+<?php
+echo '$str="what ever";'."\n";
+echo '$reporter = new Library\Reporter();'."\n";
+echo 'echo $reporter->render($str);'."\n";
+
+$str="what ever";
+$reporter = new Library\Reporter();
+echo '=> '."\n";
+$reporter->render($str)."\n";
+
+
+
+$reporter = new Library\Reporter();
+$reporter->render(array(
+    'styles'=>array(
+        'type'=>'css',
+        'content'=>' body { background: blue; } '
+    ),
+    'scripts'=>array(
+        'type'=>'javascript',
+        'content'=>' alert("yo"); '
+    ),
+    'contents'=>array(
+        'title'=>'Test title',
+        'content'=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    ),
+));
 
 ?>
     </pre>
