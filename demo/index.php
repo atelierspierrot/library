@@ -56,8 +56,14 @@ function getPhpClassManualLink( $class_name, $ln='en' )
 		<h2>Map of the package</h2>
         <ul id="navigation_menu" class="menu" role="navigation">
             <li><a href="index.php">Homepage</a><ul>
-                <li><a href="index.php#helpers">Helpers</a></li>
+                <li><a href="index.php#helpers">Helpers</a><ul>
+                    <li><a href="index.php#urlhelper">Url</a></li>
+                    <li><a href="index.php#texthelper">Text</a></li>
+                    <li><a href="index.php#requesthelper">Request</a></li>
+                    <li><a href="index.php#filehelper">File</a></li>
+                </ul></li>
                 <li><a href="index.php#command">Command</a></li>
+                <li><a href="index.php#crypt">Crypt</a></li>
             </ul></li>
         </ul>
 
@@ -100,7 +106,7 @@ $classLoader->register();
 
     <p>The <var>Helpers</var> of the package all defines some static methods.</p>
 
-<h4 id="url">Library\Helper\Url</h4>
+<h4 id="urlhelper">Library\Helper\Url</h4>
     <pre class="code" data-language="php">
 <?php
 echo 'echo Library\Helper\Url::getRequestUrl();'."\n";
@@ -158,7 +164,7 @@ echo '=> '.urldecode(Library\Helper\Url::setParameter("a", array("newval-1", "ne
 ?>
     </pre>
 
-<h4 id="url">Library\Helper\Text</h4>
+<h4 id="texthelper">Library\Helper\Text</h4>
     <pre class="code" data-language="php">
 <?php
 echo 'echo $str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";'."\n";
@@ -168,7 +174,7 @@ echo '=> '.Library\Helper\Text::cut($str, 32);
 ?>
     </pre>
 
-<h4 id="url">Library\Helper\Request</h4>
+<h4 id="requesthelper">Library\Helper\Request</h4>
     <pre class="code" data-language="php">
 <?php
 echo 'echo Library\Helper\Request::isCli();'."\n";
@@ -184,7 +190,7 @@ echo '=> '.var_export(Library\Helper\Request::getUserIp(),1);
 ?>
     </pre>
 
-<h4 id="url">Library\Helper\File</h4>
+<h4 id="filehelper">Library\Helper\File</h4>
     <pre class="code" data-language="php">
 <?php
 echo 'echo $str = "My ! special éàè§ text file name";'."\n";
@@ -211,7 +217,7 @@ echo '=> '.var_export($command->run("pwd"),1);
 ?>
     </pre>
 
-<h3 id="command">Library\Crypt</h3>
+<h3 id="crypt">Library\Crypt</h3>
 
     <pre class="code" data-language="php">
 <?php
@@ -234,42 +240,6 @@ echo '$uncrypted = $encryptor->uncrypt($crypted);'."\n";
 echo 'echo $uncrypted;'."\n";
 $uncrypted = $encryptor->uncrypt($crypted);
 echo '=> '.$uncrypted."\n";
-?>
-    </pre>
-
-<h3 id="command">Library\Reporter</h3>
-
-<p>Using the <var>Html</var> adapter:</p>
-
-    <pre class="code" data-language="php">
-<?php
-echo '$str="what ever";'."\n";
-echo '$reporter = new Library\Reporter();'."\n";
-echo 'echo $reporter->render($str);'."\n";
-
-$str="what ever";
-$reporter = new Library\Reporter();
-echo '=> '."\n";
-$reporter->render($str)."\n";
-
-
-
-$reporter = new Library\Reporter();
-$reporter->render(array(
-    'styles'=>array(
-        'type'=>'css',
-        'content'=>' body { background: blue; } '
-    ),
-    'scripts'=>array(
-        'type'=>'javascript',
-        'content'=>' alert("yo"); '
-    ),
-    'contents'=>array(
-        'title'=>'Test title',
-        'content'=>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    ),
-));
-
 ?>
     </pre>
 

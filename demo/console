@@ -1,0 +1,120 @@
+#!/usr/bin/env php
+<?php
+// show errors at least initially
+@ini_set('display_errors','1'); @error_reporting(E_ALL ^ E_NOTICE);
+
+// set a default timezone to avoid PHP5 warnings
+date_default_timezone_set('Europe/Paris');
+
+// for security
+function _getSecuredRealPath( $str )
+{
+    $parts = explode('/', realpath('.'));
+    array_pop($parts);
+    array_pop($parts);
+    return str_replace(join('/', $parts), '/[***]', $str);
+}
+
+require_once __DIR__."/../src/SplClassLoader.php";
+$classLoader = new SplClassLoader("Library", __DIR__."/../src");
+$classLoader->register();
+
+class ConsoleController extends Library\CommandLine\AbstractCommandLineController
+{
+	
+    public static $_name = 'Command line demonstration';
+    public static $_version = '1-dev';
+
+	public function __construct()
+	{
+	    parent::__construct(array(
+    		'argv_options'=>array(
+    		    't::'=>'test',
+    		    'o:'=>'othertest'
+    		),
+    		'argv_long_options'=>array(
+    		    'test::'=>'test',
+    		    'other:'=>'othertest'
+    		),
+            'commands'=>array(
+                'env::'=>'environment',
+            ),
+            'aliases'=>array(
+            ),
+	    ));
+	}
+	
+	/**
+	 * Run a test command
+	 */
+	public function runTestCommand($arg = null)
+	{
+	    // do stuff here ...
+		$name = !empty($arg) ? ucfirst($arg) : 'World';
+
+        // then write and out ...
+		$this
+		    ->writeInfo('this is the result of the "runTestCommand" method with an optional parameter:', true)
+		    ->write('Hello '.$name)
+		    ->writeStop();
+	}
+
+	/**
+	 * Run another test command
+	 */
+	public function runOthertestCommand($arg)
+	{
+	    // do stuff here ...
+		$name = ucfirst($arg);
+
+        // then write and out ...
+		$this
+		    ->writeInfo('this is the result of the "runTestCommand" method with a required parameter:', true)
+		    ->write('Hello '.$name)
+		    ->writeStop();
+	}
+
+	/**
+	 * Get an information about current environement
+	 *
+	 * Get an information about current environement ; optional arguments are :
+	 *     - '<option>php</option>' : get PHP version (default option),
+	 *     - '<option>apache</option>' : get Apache version,
+	 *     - '<option>apache-modules</option>' : get Apache modules list,
+	 *     - '<option>gd</option>' : get GD library version,
+	 *     - '<option>all</option>' : get all above inforamtions.
+	 */
+	public function runEnvironmentCommand($which = null)
+	{
+		switch($which) {
+			case 'apache': 
+				if (function_exists('apache_get_version'))
+					self::write( 'Apache version: '.apache_get_version() ); 
+				else
+					self::writeInfo( 'Apache version not available !' ); 
+				break;
+			case 'apache-modules': 
+				if (function_exists('apache_get_modules'))
+					self::write( 'Apache modules: '.var_export(apache_get_modules(),1) ); 
+				else
+					self::writeInfo( 'Apache modules not available !' ); 
+				break;
+			case 'gd': 
+				if (function_exists('gd_info'))
+					self::write( 'GD library informations: '.var_export(gd_info(),1) ); 
+				else
+					self::writeInfo( 'GD library not available !' ); 
+				break;
+			case 'php': default: 
+				self::write( 'PHP version: '.phpversion() ); 
+				break;
+		}
+	}
+
+}
+
+$test = new ConsoleController;
+$test->distribute();
+
+exit('yo');
+// Endfile
