@@ -64,6 +64,10 @@ function getPhpClassManualLink( $class_name, $ln='en' )
                 </ul></li>
                 <li><a href="index.php#command">Command</a></li>
                 <li><a href="index.php#crypt">Crypt</a></li>
+                <li><a href="index.php#objects">Objects</a><ul>
+                    <li><a href="index.php#invokable">Invokable</a></li>
+                    <li><a href="index.php#registryinvokable">Registry Invokable</a></li>
+                </ul></li>
             </ul></li>
         </ul>
 
@@ -171,6 +175,35 @@ echo 'echo $str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
 echo 'echo Library\Helper\Text::cut($str, 32);'."\n";
 $str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 echo '=> '.Library\Helper\Text::cut($str, 32);
+
+echo "\n\n";
+$str = 'my_underscored_nameCap';
+echo '$str = "my_underscored_nameCap";'."\n";
+echo 'echo Library\Helper\Text::toCamelCase($str);'."\n";
+echo '=> '.Library\Helper\Text::toCamelCase($str)."\n";
+echo 'echo Library\Helper\Text::toCamelCase($str, "_", false);'."\n";
+echo '=> '.Library\Helper\Text::toCamelCase($str, '_', false)."\n";
+
+echo "\n\n";
+$str = 'my/path/nameCap';
+echo '$str = "my/path/nameCap";'."\n";
+echo 'echo Library\Helper\Text::toCamelCase($str, "/");'."\n";
+echo '=> '.Library\Helper\Text::toCamelCase($str, '/')."\n";
+echo 'echo Library\Helper\Text::toCamelCase($str, "/", false);'."\n";
+echo '=> '.Library\Helper\Text::toCamelCase($str, '/', false)."\n";
+
+echo "\n\n";
+$str = 'MyCamelCaseString';
+echo '$str = "MyCamelCaseString";'."\n";
+echo 'echo Library\Helper\Text::fromCamelCase($str);'."\n";
+echo '=> '.Library\Helper\Text::fromCamelCase($str)."\n";
+echo 'echo Library\Helper\Text::fromCamelCase($str, "_", false);'."\n";
+echo '=> '.Library\Helper\Text::fromCamelCase($str, '_', false)."\n";
+echo 'echo Library\Helper\Text::fromCamelCase($str, "/");'."\n";
+echo '=> '.Library\Helper\Text::fromCamelCase($str, '/')."\n";
+echo 'echo Library\Helper\Text::fromCamelCase($str, "/", false);'."\n";
+echo '=> '.Library\Helper\Text::fromCamelCase($str, '/', false)."\n";
+
 ?>
     </pre>
 
@@ -240,6 +273,410 @@ echo '$uncrypted = $encryptor->uncrypt($crypted);'."\n";
 echo 'echo $uncrypted;'."\n";
 $uncrypted = $encryptor->uncrypt($crypted);
 echo '=> '.$uncrypted."\n";
+?>
+    </pre>
+
+<h3 id="objects">Library\Object</h3>
+
+    <p>The <var>Object</var> namespace proposes some abstract classes to help construct Model Objects.</p>
+
+<h4 id="invokable">Library\Object\AbstractInvokable</h4>
+
+    <p>This class defines some default PHP magic methods to facilitate some object properties accesses ; for more informations, see <a href="http://www.php.net/manual/fr/language.oop5.overloading.php">PHP5 magic overloading</a> on the PHP manual.
+    It builds an homogeneus object in which you can use the following methods to access a property even if it is protected (<em>the string "Property" must be replaced by the true property name</em>):</p>
+    <ul>
+        <li><var>getProperty( $default )</var> or <var>$this->property</var> to get the object <var>$property</var> or <var>$_property</var> variable; the <var>$default</var> value is used if the property exists but is not defined;</li>
+        <li><var>setProperty( $value )</var> or <var>$this->property = $value</var> to set the object <var>$property</var> or <var>$_property</var> variable on <var>$value</var>;</li>
+        <li><var>issetProperty()</var> or <var>isset( $this->property )</var> or <var>empty( $this->property )</var> to test the existence of an object <var>$property</var> or <var>$_property</var> variable;</li>
+        <li><var>unsetProperty()</var> or <var>unset( $this->property )</var> to delete an object <var>$property</var> or <var>$_property</var> variable;</li>
+        <li><var>resetProperty()</var> or <var>reset( $this->property )</var> to reset an object <var>$property</var> or <var>$_property</var> variable on its default value.</li>
+    </ul>
+
+    <p>This first example shows the default behavior of PHP on non-accessible object properties:</p>
+
+    <pre class="code" data-language="php">
+class Mytest
+{
+
+    // public property
+    public $my_public_prop = 10;
+
+    // protected property
+    protected $_my_protected_prop = 20;
+
+    // private property
+    private $__my_private_prop = 30;
+
+    public function __construct($a, $b, $c)
+    {
+        $this->my_public_prop = $a;
+        $this->_my_protected_prop = $b;
+        $this->__my_private_prop = $c;
+    }
+
+}
+<?php
+
+class Mytest
+{
+
+    // public property
+    public $my_public_prop = 10;
+
+    // protected property
+    protected $_my_protected_prop = 20;
+
+    // private property
+    private $__my_private_prop = 30;
+
+    public function __construct($a, $b, $c)
+    {
+        $this->my_public_prop = $a;
+        $this->_my_protected_prop = $b;
+        $this->__my_private_prop = $c;
+    }
+
+}
+
+$mytest = new Mytest(100, 110, 120);
+
+echo "\n";
+echo '$mytest = new Mytest(100, 110, 120);'."\n";
+echo '$mytest->my_public_prop;'."\n";
+echo '// => 100'."\n";
+echo '$mytest->_my_protected_prop;'."\n";
+echo '// => Fatal error:  Cannot access protected property Mytest::$_my_protected_prop'."\n";
+echo '$mytest->__my_private_prop;'."\n";
+echo '// => Fatal error:  Cannot access private property Mytest::$__my_private_prop'."\n";
+?>
+    </pre>
+
+    <p>This example is the same as above but with the invokable methods:</p>
+
+    <pre class="code" data-language="php">
+class MytestInvokable extends Library\Objact\AbstractInvokable
+{
+
+    // public property
+    public $my_public_prop = 10;
+
+    // protected property
+    protected $_my_protected_prop = 20;
+
+    // private property
+    private $__my_private_prop = 30;
+
+    public function __construct($a=1, $b=2, $c=3)
+    {
+        $this->my_public_prop = $a;
+        $this->_my_protected_prop = $b;
+        $this->__my_private_prop = $c;
+    }
+
+    // static property
+    static $my_static = 'test';
+
+    // protected static property
+    protected static $my_protected_static = 'protected static value';
+
+    // private static property
+    private static $my_private_static = 'private static value';
+
+}
+<?php
+
+class MytestInvokable extends Library\Object\AbstractInvokable
+{
+
+    // public property
+    public $my_public_prop = 10;
+
+    // protected property
+    protected $_my_protected_prop = 20;
+
+    // private property
+    private $__my_private_prop = 30;
+
+    public function __construct($a=1, $b=2, $c=3)
+    {
+        $this->my_public_prop = $a;
+        $this->_my_protected_prop = $b;
+        $this->__my_private_prop = $c;
+    }
+
+    // public static property
+    static $my_static = 'public static value';
+
+    // protected static property
+    protected static $my_protected_static = 'protected static value';
+
+    // private static property
+    private static $my_private_static = 'private static value';
+
+}
+
+$mytest_invok = new MytestInvokable(100, 110, 120);
+
+echo "\n";
+var_dump($mytest_invok);
+
+echo "\n";
+echo '$mytest_invok = new MytestInvokable(100, 110, 120);'."\n";
+echo '$mytest_invok->my_public_prop;'."\n";
+echo '// => '.$mytest_invok->my_public_prop."\n";
+echo '$mytest_invok->_my_protected_prop;'."\n";
+echo '// => ', $mytest_invok->_my_protected_prop, 'empty because no direct access to protected property', "\n";
+echo '$mytest_invok->getMyProtectedProp();'."\n";
+echo '// => ', $mytest_invok->getMyProtectedProp(), ' (magic getter is ok)', "\n";
+echo '$mytest_invok->__my_private_prop;'."\n";
+echo '$mytest_invok->getMyPrivateProp();'."\n";
+echo '// => ', $mytest_invok->__my_private_prop, $mytest_invok->getMyPrivateProp(), 'both are empty because the mother class can\'t access private property'."\n";
+
+echo "\n";
+echo '$mytest_invok->my_public_prop = 200;'."\n";
+echo '$mytest_invok->my_public_prop;'."\n";
+$mytest_invok->my_public_prop = 200;
+echo '// => '.$mytest_invok->my_public_prop."\n";
+
+echo '$mytest_invok->_my_protected_prop = 210;'."\n";
+echo '$mytest_invok->getMyProtectedProp();'."\n";
+$mytest_invok->_my_protected_prop = 210;
+echo '// => ', $mytest_invok->getMyProtectedProp(), ' (can not set directly as it is protected)', "\n";
+echo '$mytest_invok->setMyProtectedProp(210);'."\n";
+echo '$mytest_invok->getMyProtectedProp();'."\n";
+$mytest_invok->setMyProtectedProp(210);
+echo '// => ', $mytest_invok->getMyProtectedProp(), ' (magic setter is ok)', "\n";
+
+echo '$mytest_invok->__my_private_prop = 220;'."\n";
+echo '$mytest_invok->getMyPrivateProp();'."\n";
+$mytest_invok->__my_private_prop = 220;
+echo '$mytest_invok->setMyPrivateProp(220);'."\n";
+echo '$mytest_invok->getMyPrivateProp();'."\n";
+$mytest_invok->setMyPrivateProp(220);
+echo '// => ', $mytest_invok->getMyPrivateProp(), 'both are empty because the mother class can\'t access private property'."\n";
+
+echo "\n";
+echo "// => as we can see, '__my_private_prop' has not been set because it is not accessible by the mother class\n";
+var_dump($mytest_invok);
+
+echo "\n";
+echo 'echo $mytest_invok->getMyPublicProp();'."\n";
+echo '// => ', $mytest_invok->getMyPublicProp(), "\n";
+echo 'echo $mytest_invok->getMyProtectedProp();'."\n";
+echo '// => ', $mytest_invok->getMyProtectedProp(), "\n";
+echo 'echo $mytest_invok->getMyPrivateProp();'."\n";
+echo '// => empty because the mother class can\'t access private property'."\n";
+
+echo "\n";
+echo '$mytest_invok->setMyPublicProp(300);'."\n";
+echo '$mytest_invok->getMyPublicProp();'."\n";
+$mytest_invok->setMyPublicProp(300);
+echo '// => ', $mytest_invok->getMyPublicProp(), "\n";
+
+echo '$mytest_invok->setMyProtectedProp(310);'."\n";
+echo 'echo $mytest_invok->getMyProtectedProp();'."\n";
+$mytest_invok->setMyProtectedProp(310);
+echo '// => ', $mytest_invok->getMyProtectedProp(), "\n";
+
+echo '$mytest_invok->setMyPrivateProp(320);'."\n";
+echo '$mytest_invok->getMyPrivateProp();'."\n";
+$mytest_invok->setMyPrivateProp(320);
+echo '// => empty because the mother class can\'t access private property'."\n";
+
+echo "\n";
+echo "// => as we can see, '__my_private_prop' has not been set because it is not accessible by the mother class\n";
+var_dump($mytest_invok);
+
+echo "\n";
+echo 'isset($mytest_invok->my_public_prop);'."\n";
+echo '// => ', var_export(isset($mytest_invok->my_public_prop),1), "\n";
+echo '$mytest_invok->issetMyPublicProp();'."\n";
+echo '// => ', var_export($mytest_invok->issetMyPublicProp(),1), "\n";
+
+echo 'isset($mytest_invok->_my_protected_prop);'."\n";
+echo '// => ', var_export(isset($mytest_invok->_my_protected_prop),1), "\n";
+echo '$mytest_invok->issetMyProtectedProp();'."\n";
+echo '// => ', var_export($mytest_invok->issetMyProtectedProp(),1), "\n";
+
+echo 'isset($mytest_invok->__my_private_prop);'."\n";
+echo '// => ', var_export(isset($mytest_invok->__my_private_prop),1), "\n";
+echo '$mytest_invok->issetMyPrivateProp();'."\n";
+echo '// => ', var_export($mytest_invok->issetMyPrivateProp(),1), "\n";
+
+echo 'isset($mytest_invok->non_existing_prop);'."\n";
+echo '// => ', var_export(isset($mytest_invok->non_existing_prop),1), "\n";
+echo '$mytest_invok->issetNonExistingProp();'."\n";
+echo '// => ', var_export($mytest_invok->issetNonExistingProp(),1), "\n";
+
+echo "\n";
+echo '$mytest_invok->unsetMyPublicProp();'."\n";
+$mytest_invok->unsetMyPublicProp();
+var_dump($mytest_invok);
+
+echo "\n";
+echo '$mytest_invok->resetMyProtectedProp();'."\n";
+$mytest_invok->resetMyProtectedProp();
+var_dump($mytest_invok);
+
+?>
+    </pre>
+    <p>Working with object statics:</p>
+    <pre class="code" data-language="php">
+<?php
+echo "\n";
+echo 'echo MytestInvokable::$my_static'."\n";
+echo ' // => '.MytestInvokable::$my_static."\n";
+echo 'echo MytestInvokable::getMyStatic()'."\n";
+echo ' // => '.MytestInvokable::getMyStatic()."\n";
+echo "\n";
+echo 'echo MytestInvokable::$my_protected_static'."\n";
+echo ' // => Cannot access protected property MytestInvokable::$my_protected_static'."\n";
+echo 'echo MytestInvokable::getMyProtectedStatic()'."\n";
+echo ' // => '.MytestInvokable::getMyProtectedStatic()."\n";
+echo "\n";
+echo 'echo MytestInvokable::$my_private_static'."\n";
+echo ' // => Cannot access private property MytestInvokable::$my_private_static'."\n";
+echo 'echo MytestInvokable::getMyPrivateStatic()'."\n";
+echo ' // => '.MytestInvokable::getMyPrivateStatic()."\n";
+echo "\n";
+echo 'MytestInvokable::$my_static = "test"'."\n";
+MytestInvokable::$my_static = "test";
+echo 'echo MytestInvokable::$my_static'."\n";
+echo ' // => '.MytestInvokable::$my_static."\n";
+echo 'echo MytestInvokable::getMyStatic()'."\n";
+echo ' // => '.MytestInvokable::getMyStatic()."\n";
+echo "\n";
+echo 'MytestInvokable::setMyProtectedStatic("test")'."\n";
+MytestInvokable::setMyProtectedStatic("test");
+echo 'echo MytestInvokable::getMyProtectedStatic()'."\n";
+echo ' // => '.MytestInvokable::getMyProtectedStatic()."\n";
+echo "\n";
+echo 'MytestInvokable::unsetMyStatic()'."\n";
+MytestInvokable::unsetMyStatic();
+echo 'echo MytestInvokable::getMyStatic()'."\n";
+echo ' // => '.MytestInvokable::getMyStatic().' (empty because the static is not defined any more)'."\n";
+echo "\n";
+echo 'MytestInvokable::resetMyProtectedStatic()'."\n";
+MytestInvokable::resetMyProtectedStatic();
+echo 'echo MytestInvokable::getMyProtectedStatic()'."\n";
+echo ' // => '.MytestInvokable::getMyProtectedStatic().' (empty because the statics can not be reset but are unset instead)'."\n";
+?>
+    </pre>
+
+    <p>Using the object as a function:</p>
+    <pre class="code" data-language="php">
+    This feature doesn't work for now ...
+<?php
+/*
+echo "\n";
+echo '$invok = new MytestInvokable(100, 110, 120);'."\n";
+echo 'echo $invok("my_public_prop");'."\n";
+var_export($invok('my_public_prop'));
+echo '// => '.$invok("my_public_prop")."\n";
+echo 'echo $invok("myPublicProp");'."\n";
+echo '// => '.$invok("myPublicProp")."\n";
+echo 'echo $invok("myPublic_prop");'."\n";
+echo '// => '.$invok("myPublic_prop")."\n";
+*/
+?>
+    </pre>
+
+<h4 id="registryinvokable">Library\Object\RegistryInvokable</h4>
+
+    <pre class="code" data-language="php">
+<?php
+require_once __DIR__.'/../vendor/autoload.php';
+
+echo '$myregistry = new Library\Object\RegistryInvokable(null, Library\Object\RegistryInvokable::PUBLIC_PROPERTIES);'."\n";
+$myregistry = new Library\Object\RegistryInvokable(null, Library\Object\RegistryInvokable::PUBLIC_PROPERTIES);
+
+echo "\n";
+echo '$myregistry->varone = "value one";'."\n";
+$myregistry->varone = 'value one';
+echo '$myregistry->setVartwo("value two");'."\n";
+$myregistry->setVartwo('value two');
+echo '$myregistry->var_three = "value three";'."\n";
+$myregistry->var_three = 'value three';
+echo '$myregistry->setData("var_four", "value four");'."\n";
+$myregistry->setData('var_four', 'value four');
+echo '$myregistry->setData("myVar five", "value five");'."\n";
+$myregistry->setData('myVar five', 'value five');
+echo '$myregistry->myVarSix = "value six";'."\n";
+$myregistry->myVarSix = 'value six';
+
+echo "\n";
+echo 'echo $myregistry->getVarone()'."\n";
+echo '// => '.$myregistry->getVarone()."\n";
+echo 'echo $myregistry->vartwo'."\n";
+echo '// => ', $myregistry->vartwo, "\n";
+echo 'echo $myregistry->getVarthree()'."\n";
+echo '// => ', $myregistry->getVarthree(), '(empty because var name in magic methods is CamelCasized)', "\n";
+echo 'echo $myregistry->getVarThree()'."\n";
+echo '// => ', $myregistry->getVarThree(), "\n";
+echo 'echo $myregistry->getData("var_four")'."\n";
+echo '// => ', $myregistry->getData('var_four'), "\n";
+echo 'echo $myregistry->getMyVar_five()'."\n";
+echo '// => ', $myregistry->getMyVar_five(), '(empty because var name is lowercasized & underscored)', "\n";
+echo 'echo $myregistry->getData("myVar five") (may be empty because var name is lowercasized & underscored)'."\n";
+echo '// => ', $myregistry->getData('myVar five'), '(not empty because var name is automatically transformed)', "\n";
+echo 'echo $myregistry->getData("my_var_five")'."\n";
+echo '// => ', $myregistry->getData('my_var_five'), "\n";
+echo 'echo $myregistry->getData("my_var_six")'."\n";
+echo '// => ', $myregistry->getData('my_var_six'), "\n";
+
+echo "\n";
+var_dump($myregistry);
+
+echo "\n";
+echo "\n";
+$data = array(
+    'one' => 'value one',
+    'two' => 'value two',
+);
+echo '$data = array('."\n"
+    .'"one" => "value one",'."\n"
+    .'"two" => "value two",'."\n"
+.");"."\n";
+echo '$mynewregistry = new Library\Object\RegistryInvokable( $data, Library\Object\RegistryInvokable::PUBLIC_PROPERTIES );'."\n";
+$mynewregistry = new Library\Object\RegistryInvokable( $data, Library\Object\RegistryInvokable::PUBLIC_PROPERTIES );
+
+echo "\n";
+echo 'echo isset($mynewregistry->one)'."\n";
+echo '// => '.var_export(isset($mynewregistry->one),1)."\n";
+echo 'echo isset($mynewregistry->three)'."\n";
+echo '// => '.var_export(isset($mynewregistry->three),1)."\n";
+
+echo "\n";
+echo 'echo isset($mynewregistry->two)'."\n";
+echo '// => '.var_export(isset($mynewregistry->two),1)."\n";
+echo 'unset($mynewregistry->two)'."\n";
+unset($mynewregistry->two);
+echo 'echo isset($mynewregistry->two)'."\n";
+echo '// => '.var_export(isset($mynewregistry->two),1)."\n";
+
+echo "\n";
+echo "\n";
+echo '$myerrorregistry = new Library\Object\RegistryInvokable();'."\n";
+$myerrorregistry = new Library\Object\RegistryInvokable();
+$myerrorregistry->one = "value";
+echo '$myerrorregistry->one = "value"'."\n";
+echo 'echo $myerrorregistry->one'."\n";
+echo '// => '.var_export($myerrorregistry->one,1).' (null because direct access to properties is not allowed)'."\n";
+echo 'echo $myerrorregistry->getOne()'."\n";
+echo '// => '.var_export($myerrorregistry->getOne(),1).' (magic getter acces is ok)'."\n";
+
+echo "\n";
+echo "\n";
+echo '$myerrorregistry2 = new Library\Object\RegistryInvokable(null, Library\Object\RegistryInvokable::UNAUTHORIZED_PROPERTIES);'."\n";
+$myerrorregistry2 = new Library\Object\RegistryInvokable(null, Library\Object\RegistryInvokable::UNAUTHORIZED_PROPERTIES);
+$myerrorregistry2->one = "value";
+echo '$myerrorregistry2->one = "value"'."\n";
+echo 'echo $myerrorregistry2->one'."\n";
+//echo $myerrorregistry2->one."\n";
+echo '// => Uncaught exception "Library\Object\InvokableAccessException" with message "Direct access to property "one" on object "Library\Object\RegistryInvokable" is not allowed!"'."\n";
+echo 'echo $myerrorregistry2->getOne()'."\n";
+echo '// => '.var_export($myerrorregistry2->getOne(),1).' (magic getter acces is ok)'."\n";
+
 ?>
     </pre>
 

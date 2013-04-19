@@ -49,6 +49,40 @@ class Text
         return $stringcut;
     }
 
+    /**
+     * Transform a name in CamelCase
+     *
+     * @param string $name The string to transform
+     * @param string $replace Replacement character
+     * @param bool $capitalize_first_char May the first letter be in upper case (default is `true`)
+     * @return string The CamelCase version of `$name`
+     */
+    public static function toCamelCase($name, $replace = '_', $capitalize_first_char = true)
+    {
+        if ($capitalize_first_char) {
+            $name[0] = strtoupper($name[0]);
+        }
+        $func = create_function('$c', 'return strtoupper($c[1]);');
+        return trim(preg_replace_callback('#'.$replace.'([a-z])#', $func, $name), $replace);
+    }
+
+    /**
+     * Transform a name from CamelCase to other
+     *
+     * @param string $name The string to transform
+     * @param string $replace Replacement character
+     * @param bool $capitalize_first_char May the first letter be in upper case (default is `true`)
+     * @return string The CamelCase version of `$name`
+     */
+    public static function fromCamelCase($name, $replace = '_', $lowerize_first_char = true)
+    {
+        if ($lowerize_first_char) {
+            $name[0] = strtolower($name[0]);
+        }
+        $func = create_function('$c', 'return "'.$replace.'" . strtolower($c[1]);');
+        return trim(preg_replace_callback('/([A-Z])/', $func, $name), $replace);
+    }
+
 }
 
 // Endfile
