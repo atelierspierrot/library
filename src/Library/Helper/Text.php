@@ -50,6 +50,33 @@ class Text
     }
 
     /**
+     * Strip all special characters in a string
+     *
+     * @param string $string The string to format
+     * @return string
+     */
+    public static function stripSpecialChars($string = '')
+    {
+        $search = array(
+            '@[éèêëÊË]@i','@[àâäÂÄ]@i','@[îïÎÏ]@i','@[ûùüÛÜ]@i','@[ôöÔÖ]@i','@[ç]@i','@[^a-zA-Z0-9]@'
+        );
+        $replace = array('e','a','i','u','o','c',' ');
+        $string =  preg_replace($search, $replace, $string);
+        return $string;
+    }
+
+    /**
+     * Transform a string to a human readable one
+     *
+     * @param string $string The string to transform
+     * @return string The transformed version of `$string`
+     */
+    public static function getHumanReadable($string = '')
+    {
+        return trim(str_replace(array('_', '.', '/'), ' ', $string));
+    }
+
+    /**
      * Transform a name in CamelCase
      *
      * @param string $name The string to transform
@@ -57,7 +84,7 @@ class Text
      * @param bool $capitalize_first_char May the first letter be in upper case (default is `true`)
      * @return string The CamelCase version of `$name`
      */
-    public static function toCamelCase($name, $replace = '_', $capitalize_first_char = true)
+    public static function toCamelCase($name = '', $replace = '_', $capitalize_first_char = true)
     {
         if ($capitalize_first_char) {
             $name[0] = strtoupper($name[0]);
@@ -74,7 +101,7 @@ class Text
      * @param bool $capitalize_first_char May the first letter be in upper case (default is `true`)
      * @return string The CamelCase version of `$name`
      */
-    public static function fromCamelCase($name, $replace = '_', $lowerize_first_char = true)
+    public static function fromCamelCase($name = '', $replace = '_', $lowerize_first_char = true)
     {
         if ($lowerize_first_char) {
             $name[0] = strtolower($name[0]);
