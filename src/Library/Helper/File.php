@@ -8,6 +8,8 @@
  */
 
 namespace Library\Helper;
+
+use Library\Helper\Text as TextHelper;
  
 /**
  * File helper
@@ -68,11 +70,7 @@ class File
         $_ext = self::getExtension($filename, true);
         if ($_ext) $filename = str_replace($_ext, '', $filename);
 
-        $search = array(
-            '@[éèêëÊË]@i','@[àâäÂÄ]@i','@[îïÎÏ]@i','@[ûùüÛÜ]@i','@[ôöÔÖ]@i','@[ç]@i','@[^a-zA-Z0-9]@'
-        );
-        $replace = array('e','a','i','u','o','c',' ');
-        $string =  preg_replace($search, $replace, $filename);
+        $string = TextHelper::stripSpecialChars($filename);
 
         if ($lowercase) $string = strtolower($string);
 
