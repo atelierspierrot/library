@@ -254,10 +254,9 @@ $table_headers = array(
 );
 $table = new Library\Tool\Table($table_contents, $table_headers, array(), null, Library\Tool\Table::PAD_BY_SPAN);
 $table->setTitle('My table title');
-//$table->setPadFlag(Library\Tool\Table::PAD_BY_EMPTY_CELLS);
-$table->setContentLine(array('a new line with', 'only two entries'));
-$table->setContentLine(array('a new line with only one entry'));
-$table->setContentLine(array('a new line with', 'more entries', 'than before', 'to test repadding'));
+$table->addLine(array('a new line with', 'only two entries'));
+$table->addLine('a new line with only one entry');
+$table->addLine(array('a new line with', 'more entries', 'than before', 'to test repadding'));
 
 echo '$table_contents = array('."\n"
     ."\t".'0=>array("first item', 'second item", "third item"),'."\n"
@@ -268,9 +267,9 @@ echo '$table_headers = array('."\n"
     .');'."\n";
 echo '$table = new Library\Tool\Table($table_contents, $table_headers, array(), null, Library\Tool\Table::PAD_BY_SPAN);'."\n";
 echo '$table->setTitle("My table title");'."\n";
-echo '$table->setContentLine(array("a new line with", "only two entries"));'."\n";
-echo '$table->setContentLine(array("a new line with only one entry"));'."\n";
-echo '$table->setContentLine(array("a new line with", "more entries", "than before", "to test repadding"));'."\n";
+echo '$table->addLine(array("a new line with", "only two entries"));'."\n";
+echo '$table->addLine("a new line with only one entry");'."\n";
+echo '$table->addLine(array("a new line with", "more entries", "than before", "to test repadding"));'."\n";
 echo "\n";
 echo 'echo $table->getTable()'."\n";
 var_export($table->getTable());
@@ -303,7 +302,7 @@ echo $table->render(STR_PAD_BOTH)."\n";
 
     <pre class="code" data-language="php">
 <?php
-echo '$table->setBodyCol(array('."\n"
+echo '$table->addColumn(array('."\n"
     ."\t".'"first new col val", "second new col val"'."\n"
     .'), "def", "my new col title");'."\n";
 echo 'echo $table'."\n";
@@ -323,7 +322,7 @@ echo $table."\n";
 
     <pre class="code" data-language="php">
 <?php
-echo '$table->setBodyCol(array('."\n"
+echo '$table->addColumn(array('."\n"
     ."\t".'"first inserted col val", "second inserted col val", 4=>"value for 4"'."\n"
     .'), null, "my inserted col title", null, 2);'."\n";
 echo 'echo $table'."\n";
@@ -346,18 +345,23 @@ echo $table."\n";
 <?php
 echo '// get a cell content'."\n";
 echo '$table->getCell(2,2)'."\n";
+var_export($table->getCell(2,2));
 echo "\n";
 echo '// get a line content'."\n";
 echo '$table->getLine(1)'."\n";
+var_export($table->getLine(1));
 echo "\n";
 echo '// get a column content'."\n";
 echo '$table->getColumn(2)'."\n";
+var_export($table->getColumn(2));
 echo "\n";
 echo '// get an iterator over table body'."\n";
 echo '$table->getTableIterator()'."\n";
+var_export($table->getTableIterator());
 echo "\n";
 echo '// get an iterator over the whole table, sorted by columns'."\n";
 echo '$table->getTableIterator(null, Library\Tool\Table::ITERATE_ON_COLUMNS)'."\n";
+var_export($table->getTableIterator(null, Library\Tool\Table::ITERATE_ON_COLUMNS));
 ?>
 </pre>
 
