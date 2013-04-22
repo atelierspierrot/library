@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Helper\Url | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Library/Helper.html">Library\Helper</a>\Url</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Url</strong></p>
+
+            <div class="description">
+            <p>URL common methods</p>
+            <p>For convenience, the best practice is to use:<br />
+<br />
+     use Library\Helper\Url as UrlHelper;</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_getRequestUrl">getRequestUrl</a>(bool $entities = false, bool $base = false, bool $no_file = false)
+                    <p>Get the current browser URL</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_getHttpProtocol">getHttpProtocol</a>()
+                    <p>Get the current &#039;http&#039; or &#039;https&#039; protocol</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;array
+                </td>
+                <td class="last">
+                    <a href="#method_parse">parse</a>(string $url)
+                    <p>Parse an URL and returns its composition as an array, with the URI query if so</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_resolvePath">resolvePath</a>(string $url, boolean $realpath = false)
+                    <p>Returns the URL with paths cleaned (`./` and `../` are resolved)</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_resolveHttp">resolveHttp</a>(string $url)
+                    <p>Returns an URL with leading &#039;http://&#039; if it was absent  Inspired by SPIP &lt;http://spip.net&gt;</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_getAbsoluteUrl">getAbsoluteUrl</a>(string $url)
+                    <p>Returns if possible an absolute URL in the current system</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_url">url</a>(<abbr title="Library\Helper\string/array/null">string/array/null</abbr> $param = null, <abbr title="Library\Helper\string/null">string/null</abbr> $value = null, <abbr title="Library\Helper\string/null">string/null</abbr> $url = null)
+                    <p>Global URL builder</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Library\Helper\string/array">string/array</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getParameter">getParameter</a>($param = false, $url = false)
+                    <p>Get the value of an URL parameter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Library\Helper\string/array">string/array</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setParameter">setParameter</a>($var = &#039;&#039;, $val = false, $url = false, $rebuild = true)
+                    <p>Set the value of an URL parameter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_build">build</a>(array $url_components = null, <abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr> $not_toput = null)
+                    <p>Rebuild a full URL string from an array of elements</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isUrl">isUrl</a>($url = null, $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), $localhost = false)
+                    <p>Validate an URL</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isEmail">isEmail</a>(string $email = null)
+                    <p>Validate an email adress</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_getRequestUrl">
+        <div class="location">at line 32</div>
+        <code>        static    public            string
+    <strong>getRequestUrl</strong>(bool $entities = false, bool $base = false, bool $no_file = false)</code>
+    </h3>
+    <div class="details">
+        <p>Get the current browser URL</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>bool</td>
+                <td>$entities</td>
+                <td>Protect &#039;&amp;&#039; entities parsing them in &#039;&amp;amp;&#039; ? (default is FALSE)</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$base</td>
+                <td>Do you want just the base URL, without any URI (default is FALSE)</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$no_file</td>
+                <td>Do you want just the base URL path, without the input file and any URI (default is FALSE)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The URL found</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHttpProtocol">
+        <div class="location">at line 65</div>
+        <code>        static    public            string
+    <strong>getHttpProtocol</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the current &#039;http&#039; or &#039;https&#039; protocol</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The current protocol</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_parse">
+        <div class="location">at line 79</div>
+        <code>        static    public            array
+    <strong>parse</strong>(string $url)</code>
+    </h3>
+    <div class="details">
+        <p>Parse an URL and returns its composition as an array, with the URI query if so</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$url</td>
+                <td>The URL to parse (required)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>An array of the URL components</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_resolvePath">
+        <div class="location">at line 98</div>
+        <code>        static    public            string
+    <strong>resolvePath</strong>(string $url, boolean $realpath = false)</code>
+    </h3>
+    <div class="details">
+        <p>Returns the URL with paths cleaned (`./` and `../` are resolved)</p>
+        <p>Inspired by SPIP &lt;http://spip.net&gt;</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$url</td>
+                <td>The URL to resolve</td>
+            </tr>
+                    <tr>
+                <td>boolean</td>
+                <td>$realpath</td>
+                <td>Returns the real path of the path (default is `false`)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The resolved path, or real path if so</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_resolveHttp">
+        <div class="location">at line 121</div>
+        <code>        static    public            string
+    <strong>resolveHttp</strong>(string $url)</code>
+    </h3>
+    <div class="details">
+        <p>Returns an URL with leading &#039;http://&#039; if it was absent  Inspired by SPIP &lt;http://spip.net&gt;</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$url</td>
+                <td>The URL to resolve</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The resolved URL</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAbsoluteUrl">
+        <div class="location">at line 134</div>
+        <code>        static    public            string
+    <strong>getAbsoluteUrl</strong>(string $url)</code>
+    </h3>
+    <div class="details">
+        <p>Returns if possible an absolute URL in the current system</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$url</td>
+                <td>The URL to resolve</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The resolved URL</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_url">
+        <div class="location">at line 151</div>
+        <code>        static    public            string
+    <strong>url</strong>(<abbr title="Library\Helper\string/array/null">string/array/null</abbr> $param = null, <abbr title="Library\Helper\string/null">string/null</abbr> $value = null, <abbr title="Library\Helper\string/null">string/null</abbr> $url = null)</code>
+    </h3>
+    <div class="details">
+        <p>Global URL builder</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Library\Helper\string/array/null">string/array/null</abbr></td>
+                <td>$param</td>
+                <td>A parameter to set, or an array like `param =&gt; value` to set in URL</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Library\Helper\string/null">string/null</abbr></td>
+                <td>$value</td>
+                <td>The value of the `$param` argument (if it is a string)</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Library\Helper\string/null">string/null</abbr></td>
+                <td>$url</td>
+                <td>The URL to work on (`self::getRequestUrl()` by default)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The final rebuilt URL</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getParameter">
+        <div class="location">at line 182</div>
+        <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
+    <strong>getParameter</strong>($param = false, $url = false)</code>
+    </h3>
+    <div class="details">
+        <p>Get the value of an URL parameter</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$param</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$url</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Helper\string/array">string/array</abbr></td>
+            <td>The parameter value or the global array of parameters</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setParameter">
+        <div class="location">at line 211</div>
+        <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
+    <strong>setParameter</strong>($var = &#039;&#039;, $val = false, $url = false, $rebuild = true)</code>
+    </h3>
+    <div class="details">
+        <p>Set the value of an URL parameter</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$var</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$val</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$url</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$rebuild</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Helper\string/array">string/array</abbr></td>
+            <td>The final URL</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_build">
+        <div class="location">at line 231</div>
+        <code>        static    public            string
+    <strong>build</strong>(array $url_components = null, <abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr> $not_toput = null)</code>
+    </h3>
+    <div class="details">
+        <p>Rebuild a full URL string from an array of elements</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$url_components</td>
+                <td>The array of the URL components:: `scheme`, `user`, `pass`, `host`, `port`, `path`, `params`, `hash`</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr></td>
+                <td>$not_toput</td>
+                <td>The name of an array of elements to not include</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The final URL as a string</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isUrl">
+        <div class="location">at line 262</div>
+        <code>        static    public            bool
+    <strong>isUrl</strong>($url = null, $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), $localhost = false)</code>
+    </h3>
+    <div class="details">
+        <p>Validate an URL</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$url</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$protocols</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$localhost</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>Returns `true` if this is a URL in one of the specified protocols</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isEmail">
+        <div class="location">at line 278</div>
+        <code>        static    public            bool
+    <strong>isEmail</strong>(string $email = null)</code>
+    </h3>
+    <div class="details">
+        <p>Validate an email adress</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$email</td>
+                <td>The string to validate</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>Returns `true` if this is an email</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

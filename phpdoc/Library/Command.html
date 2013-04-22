@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Command | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../classes.html">Classes</a></li>
+                            <li><a href="../namespaces.html">Namespaces</a></li>
+                        <li><a href="../interfaces.html">Interfaces</a></li>
+            <li><a href="../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../Library.html">Library</a>\Command</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Command</strong></p>
+
+            <div class="description">
+            <p>Largely inspired from &lt;http://github.com/kbjr/Git.php&gt;</p>
+            <p></p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_addCache">addCache</a>($command, $result, $error, $status, $cwd = null, $env = null, $options = null)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_isCached">isCached</a>($command, $cwd = null)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getCached">getCached</a>($command, $cwd = null)
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getCache">getCache</a>()
+                    <p></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_run">run</a>(string $command, string $path = null, bool $force = false)
+                    <p>Run a command on a Linux/UNIX system reading it from cache if so</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_runCommand">runCommand</a>(string $command, string $path = null)
+                    <p>Run a command on a Linux/UNIX system</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_getCommandPath">getCommandPath</a>(string $cmd)
+                    <p>Get the system path of a command</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_addCache">
+        <div class="location">at line 24</div>
+        <code>            public            
+    <strong>addCache</strong>($command, $result, $error, $status, $cwd = null, $env = null, $options = null)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$command</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$result</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$error</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$status</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$cwd</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$env</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$options</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isCached">
+        <div class="location">at line 37</div>
+        <code>            public            
+    <strong>isCached</strong>($command, $cwd = null)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$command</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$cwd</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCached">
+        <div class="location">at line 51</div>
+        <code>            public            
+    <strong>getCached</strong>($command, $cwd = null)</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$command</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$cwd</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCache">
+        <div class="location">at line 57</div>
+        <code>            public            
+    <strong>getCache</strong>()</code>
+    </h3>
+    <div class="details">
+        <p></p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_run">
+        <div class="location">at line 74</div>
+        <code>            public            array
+    <strong>run</strong>(string $command, string $path = null, bool $force = false)</code>
+    </h3>
+    <div class="details">
+        <p>Run a command on a Linux/UNIX system reading it from cache if so</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$command</td>
+                <td>The command to run</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td>The path to go to</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$force</td>
+                <td>Force the command to really run (avoid caching)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>An array like ( stdout , status , stderr )</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_runCommand">
+        <div class="location">at line 92</div>
+        <code>            public            array
+    <strong>runCommand</strong>(string $command, string $path = null)</code>
+    </h3>
+    <div class="details">
+        <p>Run a command on a Linux/UNIX system</p>
+        <p>Accepts a shell command to run</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$command</td>
+                <td>The command to run</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td>The path to go to</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>An array like ( stdout , status , stderr )</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCommandPath">
+        <div class="location">at line 120</div>
+        <code>        static    public            string
+    <strong>getCommandPath</strong>(string $cmd)</code>
+    </h3>
+    <div class="details">
+        <p>Get the system path of a command</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$cmd</td>
+                <td>The command name to retrieve</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The realpath of the command in the system</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

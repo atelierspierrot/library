@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Object\RegistryInvokable | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Library/Object.html">Library\Object</a>\RegistryInvokable</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>RegistryInvokable</strong>        implements
+        <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a></p>
+
+            <div class="description">
+            <p>Magic handling of properties access</p>
+            <p>## Presentation<br />
+<br />
+ This model will store any property dynamically setted in the `$_data` registry:<br />
+<br />
+     $obj-&gt;prop = value =&gt; $_data[prop] = value<br />
+     $obj-&gt;setProp(value) =&gt; $_data[prop] = value<br />
+<br />
+ Depending on the flag of the object, to access the property, use:<br />
+<br />
+     echo $obj-&gt;prop // if flag=PUBLIC_PROPERTIES<br />
+     echo $obj-&gt;getProp() // if flag=PROTECTED_PROPERTIES<br />
+<br />
+ Be very carefull about the properties names as they will all be transformed in lower case<br />
+ and underscore:<br />
+<br />
+     $obj-&gt;myPropertyName =&gt; $_data[ my_property_name ]<br />
+     $obj-&gt;myProperty_name =&gt; $_data[ my_property_name ]<br />
+<br />
+     $obj-&gt;setMyPropertyName =&gt; $_data[ my_property_name ]<br />
+     $obj-&gt;setMyProperty_name =&gt; $_data[ my_property_name ]<br />
+<br />
+ ## Flags<br />
+<br />
+ Three contants flags are defined in the class to let you choose the visibility of the object<br />
+ properties:<br />
+<br />
+ - `PUBLIC_PROPERTIES`: every type of property invocation is allowed,<br />
+ - `PROTECTED_PROPERTIES`: only magic getter is allowed: `$obj-&gt;getProp()`, `$obj-&gt;prop` will return `null`,<br />
+ - `UNAUTHORIZED_PROPERTIES`: only magic getter is allowed and an exception will be thrown using `$obj-&gt;prop`<br />
+<br />
+ Default flag of the class is `PROTECTED_PROPERTIES` to force the magic getter usage and allow you<br />
+ to override these methods in your child class if necessary, without worrying about method existence.<br />
+<br />
+ ## Rules<br />
+<br />
+ All setter methods returns the object itself for chainability.</p>
+        </div>
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>PUBLIC_PROPERTIES</td>
+                <td class="last">
+                    <p><em>Defines all registry properties as public</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>PROTECTED_PROPERTIES</td>
+                <td class="last">
+                    <p><em>Defines all registry properties as protected</em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>UNAUTHORIZED_PROPERTIES</td>
+                <td class="last">
+                    <p><em>Defines all registry properties as protected and throw an error if an access is done</em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(array $data = null, int $flag = self::PROTECTED_PROPERTIES)
+                    <p>Object constructor</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setFlag">setFlag</a>(int $flag)
+                    <p>Set the object flag for registry properties visibility</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getFlag">getFlag</a>()
+                    <p>Get the object flag for registry properties visibility</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\Object\misc">misc</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method___call">__call</a>(string $name, array $arguments)
+                    <p>Magic handler when calling a non-existing method on an object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;null
+                </td>
+                <td class="last">
+                    <a href="#method___callStatic">__callStatic</a>(string $name, array $arguments)
+                    <p>Magic handler when calling a non-eixsting method statically on an object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\Object\misc">misc</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method___get">__get</a>(string $name)
+                    <p>Magic getter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method___set">__set</a>(string $name, <abbr title="Library\Object\misc">misc</abbr> $value)
+                    <p>Magic setter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method___isset">__isset</a>(string $name)
+                    <p>Magic checker</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method___unset">__unset</a>(string $name)
+                    <p>Magic unsetter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\Object\misc">misc</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getData">getData</a>(string $name = null, <abbr title="Library\Object\misc">misc</abbr> $default = null)
+                    <p>Global getter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\Object\misc">misc</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setData">setData</a>($value, $arg2 = null)
+                    <p>Global setter</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 100</div>
+        <code>            public            
+    <strong>__construct</strong>(array $data = null, int $flag = self::PROTECTED_PROPERTIES)</code>
+    </h3>
+    <div class="details">
+        <p>Object constructor</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td>The object data to load in registry (optional)</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$flag</td>
+                <td>The object flag (one of the class constants - default is `self::PROTECTED_PROPERTIES`)</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setFlag">
+        <div class="location">at line 115</div>
+        <code>            public            <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+    <strong>setFlag</strong>(int $flag)</code>
+    </h3>
+    <div class="details">
+        <p>Set the object flag for registry properties visibility</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$flag</td>
+                <td>Must be one of the class contsants</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
+            <td>Returns `$this` for chainability</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFlag">
+        <div class="location">at line 126</div>
+        <code>            public            int
+    <strong>getFlag</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the object flag for registry properties visibility</p>
+        <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>The object flag value</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___call">
+        <div class="location">at line 147</div>
+        <code>            public            <abbr title="Library\Object\misc">misc</abbr>
+    <strong>__call</strong>(string $name, array $arguments)</code>
+    </h3>
+    <div class="details">
+        <p>Magic handler when calling a non-existing method on an object</p>
+        <p>Magic method handling `getProp(default)`, `setProp(value)`, `unsetProp()`, `issetProp()` or `resetProp()` ;<br />
+ it may dispatches to the corresponding defined magic method.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The non-existing method name called on the object</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td>The arguments array passed calling the method</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Object\misc">misc</abbr></td>
+            <td>This will return the result of a magic method, or nothing if nothing can be done</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>Patterns\Commons\Registry::getEntry()</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>Patterns\Commons\Registry::setEntry()</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>Patterns\Commons\Registry::isEntry()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method___callStatic">
+        <div class="location">at line 186</div>
+        <code>        static    public            null
+    <strong>__callStatic</strong>(string $name, array $arguments)</code>
+    </h3>
+    <div class="details">
+        <p>Magic handler when calling a non-eixsting method statically on an object</p>
+        <p>Magic static method handling `getProp(default)`, `setProp(value)`, `unsetProp()`, `issetProp()` or `resetProp()` ;<br />
+ it may dispatches to the corresponding defined magic method.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The non-existing method name called on the object</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td>The arguments array passed calling the method</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>null</td>
+            <td>Must return the result of a magic method, or nothing if nothing can be done</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___get">
+        <div class="location">at line 206</div>
+        <code>            public            <abbr title="Library\Object\misc">misc</abbr>
+    <strong>__get</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Magic getter</p>
+        <p>Magic method called when `$this-&gt;prop` is invoked.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the property to get</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Object\misc">misc</abbr></td>
+            <td>This will return the result of a magic method, or nothing if nothing can be done</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>Patterns\Commons\Registry::getEntry()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method___set">
+        <div class="location">at line 229</div>
+        <code>            public            <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+    <strong>__set</strong>(string $name, <abbr title="Library\Object\misc">misc</abbr> $value)</code>
+    </h3>
+    <div class="details">
+        <p>Magic setter</p>
+        <p>Magic method called when `$this-&gt;arg = value` is invoked.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the property to get</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Library\Object\misc">misc</abbr></td>
+                <td>$value</td>
+                <td>The value to set for the property</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
+            <td>Returns `$this` for method chaining</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>Patterns\Commons\Registry::setEntry()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method___isset">
+        <div class="location">at line 246</div>
+        <code>            public            bool
+    <strong>__isset</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Magic checker</p>
+        <p>Magic method called when `isset($this-&gt;prop)` or `empty($this-&gt;prop)` are invoked.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the property to get</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>This will return `true` if the property exists, `false` otherwise</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>Patterns\Commons\Registry::isEntry()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method___unset">
+        <div class="location">at line 262</div>
+        <code>            public            <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+    <strong>__unset</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Magic unsetter</p>
+        <p>Magic method called when `unset($this-&gt;prop)` is invoked.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the property to get</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
+            <td>Returns `$this` for method chaining</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>Patterns\Commons\Registry::_invokeUnset()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_getData">
+        <div class="location">at line 278</div>
+        <code>            public            <abbr title="Library\Object\misc">misc</abbr>
+    <strong>getData</strong>(string $name = null, <abbr title="Library\Object\misc">misc</abbr> $default = null)</code>
+    </h3>
+    <div class="details">
+        <p>Global getter</p>
+        <p>Get the value of a registry property or the whole registry array.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of a property to get if so (optional)</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Library\Object\misc">misc</abbr></td>
+                <td>$default</td>
+                <td>A default value to send if the property doesn&#039;t exist in the object</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Object\misc">misc</abbr></td>
+            <td>The value of the property if so, the default value if the property doesn&#039;t exist, or the flobal data array without a property name</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setData">
+        <div class="location">at line 299</div>
+        <code>            public            <abbr title="Library\Object\misc">misc</abbr>
+    <strong>setData</strong>($value, $arg2 = null)</code>
+    </h3>
+    <div class="details">
+        <p>Global setter</p>
+        <p>Set the value of a registry property or the whole registry array.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$value</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$arg2</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Object\misc">misc</abbr></td>
+            <td>The value of the property if so, the default value if the property doesn&#039;t exist, or the flobal data array without a property name</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Throws">Throws</abbr></td>
+                <td>an InvalidArgumentExcpetion if `$name` is null and `$value` is not an array</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
