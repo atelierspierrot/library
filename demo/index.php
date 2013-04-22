@@ -62,8 +62,12 @@ function getPhpClassManualLink( $class_name, $ln='en' )
                     <li><a href="index.php#requesthelper">Request</a></li>
                     <li><a href="index.php#filehelper">File</a></li>
                 </ul></li>
+                <li><a href="index.php#tools">Tools</a><ul>
+                    <li><a href="index.php#tabletool">Table</a></li>
+                </ul></li>
                 <li><a href="index.php#command">Command</a></li>
                 <li><a href="index.php#crypt">Crypt</a></li>
+                <li><a href="index.php#reporter">Reporter</a></li>
                 <li><a href="index.php#objects">Objects</a><ul>
                     <li><a href="index.php#invokable">Invokable</a></li>
                     <li><a href="index.php#registryinvokable">Registry Invokable</a></li>
@@ -233,6 +237,130 @@ echo '=> '.var_export(Library\Helper\File::formatFilename($str),1);
 ?>
     </pre>
 
+<h3 id="tools">Library\Tool</h3>
+
+    <p>The <var>Tools</var> of the package works around a specific type of data ; they are considered as <var>Helpers</var> but their methods are not static and they works just as a standalone simple class.</p>
+
+<h4 id="tabletool">Library\Tool\Table</h4>
+
+    <pre class="code" data-language="php">
+<?php
+$table_contents = array(
+    0=>array('first item', 'second item', 'third item'),
+    1=>array('first item of second line', 'second item of second line', 'third item of second line')
+);
+$table_headers = array(
+    'first table header', 'second header', 'header'
+);
+$table = new Library\Tool\Table($table_contents, $table_headers, array(), null, Library\Tool\Table::PAD_BY_SPAN);
+$table->setTitle('My table title');
+//$table->setPadFlag(Library\Tool\Table::PAD_BY_EMPTY_CELLS);
+$table->setContentLine(array('a new line with', 'only two entries'));
+$table->setContentLine(array('a new line with only one entry'));
+$table->setContentLine(array('a new line with', 'more entries', 'than before', 'to test repadding'));
+
+echo '$table_contents = array('."\n"
+    ."\t".'0=>array("first item', 'second item", "third item"),'."\n"
+    ."\t".'1=>array("first item of second line", "second item of second line", "third item of second line")'."\n"
+    .');'."\n";
+echo '$table_headers = array('."\n"
+    ."\t".'"first table header", "second header", "header"'."\n"
+    .');'."\n";
+echo '$table = new Library\Tool\Table($table_contents, $table_headers, array(), null, Library\Tool\Table::PAD_BY_SPAN);'."\n";
+echo '$table->setTitle("My table title");'."\n";
+echo '$table->setContentLine(array("a new line with", "only two entries"));'."\n";
+echo '$table->setContentLine(array("a new line with only one entry"));'."\n";
+echo '$table->setContentLine(array("a new line with", "more entries", "than before", "to test repadding"));'."\n";
+echo "\n";
+echo 'echo $table->getTable()'."\n";
+var_export($table->getTable());
+?>
+    </pre>
+
+<pre style="width: auto !important">
+<?php
+echo $table;
+?>
+</pre>
+
+    <p>Same rendering with a padding with empty cells:</p>
+
+    <pre class="code" data-language="php">
+<?php
+$table->setPadFlag(Library\Tool\Table::PAD_BY_EMPTY_CELLS);
+echo '$table->setPadFlag(Library\Tool\Table::PAD_BY_EMPTY_CELLS);'."\n";
+echo 'echo $table->render(STR_PAD_BOTH)'."\n";
+?>
+    </pre>
+
+<pre style="overflow-x: visible">
+<?php
+echo $table->render(STR_PAD_BOTH)."\n";
+?>
+</pre>
+
+    <p>Table manipulation:</p>
+
+    <pre class="code" data-language="php">
+<?php
+echo '$table->setBodyCol(array('."\n"
+    ."\t".'"first new col val", "second new col val"'."\n"
+    .'), "def", "my new col title");'."\n";
+echo 'echo $table'."\n";
+?>
+</pre>
+
+<div style="overflow-x: scroll">
+<pre style="width: 3000px !important">
+<?php
+$table->addColumn(array(
+    'first new col val', 'second new col val'
+), 'def', 'my new col title');
+echo $table."\n";
+?>
+</pre>
+</div>
+
+    <pre class="code" data-language="php">
+<?php
+echo '$table->setBodyCol(array('."\n"
+    ."\t".'"first inserted col val", "second inserted col val", 4=>"value for 4"'."\n"
+    .'), null, "my inserted col title", null, 2);'."\n";
+echo 'echo $table'."\n";
+?>
+</pre>
+</div>
+
+<div style="overflow-x: scroll">
+<pre style="width: 3000px !important">
+<?php
+$table->addColumn(array(
+    'first inserted col val', 'second inserted col val', 4=>'value for 4'
+), null, 'my inserted col title', array(), 2);
+echo $table."\n";
+?>
+</pre>
+</div>
+
+    <pre class="code" data-language="php">
+<?php
+echo '// get a cell content'."\n";
+echo '$table->getCell(2,2)'."\n";
+echo "\n";
+echo '// get a line content'."\n";
+echo '$table->getLine(1)'."\n";
+echo "\n";
+echo '// get a column content'."\n";
+echo '$table->getColumn(2)'."\n";
+echo "\n";
+echo '// get an iterator over table body'."\n";
+echo '$table->getTableIterator()'."\n";
+echo "\n";
+echo '// get an iterator over the whole table, sorted by columns'."\n";
+echo '$table->getTableIterator(null, Library\Tool\Table::ITERATE_ON_COLUMNS)'."\n";
+?>
+</pre>
+
 <h3 id="command">Library\Command</h3>
 
     <p>The <var>Command</var> class runs commands on your system.</p>
@@ -275,6 +403,247 @@ $uncrypted = $encryptor->uncrypt($crypted);
 echo '=> '.$uncrypted."\n";
 ?>
     </pre>
+
+<h3 id="reporter">Library\Reporter</h3>
+
+<h4>HTML adapter</h4>
+
+    <pre class="code" data-language="php">
+<?php
+$reporter = new Library\Reporter;
+echo '$reporter = new Library\Reporter;'."\n";
+echo "\n";
+echo 'echo $reporter->render("my content");'."\n";
+echo '// => '.$reporter->render("my content")."\n";
+echo "\n";
+echo '$reporter->getAdapter()->newLine();'."\n";
+echo '// => '.$reporter->getAdapter()->newLine()."\n";
+echo "\n";
+echo 'echo $reporter->render("paragraph content", "paragraph");'."\n";
+echo '// => '.$reporter->render("paragraph content", "paragraph")."\n";
+echo "\n";
+echo 'echo $reporter->render("paragraph content", "paragraph", array("attrs"=>array("class"=>"myclass")));'."\n";
+echo '// => '.$reporter->render("paragraph content", "paragraph", array("attrs"=>array("class"=>"myclass")))."\n";
+echo "\n";
+echo 'echo $reporter->render("http://www.google.fr/", "link");'."\n";
+echo '// => '.$reporter->render("http://www.google.fr/", "link")."\n";
+echo "\n";
+echo 'echo $reporter->render("my title", "title");'."\n";
+echo '// => '.$reporter->render("my title", "title")."\n";
+echo "\n";
+echo 'echo $reporter->render("my title", "title", array(3));'."\n";
+echo '// => '.$reporter->render("my title", "title", array(3))."\n";
+echo 'echo $reporter->render("my title", "title", 3);'."\n";
+echo '// => '.$reporter->render("my title", "title", 3)."\n";
+
+echo "\n";
+echo '$bold = $reporter->render("some bold text", "bold");'."\n";
+echo '$italic = $reporter->render("and some emphasis text", "italic");'."\n";
+echo 'echo $reporter->render("In this text, there is $bold $italic for demonstration");'."\n";
+$bold = $reporter->render("some bold text", "bold");
+$italic = $reporter->render("and some emphasis text", "italic");
+echo '// => '.$reporter->render("In this text, there is $bold $italic for demonstration")."\n";
+
+echo "\n";
+echo '$reporter->renderMulti("In this text, there is @bold@ @italic@ for demonstration", "default", array('."\n"
+    ."\t".'"bold" => array("some bold text", "bold"),'."\n"
+    ."\t".'"italic" => array("and some emphasis text", "italic"),'."\n"
+    .'))'."\n";
+echo '// => '.$reporter->renderMulti("In this text, there is @bold@ @italic@ for demonstration", 'default', array(
+    'bold' => array("some bold text", "bold"),
+    'italic' => array("and some emphasis text", "italic"),
+))."\n";
+
+echo "\n";
+$list_items = array(
+    'first item',
+    $reporter->render("second item (bold)", "bold"),
+    'third item',
+);
+echo '$list_items = array('."\n"
+    ."\t".'"first item",'."\n"
+    ."\t".'$reporter->render("second item (bold)", "bold"),'."\n"
+    ."\t".'"third item",'."\n"
+    .');'."\n";
+echo 'echo $reporter->render($list_items, "list");'."\n";
+echo '// => '.$reporter->render($list_items, "list")."\n";
+echo "\n";
+echo 'echo $reporter->render($list_items, "list", array('."\n"
+    ."\t".'"attrs"=>array("class"=>"myclass")'."\n"
+    ."\t".'"items"=>array("attrs"=>array("class"=>"myclass_for_items"))'."\n"
+    ."\t".'"item3"=>array("attrs"=>array("class"=>"special_class_for_item_3"))'."\n"
+    .'));'."\n";
+echo '// => '.$reporter->render($list_items, "list", array(
+    "attrs"=>array("class"=>"myclass"),
+    "items"=>array("attrs"=>array("class"=>"myclass_for_items")),
+    "item2"=>array("attrs"=>array("class"=>"special_class_for_item_3"))
+))."\n";
+
+echo "\n";
+echo 'echo $reporter->render($list_items, "ordered_list");'."\n";
+echo '// => '.$reporter->render($list_items, "ordered_list")."\n";
+
+
+$table_contents = array(
+    array(
+        'first cell of first line',
+        $reporter->render("second cell (bold)", "bold"),
+        'third cell of first line',
+    ),
+    array(
+        'first cell of second line',
+        $reporter->render("second cell (italic)", "italic"),
+        'third cell of second line',
+    )
+);
+echo "\n";
+echo '$table_contents = array('."\n"
+    ."\t".'array('."\n"
+    ."\t\t".'"first cell of first line",'."\n"
+    ."\t\t".'$reporter->render("second cell (bold)", "bold"),'."\n"
+    ."\t\t".'"third cell of first line",'."\n"
+    ."\t".'),'."\n"
+    ."\t".'array('."\n"
+    ."\t\t".'"first cell of second line",'."\n"
+    ."\t\t".'$reporter->render("second cell (italic)", "italic"),'."\n"
+    ."\t\t".'"third cell of second line",'."\n"
+    ."\t".')'."\n"
+    .');'."\n";
+echo 'echo $reporter->render($table_contents, "table");'."\n";
+echo '// => '.$reporter->render($table_contents, "table")."\n";
+
+echo "\n";
+$full_table_contents = array(
+    "title"=>"My table title",
+    "head"=>array(
+        'First header', 'Second header', 'Third header'
+    ),
+    "body"=>$table_contents
+);
+echo '$full_table_contents = array('."\n"
+    ."\t".'"title"=>"My table title",'."\n"
+    ."\t".'"head"=>array('."\n"
+    ."\t\t".'"First header", "Second header", "Third header"'."\n"
+    ."\t".'),'."\n"
+    ."\t".'"body"=>$table_contents'."\n"
+    .');'."\n";
+echo 'echo $reporter->render($full_table_contents, "table")'."\n";
+echo '// => '.$reporter->render($full_table_contents, "table")."\n";
+
+echo "\n";
+$table_args = array(
+    "attrs" => array( "cellpadding"=>12, "border"=>1 ),
+    "line" => array(
+        "attrs" => array( "bgcolor"=>"#ccc" )
+    ),
+    "cell" => array(
+        "head" => array(
+            "attrs" => array( "style"=>"color:green" )
+        ),
+    ),
+);
+echo '$table_args = array('."\n"
+    ."\t".'"attrs" => array( "cellpadding"=>12, "border"=>1 ),'."\n"
+    ."\t".'"line" => array('."\n"
+        ."\t\t".'"attrs" => array( "bgcolor"=>"#ccc" )'."\n"
+    ."\t".'),'."\n"
+    ."\t".'"cell" => array('."\n"
+        ."\t\t".'"head" => array('."\n"
+            ."\t\t\t".'"attrs" => array( "style"=>"color:green" )'."\n"
+        ."\t\t".'),'."\n"
+    ."\t".'),'."\n"
+    .');'."\n";
+echo 'echo $reporter->render($full_table_contents, "table", $table_args)'."\n";
+echo '// => '.$reporter->render($full_table_contents, "table", $table_args)."\n";
+
+// table with "errors"
+$errors_full_table_contents = array(
+    "head"=>array(
+        'First header', 'Second header', 'Third header'
+    ),
+    "body"=> array(
+        array(
+            'first cell of first line',
+            $reporter->render("second cell (bold)", "bold"),
+            'third cell of first line',
+        ),
+        array(
+            'first cell of second line',
+            $reporter->render("second cell (italic)", "italic"),
+        ),
+        array(
+            'first cell of third line',
+            'second cell of third line',
+            'third cell of third line',
+        )
+    )
+);
+$errors_table_args = array(
+    "attrs" => array( "cellpadding"=>12, "border"=>1 ),
+);
+echo 'echo $reporter->render($errors_full_table_contents, "table", $errors_table_args)'."\n";
+echo '// => '.$reporter->render($errors_full_table_contents, "table", $errors_table_args)."\n";
+
+echo "\n";
+$definitions = array(
+    "term 1" => "My definition of term 1",
+    "term 2" => "My definition of term 2",
+    "term 3 (after 2)" => "My definition of term 3",
+);
+echo 'echo $reporter->render($definitions, "definition")'."\n";
+echo '// => '.$reporter->render($definitions, "definition")."\n";
+
+
+?>
+    </pre>
+
+    <p>HTML rendering of the examples above:</p>
+<blockquote>
+<?php
+
+echo $reporter->render("my content");
+
+echo $reporter->render("paragraph content", "paragraph");
+
+echo $reporter->render("paragraph content", "paragraph", array("attrs"=>array("class"=>"myclass")));
+
+echo $reporter->render("http://www.google.fr/", "link");
+echo $reporter->getAdapter()->newLine();
+
+echo $reporter->render("my title", "title");
+
+echo $reporter->render("my title", "title", array(3));
+
+echo $reporter->render("my title", "title", 3);
+
+echo $reporter->render("In this text, there is $bold $italic for demonstration");
+
+echo $reporter->renderMulti("In this text, there is @bold@ @italic@ for demonstration", 'default', array(
+    'bold' => array("some bold text", "bold"),
+    'italic' => array("and some emphasis text", "italic"),
+));
+
+echo $reporter->render($list_items, "list");
+
+echo $reporter->render($list_items, "list", array(
+    "attrs"=>array("class"=>"myclass"),
+    "items"=>array("attrs"=>array("class"=>"myclass_for_items")),
+    "item2"=>array("attrs"=>array("class"=>"special_class_for_item_3"))
+));
+
+echo $reporter->render($list_items, "ordered_list");
+
+echo $reporter->render($table_contents, "table");
+
+echo $reporter->render($full_table_contents, "table");
+
+echo $reporter->render($full_table_contents, "table", $table_args);
+
+echo $reporter->render($errors_full_table_contents, "table", $errors_table_args);
+
+echo $reporter->render($definitions, "definition");
+?>
+</blockquote>
 
 <h3 id="objects">Library\Object</h3>
 

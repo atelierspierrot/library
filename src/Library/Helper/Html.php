@@ -137,7 +137,7 @@ class Html
     {
         $str = '';
         foreach($attrs as $var=>$val) {
-            $str .= ' '.$var.'="'.$val.'"';
+            $str .= ' '.$var.'="'.(is_array($val) ? join(' ', $val) : $val).'"';
         }
         return $str;
     }

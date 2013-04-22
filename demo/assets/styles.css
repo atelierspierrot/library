@@ -26,6 +26,7 @@ pre code    {border: none; text-indent:0; padding: 0;}
 td, th      {padding: .5em;}
 form, fieldset {padding: 1em; margin: .4em;}
 fieldset    {border: 1px dotted #ddd;}
+blockquote  {border-left: 8px solid #ddd;padding-left:16px}
 .ok         {color: green; font-weight: bold;}
 .error      {color: red; font-weight: bold;}
 .info       {background: none repeat scroll 0 0 #F4F4F4; border: 1px solid #E0E0E0; color: #737373;
@@ -137,7 +138,7 @@ table.tablesorter tbody tr.odd td {background-color:#F9F9F9;}
 
 /* highlight */
 div.highlight {background:#FFFFFF; border:1px solid #D0D0D0; font-family:"Courier New","Andale Mono", Courrier, monospace; overflow: hidden;}
-div.highlight pre{width: 100%; overflow: auto; padding:0; margin:0; font-size:1em; clear: both;}
+div.highlight pre{width: 100%; overflow: auto; padding:0; margin:0; font-size:1em; clear: both; }
 /* tabs */
 div.highlight ul.tabs {overflow: hidden; padding: 5px 0 5px 0; margin: 0; list-style: none; border-bottom: 1px solid #E0E0E0; width: 100%;}
 div.highlight ul.tabs li {padding: 0; margin: 0 5px; float: left; background: none; border-bottom: 1px dashed #CCC; line-height:1.0em; color: #CCC; cursor: pointer;}
