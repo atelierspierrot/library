@@ -24,14 +24,17 @@ $this->column_index
  * ## Presentation
  *
  * This class helps to build and work with table in an HTML style, meaning that the table
- * may have a caption, header, footer and body of lines and that each line is composed
- * by cells. The class does NOT build any HTML string but organize and complete each table
- * part to have a cleaned and ready-to-work-with array representation of the table.
+ * may have a caption, and three parts separated in a header, a footer and a body composed
+ * of lines separated in cells. The class does NOT build any HTML string but organizes and
+ * completes each table part to have a cleaned and ready-to-work-with array representation
+ * of the table.
+ *
+ * A full text schema like a Mysql query result is embedded using method `render()`.
  *
  * ## Construction of the table
  *
  * The table built in this class can be schematized like below ; it is considered as a set
- * cells stored in lines that builds columns.
+ * of cells stored in lines that builds columns.
  *
  *     +------------+------------+
  *     | table      | headers    | // "thead" : can be more than 1 line
@@ -54,7 +57,7 @@ $this->column_index
  *
  * ## Usage
  *
- * For convenience, the best practice is to use:
+ * For convenience, the best practice is to use an alias:
  *
  *     use Library\Tool\Table as TableTool;
  *
@@ -144,30 +147,30 @@ class Table
      * Table construction
      *
      * @param array $body The array of body lines
-     * @param array $headers The array of headers lines
-     * @param array $footers The array of footers lines
+     * @param array $header The array of headers lines
+     * @param array $footer The array of footers lines
      * @param string $title The table title
      * @param int $pad_flag The flag to use for cell padding, must be one of the class `PAD_` constants
      * @see Library\Tool\Table::setPadFlag()
      * @see Library\Tool\Table::setTitle()
      * @see Library\Tool\Table::setBody()
-     * @see Library\Tool\Table::setHeaders()
-     * @see Library\Tool\Table::setFooters()
+     * @see Library\Tool\Table::setHeader()
+     * @see Library\Tool\Table::setFooter()
      */
     public function __construct(
-        array $body = array(), array $headers = array(), array $footers = array(), $title = null,
-        $pad_flag = self::PAD_BY_EMPTY_CELLS
+        array $body = array(), array $header = array(), array $footer = array(),
+        $title = null, $pad_flag = self::PAD_BY_EMPTY_CELLS
     ) {
         $this->setPadFlag($pad_flag);
-        $this->resetSizes();
+        $this->_resetSizes();
         if (!empty($body)) {
             $this->setBody($body);
         }
-        if (!empty($headers)) {
-            $this->setHeaders($headers);
+        if (!empty($header)) {
+            $this->setHeader($header);
         }
-        if (!empty($footers)) {
-            $this->setFooters($footers);
+        if (!empty($footer)) {
+            $this->setFooter($footer);
         }
         if (!empty($title)) {
             $this->setTitle($title);
@@ -185,18 +188,6 @@ class Table
         return $this->render();
     }
 
-    /**
-     * Reset the table sizes
-     *
-     * @return void
-     */
-    public function resetSizes()
-    {
-        $this->column_size = 0;
-        $this->line_size = 0;
-        $this->cell_size = 0;
-    }
-
 // --------------------
 // Whole table Setters / Getters
 // --------------------
@@ -208,13 +199,13 @@ class Table
      */
     public function getTable()
     {
-        $this->resetSizes();
+        $this->_resetSizes();
         $this->_repadAllLines();
         return array(
             'title'=>$this->getTitle(),
-            'head'=>$this->getHeaders(),
+            'head'=>$this->getHeader(),
             'body'=>$this->getBody(),
-            'foot'=>$this->getFooters(),
+            'foot'=>$this->getFooter(),
         );
     }
 
@@ -234,6 +225,7 @@ class Table
      */
     public function getTableIterator($part = 'body', $iterator_flag = self::ITERATE_ON_LINES)
     {
+        $this->_repadAllLines();
         $table = $this->getTable();
         unset($table['title']);
         if (!empty($part)) {
@@ -331,10 +323,10 @@ class Table
     {
         $this->addBodyColumn(is_array($body) ? $body : array($body), null, $default);
         if (!empty($headers)) {
-            $this->addHeaderColumn(is_array($headers) ? $headers : array($headers), $this->getColSize());
+            $this->setHeaderColumn(is_array($headers) ? $headers : array($headers), $this->getColumnSize());
         }
         if (!empty($foters)) {
-            $this->addFooterColumn(is_array($footers) ? $footers : array($footers), $this->getColSize());
+            $this->setFooterColumn(is_array($footers) ? $footers : array($footers), $this->getColumnSize());
         }
         return $this;
     }
@@ -422,7 +414,7 @@ class Table
      * @return self Returns `$this` for chainability
      * @see Library\Tool\Table::_setPart()
      */
-    public function setHeaders(array $contents)
+    public function setHeader(array $contents)
     {
         $this->_setPart($contents, 'thead');
         return $this;
@@ -532,7 +524,7 @@ class Table
      * @return array The lines array
      * @see Library\Tool\Table::_getPart()
      */
-    public function getHeaders()
+    public function getHeader()
     {
         return $this->_getPart('thead');
     }
@@ -744,7 +736,7 @@ class Table
      * @return self Returns `$this` for chainability
      * @see Library\Tool\Table::_setPart()
      */
-    public function setFooters(array $contents)
+    public function setFooter(array $contents)
     {
         $this->_setPart($contents, 'tfoot');
         return $this;
@@ -852,7 +844,7 @@ class Table
      * @return array The lines array
      * @see Library\Tool\Table::_getPart()
      */
-    public function getFooters()
+    public function getFooter()
     {
         return $this->_getPart('tfoot');
     }
@@ -944,7 +936,7 @@ class Table
             $this->_parseTableSizes();
         }
         return sprintf('Table of %d columns and %d lines - cell length of %d chars.',
-            $this->column_size, $this->line_size, $this->cell_size);
+            $this->getColumnSize(), $this->getLineSize(), $this->getCellSize());
     }
 
 // --------------------
@@ -966,7 +958,7 @@ class Table
     {
         if (property_exists($this, $part)) {
             $this->{$part} = $this->_getSetOfLines($contents);
-            $this->_parseTableSizes();
+            $this->_parseTableSizes(true);
         } elseif (!in_array($part, self::$_table_parts)) {
             throw new InvalidArgumentException(
                 sprintf('Unknown table part "%s"!', $part)
@@ -998,12 +990,11 @@ class Table
                 $table_part = $this->{$part};
                 array_splice($table_part, $line_index, 0, array($this->_getPaddedLine($contents)));
                 $this->{$part} = $table_part;
-                $this->resetSizes();
                 $this->_repadAllLines();
             } else {
                 $this->{$part}[$line_index] = $this->_getPaddedLine($contents);
             }
-            $this->_parseTableSizes();
+            $this->_parseTableSizes(true);
         } elseif (!in_array($part, self::$_table_parts)) {
             throw new InvalidArgumentException(
                 sprintf('Unknown table part "%s"!', $part)
@@ -1026,14 +1017,14 @@ class Table
     protected function _setPartColumn(array $contents, $column_index, $default, $part, $action = 'replace')
     {
         if (property_exists($this, $part)) {
-            if (is_null($column_index) || $column_index>$this->column_size) {
-                $column_index = $this->column_size+('insert'===$action ? 1 : 0);
+            if (is_null($column_index) || $column_index>$this->getColumnSize()) {
+                $column_index = $this->getColumnSize();
             } else {
                 $column_index--;
             }
             foreach ($this->{$part} as $i=>$line) {
                 $value = isset($contents[$i]) ? $contents[$i] : $default;
-                if ($column_index<$this->getColSize() && 'insert'===$action) {
+                if ($column_index<$this->getColumnSize() && 'insert'===$action) {
                     array_splice($line, $column_index, 0, array($value));
                     $this->{$part}[$i] = $line;
                 } else {
@@ -1041,7 +1032,6 @@ class Table
                     $this->{$part}[$i] = $line;
                 }
             }
-            $this->resetSizes();
             $this->_repadAllLines();
         } elseif (!in_array($part, self::$_table_parts)) {
             throw new InvalidArgumentException(
@@ -1086,12 +1076,11 @@ class Table
                 $line = $this->{$part}[$line_index];
                 array_splice($line, $cell_index, 0, array($content));
                 $this->{$part}[$i] = $line;
-                $this->resetSizes();
                 $this->_repadAllLines();
             } else {
                 $this->{$part}[$line_index][$cell_index] = $content;
             }
-            $this->_parseTableSizes();
+            $this->_parseTableSizes(true);
         } elseif (!in_array($part, self::$_table_parts)) {
             throw new InvalidArgumentException(
                 sprintf('Unknown table part "%s"!', $part)
@@ -1129,8 +1118,7 @@ class Table
     {
         if (property_exists($this, $part)) {
             if (is_null($line_index)) {
-                end($this->{$part});
-                $line_index = key($this->{$part});
+                $column_index = $this->getLineSize();
             } else {
                 $line_index--;
             }
@@ -1153,8 +1141,8 @@ class Table
     protected function _getPartColumn($column_index, $part)
     {
         if (property_exists($this, $part)) {
-            if (is_null($column_index) || $column_index>$this->column_size) {
-                $column_index = $this->column_size;
+            if (is_null($column_index)) {
+                $column_index = $this->getColumnSize();
             } else {
                 $column_index--;
             }
@@ -1183,8 +1171,7 @@ class Table
     {
         if (property_exists($this, $part)) {
             if (is_null($line_index)) {
-                end($this->{$part});
-                $line_index = key($this->{$part});
+                $line_index = $this->getLineSize();
             } else {
                 $line_index--;
             }
@@ -1236,10 +1223,11 @@ class Table
      */
     protected function _repadAllLines()
     {
+        $this->_parseTableSizes(true);
         foreach (self::$_table_parts as $part) {
             if (!empty($this->{$part}) && is_array($this->{$part})) {
                 foreach ($this->{$part} as $l=>$part_line) {
-                    if (!empty($part_line) && count($part_line)!==$this->column_size) {
+                    if (!empty($part_line) && count($part_line)!==$this->getColumnSize()) {
                         $this->{$part}[$l] = $this->_getPaddedLine($part_line);
                     }
                 }
@@ -1259,22 +1247,35 @@ class Table
         if ($this->column_size===0 && $this->line_size===0 && $this->cell_size===0) {
             $this->_parseTableSizes();
         }
-        if (count($content) > $this->column_size) {
-            $this->column_size = count($content);
+        if (count($content) > $this->getColumnSize()) {
             $this->_repadAllLines();
-        } elseif (count($content) < $this->column_size && ($this->getPadFlag() & self::PAD_BY_EMPTY_CELLS)) {
-            $content = array_pad($content, $this->column_size, '');
+        } elseif (count($content) < $this->getColumnSize() && ($this->getPadFlag() & self::PAD_BY_EMPTY_CELLS)) {
+            $content = array_pad($content, $this->getColumnSize(), '');
         }
         return $content;
     }
 
     /**
-     * Calculation of all table sizes
+     * Reset the table sizes
      *
      * @return void
      */
-    protected function _parseTableSizes()
+    public function _resetSizes()
     {
+        $this->column_size = 0;
+        $this->line_size = 0;
+        $this->cell_size = 0;
+    }
+
+    /**
+     * Calculation of all table sizes
+     *
+     * @param bool $reset Reset all sizes before (default is `false`)
+     * @return void
+     */
+    protected function _parseTableSizes($reset = false)
+    {
+        if ($reset) $this->_resetSizes();
         $this->line_size = count($this->tbody);
         foreach (self::$_table_parts as $part) {
             if (!empty($this->{$part}) && is_array($this->{$part})) {
@@ -1320,9 +1321,10 @@ class Table
                     $stack_line = array();
                     $stack_line[] = 'vseparator';
                     foreach ($part_line as $i=>$part_cell) {
-                        if (count($part_line)<$this->column_size && $i===count($part_line)-1) {
+                        if (count($part_line)<$this->getColumnSize() && $i===count($part_line)-1) {
                             $stack_line[] = str_pad(' '.$part_cell, 
-                                ( ($this->column_size-count($part_line)+1) * $this->cell_size)+($this->column_size-count($part_line)), 
+                                ( ($this->getColumnSize() - count($part_line) + 1) * $this->getCellSize())
+                                     + ($this->getColumnSize() - count($part_line)), 
                                 ' ', $str_pad_flag);
                         } else {
                             $stack_line[] = ' '.$part_cell.' ';
@@ -1339,7 +1341,8 @@ class Table
         if (!count($this->tfoot)) {
             $stacks[] = array(
                 'vseparator',
-                str_pad(' '.$this->getSizesInfos(), ($this->column_size*$this->cell_size)+($this->column_size-1), ' ', $str_pad_flag),
+                str_pad(' '.$this->getSizesInfos(), ($this->getColumnSize() * $this->getCellSize())
+                    + ($this->getColumnSize() - 1), ' ', $str_pad_flag),
                 'vseparator'
             );
             $stacks[] = 'hseparator';
@@ -1356,12 +1359,12 @@ class Table
                     if ('vseparator'===$cell) {
                         $str .= '|';
                     } else {
-                        $str .= str_pad($cell, $this->cell_size, ' ', $str_pad_flag);
+                        $str .= str_pad($cell, $this->getCellSize(), ' ', $str_pad_flag);
                     }
                 }
             } elseif ('hseparator'===$line) {
-                for ($i=0; $i<$this->column_size; $i++) {
-                    $str .= str_pad('+', ($this->cell_size+1), '-');
+                for ($i=0; $i<$this->getColumnSize(); $i++) {
+                    $str .= str_pad('+', ($this->getCellSize() + 1), '-');
                 }
                 $str .= '+';
             }
