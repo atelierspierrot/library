@@ -67,6 +67,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
                 </ul></li>
                 <li><a href="index.php#command">Command</a></li>
                 <li><a href="index.php#crypt">Crypt</a></li>
+                <li><a href="index.php#log">Logger</a></li>
                 <li><a href="index.php#reporter">Reporter</a></li>
                 <li><a href="index.php#objects">Objects</a><ul>
                     <li><a href="index.php#invokable">Invokable</a></li>
@@ -408,6 +409,85 @@ echo '=> '.$uncrypted."\n";
 ?>
     </pre>
 
+<h3 id="log">Library\Logger</h3>
+
+<p>For this demo, log files will be created in "demo/tmp/" directory ; if it does not exist, please create it with a chmod 
+of at least 755.</p>
+
+    <pre class="code" data-language="php">
+<?php
+$classLoader = new SplClassLoader("Psr\Log", __DIR__."/../vendor/psr/log");
+$classLoader->register();
+echo '$classLoader = new SplClassLoader("Psr\Log", __DIR__."/../vendor/psr/log");'."\n";
+echo '$classLoader->register();'."\n";
+
+$log_options = array(
+    'directory' => __DIR__.'/tmp',
+);
+$logger = new Library\Logger($log_options);
+echo "\n";
+echo '$log_options = array('."\n"
+    ."\t".'"directory" => __DIR__."/tmp",'."\n"
+    .');'."\n";
+echo '$logger = new Library\Logger($log_options);'."\n";
+
+// write a simple log
+$ok = $logger->log(Library\Logger::DEBUG, 'my message');
+echo "\n";
+echo '$ok = $logger->log(Library\Logger::DEBUG, "my message")'."\n";
+echo '// => '.var_export($ok,1)."\n";
+
+// write a log message with placeholders
+class TestClass
+{
+    var $msg;
+    function __construct( $str )
+    {
+        $this->msg = $str;
+    }
+    function __toString()
+    {
+        return $this->msg;
+    }
+}
+$ok = $logger->log(Library\Logger::DEBUG, "my message with placeholders : {one} and {two}", array(
+    'one' => 'my value for first placeholder',
+    'two' => new TestClass( 'my test class with a toString method' )
+));
+echo "\n";
+echo '$ok = $logger->log(Library\Logger::DEBUG, "my message with placeholders : {one} and {two}", array('."\n"
+    ."\t".'"one" => "my value for first placeholder",'."\n"
+    ."\t".'"two" => new TestClass( "my test class with a toString method" )'."\n"
+    .'));'."\n";
+echo '// => '.var_export($ok,1)."\n";
+
+// write logs in a specific "test" file
+$ok = $logger->log(Library\Logger::DEBUG, 'my message', array(), 'test');
+echo "\n";
+echo '$ok = $logger->log(Library\Logger::DEBUG, "my message", array(), "test");'."\n";
+echo '// => '.var_export($ok,1)."\n";
+
+$ok = $logger->log( Library\Logger::DEBUG, '[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
+$ok = $logger->log( Library\Logger::ERROR, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
+$ok = $logger->log( Library\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test' );
+echo "\n";
+echo '$ok = $logger->log( Library\Logger::DEBUG, "[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf " );'."\n";
+echo '$ok = $logger->log( Library\Logger::ERROR, "a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf " );'."\n";
+echo '$ok = $logger->log( Library\Logger::INFO, "a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ", $_GET, "test" );'."\n";
+echo '// => '.var_export($ok,1)."\n";
+
+// write many logs to test rotation
+/*
+for ($i=0; $i<1000; $i++)
+{
+    $ok = $logger->log( Library\Logger::DEBUG, '[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
+    $ok = $logger->log( Library\Logger::ERROR, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
+    $ok = $logger->log( Library\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test' );
+}
+*/
+?>
+    </pre>
+
 <h3 id="reporter">Library\Reporter</h3>
 
 <h4>HTML adapter</h4>
@@ -559,7 +639,7 @@ echo '$table_args = array('."\n"
     .');'."\n";
 echo 'echo $reporter->render($full_table_contents, "table", $table_args)'."\n";
 echo '// => '.$reporter->render($full_table_contents, "table", $table_args)."\n";
-
+/*
 // table with "errors"
 $errors_full_table_contents = array(
     "head"=>array(
@@ -587,7 +667,7 @@ $errors_table_args = array(
 );
 echo 'echo $reporter->render($errors_full_table_contents, "table", $errors_table_args)'."\n";
 echo '// => '.$reporter->render($errors_full_table_contents, "table", $errors_table_args)."\n";
-
+*/
 echo "\n";
 $definitions = array(
     "term 1" => "My definition of term 1",
