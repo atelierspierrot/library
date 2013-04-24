@@ -11,6 +11,8 @@ namespace Library\ReporterAdapter;
 
 use Library\AbstractReporterAdapter;
 
+use Library\Tool\Table as TableTool;
+
 /**
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
@@ -205,24 +207,22 @@ class Html
      */
     protected function _doTable(&$content, array &$args = array())
     {
+        $table = new TableTool(
+            isset($content['body']) && is_array($content['body']) ? $content['body'] : array($content),
+            isset($content['head']) && is_array($content['head']) ? $content['head'] : array(),
+            isset($content['foot']) && is_array($content['foot']) ? $content['foot'] : array()
+        );
+        $table_stacks = $table->getTable();
+
         // each line building
         $table_content = '';
         foreach(self::$table_scopes as $scope) {
             $scope_lines = '';
-            if (isset($content[$scope]) && is_array($content[$scope]) && !empty($content[$scope])) {
+            if (isset($table_stacks[$scope]) && is_array($table_stacks[$scope]) && !empty($table_stacks[$scope])) {
                 $my_line = '';
-                foreach($content[$scope] as $line) {
-                    $line_processed = false;
-                    if (is_array($line)) {
-                        $this->_doTableLine($line, $args, $scope);
-                        $my_line .= $line;
-                        $line_processed = true;
-                    }
-                }
-                if (false===$line_processed) {
-                    $line_content = $content[$scope];
-                    $this->_doTableLine($line_content, $args, $scope);
-                    $my_line = $line_content;
+                foreach($table_stacks[$scope] as $line) {
+                    $this->_doTableLine($line, $args, $scope);
+                    $my_line .= $line;
                 }
                 $scope_lines .= $my_line;
             }
@@ -232,10 +232,10 @@ class Html
         }
         
         // caption
-        if (isset($content['title'])) {
+        if (isset($table_stacks['title'])) {
             $caption_args = $this->_getArgsStack($args, 'title');
             $caption_tag = 'table_title';
-            $caption = $this->_tagComposer($content['title'], $caption_tag, $caption_args);
+            $caption = $this->_tagComposer($table_stacks['title'], $caption_tag, $caption_args);
             $table_content = $caption.$table_content;
         }
 
