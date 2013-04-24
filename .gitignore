@@ -29,3 +29,4 @@ vendor/*
 # for development ...
 tmp/*
 dev/*
+demo/tmp/*
