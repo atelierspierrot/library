@@ -23,19 +23,28 @@ namespace Library\Helper;
 class Directory
 {
 
-    public static function slashDirname($dirname)
+    /**
+     * Get a dirname with one and only trailing slash
+     *
+     * @param string $dirname
+     * @return string
+     */
+    public static function slashDirname($dirname = null)
     {
+        if (is_null($dirname) || empty($dirname)) return '';
         return rtrim($dirname, '/ '.DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
     }
 
-    public static function isGitClone($path)
+    public static function isGitClone($path = null)
     {
+        if (is_null($dirname) || empty($dirname)) return false;
         $dir_path = self::slashDirname($path).'.git';
         return (bool) file_exists($dir_path) && is_dir($dir_path);
     }
 
-    public static function isDotPath($path)
+    public static function isDotPath($path = null)
     {
+        if (is_null($dirname) || empty($dirname)) return false;
         return (bool) '.'===substr(basename($path), 0, 1);
     }
 
