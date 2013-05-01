@@ -379,7 +379,7 @@ abstract class AbstractCommandLineController
 	}
 
 // ------------------------------------
-// CLI WRITTING METHODS
+// CLI WRITING METHODS
 // ------------------------------------
 
 	public function write($str = null, $new_line = true)
