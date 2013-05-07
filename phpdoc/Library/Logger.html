@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Logger | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../classes.html">Classes</a></li>
+                            <li><a href="../namespaces.html">Namespaces</a></li>
+                        <li><a href="../interfaces.html">Interfaces</a></li>
+            <li><a href="../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../Library.html">Library</a>\Logger</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Logger</strong>        extends <abbr title="Psr\Log\AbstractLogger">AbstractLogger</abbr>        implements
+        <abbr title="Psr\Log\LoggerInterface">LoggerInterface</abbr></p>
+
+            <div class="description">
+            <p>Write some log infos in log files</p>
+            <p>For compliance, this class implements the [PSR Logger Interface](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md).</p>
+        </div>
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>EMERGENCY</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>ALERT</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>CRITICAL</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>ERROR</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>WARNING</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>NOTICE</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>INFO</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>DEBUG</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(array $user_options = array())
+                    <p>Creation of a new logger entry</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    null
+                </td>
+                <td class="last">
+                    <a href="#method_log">log</a>(int $level, string $message, array $context = array(), string $logname = null)
+                    <p>Logs with an arbitrary level.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___set">__set</a>(string $var, <abbr title="Library\misc">misc</abbr> $val)
+                    <p>Allows to set a property or a configuration entry like : $logger-&gt;config_name = $val</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\misc">misc</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method___get">__get</a>(string $var)
+                    <p>Allows to call a configuration entry like : $logger-&gt;config_name</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_interpolate">interpolate</a>(string $message, array $context = array(), bool $silent = false)
+                    <p>Interpolates context values into the message placeholders.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_getUserIp">getUserIp</a>()
+                    <p>Get the user IP address</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_writeArray">writeArray</a>(array $array)
+                    <p>Write an array on one line</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_writeInFile">writeInFile</a>(string $file, string $line)
+                    <p>Write a string in a file</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 75</div>
+        <code>            public            
+    <strong>__construct</strong>(array $user_options = array())</code>
+    </h3>
+    <div class="details">
+        <p>Creation of a new logger entry</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$user_options</td>
+                <td>A set of one shot options</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>self::init()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_log">
+        <div class="location">at line 89</div>
+        <code>            public            null
+    <strong>log</strong>(int $level, string $message, array $context = array(), string $logname = null)</code>
+    </h3>
+    <div class="details">
+        <p>Logs with an arbitrary level.</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$level</td>
+                <td>A type for the message, must be a class constant</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td>The message info to log</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$context</td>
+                <td>An optional context array for the message</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$logname</td>
+                <td>A logfile name to write in a specific one</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___set">
+        <div class="location">at line 121</div>
+        <code>            public            
+    <strong>__set</strong>(string $var, <abbr title="Library\misc">misc</abbr> $val)</code>
+    </h3>
+    <div class="details">
+        <p>Allows to set a property or a configuration entry like : $logger-&gt;config_name = $val</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$var</td>
+                <td>A property name or an entry of the $config class static</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Library\misc">misc</abbr></td>
+                <td>$val</td>
+                <td>The value to set</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___get">
+        <div class="location">at line 139</div>
+        <code>            public            <abbr title="Library\misc">misc</abbr>
+    <strong>__get</strong>(string $var)</code>
+    </h3>
+    <div class="details">
+        <p>Allows to call a configuration entry like : $logger-&gt;config_name</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$var</td>
+                <td>A property name or an entry of the $config class static</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\misc">misc</abbr></td>
+            <td>The value if found, null otherwise</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_interpolate">
+        <div class="location">at line 157</div>
+        <code>        static    public            string
+    <strong>interpolate</strong>(string $message, array $context = array(), bool $silent = false)</code>
+    </h3>
+    <div class="details">
+        <p>Interpolates context values into the message placeholders.</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td>The original message string, with placeholders constructed as `{variable_name}`</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$context</td>
+                <td>The context where must be found the placeholders values</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$silent</td>
+                <td>Does the function must be silent or not ; if not, an Exception is thrown if one of the context array values can&#039;t be written as a string</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The message with placeholders replacements</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUserIp">
+        <div class="location">at line 374</div>
+        <code>        static    public            
+    <strong>getUserIp</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the user IP address</p>
+        <p></p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_writeArray">
+        <div class="location">at line 391</div>
+        <code>        static    public            string
+    <strong>writeArray</strong>(array $array)</code>
+    </h3>
+    <div class="details">
+        <p>Write an array on one line</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$array</td>
+                <td>The array to write</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The formated string</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_writeInFile">
+        <div class="location">at line 407</div>
+        <code>        static    public            bool
+    <strong>writeInFile</strong>(string $file, string $line)</code>
+    </h3>
+    <div class="details">
+        <p>Write a string in a file</p>
+        <p></p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$file</td>
+                <td>The filename to write in</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$line</td>
+                <td>The line to add in the file</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>True if the line had been written</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
