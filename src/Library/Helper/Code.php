@@ -49,6 +49,25 @@ class Code
         return TextHelper::toCamelCase($name);
     }
 
+    /**
+     * Check if a class implements a certain interface
+     *
+     * @param string|object $class_name The class name to test or a full object of this class
+     * @param string $interface_name The interface name to test
+     * @return bool
+     */
+    public static function impelementsInterface($class_name, $interface_name)
+    {
+        if (is_object($class_name)) {
+            $class_name = get_class($class_name);
+        }
+        if (class_exists($class_name)) {
+            $interfaces = class_implements($class_name);
+            return in_array($interface_name, $interfaces);
+        }
+        return false;
+    }
+
 }
 
 // Endfile
