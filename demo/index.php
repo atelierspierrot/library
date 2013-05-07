@@ -61,6 +61,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
                     <li><a href="index.php#texthelper">Text</a></li>
                     <li><a href="index.php#requesthelper">Request</a></li>
                     <li><a href="index.php#filehelper">File</a></li>
+                    <li><a href="index.php#codehelper">Code</a></li>
                 </ul></li>
                 <li><a href="index.php#tools">Tools</a><ul>
                     <li><a href="index.php#tabletool">Table</a></li>
@@ -235,6 +236,35 @@ echo 'echo $str = "My ! special éàè§ text file name";'."\n";
 echo 'echo Library\Helper\File::formatFilename($str);'."\n";
 $str = "My ! special éàè§ text file name";
 echo '=> '.var_export(Library\Helper\File::formatFilename($str),1);
+?>
+    </pre>
+
+<h4 id="codehelper">Library\Helper\Code</h4>
+    <pre class="code" data-language="php">
+<?php
+interface MyInterface {
+    public function MustImplement();
+}
+class MyClass implements MyInterface {
+    public function MustImplement()
+    {
+        return;
+    }
+}
+echo 'interface MyInterface {'."\n"
+    ."\t".'public function MustImplement();'."\n"
+    .'}'."\n"
+    .'class MyClass implements MyInterface {'."\n"
+    ."\t".'public function MustImplement()'."\n"
+    ."\t".'{'."\n"
+    ."\t\t".'return;'."\n"
+    ."\t".'}'."\n"
+    .'}'."\n";
+echo "\n";
+echo 'echo Library\Helper\Code::impelementsInterface("MyClass", "MyInterface");'."\n";
+echo '=> '.var_export(Library\Helper\Code::impelementsInterface('MyClass', 'MyInterface'),1)."\n";
+echo 'echo Library\Helper\Code::impelementsInterface("MyClass", "UnknownInterface");'."\n";
+echo '=> '.var_export(Library\Helper\Code::impelementsInterface('MyClass', 'UnknownInterface'),1)."\n";
 ?>
     </pre>
 
