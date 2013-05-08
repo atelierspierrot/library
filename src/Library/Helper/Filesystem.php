@@ -53,6 +53,17 @@ class Filesystem
         return join('/', $to_parts);
     }
 
+    /**
+     * Get safely the octal form of `$int` if necessary
+     *
+     * @param int $int
+     * @return int
+     */
+    public static function getOctal($int)
+    {
+        return (decoct(octdec($int))===$int) ? $int : octdec($int);
+    }
+
 }
 
 // Endfile

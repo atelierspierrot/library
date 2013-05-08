@@ -150,6 +150,89 @@ class File
         return str_replace('.',$dec_delimiter,$number).' '.self::$FILESIZE_ORDERED_UNITS[$count];
     }
 
+// --------------------
+// Manipulation
+// --------------------
+
+    /**
+     * Create an empty file or touch an existing file
+     *
+     * @param string $file_path
+     * @param array $logs Logs registry passed by reference
+     * @return bool
+     */
+    public static function touch($file_path, array &$logs = array())
+    {
+        if (!file_exists($file_path)) {
+            $target_dir = dirname($file_path);
+            $ok = !file_exists($target_dir) ? Directory::create($target_dir) : true;
+        } else {
+            $ok = true;
+        }
+        if (touch($file_path)) {
+            clearstatcache();
+            return true;
+        } else {
+            $logs[] = sprintf('Can not touch file "%s".', $file_path);
+        }
+        return false;
+    }
+
+    /**
+     * Remove a file if it exists
+     *
+     * @param string $file_path
+     * @param array $logs Logs registry passed by reference
+     * @return bool
+     */
+    public static function remove($file_path, array &$logs = array())
+    {
+        if (file_exists($file_path)) {
+            if (unlink($file_path)) {
+                clearstatcache();
+                return true;
+            } else {
+                $logs[] = sprintf('Can not unlink file "%s".', $file_path);
+            }
+        } else {
+            $logs[] = sprintf('File path "%s" does not exist (can not be removed).', $file_path);
+        }
+        return false;
+    }
+
+    /**
+     * Copy file `$file_path` if it exists to `$target_path`
+     *
+     * @param string $file_path
+     * @param string $target_path
+     * @param bool $force
+     * @param array $logs Logs registry passed by reference
+     * @return bool
+     */
+    public static function copy($file_path, $target_path, $force = false, array &$logs = array())
+    {
+        if (!file_exists($file_path)) {
+            $logs[] = sprintf('File path "%s" to copy was not found.', $file_path);
+            return false;
+        }
+        $target_dir = dirname($target_path);
+        $ok = (!file_exists($target_dir) && true===$force) ? Directory::create($target_dir) : true;
+        if ($ok) {
+            if (!file_exists($target_path) || true===$force) {
+                if (copy($file_path, $target_path)) {
+                    return true;
+                } else {
+                    $logs[] = sprintf('Can not copy file "%s" to "%s".', $file_path, $target_path);
+                }
+            } else {
+                $logs[] = sprintf('Can not over-write target file "%s" by copy (use param `$force=true`).', $target_path);
+            }
+        } else {
+            $logs[] = sprintf('Can not create target directory "%s" for copy.', $target_dir);
+        }
+        return false;
+    }
+
 }
 
 // Endfile
