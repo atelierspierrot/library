@@ -67,6 +67,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
                 <li><a href="index.php#tools">Tools</a><ul>
                     <li><a href="index.php#tabletool">Table</a></li>
                 </ul></li>
+                <li><a href="index.php#config">Config</a></li>
                 <li><a href="index.php#command">Command</a></li>
                 <li><a href="index.php#crypt">Crypt</a></li>
                 <li><a href="index.php#reporter">Reporter</a></li>
@@ -426,6 +427,57 @@ echo '$table->getTableIterator(null, Library\Tool\Table::ITERATE_ON_COLUMNS)'."\
 var_export($table->getTableIterator(null, Library\Tool\Table::ITERATE_ON_COLUMNS));
 ?>
 </pre>
+
+<h3 id="config">Library\StaticConfiguration\Config</h3>
+
+    <p>The <var>StaticConfiguration\Config</var> class defines a global fully static configuration manager.</p>
+
+    <pre class="code" data-language="php">
+<?php
+class DefaultConfig implements \Library\StaticConfiguration\ConfiguratorInterface {
+    public static function getDefaults() {
+        return array(
+            'entry1' => array( 'library-assets' ),
+            'entry2' => 'test',
+            'entry3' => 'other test',
+        );
+    }
+    public static function getRequired() {
+        return array('entry1', 'entry2');
+    }
+}
+\Library\StaticConfiguration\Config::load('DefaultConfig');
+
+echo 'class DefaultConfig implements \Library\StaticConfiguration\ConfiguratorInterface {'."\n"
+    ."\t".'public static function getDefaults() {'."\n"
+    ."\t\t".'return array('."\n"
+    ."\t\t\t".'"entry1" => array( "library-assets" ),'."\n"
+    ."\t\t\t".'"entry2" => "test",'."\n"
+    ."\t\t\t".'"entry3" => "other test",'."\n"
+    ."\t\t".');'."\n"
+    ."\t".'}'."\n"
+    ."\t".'public static function getRequired() {'."\n"
+    ."\t\t".'return array("entry1", "entry2");'."\n"
+    ."\t".'}'."\n"
+    .'}'."\n"
+    .'\Library\StaticConfiguration\Config::load("DefaultConfig");'."\n";
+echo "\n";
+echo 'echo \Library\StaticConfiguration\Config::get("entry1"))'."\n";
+echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry1'),1)."\n";
+echo "\n";
+echo '\Library\StaticConfiguration\Config::set("entry2", "my value")'."\n";
+echo 'echo \Library\StaticConfiguration\Config::get("entry2"))'."\n";
+\Library\StaticConfiguration\Config::set('entry2', 'my value');
+echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry2'),1)."\n";
+echo 'echo \Library\StaticConfiguration\Config::getDefault("entry2"))'."\n";
+echo '=> '.var_export(\Library\StaticConfiguration\Config::getDefault('entry2'),1)."\n";
+echo "\n";
+echo '\Library\StaticConfiguration\Config::set("entry4", "does not exist")'."\n";
+echo 'echo \Library\StaticConfiguration\Config::get("entry4"))'."\n";
+\Library\StaticConfiguration\Config::set('entry4', 'does not exist');
+echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry4'),1)."\n";
+?>
+    </pre>
 
 <h3 id="command">Library\Command</h3>
 
