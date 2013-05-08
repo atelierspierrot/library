@@ -61,6 +61,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
                     <li><a href="index.php#texthelper">Text</a></li>
                     <li><a href="index.php#requesthelper">Request</a></li>
                     <li><a href="index.php#filehelper">File</a></li>
+                    <li><a href="index.php#dirhelper">Directory</a></li>
                     <li><a href="index.php#codehelper">Code</a></li>
                 </ul></li>
                 <li><a href="index.php#tools">Tools</a><ul>
@@ -236,6 +237,36 @@ echo 'echo $str = "My ! special éàè§ text file name";'."\n";
 echo 'echo Library\Helper\File::formatFilename($str);'."\n";
 $str = "My ! special éàè§ text file name";
 echo '=> '.var_export(Library\Helper\File::formatFilename($str),1);
+?>
+    </pre>
+
+<h4 id="dirhelper">Library\Helper\Directory</h4>
+    <pre class="code" data-language="php">
+<?php
+$logs = array();
+$dir = __DIR__.'/tmp_tmp';
+echo '$logs = array();'."\n";
+echo '$dir = __DIR__."/tmp_tmp";'."\n";
+
+\Library\Helper\Directory::ensureExists($dir);
+\Library\Helper\File::touch($dir.'/test1');
+\Library\Helper\File::touch($dir.'/test2');
+\Library\Helper\File::touch($dir.'/test/test1');
+\Library\Helper\File::touch($dir.'/test/test2');
+\Library\Helper\Directory::chmod($dir, 777, true, 766, $logs);
+\Library\Helper\Directory::remove($dir, $logs);
+echo "\n";
+echo '\Library\Helper\Directory::ensureExists($dir);'."\n";
+echo '\Library\Helper\File::touch($dir."/test1");'."\n";
+echo '\Library\Helper\File::touch($dir."/test2");'."\n";
+echo '\Library\Helper\File::touch($dir."/test/test1");'."\n";
+echo '\Library\Helper\File::touch($dir."/test/test2");'."\n";
+echo '\Library\Helper\Directory::chmod($dir, 777, true, 766, $logs);'."\n";
+echo '\Library\Helper\Directory::remove($dir, $logs);'."\n";
+echo "\n";
+echo 'var_export($logs);'."\n";
+var_export($logs);
+
 ?>
     </pre>
 
