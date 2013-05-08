@@ -26,12 +26,14 @@
 
             <div class="description">
             <p>Reporter Adapters interface</p>
-            <p>All Reporter adapters must extend this abstract class and defines its abstract methods<br />
-<br />
- Each reporter MUST define all entries of the `Library\Reporter::$default_masks` array<br />
- as a class constant:<br />
-<br />
-     	const mask_XXX = &quot;&lt;tag&gt;%s&lt;/tag&gt;&quot;;</p>
+            <p>All Reporter adapters must extend this abstract class and defines its abstract methods</p>
+
+<p>Each reporter MUST define all entries of the <code>Library\Reporter::$default_masks</code> array
+as a class constant:</p>
+
+<pre><code>    const mask_XXX = "&lt;tag&gt;%s&lt;/tag&gt;";
+</code></pre>
+</p>
         </div>
     
     
@@ -81,7 +83,8 @@
     </h3>
     <div class="details">
         <p>Adapter new line sign</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -89,7 +92,8 @@
                     <table>
         <tr>
             <td>string</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -105,7 +109,8 @@
     </h3>
     <div class="details">
         <p>Adapter new tabulation</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -113,7 +118,8 @@
                     <table>
         <tr>
             <td>string</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -129,7 +135,7 @@
     </h3>
     <div class="details">
         <p>Render a content with a specific tag mask</p>
-        <p>The `$tag_type` may be one of the `Library\Reporter::$default_tag_types` array.</p>
+        <p>The <code>$tag_type</code> may be one of the <code>Library\Reporter::$default_tag_types</code> array.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
