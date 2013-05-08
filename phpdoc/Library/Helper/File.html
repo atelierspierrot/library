@@ -26,11 +26,13 @@
 
             <div class="description">
             <p>File helper</p>
-            <p>As for all helpers, all methods are statics.<br />
-<br />
- For convenience, the best practice is to use:<br />
-<br />
-     use Library\Helper\File as FileHelper;</p>
+            <p>As for all helpers, all methods are statics.</p>
+
+<p>For convenience, the best practice is to use:</p>
+
+<pre><code>use Library\Helper\File as FileHelper;
+</code></pre>
+</p>
         </div>
     
     
@@ -107,6 +109,36 @@
                 </td>
                 <td></td>
             </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_touch">touch</a>(string $file_path, array $logs = array())
+                    <p>Create an empty file or touch an existing file</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_remove">remove</a>(string $file_path, array $logs = array())
+                    <p>Remove a file if it exists</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_copy">copy</a>(string $file_path, string $target_path, bool $force = false, array $logs = array())
+                    <p>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></p>
+                </td>
+                <td></td>
+            </tr>
             </table>
 
 
@@ -119,7 +151,8 @@
     </h3>
     <div class="details">
         <p>Returns a filename or directory that does not exist in the destination</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -168,7 +201,8 @@
     </h3>
     <div class="details">
         <p>Formatting file names</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -176,17 +210,20 @@
                     <tr>
                 <td></td>
                 <td>$filename</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$lowercase</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$delimiter</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -220,12 +257,14 @@
                     <tr>
                 <td></td>
                 <td>$file_name</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$dot</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -235,7 +274,7 @@
                     <table>
         <tr>
             <td>null|string</td>
-            <td>The extension if found, `null` otherwise</td>
+            <td>The extension if found, <code>null</code> otherwise</td>
         </tr>
     </table>
 
@@ -251,8 +290,8 @@
     </h3>
     <div class="details">
         <p>Render a human readable string from a file name</p>
-        <p>The original file name is rebuilt striping the extension<br />
- and a set of commonly used separator characters in file or directories names.</p>
+        <p>The original file name is rebuilt striping the extension
+and a set of commonly used separator characters in file or directories names.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -286,8 +325,8 @@
     </h3>
     <div class="details">
         <p>Returns a formatted file size in bytes or derived unit</p>
-        <p>This will return the size received transforming it to be readable, with the appropriate<br />
- unit chosen in `self::$FILESIZE_ORDERED_UNITS`.</p>
+        <p>This will return the size received transforming it to be readable, with the appropriate
+unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -295,7 +334,7 @@
                     <tr>
                 <td><abbr title="Library\Helper\float">float</abbr></td>
                 <td>$size</td>
-                <td>Refer to the size (in standard format given by the `stat()` function)</td>
+                <td>Refer to the size (in standard format given by the <code>stat()</code> function)</td>
             </tr>
                     <tr>
                 <td>int</td>
@@ -310,6 +349,144 @@
             </table>
 
             
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_touch">
+        <div class="location">at line 164</div>
+        <code>        static    public            bool
+    <strong>touch</strong>(string $file_path, array $logs = array())</code>
+    </h3>
+    <div class="details">
+        <p>Create an empty file or touch an existing file</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$file_path</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$logs</td>
+                <td>Logs registry passed by reference</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_remove">
+        <div class="location">at line 188</div>
+        <code>        static    public            bool
+    <strong>remove</strong>(string $file_path, array $logs = array())</code>
+    </h3>
+    <div class="details">
+        <p>Remove a file if it exists</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$file_path</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$logs</td>
+                <td>Logs registry passed by reference</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_copy">
+        <div class="location">at line 212</div>
+        <code>        static    public            bool
+    <strong>copy</strong>(string $file_path, string $target_path, bool $force = false, array $logs = array())</code>
+    </h3>
+    <div class="details">
+        <p>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$file_path</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$target_path</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$force</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$logs</td>
+                <td>Logs registry passed by reference</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
