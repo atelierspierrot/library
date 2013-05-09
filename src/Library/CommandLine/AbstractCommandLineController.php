@@ -95,6 +95,11 @@ abstract class AbstractCommandLineController
      */
 	protected $done_methods =array();
 
+    /**
+     * @var bool
+     */
+	protected $written =false;
+
 	/**
 	 * The default CLI options
 	 *
@@ -159,8 +164,12 @@ abstract class AbstractCommandLineController
 
     public function __construct(array $options = array())
     {
-		if (!isset($this->options)) $this->options = array();
-		$this->options = array_merge_recursive($this->basic_options, $this->options, $options);
+//		if (!isset($this->options)) $this->options = array();
+	    $this
+	        ->_initOptions()
+	        ->_overWriteOptions($this->basic_options)
+	        ->_overWriteOptions($options);
+//		$this->options = array_merge_recursive($this->basic_options, $this->options, $options);
 
 		if (!empty($options)) {
 			foreach($options as $optn=>$optv) {
@@ -489,7 +498,7 @@ abstract class AbstractCommandLineController
 
 	private function __init()
 	{
-		if ($this->written===false AND $this->verbose===true) {
+		if ($this->written===false && $this->verbose===true) {
 			self::writeIntro();
 			$this->written=true;
 		}
@@ -560,6 +569,29 @@ abstract class AbstractCommandLineController
 // PROCESS
 // --------------------
 
+	protected function _initOptions()
+	{
+		if (!isset($this->options)) $this->options = array();
+		return $this;
+	}
+
+	protected function _overWriteOptions(array $options)
+	{
+		if (!empty($options)) {
+            foreach ($options as $name=>$stack) {
+                if (is_array($stack)) {
+                    if (!isset($this->options[$name])) {
+                        $this->options[$name] = array();
+                    }
+                    $this->options[$name] = array_merge($this->options[$name], $stack);
+                } else {
+                    $this->options[$name] = $stack;
+                }
+            }
+        }
+		return $this;
+	}
+	
 	protected function _treatOptions()
 	{
 		$this->params = self::getopt();
