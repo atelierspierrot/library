@@ -74,7 +74,7 @@ class Logger
 	 */
 	public function __construct(array $user_options=array())
 	{
-		self::init($user_options);
+		$this->init($user_options);
 	}
 
     /**
@@ -101,7 +101,7 @@ class Logger
 	/**
 	 * Load the configuration infos
 	 */
-	private function init(array $user_options=array(), $logname = null)
+	protected function init(array $user_options=array(), $logname = null)
 	{
 		$this->logname = $logname;
 		if (true===self::$isInited) return;
