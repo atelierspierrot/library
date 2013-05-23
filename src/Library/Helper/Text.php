@@ -57,11 +57,36 @@ class Text
      */
     public static function stripSpecialChars($string = '')
     {
+        $search = explode(',',
+            "À,Á,Â,Ã,Ä,Å,à,á,â,ã,ä,å,Æ,Ç,æ,ç,Ñ,ñ,Ĵ,ĵ,Œ,œ,È,É,Ê,Ë,è,é,ê,ë,Ì,Í,Î,Ï,ì,í,î,ï,Ò,Ó,Ô,Õ,Ö,Ø,ò,ó,ô,õ,ö,ø,Ù,Ú,Û,Ü,ù,ú,û,ü,ů,Ů,ũ,Ũ,Ý,ý,ÿ,Ÿ");
+        $replace = explode(',', 
+            "A,A,A,A,A,A,a,a,a,a,a,a,AE,C,ae,c,N,n,J,j,OE,oe,E,E,E,E,e,e,e,e,I,I,I,I,i,i,i,i,O,O,O,O,O,O,o,o,o,o,o,o,U,U,U,U,u,u,u,u,u,U,u,U,Y,y,y,Y");
+        return str_replace($search, $replace, $string);
+/*
         $search = array(
             '@[éèêëÊË]@i','@[àâäÂÄ]@i','@[îïÎÏ]@i','@[ûùüÛÜ]@i','@[ôöÔÖ]@i','@[ç]@i','@[^a-zA-Z0-9]@'
         );
         $replace = array('e','a','i','u','o','c',' ');
         $string =  preg_replace($search, $replace, $string);
+        return $string;
+*/
+    }
+
+    /**
+     * Get a slugified string
+     *
+     * By Miguel Santirso (http://sourcecookbook.com/en/recipes/8/function-to-slugify-strings-in-php)
+     *
+     * @param string $string The string to format
+     * @return string
+     */
+    public static function slugify($string = '')
+    {
+        $string = preg_replace('~[^\\pL\d]+~u', '-', $string); 
+        if (function_exists('iconv')) {
+            $string = iconv('utf-8', 'us-ascii//TRANSLIT', $string);
+        } 
+        $string = preg_replace('~[^-\w]+~', '', strtolower(trim($string, '-')));
         return $string;
     }
 

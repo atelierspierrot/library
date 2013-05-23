@@ -58,6 +58,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
             <li><a href="index.php">Homepage</a></li>
             <li><a href="dev.php">Dev branch</a><ul>
                 <li><a href="dev.php#log">Logger</a></li>
+                <li><a href="dev.php#rotator">FileRotator</a></li>
             </ul></li>
         </ul>
 
@@ -97,7 +98,7 @@ echo '$classLoader = new SplClassLoader("Psr\Log", __DIR__."/../vendor/psr/log")
 echo '$classLoader->register();'."\n";
 
 $log_options = array(
-    'directory' => __DIR__.'/tmp',
+    'directory' => __DIR__.'/tmp'
 );
 $logger = new Library\Logger($log_options);
 echo "\n";
@@ -152,14 +153,50 @@ echo '$ok = $logger->log( Library\Logger::INFO, "a long message qsmldkf jfqksmld
 echo '// => '.var_export($ok,1)."\n";
 
 // write many logs to test rotation
-/*
 for ($i=0; $i<1000; $i++)
 {
     $ok = $logger->log( Library\Logger::DEBUG, '[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
     $ok = $logger->log( Library\Logger::ERROR, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
     $ok = $logger->log( Library\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test' );
 }
-*/
+?>
+    </pre>
+
+<h3 id="rotator">Library\FileRotator</h3>
+
+<p>For this demo, files will be created in "demo/tmp/" directory ; if it does not exist, please create it with a chmod 
+of at least 755.</p>
+
+    <pre class="code" data-language="php">
+<?php
+$filename = 'tmp/mytestfile.txt';
+$rotator = new Library\FileRotator(
+    $filename, Library\FileRotator::ROTATE_PERIODIC, array(
+		'period_duration' => 60, // in seconds (here 1 day)
+		'filename_mask' => '%s.@date@', // mask used for filenames
+		                                // @date@ will be replaced by current date formated with 'date_format'
+		                                // @i@ will be replaced by rotation iterator
+		'date_format' => 'ymdHi',
+		'backup_time' => 10, // number of backuped files
+	)
+);
+
+
+// write many logs to test rotation
+for ($i=0; $i<1000; $i++)
+{
+    $ok = $rotator->write('[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
+    $ok = $rotator->write('a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
+    $ok = $rotator->write('a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
+}
+
+    $ok = $rotator->write('[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
+    $ok = $rotator->write('a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
+    $ok = $rotator->write('a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
+sleep(70);
+    $ok = $rotator->write('[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
+    $ok = $rotator->write('a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
+    $ok = $rotator->write('a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf');
 ?>
     </pre>
 
