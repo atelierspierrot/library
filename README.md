@@ -15,9 +15,9 @@ The `Library\Helper` namespace defines some classes commonly used following thes
 
 ## Author & License
 
->    Patterns
+>    PHP Library
 
->    https://github.com/atelierspierrot/patterns
+>    https://github.com/atelierspierrot/library
 
 >    Copyleft 2013, Pierre Cassat and contributors
 
