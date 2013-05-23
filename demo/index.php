@@ -212,6 +212,13 @@ echo '=> '.Library\Helper\Text::fromCamelCase($str, '/')."\n";
 echo 'echo Library\Helper\Text::fromCamelCase($str, "/", false);'."\n";
 echo '=> '.Library\Helper\Text::fromCamelCase($str, '/', false)."\n";
 
+echo "\n\n";
+$specialstr = 'My string with special chars: é à è È Ô';
+echo '$str = "My string with special chars: é à è È Ô";'."\n";
+echo 'echo Library\Helper\Text::stripSpecialChars($specialstr);'."\n";
+echo '=> '.Library\Helper\Text::stripSpecialChars($specialstr)."\n";
+echo 'echo Library\Helper\Text::slugify($specialstr);'."\n";
+echo '=> '.Library\Helper\Text::slugify($specialstr)."\n";
 ?>
     </pre>
 
