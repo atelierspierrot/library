@@ -4,7 +4,7 @@
     "description": "The PHP library package of Les Ateliers Pierrot.",
     "keywords": [ "php", "library", "helpers" ],
     "homepage": "https://github.com/atelierspierrot/library",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "license": "GPL-3.0",
     "authors": [
         {
