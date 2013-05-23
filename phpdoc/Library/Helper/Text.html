@@ -26,11 +26,13 @@
 
             <div class="description">
             <p>Text helper</p>
-            <p>As for all helpers, all methods are statics.<br />
-<br />
- For convenience, the best practice is to use:<br />
-<br />
-     use Library\Helper\Text as TextHelper;</p>
+            <p>As for all helpers, all methods are statics.</p>
+
+<p>For convenience, the best practice is to use:</p>
+
+<pre><code>use Library\Helper\Text as TextHelper;
+</code></pre>
+</p>
         </div>
     
     
@@ -44,7 +46,7 @@
                 </td>
                 <td class="last">
                     <a href="#method_cut">cut</a>(string $string = &#039;&#039;, integer $length = 120, string $end_str = &#039; ...&#039;)
-                    <p>Truncate a string at a maximum length, adding it a suffix like &#039;...&#039;</p>
+                    <p>Truncate a string at a maximum length, adding it a suffix like '...'</p>
                 </td>
                 <td></td>
             </tr>
@@ -55,6 +57,16 @@
                 <td class="last">
                     <a href="#method_stripSpecialChars">stripSpecialChars</a>(string $string = &#039;&#039;)
                     <p>Strip all special characters in a string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_slugify">slugify</a>(string $string = &#039;&#039;)
+                    <p>Get a slugified string</p>
                 </td>
                 <td></td>
             </tr>
@@ -99,8 +111,9 @@
     <strong>cut</strong>(string $string = &#039;&#039;, integer $length = 120, string $end_str = &#039; ...&#039;)</code>
     </h3>
     <div class="details">
-        <p>Truncate a string at a maximum length, adding it a suffix like &#039;...&#039;</p>
-        <p></p>
+        <p>Truncate a string at a maximum length, adding it a suffix like '...'</p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -113,12 +126,12 @@
                     <tr>
                 <td>integer</td>
                 <td>$length</td>
-                <td>The maximum length to keep (`120` by default)</td>
+                <td>The maximum length to keep (<code>120</code> by default)</td>
             </tr>
                     <tr>
                 <td>string</td>
                 <td>$end_str</td>
-                <td>The suffix to add if the string was cut (` ...` by default)</td>
+                <td>The suffix to add if the string was cut (<code>...</code> by default)</td>
             </tr>
             </table>
 
@@ -128,7 +141,8 @@
                     <table>
         <tr>
             <td>string</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -144,7 +158,8 @@
     </h3>
     <div class="details">
         <p>Strip all special characters in a string</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -162,7 +177,43 @@
                     <table>
         <tr>
             <td>string</td>
-            <td></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_slugify">
+        <div class="location">at line 83</div>
+        <code>        static    public            string
+    <strong>slugify</strong>(string $string = &#039;&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Get a slugified string</p>
+        <p>By Miguel Santirso (http://sourcecookbook.com/en/recipes/8/function-to-slugify-strings-in-php)</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$string</td>
+                <td>The string to format</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -172,13 +223,14 @@
     </div>
 
                 <h3 id="method_getHumanReadable">
-        <div class="location">at line 74</div>
+        <div class="location">at line 99</div>
         <code>        static    public            string
     <strong>getHumanReadable</strong>(string $string = &#039;&#039;)</code>
     </h3>
     <div class="details">
         <p>Transform a string to a human readable one</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -196,7 +248,7 @@
                     <table>
         <tr>
             <td>string</td>
-            <td>The transformed version of `$string`</td>
+            <td>The transformed version of <code>$string</code></td>
         </tr>
     </table>
 
@@ -206,13 +258,14 @@
     </div>
 
                 <h3 id="method_toCamelCase">
-        <div class="location">at line 87</div>
+        <div class="location">at line 112</div>
         <code>        static    public            string
     <strong>toCamelCase</strong>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $capitalize_first_char = true)</code>
     </h3>
     <div class="details">
         <p>Transform a name in CamelCase</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -230,7 +283,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$capitalize_first_char</td>
-                <td>May the first letter be in upper case (default is `true`)</td>
+                <td>May the first letter be in upper case (default is <code>true</code>)</td>
             </tr>
             </table>
 
@@ -240,7 +293,7 @@
                     <table>
         <tr>
             <td>string</td>
-            <td>The CamelCase version of `$name`</td>
+            <td>The CamelCase version of <code>$name</code></td>
         </tr>
     </table>
 
@@ -250,13 +303,14 @@
     </div>
 
                 <h3 id="method_fromCamelCase">
-        <div class="location">at line 104</div>
+        <div class="location">at line 129</div>
         <code>        static    public            string
     <strong>fromCamelCase</strong>($name = &#039;&#039;, $replace = &#039;_&#039;, $lowerize_first_char = true)</code>
     </h3>
     <div class="details">
         <p>Transform a name from CamelCase to other</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -264,17 +318,20 @@
                     <tr>
                 <td></td>
                 <td>$name</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$replace</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$lowerize_first_char</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -284,7 +341,7 @@
                     <table>
         <tr>
             <td>string</td>
-            <td>The CamelCase version of `$name`</td>
+            <td>The CamelCase version of <code>$name</code></td>
         </tr>
     </table>
 
