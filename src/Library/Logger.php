@@ -28,29 +28,35 @@ class Logger
 	protected $logname;
 	protected $log_message;
 
-	private static $rotate = 0;
+	private static $rotators = array();
 	private static $isInited = false;
 
 	protected static $config = array(
 		'minimum_log_level' => 0,
 		'directory' => '',
+		'logfile_extension' => 'log',
 		'max_log' => 100,
 		'logfile' => 'history',
-		'errorlogfile' => 'error',
-		'maxsize_log' => 1000,
-		'logfile_extension' => 'log',
+		'error_logfile' => 'error',
 		'datetime_format' => 'd-m-Y H:i:s',
 		'duplicate_errors' => true,
+		'rotator'=>array(
+    		'period_duration' => 86400,
+    		'filename_mask' => '%s.@i@',
+    		'date_format' => 'ymdHi',
+    		'backup_time' => 10,
+    	)
 	);
 
-    const EMERGENCY = 'emergency';
-    const ALERT = 'alert';
-    const CRITICAL = 'critical';
-    const ERROR = 'error';
-    const WARNING = 'warning';
-    const NOTICE = 'notice';
-    const INFO = 'info';
-    const DEBUG = 'debug';
+    const EMERGENCY     = 'emergency';
+    const ALERT         = 'alert';
+    const CRITICAL      = 'critical';
+    const ERROR         = 'error';
+    const WARNING       = 'warning';
+    const NOTICE        = 'notice';
+    const INFO          = 'info';
+    const DEBUG         = 'debug';
+
     protected static $levels = array(
         'emergency'     =>800,
         'alert'         =>700,
@@ -105,8 +111,16 @@ class Logger
 	{
 		$this->logname = $logname;
 		if (true===self::$isInited) return;
-		foreach ($user_options as $_static=>$_value) {
+		foreach (self::$config as $_static=>$_value) {
 			$this->$_static = $_value;
+		}
+		foreach ($user_options as $_static=>$_value) {
+            if (isset($this->$_static) && is_array($this->$_static)) {
+                $this->$_static = array_merge($this->$_static, 
+                    is_array($_value) ? $_value : array($_value));
+            } else {
+                $this->$_static = $_value;
+		    }
 		}
 		self::$isInited = true;
 	}
@@ -214,40 +228,31 @@ class Logger
 	 */	
 	protected function write($line, $level = 100)
 	{
-		$logfile = $this->getFilePath( $level );
-
-		if ($this->mustRotate( $logfile )) {
-			self::$rotate = $this->max_log;
-			$this->rotate( $logfile );
-		}
-
-		$return = self::writeInFile($logfile, $line);
+		$logfile = $this->getFilePath($level);
+		$rotator = $this->getRotator($logfile);
+		$return = $rotator->write($line);
 
 		if ($this->isErrorLevel($level) && true===$this->duplicate_errors)
-			self::write( $line, 100 );
+			self::write($line, 100);
 		
 		return $return;
 	}
 
-	/**
-	 * Rotate log files if so
-	 *
-	 * @param string $logfile The log filename to check
-	 */
-	protected function rotate($logfile)
-	{
-		if (self::$rotate-- > 0) {
-			self::writeInFile($logfile, "[-- rotate --]");
-
-			@unlink($logfile.'.'.self::$rotate);
-			while (self::$rotate-- > 0) {
-				@rename(
-					$logfile.(self::$rotate ? '.'.self::$rotate : ''), 
-					$logfile.'.'.(self::$rotate + 1)
-				);
-			}
-		}
-	}
+    /**
+     * Get a rotator for a specific logfile
+     *
+     * @param string $filename The name (full path) of the concerned logfile
+     * @return FileRotator
+     */
+    protected function getRotator($filename)
+    {
+        if (!array_key_exists($filename, self::$rotators)) {
+            self::$rotators[$filename] = new FileRotator(
+                $filename, FileRotator::ROTATE_PERIODIC, $this->rotator
+            );
+        }
+        return self::$rotators[$filename];
+    }
 
 // -----------------
 // Log string builders
@@ -274,22 +279,6 @@ class Logger
 	{
 	    if (!is_numeric($level)) $level = $this->getLevelCode($level);
 		return (bool) ($level>300);
-	}
-
-	/**
-	 * Is the current logfile needs to be rotated
-	 *
-	 * @param string $logfile The log filename to check
-	 * @return bool True if the logfile must be rotated
-	 */
-	protected function mustRotate($logfile)
-	{
-		$s = @filesize($logfile);
-		$l = count(@file($logfile));
-		if ( @file_exists($logfile) && @is_readable($logfile) && $s > $this->maxsize_log * 1024)
-			return true;
-		else
-			return false;
 	}
 
 	/**
@@ -361,7 +350,7 @@ class Logger
 	 */
 	protected function getFileName($level = 100)
 	{
-		return !empty($this->logname) ? $this->logname : ( $this->isErrorLevel($level) ? $this->errorlogfile : $this->logfile );
+		return !empty($this->logname) ? $this->logname : ( $this->isErrorLevel($level) ? $this->error_logfile : $this->logfile );
 	}
 
 // -----------------
@@ -395,25 +384,6 @@ class Logger
 			$str = serialize($array);
 		}
 		return $str;
-	}
-
-	/**
-	 * Write a string in a file
-	 *
-	 * @param string $file The filename to write in
-	 * @param string $line The line to add in the file
-	 * @return bool True if the line had been written
-	 */
-	public static function writeInFile($file, $line)
-	{
-		$f = @fopen($file, "ab");
-		if ($f) {
-			fputs($f, "\n".str_replace('<', '&lt;', $line));
-			fclose($f);
-			return true;
-		}
-		else
-			return false;
 	}
 
 }
