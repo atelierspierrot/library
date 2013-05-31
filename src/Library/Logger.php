@@ -41,11 +41,11 @@ class Logger
 		'datetime_format' => 'd-m-Y H:i:s',
 		'duplicate_errors' => true,
 		'rotator'=>array(
-    		'period_duration' => 86400,
-    		'filename_mask' => '%s.@i@',
-    		'date_format' => 'ymdHi',
-    		'backup_time' => 10,
-    	)
+            'period_duration' => 86400,
+            'filename_mask' => '%s.@i@',
+            'date_format' => 'ymdHi',
+            'backup_time' => 10,
+        )
 	);
 
     const EMERGENCY     = 'emergency';
