@@ -37,15 +37,15 @@ class Directory
 
     public static function isGitClone($path = null)
     {
-        if (is_null($dirname) || empty($dirname)) return false;
+        if (is_null($path) || empty($path)) return false;
         $dir_path = self::slashDirname($path).'.git';
-        return (bool) file_exists($dir_path) && is_dir($dir_path);
+        return file_exists($dir_path) && is_dir($dir_path);
     }
 
     public static function isDotPath($path = null)
     {
-        if (is_null($dirname) || empty($dirname)) return false;
-        return (bool) '.'===substr(basename($path), 0, 1);
+        if (is_null($path) || empty($path)) return false;
+        return '.'===substr(basename($path), 0, 1);
     }
 
 // ------------------------
