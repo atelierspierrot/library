@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Helper\ConditionalComment | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Library/Helper.html">Library\Helper</a>\ConditionalComment</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>ConditionalComment</strong></p>
+
+            <div class="description">
+            <p>Internet Explorer conditional HTML comment</p>
+            <p>As for all helpers, all methods are statics.</p>
+
+<p>For convenience, the best practice is to use:</p>
+
+<pre><code>use Library\Helper\Html as HtmlHelper;
+</code></pre>
+</p>
+        </div>
+    
+    
+            <h2>Properties</h2>
+
+            <table>
+                    <tr>
+                <td class="type" id="property_condition_shortcuts">
+                    static                                        
+                </td>
+                <td>$condition_shortcuts</td>
+                <td class="last">Shortcuts to use in conditions</td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_operator_shortcuts">
+                    static                                        
+                </td>
+                <td>$operator_shortcuts</td>
+                <td class="last">Operators to use in conditions</td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_conditional_item">
+                    static                                        
+                </td>
+                <td>$conditional_item</td>
+                <td class="last">
+</td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_internet_explorer">
+                    static                                        
+                </td>
+                <td>$internet_explorer</td>
+                <td class="last">
+</td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Library\Helper\str">str</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_buildCondition">buildCondition</a>($content, $condition = &#039;if IE&#039;, $operator = &#039;OR&#039;, $global = false)
+                    <p>Build an HTML condition string for Internet Explorer around content</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Library\Helper\str">str</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_writeCondition">writeCondition</a>(string $content, string $condition = null, bool $global = false)
+                    <p>Write an HTML condition for Internet Explorer around content</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Library\Helper\str">str</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_parseSingleCondition">parseSingleCondition</a>(string $condition)
+                    <p>Parse a single condition item replacing shortcuts</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_buildCondition">
+        <div class="location">at line 72</div>
+        <code>        static    public            <abbr title="Library\Helper\str">str</abbr>
+    <strong>buildCondition</strong>($content, $condition = &#039;if IE&#039;, $operator = &#039;OR&#039;, $global = false)</code>
+    </h3>
+    <div class="details">
+        <p>Build an HTML condition string for Internet Explorer around content</p>
+        <p>Condition can be an array of conditions, that will be related with the operator.</p>
+
+<p>Each condition can be written like ">=5" for instance, to define a condition
+for IE "greater than or equal to" version 5.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$content</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$condition</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$operator</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$global</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Helper\str">str</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_writeCondition">
+        <div class="location">at line 102</div>
+        <code>        static    public            <abbr title="Library\Helper\str">str</abbr>
+    <strong>writeCondition</strong>(string $content, string $condition = null, bool $global = false)</code>
+    </h3>
+    <div class="details">
+        <p>Write an HTML condition for Internet Explorer around content</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$content</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$condition</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$global</td>
+                <td>May the content be also defined globally</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Helper\str">str</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_parseSingleCondition">
+        <div class="location">at line 124</div>
+        <code>        static    public            <abbr title="Library\Helper\str">str</abbr>
+    <strong>parseSingleCondition</strong>(string $condition)</code>
+    </h3>
+    <div class="details">
+        <p>Parse a single condition item replacing shortcuts</p>
+        <p>To build a final multi-items condition string, pass to this function a string like
+"AND ..." which will render "&amp;(...)".
+To build a NOT condition string, pass to this function a string like
+"NOT ..." which will render "!(...)".</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$condition</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Helper\str">str</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
