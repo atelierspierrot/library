@@ -159,6 +159,13 @@ class Logger
 		return null;
 	}
 
+	/**
+	 */
+	public static function getOptions()
+	{
+		return self::$config;
+	}
+
     /**
      * Interpolates context values into the message placeholders.
 	 *
