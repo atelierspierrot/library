@@ -48,8 +48,8 @@ class Html implements ContentTypeInterface
     {
         if (is_array($content)) {
             $ctt = '';
-            foreach ($content as $key=>$ctt) {
-                $content .= $ctt;
+            foreach ($content as $key=>$ctt_entry) {
+                $ctt .= "\n".$ctt_entry;
             }
             $content = $ctt;
         }

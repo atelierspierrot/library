@@ -56,6 +56,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
 		<h2>Map of the package</h2>
         <ul id="navigation_menu" class="menu" role="navigation">
             <li><a href="index.php">Homepage</a></li>
+            <li><a href="http_fundamental.php">HTTP Fundamental</a></li>
             <li><a href="dev.php">Dev branch</a><ul>
                 <li><a href="dev.php#log">Logger</a></li>
                 <li><a href="dev.php#rotator">FileRotator</a></li>
@@ -208,7 +209,7 @@ sleep(70);
 		    This page is <a href="" title="Check now online" id="html_validation">HTML5</a> & <a href="" title="Check now online" id="css_validation">CSS3</a> valid.
 		</div>
 		<div class="credits float-right">
-		    <a href="https://github.com/atelierspierrot/internationalization">atelierspierrot/internationalization</a> package by <a href="https://github.com/PieroWbmstr">Piero Wbmstr</a> under <a href="http://opensource.org/licenses/GPL-3.0">GNU GPL v.3</a> license.
+		    <a href="http://github.com/atelierspierrot/library">atelierspierrot/library</a> package by <a href="https://github.com/atelierspierrot">Les Ateliers Pierrot</a> under <a href="http://opensource.org/licenses/GPL-3.0">GNU GPL v.3</a> license.
 		</div>
     </footer>
 
