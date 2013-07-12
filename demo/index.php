@@ -76,6 +76,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
                     <li><a href="index.php#registryinvokable">Registry Invokable</a></li>
                 </ul></li>
             </ul></li>
+            <li><a href="http_fundamental.php">HTTP Fundamental</a></li>
             <li><a href="dev.php">Dev branch</a></li>
         </ul>
 
@@ -1182,7 +1183,7 @@ echo '// => '.var_export($myerrorregistry2->getOne(),1).' (magic getter acces is
 		    This page is <a href="" title="Check now online" id="html_validation">HTML5</a> & <a href="" title="Check now online" id="css_validation">CSS3</a> valid.
 		</div>
 		<div class="credits float-right">
-		    <a href="https://github.com/atelierspierrot/internationalization">atelierspierrot/internationalization</a> package by <a href="https://github.com/PieroWbmstr">Piero Wbmstr</a> under <a href="http://opensource.org/licenses/GPL-3.0">GNU GPL v.3</a> license.
+            <a href="http://github.com/atelierspierrot/library">atelierspierrot/library</a> package by <a href="https://github.com/atelierspierrot">Les Ateliers Pierrot</a> under <a href="http://opensource.org/licenses/GPL-3.0">GNU GPL v.3</a> license.
 		</div>
     </footer>
 
