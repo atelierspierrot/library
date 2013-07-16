@@ -544,7 +544,7 @@ class Request
     public function getGetOrPost($varname, $default = null)
     {
         $get = $this->getArgument($varname, $default);
-        if (empty($get)) {
+        if (!empty($get)) {
             return $get;
         }
         return $this->getData($varname, $default);
@@ -557,7 +557,7 @@ class Request
     public function getPostOrGet($varname, $default = null)
     {
         $post = $this->getData($varname, $default);
-        if (empty($post)) {
+        if (!empty($post)) {
             return $post;
         }
         return $this->getArgument($varname, $default);
