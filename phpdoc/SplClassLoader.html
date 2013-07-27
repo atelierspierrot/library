@@ -26,12 +26,14 @@
 
             <div class="description">
             <p>SplClassLoader implementation that implements the technical interoperability standards for PHP 5.3 namespaces and class names.</p>
-            <p>http://groups.google.com/group/php-standards/web/final-proposal<br />
-<br />
-     // Example which loads classes for the Doctrine Common package in the<br />
-     // Doctrine\Common namespace.<br />
-     $classLoader = new SplClassLoader(&#039;Doctrine\Common&#039;, &#039;/path/to/doctrine&#039;);<br />
-     $classLoader-&gt;register();</p>
+            <p>http://groups.google.com/group/php-standards/web/final-proposal</p>
+
+<pre><code> // Example which loads classes for the Doctrine Common package in the
+ // Doctrine\Common namespace.
+ $classLoader = new SplClassLoader('Doctrine\Common', '/path/to/doctrine');
+ $classLoader-&gt;register();
+</code></pre>
+</p>
         </div>
     
     
@@ -45,7 +47,7 @@
                 </td>
                 <td class="last">
                     <a href="#method___construct">__construct</a>($ns = null, $includePath = null)
-                    <p>Creates a new &lt;tt&gt;SplClassLoader&lt;/tt&gt; that loads classes of the specified namespace.</p>
+                    <p>Creates a new <tt>SplClassLoader</tt> that loads classes of the specified namespace.</p>
                 </td>
                 <td></td>
             </tr>
@@ -150,8 +152,9 @@
     <strong>__construct</strong>($ns = null, $includePath = null)</code>
     </h3>
     <div class="details">
-        <p>Creates a new &lt;tt&gt;SplClassLoader&lt;/tt&gt; that loads classes of the specified namespace.</p>
-        <p></p>
+        <p>Creates a new <tt>SplClassLoader</tt> that loads classes of the specified namespace.</p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -159,12 +162,14 @@
                     <tr>
                 <td></td>
                 <td>$ns</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$includePath</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -181,7 +186,8 @@
     </h3>
     <div class="details">
         <p>Sets the namespace separator used by classes in the namespace of this class loader.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -206,7 +212,8 @@
     </h3>
     <div class="details">
         <p>Gets the namespace seperator used by classes in the namespace of this class loader.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -214,7 +221,8 @@
                     <table>
         <tr>
             <td>void</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -230,7 +238,8 @@
     </h3>
     <div class="details">
         <p>Sets the base include path for all class files in the namespace of this class loader.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -238,7 +247,8 @@
                     <tr>
                 <td>string</td>
                 <td>$includePath</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -255,7 +265,8 @@
     </h3>
     <div class="details">
         <p>Gets the base include path for all class files in the namespace of this class loader.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -279,7 +290,8 @@
     </h3>
     <div class="details">
         <p>Sets the file extension of class files in the namespace of this class loader.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -287,7 +299,8 @@
                     <tr>
                 <td>string</td>
                 <td>$fileExtension</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -304,7 +317,8 @@
     </h3>
     <div class="details">
         <p>Gets the file extension of class files in the namespace of this class loader.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -328,7 +342,8 @@
     </h3>
     <div class="details">
         <p>Installs this class loader on the SPL autoload stack.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -343,7 +358,8 @@
     </h3>
     <div class="details">
         <p>Uninstalls this class loader from the SPL autoloader stack.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -358,7 +374,8 @@
     </h3>
     <div class="details">
         <p>Loads the given class or interface.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -376,7 +393,8 @@
                     <table>
         <tr>
             <td>void</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 

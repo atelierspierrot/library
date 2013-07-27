@@ -27,18 +27,18 @@
 
             <div class="description">
             <p>Magic handling of properties access</p>
-            <p>## Presentation<br />
-<br />
- This model constructs an accessible object in which you can dynamically set and get<br />
- properties on the fly without errors.<br />
-<br />
- The visibility of properties is kept for direct set or get.<br />
-<br />
- ## Rules<br />
-<br />
- All setter methods returns the object itself for chainability.<br />
-<br />
- To use static magic caller, your constructor must not require any argument.</p>
+            <p><h2>Presentation</h2>
+
+<p>This model constructs an accessible object in which you can dynamically set and get
+ properties on the fly without errors.</p>
+
+<p>The visibility of properties is kept for direct set or get.</p>
+
+<p>## Rules</p>
+
+<p>All setter methods returns the object itself for chainability.</p>
+
+<p>To use static magic caller, your constructor must not require any argument.</p>
         </div>
     
     
@@ -148,7 +148,8 @@
     </h3>
     <div class="details">
         <p>Magic getter when calling an object as a function</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -195,7 +196,7 @@
     </h3>
     <div class="details">
         <p>Magic handler when calling a non-existing method on an object</p>
-        <p>Magic method handling `getProp(default)`, `setProp(value)`, `unsetProp()`, `issetProp()` or `resetProp()` ;<br />
+        <p>Magic method handling <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code> ;
  it may dispatches to the corresponding defined magic method.</p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -264,7 +265,7 @@
     </h3>
     <div class="details">
         <p>Magic handler when calling a non-eixsting method statically on an object</p>
-        <p>Magic static method handling `getProp(default)`, `setProp(value)`, `unsetProp()`, `issetProp()` or `resetProp()` ;<br />
+        <p>Magic static method handling <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code> ;
  it may dispatches to the corresponding defined magic method.</p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -313,7 +314,7 @@
     </h3>
     <div class="details">
         <p>Magic getter</p>
-        <p>Magic method called when `$this-&gt;prop` is invoked.</p>
+        <p>Magic method called when <code>$this-&gt;prop</code> is invoked.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -360,7 +361,7 @@
     </h3>
     <div class="details">
         <p>Magic setter</p>
-        <p>Magic method called when `$this-&gt;arg = value` is invoked.</p>
+        <p>Magic method called when <code>$this-&gt;arg = value</code> is invoked.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -383,7 +384,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Object/AbstractInvokable.html"><abbr title="Library\Object\AbstractInvokable">AbstractInvokable</abbr></a></td>
-            <td>Returns `$this` for method chaining</td>
+            <td>Returns <code>$this</code> for method chaining</td>
         </tr>
     </table>
 
@@ -412,7 +413,7 @@
     </h3>
     <div class="details">
         <p>Magic checker</p>
-        <p>Magic method called when `isset($this-&gt;prop)` or `empty($this-&gt;prop)` are invoked.</p>
+        <p>Magic method called when <code>isset($this-&gt;prop)</code> or <code>empty($this-&gt;prop)</code> are invoked.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -430,7 +431,7 @@
                     <table>
         <tr>
             <td>bool</td>
-            <td>This will return `true` if the property exists, `false` otherwise</td>
+            <td>This will return <code>true</code> if the property exists, <code>false</code> otherwise</td>
         </tr>
     </table>
 
@@ -459,7 +460,7 @@
     </h3>
     <div class="details">
         <p>Magic unsetter</p>
-        <p>Magic method called when `unset($this-&gt;prop)` is invoked.</p>
+        <p>Magic method called when <code>unset($this-&gt;prop)</code> is invoked.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -477,7 +478,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Object/AbstractInvokable.html"><abbr title="Library\Object\AbstractInvokable">AbstractInvokable</abbr></a></td>
-            <td>Returns `$this` for method chaining</td>
+            <td>Returns <code>$this</code> for method chaining</td>
         </tr>
     </table>
 
@@ -506,7 +507,8 @@
     </h3>
     <div class="details">
         <p>Search a property name in the current object with one or tow leading underscores</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -540,7 +542,8 @@
     </h3>
     <div class="details">
         <p>Search a property name in the current object with one or tow leading underscores</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 

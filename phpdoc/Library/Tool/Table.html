@@ -26,45 +26,49 @@
 
             <div class="description">
             <p>Table helper tool</p>
-            <p>## Presentation<br />
-<br />
- This class helps to build and work with table in an HTML style, meaning that the table<br />
- may have a caption, and three parts separated in a header, a footer and a body composed<br />
- of lines separated in cells. The class does NOT build any HTML string but organizes and<br />
- completes each table part to have a cleaned and ready-to-work-with array representation<br />
- of the table.<br />
-<br />
- A full text schema like a Mysql query result is embedded using method `render()`.<br />
-<br />
- ## Construction of the table<br />
-<br />
- The table built in this class can be schematized like below ; it is considered as a set<br />
- of cells stored in lines that builds columns.<br />
-<br />
-     +------------+------------+<br />
-     | table      | headers    | // &quot;thead&quot; : can be more than 1 line<br />
-     +------------+------------+<br />
-     | table      | line 1     | // &quot;tbody&quot;<br />
-     | table      | line 2     |<br />
-     +------------+------------+<br />
-     | table      | footers    | // &quot;tfoot&quot; : can be more than 1 line<br />
-     +------------+------------+<br />
-<br />
- This schema is render as a matrix like, concerning only the body:<br />
-<br />
-            | col A   | col B   |<br />
-            ---------------------<br />
-     line 1 | cell A1 | cell B1 |<br />
-     line 2 | cell A2 | cell B2 |<br />
-<br />
- Lines, columns and cells are 1 based arrays: first item has key &quot;1&quot; when you want <br />
- to get or set a position.<br />
-<br />
- ## Usage<br />
-<br />
- For convenience, the best practice is to use an alias:<br />
-<br />
-     use Library\Tool\Table as TableTool;</p>
+            <p><h2>Presentation</h2>
+
+<p>This class helps to build and work with table in an HTML style, meaning that the table
+ may have a caption, and three parts separated in a header, a footer and a body composed
+ of lines separated in cells. The class does NOT build any HTML string but organizes and
+ completes each table part to have a cleaned and ready-to-work-with array representation
+ of the table.</p>
+
+<p>A full text schema like a Mysql query result is embedded using method <code>render()</code>.</p>
+
+<p>## Construction of the table</p>
+
+<p>The table built in this class can be schematized like below ; it is considered as a set
+ of cells stored in lines that builds columns.</p>
+
+<pre><code> +------------+------------+
+ | table      | headers    | // "thead" : can be more than 1 line
+ +------------+------------+
+ | table      | line 1     | // "tbody"
+ | table      | line 2     |
+ +------------+------------+
+ | table      | footers    | // "tfoot" : can be more than 1 line
+ +------------+------------+
+</code></pre>
+
+<p>This schema is render as a matrix like, concerning only the body:</p>
+
+<pre><code>        | col A   | col B   |
+        ---------------------
+ line 1 | cell A1 | cell B1 |
+ line 2 | cell A2 | cell B2 |
+</code></pre>
+
+<p>Lines, columns and cells are 1 based arrays: first item has key "1" when you want 
+ to get or set a position.</p>
+
+<p>## Usage</p>
+
+<p>For convenience, the best practice is to use an alias:</p>
+
+<pre><code> use Library\Tool\Table as TableTool;
+</code></pre>
+</p>
         </div>
     
             <h2>Constants</h2>
@@ -73,29 +77,33 @@
                     <tr>
                 <td>PAD_BY_SPAN</td>
                 <td class="last">
-                    <p><em>Using this flag as `$pad_flag`, last cell is pad as an HTML `colspan` for each line if necessary</em></p>
-                    <p></p>
+                    <p><em>Using this flag as <code>$pad_flag</code>, last cell is pad as an HTML <code>colspan</code> for each line if necessary</em></p>
+                    <p>
+</p>
                 </td>
             </tr>
                     <tr>
                 <td>PAD_BY_EMPTY_CELLS</td>
                 <td class="last">
-                    <p><em>Using this flag as `$pad_flag`, each line is completed by empty cells if necessary</em></p>
-                    <p></p>
+                    <p><em>Using this flag as <code>$pad_flag</code>, each line is completed by empty cells if necessary</em></p>
+                    <p>
+</p>
                 </td>
             </tr>
                     <tr>
                 <td>ITERATE_ON_LINES</td>
                 <td class="last">
-                    <p><em>Using this flag, the `getTableIterator` method returns an iterator on table lines</em></p>
-                    <p></p>
+                    <p><em>Using this flag, the <code>getTableIterator</code> method returns an iterator on table lines</em></p>
+                    <p>
+</p>
                 </td>
             </tr>
                     <tr>
                 <td>ITERATE_ON_COLUMNS</td>
                 <td class="last">
-                    <p><em>Using this flag, the `getTableIterator` method returns an iterator on table columns</em></p>
-                    <p></p>
+                    <p><em>Using this flag, the <code>getTableIterator</code> method returns an iterator on table columns</em></p>
+                    <p>
+</p>
                 </td>
             </tr>
             </table>
@@ -141,7 +149,7 @@
                 </td>
                 <td class="last">
                     <a href="#method_getTableIterator">getTableIterator</a>(string $part = &#039;body&#039;, int $iterator_flag = self::ITERATE_ON_LINES)
-                    <p>Get the full table or a part of the table as an `ArrayIterator` object</p>
+                    <p>Get the full table or a part of the table as an <code>ArrayIterator</code> object</p>
                 </td>
                 <td></td>
             </tr>
@@ -641,7 +649,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_setContents">setContents</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -651,7 +660,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_setContentLine">setContentLine</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -661,7 +671,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_addContentLine">addContentLine</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -671,7 +682,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_setContentColumn">setContentColumn</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -681,7 +693,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_setContentCol">setContentCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -691,7 +704,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_setBodyCol">setBodyCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -701,7 +715,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_addContentColumn">addContentColumn</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -711,7 +726,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_addContentCol">addContentCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -721,7 +737,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_addBodyCol">addBodyCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -731,7 +748,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_setContentCell">setContentCell</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -741,7 +759,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_addContentCell">addContentCell</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -751,7 +770,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getContents">getContents</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -761,7 +781,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getContentLine">getContentLine</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -771,7 +792,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getContentColumn">getContentColumn</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -781,7 +803,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getContentCol">getContentCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -791,7 +814,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getBodyCol">getBodyCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -801,7 +825,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getContentCell">getContentCell</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -811,7 +836,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getTableColSize">getTableColSize</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -821,7 +847,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getCol">getCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -831,7 +858,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getHeaderCol">getHeaderCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -841,7 +869,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_addHeaderCol">addHeaderCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -851,7 +880,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_setHeaderCol">setHeaderCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -861,7 +891,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getFooterCol">getFooterCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -871,7 +902,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_addFooterCol">addFooterCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -881,7 +913,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_setFooterCol">setFooterCol</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -891,7 +924,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getColumnSize">getColumnSize</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -901,7 +935,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getColSize">getColSize</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -911,7 +946,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getLineSize">getLineSize</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -921,7 +957,8 @@
                 </td>
                 <td class="last">
                     <a href="#method_getCellSize">getCellSize</a>()
-                    <p></p>
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -937,7 +974,8 @@
     </h3>
     <div class="details">
         <p>Table construction</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -965,7 +1003,7 @@
                     <tr>
                 <td>int</td>
                 <td>$pad_flag</td>
-                <td>The flag to use for cell padding, must be one of the class `PAD_` constants</td>
+                <td>The flag to use for cell padding, must be one of the class <code>PAD_</code> constants</td>
             </tr>
             </table>
 
@@ -1007,7 +1045,8 @@
     </h3>
     <div class="details">
         <p>Rendering of the table</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -1015,7 +1054,7 @@
                     <table>
         <tr>
             <td>string</td>
-            <td>The result of `$this-&gt;render()`</td>
+            <td>The result of <code>$this-&gt;render()</code></td>
         </tr>
     </table>
 
@@ -1040,7 +1079,8 @@
     </h3>
     <div class="details">
         <p>Get the full table array</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -1048,7 +1088,8 @@
                     <table>
         <tr>
             <td>array</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -1063,9 +1104,9 @@
     <strong>getTableIterator</strong>(string $part = &#039;body&#039;, int $iterator_flag = self::ITERATE_ON_LINES)</code>
     </h3>
     <div class="details">
-        <p>Get the full table or a part of the table as an `ArrayIterator` object</p>
-        <p>With a `null` first parameter (default is `body`), the iterator will be constructed<br />
- on all the table lines or columns, first the headers one, then the body and finally<br />
+        <p>Get the full table or a part of the table as an <code>ArrayIterator</code> object</p>
+        <p>With a <code>null</code> first parameter (default is <code>body</code>), the iterator will be constructed
+ on all the table lines or columns, first the headers one, then the body and finally
  the footers one (without distinction).</p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -1074,12 +1115,12 @@
                     <tr>
                 <td>string</td>
                 <td>$part</td>
-                <td>One of the parts of the table array built by method `getTable()`</td>
+                <td>One of the parts of the table array built by method <code>getTable()</code></td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$iterator_flag</td>
-                <td>The flag to use to build the iterator, must be one of the class `ITERATE_` constants</td>
+                <td>The flag to use to build the iterator, must be one of the class <code>ITERATE_</code> constants</td>
             </tr>
             </table>
 
@@ -1089,7 +1130,7 @@
                     <table>
         <tr>
             <td>object</td>
-            <td>An `ArrayIterator` instance</td>
+            <td>An <code>ArrayIterator</code> instance</td>
         </tr>
     </table>
 
@@ -1099,7 +1140,7 @@
                     <table>
                     <tr>
                 <td><abbr title="An">An</abbr></td>
-                <td>`InvalidArgumentException` is thrown if the part dosen&#039;t exist in the table</td>
+                <td><code>InvalidArgumentException</code> is thrown if the part dosen't exist in the table</td>
             </tr>
             </table>
 
@@ -1123,7 +1164,8 @@
     </h3>
     <div class="details">
         <p>Get a line of the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1131,7 +1173,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to get, if `null`, the last line is returned</td>
+                <td>The index of the line to get, if <code>null</code>, the last line is returned</td>
             </tr>
             </table>
 
@@ -1141,7 +1183,8 @@
                     <table>
         <tr>
             <td>array|null</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -1157,7 +1200,8 @@
     </h3>
     <div class="details">
         <p>Add a new line in the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1180,7 +1224,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1196,7 +1240,8 @@
     </h3>
     <div class="details">
         <p>Get a column of the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1204,7 +1249,7 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to get, if `null`, the last column is returned</td>
+                <td>The index of the column to get, if <code>null</code>, the last column is returned</td>
             </tr>
             </table>
 
@@ -1214,7 +1259,8 @@
                     <table>
         <tr>
             <td>array|null</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -1230,7 +1276,8 @@
     </h3>
     <div class="details">
         <p>Add a new column in the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1243,7 +1290,7 @@
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
                 <td>$default</td>
-                <td>The default value for empty cells, if `null`, the class will use its `pad_flag`</td>
+                <td>The default value for empty cells, if <code>null</code>, the class will use its <code>pad_flag</code></td>
             </tr>
                     <tr>
                 <td>array</td>
@@ -1263,7 +1310,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1279,7 +1326,8 @@
     </h3>
     <div class="details">
         <p>Get a cell of the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1287,12 +1335,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to get, if `null`, last line is chosen</td>
+                <td>The index of the line to get, if <code>null</code>, last line is chosen</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to get in the line, if `null`, last cell is returned</td>
+                <td>The index of the cell to get in the line, if <code>null</code>, last cell is returned</td>
             </tr>
             </table>
 
@@ -1302,7 +1350,8 @@
                     <table>
         <tr>
             <td>string|null</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -1318,7 +1367,8 @@
     </h3>
     <div class="details">
         <p>Add a new cell in the current line of the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1336,7 +1386,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1352,7 +1402,8 @@
     </h3>
     <div class="details">
         <p>Set the table flag used for cell padding</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1360,7 +1411,7 @@
                     <tr>
                 <td>int</td>
                 <td>$flag</td>
-                <td>The flag to use for cell padding, must be one of the class `PAD_` constants</td>
+                <td>The flag to use for cell padding, must be one of the class <code>PAD_</code> constants</td>
             </tr>
             </table>
 
@@ -1370,7 +1421,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1386,7 +1437,8 @@
     </h3>
     <div class="details">
         <p>Get the table pad flag</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -1394,7 +1446,8 @@
                     <table>
         <tr>
             <td>int</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -1410,7 +1463,8 @@
     </h3>
     <div class="details">
         <p>Set the table title</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1428,7 +1482,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1444,7 +1498,8 @@
     </h3>
     <div class="details">
         <p>Get the table title</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -1452,7 +1507,8 @@
                     <table>
         <tr>
             <td>string</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -1468,7 +1524,7 @@
     </h3>
     <div class="details">
         <p>Set the table headers lines</p>
-        <p>The parameter may be an array of array where each item is a line, or a simple<br />
+        <p>The parameter may be an array of array where each item is a line, or a simple
  array that will be considered as 1 line.</p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -1487,7 +1543,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1512,7 +1568,8 @@
     </h3>
     <div class="details">
         <p>Set a table header line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1525,7 +1582,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the end of the headers</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the end of the headers</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
@@ -1540,7 +1597,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1565,7 +1622,8 @@
     </h3>
     <div class="details">
         <p>Add a new table header line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1578,7 +1636,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the end of the headers</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the end of the headers</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
@@ -1593,7 +1651,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1618,7 +1676,8 @@
     </h3>
     <div class="details">
         <p>Set a column in the table header</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1631,12 +1690,12 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to set, if `null`, the column will be added at the end of each line</td>
+                <td>The index of the column to set, if <code>null</code>, the column will be added at the end of each line</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
                 <td>$default</td>
-                <td>The default value for empty cells, if `null`, the class will use its `pad_flag`</td>
+                <td>The default value for empty cells, if <code>null</code>, the class will use its <code>pad_flag</code></td>
             </tr>
             </table>
 
@@ -1646,7 +1705,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1671,7 +1730,8 @@
     </h3>
     <div class="details">
         <p>Add a new column in the table header</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1684,12 +1744,12 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to set, if `null`, the column will be added at the end of each line</td>
+                <td>The index of the column to set, if <code>null</code>, the column will be added at the end of each line</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
                 <td>$default</td>
-                <td>The default value for empty cells, if `null`, the class will use its `pad_flag`</td>
+                <td>The default value for empty cells, if <code>null</code>, the class will use its <code>pad_flag</code></td>
             </tr>
             </table>
 
@@ -1699,7 +1759,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1724,7 +1784,8 @@
     </h3>
     <div class="details">
         <p>Set a table header cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1737,12 +1798,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the headers&#039;last line</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the headers'last line</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to set in the line, if `null`, the cell will be added at the end of the line</td>
+                <td>The index of the cell to set in the line, if <code>null</code>, the cell will be added at the end of the line</td>
             </tr>
             </table>
 
@@ -1752,7 +1813,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1777,7 +1838,8 @@
     </h3>
     <div class="details">
         <p>Add a new table header cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1790,12 +1852,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the headers&#039;last line</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the headers'last line</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to set in the line, if `null`, the cell will be added at the end of the line</td>
+                <td>The index of the cell to set in the line, if <code>null</code>, the cell will be added at the end of the line</td>
             </tr>
             </table>
 
@@ -1805,7 +1867,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -1830,7 +1892,8 @@
     </h3>
     <div class="details">
         <p>Get the table headers lines</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -1863,7 +1926,8 @@
     </h3>
     <div class="details">
         <p>Get a table headers line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1871,7 +1935,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to get, if `null`, the last line is returned</td>
+                <td>The index of the line to get, if <code>null</code>, the last line is returned</td>
             </tr>
             </table>
 
@@ -1906,7 +1970,8 @@
     </h3>
     <div class="details">
         <p>Get a table headers column</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1914,7 +1979,7 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to get, if `null`, the last line is returned</td>
+                <td>The index of the column to get, if <code>null</code>, the last line is returned</td>
             </tr>
             </table>
 
@@ -1949,7 +2014,8 @@
     </h3>
     <div class="details">
         <p>Get a table headers cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1957,12 +2023,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to get, if `null`, the last line is returned</td>
+                <td>The index of the line to get, if <code>null</code>, the last line is returned</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to get in the line, if `null`, the last cell is returned</td>
+                <td>The index of the cell to get in the line, if <code>null</code>, the last cell is returned</td>
             </tr>
             </table>
 
@@ -1997,7 +2063,7 @@
     </h3>
     <div class="details">
         <p>Set the table body lines</p>
-        <p>The parameter may be an array of array where each item is a line, or a simple<br />
+        <p>The parameter may be an array of array where each item is a line, or a simple
  array that will be considered as 1 line.</p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -2016,7 +2082,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2041,7 +2107,8 @@
     </h3>
     <div class="details">
         <p>Set a table body line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2054,7 +2121,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the end of the body</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the end of the body</td>
             </tr>
             </table>
 
@@ -2064,7 +2131,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2089,7 +2156,8 @@
     </h3>
     <div class="details">
         <p>Add a new table body line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2102,7 +2170,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the end of the body</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the end of the body</td>
             </tr>
             </table>
 
@@ -2112,7 +2180,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2137,7 +2205,8 @@
     </h3>
     <div class="details">
         <p>Set a column in the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2150,12 +2219,12 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to set, if `null`, the column will be added at the end of each line</td>
+                <td>The index of the column to set, if <code>null</code>, the column will be added at the end of each line</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
                 <td>$default</td>
-                <td>The default value for empty cells, if `null`, the class will use its `pad_flag`</td>
+                <td>The default value for empty cells, if <code>null</code>, the class will use its <code>pad_flag</code></td>
             </tr>
             </table>
 
@@ -2165,7 +2234,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2190,7 +2259,8 @@
     </h3>
     <div class="details">
         <p>Add a new column in the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2203,12 +2273,12 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to set, if `null`, the column will be added at the end of each line</td>
+                <td>The index of the column to set, if <code>null</code>, the column will be added at the end of each line</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
                 <td>$default</td>
-                <td>The default value for empty cells, if `null`, the class will use its `pad_flag`</td>
+                <td>The default value for empty cells, if <code>null</code>, the class will use its <code>pad_flag</code></td>
             </tr>
             </table>
 
@@ -2218,7 +2288,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2243,7 +2313,8 @@
     </h3>
     <div class="details">
         <p>Set a table body cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2256,12 +2327,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the body&#039;s last line</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the body's last line</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to set in the line, if `null`, the cell will be added at the end of the line</td>
+                <td>The index of the cell to set in the line, if <code>null</code>, the cell will be added at the end of the line</td>
             </tr>
             </table>
 
@@ -2271,7 +2342,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2296,7 +2367,8 @@
     </h3>
     <div class="details">
         <p>Add a new table body cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2309,12 +2381,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the body&#039;s last line</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the body's last line</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to set in the line, if `null`, the cell will be added at the end of the line</td>
+                <td>The index of the cell to set in the line, if <code>null</code>, the cell will be added at the end of the line</td>
             </tr>
             </table>
 
@@ -2324,7 +2396,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2349,7 +2421,8 @@
     </h3>
     <div class="details">
         <p>Get the table body lines</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -2382,7 +2455,8 @@
     </h3>
     <div class="details">
         <p>Get a table body line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2390,7 +2464,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to get, if `null`, the last line is returned</td>
+                <td>The index of the line to get, if <code>null</code>, the last line is returned</td>
             </tr>
             </table>
 
@@ -2425,7 +2499,8 @@
     </h3>
     <div class="details">
         <p>Get a column of the table body</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2433,7 +2508,7 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to get, if `null`, the last column is returned</td>
+                <td>The index of the column to get, if <code>null</code>, the last column is returned</td>
             </tr>
             </table>
 
@@ -2443,7 +2518,8 @@
                     <table>
         <tr>
             <td>array|null</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -2468,7 +2544,8 @@
     </h3>
     <div class="details">
         <p>Get a table body cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2476,12 +2553,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to get, if `null`, the last line is returned</td>
+                <td>The index of the line to get, if <code>null</code>, the last line is returned</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to get in the line, if `null`, the last cell is returned</td>
+                <td>The index of the cell to get in the line, if <code>null</code>, the last cell is returned</td>
             </tr>
             </table>
 
@@ -2516,7 +2593,7 @@
     </h3>
     <div class="details">
         <p>Set the table footer lines</p>
-        <p>The parameter may be an array of array where each item is a line, or a simple<br />
+        <p>The parameter may be an array of array where each item is a line, or a simple
  array that will be considered as 1 line.</p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -2535,7 +2612,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2560,7 +2637,8 @@
     </h3>
     <div class="details">
         <p>Set a table footer line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2573,7 +2651,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the end of the footers</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the end of the footers</td>
             </tr>
             </table>
 
@@ -2583,7 +2661,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2608,7 +2686,8 @@
     </h3>
     <div class="details">
         <p>Add a new table footer line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2621,7 +2700,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the end of the footers</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the end of the footers</td>
             </tr>
             </table>
 
@@ -2631,7 +2710,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2656,7 +2735,8 @@
     </h3>
     <div class="details">
         <p>Set a column in the table footers</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2669,12 +2749,12 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to set, if `null`, the column will be added at the end of each line</td>
+                <td>The index of the column to set, if <code>null</code>, the column will be added at the end of each line</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
                 <td>$default</td>
-                <td>The default value for empty cells, if `null`, the class will use its `pad_flag`</td>
+                <td>The default value for empty cells, if <code>null</code>, the class will use its <code>pad_flag</code></td>
             </tr>
             </table>
 
@@ -2684,7 +2764,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2709,7 +2789,8 @@
     </h3>
     <div class="details">
         <p>Add a new column in the table footers</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2722,12 +2803,12 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to set, if `null`, the column will be added at the end of each line</td>
+                <td>The index of the column to set, if <code>null</code>, the column will be added at the end of each line</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Tool\misc">misc</abbr></td>
                 <td>$default</td>
-                <td>The default value for empty cells, if `null`, the class will use its `pad_flag`</td>
+                <td>The default value for empty cells, if <code>null</code>, the class will use its <code>pad_flag</code></td>
             </tr>
             </table>
 
@@ -2737,7 +2818,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2762,7 +2843,8 @@
     </h3>
     <div class="details">
         <p>Set a table footer cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2775,12 +2857,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the footers&#039;last line</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the footers'last line</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to set in the line, if `null`, the cell will be added at the end of the line</td>
+                <td>The index of the cell to set in the line, if <code>null</code>, the cell will be added at the end of the line</td>
             </tr>
             </table>
 
@@ -2790,7 +2872,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2815,7 +2897,8 @@
     </h3>
     <div class="details">
         <p>Add a new table footer cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2828,12 +2911,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to set, if `null`, the line will be added at the footers&#039;last line</td>
+                <td>The index of the line to set, if <code>null</code>, the line will be added at the footers'last line</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to set in the line, if `null`, the cell will be added at the end of the line</td>
+                <td>The index of the cell to set in the line, if <code>null</code>, the cell will be added at the end of the line</td>
             </tr>
             </table>
 
@@ -2843,7 +2926,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -2868,7 +2951,8 @@
     </h3>
     <div class="details">
         <p>Get the table footers lines</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -2901,7 +2985,8 @@
     </h3>
     <div class="details">
         <p>Get a table footers line</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2909,7 +2994,7 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to get, if `null`, the last line is returned</td>
+                <td>The index of the line to get, if <code>null</code>, the last line is returned</td>
             </tr>
             </table>
 
@@ -2944,7 +3029,8 @@
     </h3>
     <div class="details">
         <p>Get a table footers column</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2952,7 +3038,7 @@
                     <tr>
                 <td>int</td>
                 <td>$column_index</td>
-                <td>The index of the column to get, if `null`, the last line is returned</td>
+                <td>The index of the column to get, if <code>null</code>, the last line is returned</td>
             </tr>
             </table>
 
@@ -2987,7 +3073,8 @@
     </h3>
     <div class="details">
         <p>Get a table footers cell</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2995,12 +3082,12 @@
                     <tr>
                 <td>int</td>
                 <td>$line_index</td>
-                <td>The index of the line to get, if `null`, the last line is returned</td>
+                <td>The index of the line to get, if <code>null</code>, the last line is returned</td>
             </tr>
                     <tr>
                 <td>int</td>
                 <td>$cell_index</td>
-                <td>The index of the cell to get in the line, if `null`, the last cell is returned</td>
+                <td>The index of the cell to get in the line, if <code>null</code>, the last cell is returned</td>
             </tr>
             </table>
 
@@ -3035,7 +3122,8 @@
     </h3>
     <div class="details">
         <p>Get the table columns size</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -3043,7 +3131,8 @@
                     <table>
         <tr>
             <td>int</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -3059,7 +3148,8 @@
     </h3>
     <div class="details">
         <p>Get the table lines size</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -3067,7 +3157,8 @@
                     <table>
         <tr>
             <td>int</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -3083,7 +3174,8 @@
     </h3>
     <div class="details">
         <p>Get the table cells size</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -3091,7 +3183,8 @@
                     <table>
         <tr>
             <td>int</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -3107,7 +3200,8 @@
     </h3>
     <div class="details">
         <p>Get a string information presenting an overview of the table</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -3115,7 +3209,8 @@
                     <table>
         <tr>
             <td>string</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -3131,7 +3226,8 @@
     </h3>
     <div class="details">
         <p>Reset the table sizes</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -3139,7 +3235,8 @@
                     <table>
         <tr>
             <td>void</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -3155,7 +3252,8 @@
     </h3>
     <div class="details">
         <p>Plain text rendering of the table</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -3163,7 +3261,7 @@
                     <tr>
                 <td>int</td>
                 <td>$str_pad_flag</td>
-                <td>One of the PHP internal `str_pad()` `$pad_type`</td>
+                <td>One of the PHP internal <code>str_pad()</code> <code>$pad_type</code></td>
             </tr>
             </table>
 
@@ -3173,7 +3271,8 @@
                     <table>
         <tr>
             <td>string</td>
-            <td></td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -3197,8 +3296,10 @@
     <strong>setContents</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3221,8 +3322,10 @@
     <strong>setContentLine</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3245,8 +3348,10 @@
     <strong>addContentLine</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3269,8 +3374,10 @@
     <strong>setContentColumn</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3293,8 +3400,10 @@
     <strong>setContentCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3317,8 +3426,10 @@
     <strong>setBodyCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3341,8 +3452,10 @@
     <strong>addContentColumn</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3365,8 +3478,10 @@
     <strong>addContentCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3389,8 +3504,10 @@
     <strong>addBodyCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3413,8 +3530,10 @@
     <strong>setContentCell</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3437,8 +3556,10 @@
     <strong>addContentCell</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3461,8 +3582,10 @@
     <strong>getContents</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3485,8 +3608,10 @@
     <strong>getContentLine</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3509,8 +3634,10 @@
     <strong>getContentColumn</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3533,8 +3660,10 @@
     <strong>getContentCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3557,8 +3686,10 @@
     <strong>getBodyCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3581,8 +3712,10 @@
     <strong>getContentCell</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3605,8 +3738,10 @@
     <strong>getTableColSize</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3629,8 +3764,10 @@
     <strong>getCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3653,8 +3790,10 @@
     <strong>getHeaderCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3677,8 +3816,10 @@
     <strong>addHeaderCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3701,8 +3842,10 @@
     <strong>setHeaderCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3725,8 +3868,10 @@
     <strong>getFooterCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3749,8 +3894,10 @@
     <strong>addFooterCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3773,8 +3920,10 @@
     <strong>setFooterCol</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3797,8 +3946,10 @@
     <strong>getColumnSize</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3821,8 +3972,10 @@
     <strong>getColSize</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3845,8 +3998,10 @@
     <strong>getLineSize</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             
@@ -3869,8 +4024,10 @@
     <strong>getCellSize</strong>()</code>
     </h3>
     <div class="details">
-        <p></p>
-        <p></p>
+        <p>
+</p>
+        <p>
+</p>
         <div class="tags">
             
             

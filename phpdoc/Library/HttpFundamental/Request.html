@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\HttpFundamental\Request | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Library/HttpFundamental.html">Library\HttpFundamental</a>\Request</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>Request</strong></p>
+
+            <div class="description">
+            <p>The global request class</p>
+            <p>
+</p>
+        </div>
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>NO_REWRITE</td>
+                <td class="last">
+                    <p><em>Classic URL with arguments as "[script.php]?var=val&amp;var2=val2" pairs</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>REWRITE_SEGMENTS_QUERY</td>
+                <td class="last">
+                    <p><em>Allow a query string written as "[script.php]/var/val/var2/val2" Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_create">create</a>($url = null, $flag = self::NO_REWRITE, $protocol = &#039;http&#039;, $method = &#039;get&#039;, array $headers = null, array $arguments = null, array $data = null, array $session = null, array $files = null, array $cookies = null)
+                    <p>Constructor : defines the current URL and gets the routes</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $url = null, int $flag = self::NO_REWRITE)
+                    <p>Constructor : defines the request URL and the object rewrite flag</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_guessFromCurrent">guessFromCurrent</a>()
+                    <p>Populate the request object with current HTTP request values</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setFlag">setFlag</a>(int $flag)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getFlag">getFlag</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setUrl">setUrl</a>(string $url)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getUrl">getUrl</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setProtocol">setProtocol</a>(string $protocol)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getProtocol">getProtocol</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setMethod">setMethod</a>(string $method)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getMethod">getMethod</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setHeaders">setHeaders</a>(array $headers = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getHeaders">getHeaders</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getHeader">getHeader</a>(string $name)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setArguments">setArguments</a>(string|array $arguments = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getArguments">getArguments</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getArgument">getArgument</a>($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = &#039;UTF-8&#039;)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setData">setData</a>(array|string $data = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getData">getData</a>($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = &#039;UTF-8&#039;)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setFiles">setFiles</a>(array $files = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getFiles">getFiles</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getFile">getFile</a>($param, $index = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setSession">setSession</a>(array $session = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getSession">getSession</a>(string $param = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setCookies">setCookies</a>(array $cookies = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getCookies">getCookies</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getCookie">getCookie</a>(string $param)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setAuthentication">setAuthentication</a>(array $authentication = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setAuthenticationType">setAuthenticationType</a>(string $type)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setAuthenticationUser">setAuthenticationUser</a>(string $user)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setAuthenticationPassword">setAuthenticationPassword</a>(string $pw)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array|string|null
+                </td>
+                <td class="last">
+                    <a href="#method_getAuthentication">getAuthentication</a>(string $param = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isAjax">isAjax</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_isCli">isCli</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_isGet">isGet</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_isPost">isPost</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_isPut">isPut</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getGet">getGet</a>($varname, $default = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getPost">getPost</a>($varname, $default = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getGetOrPost">getGetOrPost</a>($varname, $default = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getPostOrGet">getPostOrGet</a>($varname, $default = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_cleanArgument">cleanArgument</a>($arg_value, $flags = ENT_QUOTES, $encoding = &#039;UTF-8&#039;)
+                    <p>Clean the value taken from request arguments or data</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_getEnvironment">getEnvironment</a>(string $varname)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_getClientIp">getClientIp</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_create">
+        <div class="location">at line 109</div>
+        <code>        static    public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>create</strong>($url = null, $flag = self::NO_REWRITE, $protocol = &#039;http&#039;, $method = &#039;get&#039;, array $headers = null, array $arguments = null, array $data = null, array $session = null, array $files = null, array $cookies = null)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor : defines the current URL and gets the routes</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$url</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$flag</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$protocol</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$method</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$data</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$session</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$files</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$cookies</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___construct">
+        <div class="location">at line 137</div>
+        <code>            public            
+    <strong>__construct</strong>(string $url = null, int $flag = self::NO_REWRITE)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor : defines the request URL and the object rewrite flag</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$url</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$flag</td>
+                <td>Must be one of the class <code>REWRITE</code> constants</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_guessFromCurrent">
+        <div class="location">at line 149</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>guessFromCurrent</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Populate the request object with current HTTP request values</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>\Library\Helper\Url::getRequestUrl()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_setFlag">
+        <div class="location">at line 176</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setFlag</strong>(int $flag)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$flag</td>
+                <td>Must be one of the class <code>REWRITE</code> constants</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFlag">
+        <div class="location">at line 185</div>
+        <code>            public            int
+    <strong>getFlag</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setUrl">
+        <div class="location">at line 194</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setUrl</strong>(string $url)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$url</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUrl">
+        <div class="location">at line 203</div>
+        <code>            public            string|null
+    <strong>getUrl</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setProtocol">
+        <div class="location">at line 212</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setProtocol</strong>(string $protocol)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$protocol</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getProtocol">
+        <div class="location">at line 221</div>
+        <code>            public            string|null
+    <strong>getProtocol</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setMethod">
+        <div class="location">at line 230</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setMethod</strong>(string $method)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$method</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMethod">
+        <div class="location">at line 239</div>
+        <code>            public            string|null
+    <strong>getMethod</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setHeaders">
+        <div class="location">at line 248</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setHeaders</strong>(array $headers = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHeaders">
+        <div class="location">at line 257</div>
+        <code>            public            array|null
+    <strong>getHeaders</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHeader">
+        <div class="location">at line 266</div>
+        <code>            public            string|null
+    <strong>getHeader</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setArguments">
+        <div class="location">at line 275</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setArguments</strong>(string|array $arguments = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string|array</td>
+                <td>$arguments</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getArguments">
+        <div class="location">at line 286</div>
+        <code>            public            array|null
+    <strong>getArguments</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getArgument">
+        <div class="location">at line 299</div>
+        <code>            public            string
+    <strong>getArgument</strong>($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = &#039;UTF-8&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$param</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$default</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$clean</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$clean_flags</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$clean_encoding</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The value retrieved, $default otherwise</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setData">
+        <div class="location">at line 312</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setData</strong>(array|string $data = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array|string</td>
+                <td>$data</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getData">
+        <div class="location">at line 327</div>
+        <code>            public            string|array|null
+    <strong>getData</strong>($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = &#039;UTF-8&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$param</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$default</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$clean</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$clean_flags</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$clean_encoding</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setFiles">
+        <div class="location">at line 344</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setFiles</strong>(array $files = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$files</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFiles">
+        <div class="location">at line 353</div>
+        <code>            public            array|null
+    <strong>getFiles</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFile">
+        <div class="location">at line 362</div>
+        <code>            public            array|null
+    <strong>getFile</strong>($param, $index = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$param</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$index</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setSession">
+        <div class="location">at line 378</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setSession</strong>(array $session = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$session</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSession">
+        <div class="location">at line 388</div>
+        <code>            public            array|null
+    <strong>getSession</strong>(string $param = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$param</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setCookies">
+        <div class="location">at line 401</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setCookies</strong>(array $cookies = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$cookies</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCookies">
+        <div class="location">at line 410</div>
+        <code>            public            array|null
+    <strong>getCookies</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCookie">
+        <div class="location">at line 419</div>
+        <code>            public            array|null
+    <strong>getCookie</strong>(string $param)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$param</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setAuthentication">
+        <div class="location">at line 428</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setAuthentication</strong>(array $authentication = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$authentication</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setAuthenticationType">
+        <div class="location">at line 438</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setAuthenticationType</strong>(string $type)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setAuthenticationUser">
+        <div class="location">at line 448</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setAuthenticationUser</strong>(string $user)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$user</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setAuthenticationPassword">
+        <div class="location">at line 458</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+    <strong>setAuthenticationPassword</strong>(string $pw)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$pw</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAuthentication">
+        <div class="location">at line 468</div>
+        <code>            public            array|string|null
+    <strong>getAuthentication</strong>(string $param = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$param</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array|string|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isAjax">
+        <div class="location">at line 484</div>
+        <code>        static    public            bool
+    <strong>isAjax</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isCli">
+        <div class="location">at line 493</div>
+        <code>            public            bool
+    <strong>isCli</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isGet">
+        <div class="location">at line 501</div>
+        <code>            public            bool
+    <strong>isGet</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPost">
+        <div class="location">at line 509</div>
+        <code>            public            bool
+    <strong>isPost</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPut">
+        <div class="location">at line 517</div>
+        <code>            public            bool
+    <strong>isPut</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGet">
+        <div class="location">at line 526</div>
+        <code>            public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getGet</strong>($varname, $default = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$varname</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$default</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPost">
+        <div class="location">at line 535</div>
+        <code>            public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getPost</strong>($varname, $default = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$varname</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$default</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGetOrPost">
+        <div class="location">at line 544</div>
+        <code>            public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getGetOrPost</strong>($varname, $default = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$varname</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$default</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPostOrGet">
+        <div class="location">at line 557</div>
+        <code>            public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getPostOrGet</strong>($varname, $default = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$varname</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$default</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_cleanArgument">
+        <div class="location">at line 619</div>
+        <code>        static    public            string
+    <strong>cleanArgument</strong>($arg_value, $flags = ENT_QUOTES, $encoding = &#039;UTF-8&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Clean the value taken from request arguments or data</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$arg_value</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$flags</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$encoding</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The cleaned value</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getEnvironment">
+        <div class="location">at line 636</div>
+        <code>        static    public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getEnvironment</strong>(string $varname)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$varname</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getClientIp">
+        <div class="location">at line 644</div>
+        <code>        static    public            string
+    <strong>getClientIp</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

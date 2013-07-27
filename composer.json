@@ -1,10 +1,10 @@
 {
     "name": "atelierspierrot/library",
-    "type": "framework",
+    "type": "library",
     "description": "The PHP library package of Les Ateliers Pierrot.",
     "keywords": [ "php", "library", "helpers" ],
     "homepage": "https://github.com/atelierspierrot/library",
-    "version": "1.0.9",
+    "version": "1.0.12",
     "license": "GPL-3.0",
     "authors": [
         {
@@ -19,9 +19,11 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "psr/log": "dev-master",
         "atelierspierrot/patterns": "dev-master"
     },
-    "require-dev": { "sami/sami": "dev-master" },
+    "require-dev": {
+        "psr/log": "dev-master",
+        "sami/sami": "dev-master"
+    },
     "autoload": { "psr-0": {  "Library": "src" } }
 }

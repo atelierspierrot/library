@@ -27,42 +27,48 @@
 
             <div class="description">
             <p>Magic handling of properties access</p>
-            <p>## Presentation<br />
-<br />
- This model will store any property dynamically setted in the `$_data` registry:<br />
-<br />
-     $obj-&gt;prop = value =&gt; $_data[prop] = value<br />
-     $obj-&gt;setProp(value) =&gt; $_data[prop] = value<br />
-<br />
- Depending on the flag of the object, to access the property, use:<br />
-<br />
-     echo $obj-&gt;prop // if flag=PUBLIC_PROPERTIES<br />
-     echo $obj-&gt;getProp() // if flag=PROTECTED_PROPERTIES<br />
-<br />
- Be very carefull about the properties names as they will all be transformed in lower case<br />
- and underscore:<br />
-<br />
-     $obj-&gt;myPropertyName =&gt; $_data[ my_property_name ]<br />
-     $obj-&gt;myProperty_name =&gt; $_data[ my_property_name ]<br />
-<br />
-     $obj-&gt;setMyPropertyName =&gt; $_data[ my_property_name ]<br />
-     $obj-&gt;setMyProperty_name =&gt; $_data[ my_property_name ]<br />
-<br />
- ## Flags<br />
-<br />
- Three contants flags are defined in the class to let you choose the visibility of the object<br />
- properties:<br />
-<br />
- - `PUBLIC_PROPERTIES`: every type of property invocation is allowed,<br />
- - `PROTECTED_PROPERTIES`: only magic getter is allowed: `$obj-&gt;getProp()`, `$obj-&gt;prop` will return `null`,<br />
- - `UNAUTHORIZED_PROPERTIES`: only magic getter is allowed and an exception will be thrown using `$obj-&gt;prop`<br />
-<br />
- Default flag of the class is `PROTECTED_PROPERTIES` to force the magic getter usage and allow you<br />
- to override these methods in your child class if necessary, without worrying about method existence.<br />
-<br />
- ## Rules<br />
-<br />
- All setter methods returns the object itself for chainability.</p>
+            <p><h2>Presentation</h2>
+
+<p>This model will store any property dynamically setted in the <code>$_data</code> registry:</p>
+
+<pre><code> $obj-&gt;prop = value =&gt; $_data[prop] = value
+ $obj-&gt;setProp(value) =&gt; $_data[prop] = value
+</code></pre>
+
+<p>Depending on the flag of the object, to access the property, use:</p>
+
+<pre><code> echo $obj-&gt;prop // if flag=PUBLIC_PROPERTIES
+ echo $obj-&gt;getProp() // if flag=PROTECTED_PROPERTIES
+</code></pre>
+
+<p>Be very carefull about the properties names as they will all be transformed in lower case
+ and underscore:</p>
+
+<pre><code> $obj-&gt;myPropertyName =&gt; $_data[ my_property_name ]
+ $obj-&gt;myProperty_name =&gt; $_data[ my_property_name ]
+
+ $obj-&gt;setMyPropertyName =&gt; $_data[ my_property_name ]
+ $obj-&gt;setMyProperty_name =&gt; $_data[ my_property_name ]
+</code></pre>
+
+<p>## Flags</p>
+
+<p>Three contants flags are defined in the class to let you choose the visibility of the object
+ properties:</p>
+
+<ul>
+<li><code>PUBLIC_PROPERTIES</code>: every type of property invocation is allowed,</li>
+<li><code>PROTECTED_PROPERTIES</code>: only magic getter is allowed: <code>$obj-&gt;getProp()</code>, <code>$obj-&gt;prop</code> will return <code>null</code>,</li>
+<li><p><code>UNAUTHORIZED_PROPERTIES</code>: only magic getter is allowed and an exception will be thrown using <code>$obj-&gt;prop</code></p>
+
+<p>Default flag of the class is <code>PROTECTED_PROPERTIES</code> to force the magic getter usage and allow you
+to override these methods in your child class if necessary, without worrying about method existence.</p>
+
+<h2>Rules</h2>
+
+<p>All setter methods returns the object itself for chainability.</p></li>
+</ul>
+</p>
         </div>
     
             <h2>Constants</h2>
@@ -72,21 +78,24 @@
                 <td>PUBLIC_PROPERTIES</td>
                 <td class="last">
                     <p><em>Defines all registry properties as public</em></p>
-                    <p></p>
+                    <p>
+</p>
                 </td>
             </tr>
                     <tr>
                 <td>PROTECTED_PROPERTIES</td>
                 <td class="last">
                     <p><em>Defines all registry properties as protected</em></p>
-                    <p></p>
+                    <p>
+</p>
                 </td>
             </tr>
                     <tr>
                 <td>UNAUTHORIZED_PROPERTIES</td>
                 <td class="last">
                     <p><em>Defines all registry properties as protected and throw an error if an access is done</em></p>
-                    <p></p>
+                    <p>
+</p>
                 </td>
             </tr>
             </table>
@@ -218,7 +227,8 @@
     </h3>
     <div class="details">
         <p>Object constructor</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -231,7 +241,7 @@
                     <tr>
                 <td>int</td>
                 <td>$flag</td>
-                <td>The object flag (one of the class constants - default is `self::PROTECTED_PROPERTIES`)</td>
+                <td>The object flag (one of the class constants - default is <code>self::PROTECTED_PROPERTIES</code>)</td>
             </tr>
             </table>
 
@@ -248,7 +258,8 @@
     </h3>
     <div class="details">
         <p>Set the object flag for registry properties visibility</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -266,7 +277,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
-            <td>Returns `$this` for chainability</td>
+            <td>Returns <code>$this</code> for chainability</td>
         </tr>
     </table>
 
@@ -282,7 +293,8 @@
     </h3>
     <div class="details">
         <p>Get the object flag for registry properties visibility</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -306,7 +318,7 @@
     </h3>
     <div class="details">
         <p>Magic handler when calling a non-existing method on an object</p>
-        <p>Magic method handling `getProp(default)`, `setProp(value)`, `unsetProp()`, `issetProp()` or `resetProp()` ;<br />
+        <p>Magic method handling <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code> ;
  it may dispatches to the corresponding defined magic method.</p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -367,7 +379,7 @@
     </h3>
     <div class="details">
         <p>Magic handler when calling a non-eixsting method statically on an object</p>
-        <p>Magic static method handling `getProp(default)`, `setProp(value)`, `unsetProp()`, `issetProp()` or `resetProp()` ;<br />
+        <p>Magic static method handling <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code> ;
  it may dispatches to the corresponding defined magic method.</p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -407,7 +419,7 @@
     </h3>
     <div class="details">
         <p>Magic getter</p>
-        <p>Magic method called when `$this-&gt;prop` is invoked.</p>
+        <p>Magic method called when <code>$this-&gt;prop</code> is invoked.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -454,7 +466,7 @@
     </h3>
     <div class="details">
         <p>Magic setter</p>
-        <p>Magic method called when `$this-&gt;arg = value` is invoked.</p>
+        <p>Magic method called when <code>$this-&gt;arg = value</code> is invoked.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -477,7 +489,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
-            <td>Returns `$this` for method chaining</td>
+            <td>Returns <code>$this</code> for method chaining</td>
         </tr>
     </table>
 
@@ -506,7 +518,7 @@
     </h3>
     <div class="details">
         <p>Magic checker</p>
-        <p>Magic method called when `isset($this-&gt;prop)` or `empty($this-&gt;prop)` are invoked.</p>
+        <p>Magic method called when <code>isset($this-&gt;prop)</code> or <code>empty($this-&gt;prop)</code> are invoked.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -524,7 +536,7 @@
                     <table>
         <tr>
             <td>bool</td>
-            <td>This will return `true` if the property exists, `false` otherwise</td>
+            <td>This will return <code>true</code> if the property exists, <code>false</code> otherwise</td>
         </tr>
     </table>
 
@@ -553,7 +565,7 @@
     </h3>
     <div class="details">
         <p>Magic unsetter</p>
-        <p>Magic method called when `unset($this-&gt;prop)` is invoked.</p>
+        <p>Magic method called when <code>unset($this-&gt;prop)</code> is invoked.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -571,7 +583,7 @@
                     <table>
         <tr>
             <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
-            <td>Returns `$this` for method chaining</td>
+            <td>Returns <code>$this</code> for method chaining</td>
         </tr>
     </table>
 
@@ -613,7 +625,7 @@
                     <tr>
                 <td><abbr title="Library\Object\misc">misc</abbr></td>
                 <td>$default</td>
-                <td>A default value to send if the property doesn&#039;t exist in the object</td>
+                <td>A default value to send if the property doesn't exist in the object</td>
             </tr>
             </table>
 
@@ -623,7 +635,7 @@
                     <table>
         <tr>
             <td><abbr title="Library\Object\misc">misc</abbr></td>
-            <td>The value of the property if so, the default value if the property doesn&#039;t exist, or the flobal data array without a property name</td>
+            <td>The value of the property if so, the default value if the property doesn't exist, or the flobal data array without a property name</td>
         </tr>
     </table>
 
@@ -647,12 +659,14 @@
                     <tr>
                 <td></td>
                 <td>$value</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$arg2</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -662,7 +676,7 @@
                     <table>
         <tr>
             <td><abbr title="Library\Object\misc">misc</abbr></td>
-            <td>The value of the property if so, the default value if the property doesn&#039;t exist, or the flobal data array without a property name</td>
+            <td>The value of the property if so, the default value if the property doesn't exist, or the flobal data array without a property name</td>
         </tr>
     </table>
 
@@ -672,7 +686,7 @@
                     <table>
                     <tr>
                 <td><abbr title="Throws">Throws</abbr></td>
-                <td>an InvalidArgumentExcpetion if `$name` is null and `$value` is not an array</td>
+                <td>an InvalidArgumentExcpetion if <code>$name</code> is null and <code>$value</code> is not an array</td>
             </tr>
             </table>
 

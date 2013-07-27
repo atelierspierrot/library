@@ -26,9 +26,11 @@
 
             <div class="description">
             <p>URL common methods</p>
-            <p>For convenience, the best practice is to use:<br />
-<br />
-     use Library\Helper\Url as UrlHelper;</p>
+            <p>For convenience, the best practice is to use:</p>
+
+<pre><code> use Library\Helper\Url as UrlHelper;
+</code></pre>
+</p>
         </div>
     
     
@@ -52,7 +54,7 @@
                 </td>
                 <td class="last">
                     <a href="#method_getHttpProtocol">getHttpProtocol</a>()
-                    <p>Get the current &#039;http&#039; or &#039;https&#039; protocol</p>
+                    <p>Get the current 'http' or 'https' protocol</p>
                 </td>
                 <td></td>
             </tr>
@@ -72,7 +74,7 @@
                 </td>
                 <td class="last">
                     <a href="#method_resolvePath">resolvePath</a>(string $url, boolean $realpath = false)
-                    <p>Returns the URL with paths cleaned (`./` and `../` are resolved)</p>
+                    <p>Returns the URL with paths cleaned (<code>./</code> and <code>../</code> are resolved)</p>
                 </td>
                 <td></td>
             </tr>
@@ -82,7 +84,7 @@
                 </td>
                 <td class="last">
                     <a href="#method_resolveHttp">resolveHttp</a>(string $url)
-                    <p>Returns an URL with leading &#039;http://&#039; if it was absent  Inspired by SPIP &lt;http://spip.net&gt;</p>
+                    <p>Returns an URL with leading 'http://' if it was absent  Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>
                 </td>
                 <td></td>
             </tr>
@@ -168,7 +170,8 @@
     </h3>
     <div class="details">
         <p>Get the current browser URL</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -176,7 +179,7 @@
                     <tr>
                 <td>bool</td>
                 <td>$entities</td>
-                <td>Protect &#039;&amp;&#039; entities parsing them in &#039;&amp;amp;&#039; ? (default is FALSE)</td>
+                <td>Protect '&amp;' entities parsing them in '&amp;' ? (default is FALSE)</td>
             </tr>
                     <tr>
                 <td>bool</td>
@@ -211,8 +214,9 @@
     <strong>getHttpProtocol</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the current &#039;http&#039; or &#039;https&#039; protocol</p>
-        <p></p>
+        <p>Get the current 'http' or 'https' protocol</p>
+        <p>
+</p>
         <div class="tags">
             
                             <h4>Return Value</h4>
@@ -236,7 +240,8 @@
     </h3>
     <div class="details">
         <p>Parse an URL and returns its composition as an array, with the URI query if so</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -269,8 +274,8 @@
     <strong>resolvePath</strong>(string $url, boolean $realpath = false)</code>
     </h3>
     <div class="details">
-        <p>Returns the URL with paths cleaned (`./` and `../` are resolved)</p>
-        <p>Inspired by SPIP &lt;http://spip.net&gt;</p>
+        <p>Returns the URL with paths cleaned (<code>./</code> and <code>../</code> are resolved)</p>
+        <p>Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -283,7 +288,7 @@
                     <tr>
                 <td>boolean</td>
                 <td>$realpath</td>
-                <td>Returns the real path of the path (default is `false`)</td>
+                <td>Returns the real path of the path (default is <code>false</code>)</td>
             </tr>
             </table>
 
@@ -308,8 +313,9 @@
     <strong>resolveHttp</strong>(string $url)</code>
     </h3>
     <div class="details">
-        <p>Returns an URL with leading &#039;http://&#039; if it was absent  Inspired by SPIP &lt;http://spip.net&gt;</p>
-        <p></p>
+        <p>Returns an URL with leading 'http://' if it was absent  Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -343,7 +349,8 @@
     </h3>
     <div class="details">
         <p>Returns if possible an absolute URL in the current system</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -377,7 +384,8 @@
     </h3>
     <div class="details">
         <p>Global URL builder</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -385,17 +393,17 @@
                     <tr>
                 <td><abbr title="Library\Helper\string/array/null">string/array/null</abbr></td>
                 <td>$param</td>
-                <td>A parameter to set, or an array like `param =&gt; value` to set in URL</td>
+                <td>A parameter to set, or an array like <code>param =&gt; value</code> to set in URL</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Helper\string/null">string/null</abbr></td>
                 <td>$value</td>
-                <td>The value of the `$param` argument (if it is a string)</td>
+                <td>The value of the <code>$param</code> argument (if it is a string)</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Helper\string/null">string/null</abbr></td>
                 <td>$url</td>
-                <td>The URL to work on (`self::getRequestUrl()` by default)</td>
+                <td>The URL to work on (<code>self::getRequestUrl()</code> by default)</td>
             </tr>
             </table>
 
@@ -421,7 +429,8 @@
     </h3>
     <div class="details">
         <p>Get the value of an URL parameter</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -429,12 +438,14 @@
                     <tr>
                 <td></td>
                 <td>$param</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$url</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -460,7 +471,8 @@
     </h3>
     <div class="details">
         <p>Set the value of an URL parameter</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -468,22 +480,26 @@
                     <tr>
                 <td></td>
                 <td>$var</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$val</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$url</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$rebuild</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -509,7 +525,8 @@
     </h3>
     <div class="details">
         <p>Rebuild a full URL string from an array of elements</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -517,7 +534,7 @@
                     <tr>
                 <td>array</td>
                 <td>$url_components</td>
-                <td>The array of the URL components:: `scheme`, `user`, `pass`, `host`, `port`, `path`, `params`, `hash`</td>
+                <td>The array of the URL components:: <code>scheme</code>, <code>user</code>, <code>pass</code>, <code>host</code>, <code>port</code>, <code>path</code>, <code>params</code>, <code>hash</code></td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr></td>
@@ -548,7 +565,8 @@
     </h3>
     <div class="details">
         <p>Validate an URL</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -556,17 +574,20 @@
                     <tr>
                 <td></td>
                 <td>$url</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$protocols</td>
-                <td></td>
+                <td>
+</td>
             </tr>
                     <tr>
                 <td></td>
                 <td>$localhost</td>
-                <td></td>
+                <td>
+</td>
             </tr>
             </table>
 
@@ -576,7 +597,7 @@
                     <table>
         <tr>
             <td>bool</td>
-            <td>Returns `true` if this is a URL in one of the specified protocols</td>
+            <td>Returns <code>true</code> if this is a URL in one of the specified protocols</td>
         </tr>
     </table>
 
@@ -592,7 +613,8 @@
     </h3>
     <div class="details">
         <p>Validate an email adress</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -610,7 +632,7 @@
                     <table>
         <tr>
             <td>bool</td>
-            <td>Returns `true` if this is an email</td>
+            <td>Returns <code>true</code> if this is an email</td>
         </tr>
     </table>
 
