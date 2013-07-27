@@ -7,12 +7,16 @@ The PHP library package of Les Ateliers Pierrot
 ## Presentation
 
 This package is a set of PHP basic classes commonly used (in our work) to facilitate
-other developments. It contains some global classes to extend to begin on a robuste base,
+other developments. It contains some global classes to extend to start on a robuste base,
 some useful helpers for some methods often used etc. For a full review of what the library
-embeds, have a look at the `src/` directory contents.
+embeds, have a look at the `src/Library/` directory contents.
+
+This package is based on our [PHP Patterns package](http://github.com/atelierspierrot/patterns).
 
 
 ## Usage
+
+### First notes about standards
 
 As for all our work, we try to follow the coding standards and naming rules most commonly in use:
 
@@ -24,8 +28,11 @@ Knowing that, all classes are named and organized in an architecture to allow th
 
 The whole package is embedded in the `Library` namespace.
 
+In this README documentation, the key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+"SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt).
 
-## Installation
+### Installation
 
 You can use this package in your work in many ways. Note that it depends on the external
 package [PHP Patterns](https://github.com/atelierspierrot/patterns).
@@ -63,12 +70,17 @@ The namespaces will be automatically added to the project Composer autoloader.
 
 ## Quick overview
 
+### HTTP Fundamental
+
+The `Library\HttpFundamental` namespace defines a set of classes to handle a classic HTTP
+request/response protocol.
+
 ### Helpers
 
 The `Library\Helper` namespace defines some classes commonly used following these rules:
 
 - all methods are static,
-- methods may not send error while calling them without the right arguments or with no
+- methods MUST NOT send error while calling them without the right arguments or with no
   argument at all.
 
 

@@ -1,10 +1,10 @@
 {
     "name": "atelierspierrot/library",
-    "type": "framework",
+    "type": "library",
     "description": "The PHP library package of Les Ateliers Pierrot.",
     "keywords": [ "php", "library", "helpers" ],
     "homepage": "https://github.com/atelierspierrot/library",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "license": "GPL-3.0",
     "authors": [
         {

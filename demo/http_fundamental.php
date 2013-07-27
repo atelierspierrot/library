@@ -133,6 +133,10 @@ echo var_export($request,1)."\n";
 ?>
     </pre>
 
+<h3 id="response">Library\HttpFundamental\Response</h3>
+
+<p>TODO : documentation ...</p>
+
         </article>
     </div>
 
