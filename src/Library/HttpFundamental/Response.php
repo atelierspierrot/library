@@ -55,6 +55,7 @@ class Response
         'css' => 'text/css',
         'xml' => 'application/xml',
         'javascript' => 'application/x-javascript',
+        'json' => 'application/json',
     );
 
     /**
@@ -113,7 +114,9 @@ class Response
      */
     public function getHeader($header, $default = null) 
     {
-        return isset($this->headers[$header]) ? $this->headers[$header] : $default;
+        return array_key_exists($header, $this->headers) ? $this->headers[$header] : (
+            array_key_exists(strtolower($header), $this->headers) ? $this->headers[strtolower($header)] : $default
+        );
     }
 
     /**
@@ -177,7 +180,7 @@ class Response
      */
     public function getContent($name, $default = null) 
     {
-        return isset($this->contents[$name]) ? $this->contents[$name] : $default;
+        return array_key_exists($name, $this->contents) ? $this->contents[$name] : $default;
     }
 
     /**
@@ -228,6 +231,27 @@ class Response
 // Send
 // ----------------------
 
+	/**
+	 * @return void
+	 */
+    public function renderHeaders()
+    {
+        self::header($this->getProtocol() . ' ' . $this->getStatus());
+        foreach ($this->getHeaders() as $header=>$content) {
+            self::header(ucfirst($header) . ': ' . $content);
+        }
+    }
+
+    /**
+     * Writes a header string if headers had not been sent
+     *
+     * @param string $str The header string
+     */
+    public static function header($str)
+    {
+        if (!headers_sent()) header($str);
+    }
+
     /**
      * Send the response to the device
      */
@@ -235,11 +259,8 @@ class Response
     {
         if (empty($this->content_type)) $this->guessContentType();
 
-        self::header($this->getProtocol() . ' ' . $this->getStatus());
-        self::header('Content-type: '.$this->content_type.'; charset='.strtoupper($this->getCharset()));
-        foreach ($this->getHeaders() as $header=>$name) {
-            self::header("$header: $name");
-        }
+        $this->addHeader('Content-type', $this->content_type.'; charset='.strtoupper($this->getCharset()));
+        $this->renderHeaders();
 
         $response = $this->content_type->prepareContent($this->getContents());
         if ($return_string) {
@@ -258,13 +279,14 @@ class Response
         if (!empty($file) && @file_exists($file)) {
             if (is_null($file_name)) 
               $file_name = end( explode('/', $file) );
-            self::header("Content-disposition: attachment; filename=".$file_name);
-            self::header("Content-Type: application/force-download");
-            self::header("Content-Transfer-Encoding: $type\n");
-            self::header("Content-Length: ".filesize($file));
-            self::header("Pragma: no-cache");
-            self::header("Cache-Control: must-revalidate, post-check=0, pre-check=0, public");
-            self::header("Expires: 0"); 
+            $this->addHeader('Content-disposition', 'attachment; filename='.$file_name);
+            $this->addHeader('Content-Type', 'application/force-download');
+            $this->addHeader('Content-Transfer-Encoding', $type);
+            $this->addHeader('Content-Length', filesize($file));
+            $this->addHeader('Pragma', 'no-cache');
+            $this->addHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0, public');
+            $this->addHeader('Expires', '0'); 
+            $this->renderHeaders();
             readfile( $file );
             exit;
         }
@@ -281,23 +303,24 @@ class Response
                 $finfo = new \finfo();
                 $type = $finfo->buffer($file_content, FILEINFO_MIME);
             }
-            self::header("Content-Type: $type");
+            $this->addHeader('Content-Type', $type);
+            $this->renderHeaders();
             echo $file_content;
             exit;
         }
         return;
     }
 
-    /**
-     * Writes a header string if headers had not been sent
-     *
-     * @param string $str The header string
-     */
-    public static function header($str)
+    public function redirect($url, $permanent = false)
     {
-        if (!headers_sent()) header($str);
+        if ($permanent) {
+            $this->addHeader('Status', '301 Moved Permanently');
+        } else {
+            $this->addHeader('Status', '302 Found');
+        }
+        $this->addHeader('location', $url);
     }
-
+    
 }
 
 // Endfile
