@@ -345,8 +345,10 @@ class Logger
 	 */
 	protected function getFilePath($level = 100)
 	{
-		return rtrim($this->directory, '/').'/'.$this->getFileName($level)
-			.'.'.trim($this->logfile_extension, '.');
+	    $filename = $this->getFileName($level);
+	    $filext = '.'.trim($this->logfile_extension, '.');
+	    $filename = str_replace($filext, '', $filename) . $filext;
+		return rtrim($this->directory, '/') . '/' . $filename;
 	}
 
 	/**
