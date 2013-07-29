@@ -28,7 +28,7 @@
             <p>URL common methods</p>
             <p>For convenience, the best practice is to use:</p>
 
-<pre><code> use Library\Helper\Url as UrlHelper;
+<pre><code>use Library\Helper\Url as UrlHelper;
 </code></pre>
 </p>
         </div>
@@ -43,8 +43,8 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_getRequestUrl">getRequestUrl</a>(bool $entities = false, bool $base = false, bool $no_file = false)
-                    <p>Get the current browser URL</p>
+                    <a href="#method_getRequestUrl">getRequestUrl</a>(bool $entities = false, bool $base = false, bool $no_file = false, bool $no_rewrite = false)
+                    <p>Get the current browser/server URL</p>
                 </td>
                 <td></td>
             </tr>
@@ -164,12 +164,12 @@
         <h2>Details</h2>
 
                         <h3 id="method_getRequestUrl">
-        <div class="location">at line 32</div>
+        <div class="location">at line 34</div>
         <code>        static    public            string
-    <strong>getRequestUrl</strong>(bool $entities = false, bool $base = false, bool $no_file = false)</code>
+    <strong>getRequestUrl</strong>(bool $entities = false, bool $base = false, bool $no_file = false, bool $no_rewrite = false)</code>
     </h3>
     <div class="details">
-        <p>Get the current browser URL</p>
+        <p>Get the current browser/server URL</p>
         <p>
 </p>
         <div class="tags">
@@ -191,6 +191,11 @@
                 <td>$no_file</td>
                 <td>Do you want just the base URL path, without the input file and any URI (default is FALSE)</td>
             </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$no_rewrite</td>
+                <td>Do you want the real file pointed by the URL in case of URL rewriting (default is FALSE)</td>
+            </tr>
             </table>
 
             
@@ -199,7 +204,8 @@
                     <table>
         <tr>
             <td>string</td>
-            <td>The URL found</td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -209,7 +215,7 @@
     </div>
 
                 <h3 id="method_getHttpProtocol">
-        <div class="location">at line 65</div>
+        <div class="location">at line 75</div>
         <code>        static    public            string
     <strong>getHttpProtocol</strong>()</code>
     </h3>
@@ -234,7 +240,7 @@
     </div>
 
                 <h3 id="method_parse">
-        <div class="location">at line 79</div>
+        <div class="location">at line 89</div>
         <code>        static    public            array
     <strong>parse</strong>(string $url)</code>
     </h3>
@@ -269,7 +275,7 @@
     </div>
 
                 <h3 id="method_resolvePath">
-        <div class="location">at line 98</div>
+        <div class="location">at line 108</div>
         <code>        static    public            string
     <strong>resolvePath</strong>(string $url, boolean $realpath = false)</code>
     </h3>
@@ -308,7 +314,7 @@
     </div>
 
                 <h3 id="method_resolveHttp">
-        <div class="location">at line 121</div>
+        <div class="location">at line 131</div>
         <code>        static    public            string
     <strong>resolveHttp</strong>(string $url)</code>
     </h3>
@@ -343,7 +349,7 @@
     </div>
 
                 <h3 id="method_getAbsoluteUrl">
-        <div class="location">at line 134</div>
+        <div class="location">at line 144</div>
         <code>        static    public            string
     <strong>getAbsoluteUrl</strong>(string $url)</code>
     </h3>
@@ -378,7 +384,7 @@
     </div>
 
                 <h3 id="method_url">
-        <div class="location">at line 151</div>
+        <div class="location">at line 161</div>
         <code>        static    public            string
     <strong>url</strong>(<abbr title="Library\Helper\string/array/null">string/array/null</abbr> $param = null, <abbr title="Library\Helper\string/null">string/null</abbr> $value = null, <abbr title="Library\Helper\string/null">string/null</abbr> $url = null)</code>
     </h3>
@@ -423,7 +429,7 @@
     </div>
 
                 <h3 id="method_getParameter">
-        <div class="location">at line 182</div>
+        <div class="location">at line 192</div>
         <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
     <strong>getParameter</strong>($param = false, $url = false)</code>
     </h3>
@@ -465,7 +471,7 @@
     </div>
 
                 <h3 id="method_setParameter">
-        <div class="location">at line 211</div>
+        <div class="location">at line 221</div>
         <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
     <strong>setParameter</strong>($var = &#039;&#039;, $val = false, $url = false, $rebuild = true)</code>
     </h3>
@@ -519,7 +525,7 @@
     </div>
 
                 <h3 id="method_build">
-        <div class="location">at line 231</div>
+        <div class="location">at line 241</div>
         <code>        static    public            string
     <strong>build</strong>(array $url_components = null, <abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr> $not_toput = null)</code>
     </h3>
@@ -559,7 +565,7 @@
     </div>
 
                 <h3 id="method_isUrl">
-        <div class="location">at line 262</div>
+        <div class="location">at line 272</div>
         <code>        static    public            bool
     <strong>isUrl</strong>($url = null, $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), $localhost = false)</code>
     </h3>
@@ -607,7 +613,7 @@
     </div>
 
                 <h3 id="method_isEmail">
-        <div class="location">at line 278</div>
+        <div class="location">at line 288</div>
         <code>        static    public            bool
     <strong>isEmail</strong>(string $email = null)</code>
     </h3>
