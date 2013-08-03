@@ -4,8 +4,8 @@
 @ini_set('display_errors','1'); @error_reporting(E_ALL ^ E_NOTICE);
 
 // set a default timezone to avoid PHP5 warnings
-$dtmz = date_default_timezone_get();
-date_default_timezone_set( !empty($dtmz) ? $dtmz:'Europe/Paris' );
+$dtmz = @date_default_timezone_get();
+date_default_timezone_set($dtmz?:'Europe/Paris');
 
 // for security
 function _getSecuredRealPath( $str )
