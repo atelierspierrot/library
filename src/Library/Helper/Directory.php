@@ -92,38 +92,51 @@ class Directory
     {
         if (file_exists($path) && is_dir($path)) {
             if (!is_dir($path) || is_link($path)) {
+                if (array_key_exists($path, $logs)) {
+                    return false;
+                }
                 if (unlink($path)) {
                     return true;
                 } else {
-                    $logs[] = sprintf('Can not unlink file "%s".', $path);
+                    $logs[$path] = sprintf('Can not unlink file "%s".', $path);
                 }
             }
             $iterator = new \RecursiveIteratorIterator(
                 new \RecursiveDirectoryIterator($path), 
                 \RecursiveIteratorIterator::SELF_FIRST | \FilesystemIterator::CURRENT_AS_FILEINFO | \FilesystemIterator::SKIP_DOTS
             );
-            foreach($iterator as $item) {
+            foreach ($iterator as $item) {
+                if (in_array($item->getFilename(), array('.', '..'))) {
+                    continue;
+                }
+                $_path = $item->getRealpath();
+                if (array_key_exists($_path, $logs)) {
+                    return false;
+                }
                 if ($item->isDir()) {
-                    if (false===$ok = self::remove($item, $logs)) {
-                        $logs[] = sprintf('Can not remove diretory "%s".', $item);
+                    if (false===$ok = self::remove($_path, $logs)) {
+                        $logs[$_path] = sprintf('Can not remove diretory "%s".', $_path);
                     }
                 } else {
-                    if (false===$ok = File::remove($item, $logs)) {
-                        $logs[] = sprintf('Can not unlink file "%s".', $item);
+                    if (false===$ok = File::remove($_path, $logs)) {
+                        $logs[$_path] = sprintf('Can not unlink file "%s".', $_path);
                     }
                 }
             } 
             if (true===$ok) {
+                if (array_key_exists($path, $logs)) {
+                    return false;
+                }
                 if (rmdir($path)) {
                     return true;
                 } else {
-                    $logs[] = sprintf('Can not remove directory "%s".', $path);
+                    $logs[$path] = sprintf('Can not remove directory "%s".', $path);
                 }
             }
             clearstatcache();
             return $ok;
         } else {
-            $logs[] = sprintf('Directory "%s" not found.', $path);
+            $logs[$path] = sprintf('Directory "%s" not found.', $path);
         }
         return false;
     }

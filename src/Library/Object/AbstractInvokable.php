@@ -376,7 +376,7 @@ abstract class AbstractInvokable implements InvokableInterface
      * @param string $name The property name
      * @return bool
      */
-    private function __isInvokableStatic($name)
+    private static function __isInvokableStatic($name)
     {
         $classname = get_called_class();
         $reflection_class = new ReflectionClass($classname);
