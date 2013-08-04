@@ -19,9 +19,9 @@ class Crypt
 
     protected $salt = 'SIdCWq_yGhwxJwt#$/ 9RU*3&hkFw(mXj:AO4%hay|alf+bzic#p/DBY9v5G#Sn)';
 
-    public function __construct($last = null)
+    public function __construct($salt = null)
     {
-        if (!is_null($aslt)) $this->setSalt($salt);
+        if (!is_null($salt)) $this->setSalt($salt);
     }
 
     public function setSalt($salt)

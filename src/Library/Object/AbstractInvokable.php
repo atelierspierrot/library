@@ -301,7 +301,7 @@ abstract class AbstractInvokable implements InvokableInterface
         $is_static = self::__isStatic($name);
         $property = $this->findPropertyName($name);
         if (!empty($property)) {
-            return $is_static ? $this::${$property} : $this->{$property};
+            return $is_static ? @$this::${$property} : @$this->{$property};
         }
         return $default;
     }
