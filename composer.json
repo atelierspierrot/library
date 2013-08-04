@@ -2,9 +2,9 @@
     "name": "atelierspierrot/library",
     "type": "library",
     "description": "The PHP library package of Les Ateliers Pierrot.",
-    "keywords": [ "php", "library", "helpers" ],
-    "homepage": "https://github.com/atelierspierrot/library",
-    "version": "1.0.12",
+    "keywords": [ "library", "helpers" ],
+    "homepage": "http://github.com/atelierspierrot/library",
+    "version": "1.1.0",
     "license": "GPL-3.0",
     "authors": [
         {
