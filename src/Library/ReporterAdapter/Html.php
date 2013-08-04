@@ -163,9 +163,11 @@ class Html
         $items_args = $this->_getArgsStack($args, 'items');
 
         // loop on each list items
-        foreach($content as $i=>$item_str) {
+        $i = 0;
+        foreach ($content as $i=>$item_str) {
             $item_args = array_merge_recursive($items_args, $this->_getArgsStack($args, 'item'.$i));
             $items_content .= $this->_tagComposer($item_str, $tag_type.'_item', $item_args);
+            $i++;
         }
         
         $content = $items_content;
@@ -187,12 +189,14 @@ class Html
         $descriptions_args = $this->_getArgsStack($args, 'description');
 
         // loop on each list items
-        foreach($content as $term=>$def) {
+        $i = 0;
+        foreach ($content as $term=>$def) {
             $term_args = array_merge_recursive($terms_args, $this->_getArgsStack($args, 'term'.$i));
             $description_args = array_merge_recursive($descriptions_args, $this->_getArgsStack($args, 'description'.$i));
             $items_content .= 
                 $this->_tagComposer($term, 'definition_term', $term_args)
                 .$this->_tagComposer($def, 'definition_description', $description_args);
+            $i++;
         }
         
         $content = $items_content;

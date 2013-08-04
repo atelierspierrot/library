@@ -40,7 +40,7 @@ class Url
                 $url .= '?'.$_SERVER['QUERY_STRING'];
             }
         } else {
-            $request_uri = $GLOBALS['REQUEST_URI'];
+            $request_uri = isset($GLOBALS['REQUEST_URI']) ? $GLOBALS['REQUEST_URI'] : null;
             if (empty($request_uri)) {
                 if (isset($_SERVER['REQUEST_URI'])) {
                     $request_uri = $_SERVER['REQUEST_URI'];

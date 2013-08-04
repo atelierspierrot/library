@@ -33,6 +33,9 @@ function _getSecuredRealPath($path, $depth_from_root = 1)
     return str_replace(join($ds, $parts), $ds.'[***]', $path);
 }
 
+// arguments settings
+$arg_ln = isset($_GET['ln']) ? $_GET['ln'] : 'en';
+
 function getPhpClassManualLink( $class_name, $ln='en' )
 {
     return sprintf('http://php.net/manual/%s/class.%s.php', $ln, strtolower($class_name));
@@ -782,8 +785,9 @@ echo $reporter->render($full_table_contents, "table");
 
 echo $reporter->render($full_table_contents, "table", $table_args);
 
+/*
 echo $reporter->render($errors_full_table_contents, "table", $errors_table_args);
-
+*/
 echo $reporter->render($definitions, "definition");
 ?>
 </blockquote>
