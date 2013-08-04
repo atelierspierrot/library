@@ -7,9 +7,9 @@
  * `E_ALL & ~E_STRICT` => for hard dev in PHP5.4 avoiding strict warnings
  * `E_ALL & ~E_NOTICE & ~E_STRICT` => classic setting
  */
-//@ini_set('display_errors','1'); @error_reporting(E_ALL);
+@ini_set('display_errors','1'); @error_reporting(E_ALL);
 //@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_STRICT);
-@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+//@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 
 /**
  * Set a default timezone to avoid PHP5 warnings
@@ -32,6 +32,9 @@ function _getSecuredRealPath($path, $depth_from_root = 1)
     for ($i=0; $i<=$depth_from_root; $i++) array_pop($parts);
     return str_replace(join($ds, $parts), $ds.'[***]', $path);
 }
+
+// arguments settings
+$arg_ln = isset($_GET['ln']) ? $_GET['ln'] : 'en';
 
 function getPhpClassManualLink( $class_name, $ln='en' )
 {
@@ -782,8 +785,9 @@ echo $reporter->render($full_table_contents, "table");
 
 echo $reporter->render($full_table_contents, "table", $table_args);
 
+/*
 echo $reporter->render($errors_full_table_contents, "table", $errors_table_args);
-
+*/
 echo $reporter->render($definitions, "definition");
 ?>
 </blockquote>

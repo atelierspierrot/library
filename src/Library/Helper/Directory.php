@@ -24,6 +24,16 @@ class Directory
 {
 
     /**
+     * @var int
+     */
+    const DEFAULT_UNIX_CHMOD_DIRECTORIES = 755;
+
+    /**
+     * @var int
+     */
+    const DEFAULT_UNIX_CHMOD_FILES = 644;
+
+    /**
      * Get a dirname with one and only trailing slash
      *
      * @param string $dirname
@@ -60,7 +70,7 @@ class Directory
      * @param bool $recursive
      * @return bool
      */
-    public static function ensureExists($path, $mode = 777, $recursive = true)
+    public static function ensureExists($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
     {
         if (file_exists($path) && is_dir($path)) return true;
         return self::create($path, $mode, $recursive);
@@ -74,7 +84,7 @@ class Directory
      * @param bool $recursive
      * @return bool
      */
-    public static function create($path, $mode = 777, $recursive = true)
+    public static function create($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
     {
         return mkdir($path, Filesystem::getOctal($mode), $recursive);
     }
@@ -151,8 +161,10 @@ class Directory
      * @param array $logs Logs registry passed by reference
      * @return bool
      */
-    public static function chmod($path, $mode = 777, $recursive = true, $file_mode = 777, array &$logs = array())
-    {
+    public static function chmod(
+        $path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES,
+        $recursive = true, $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array &$logs = array()
+    ){
         $ok = false;
         if (file_exists($path) && is_dir($path)) {
             if (true!==$ok = chmod($path, Filesystem::getOctal($mode))) {
@@ -164,6 +176,9 @@ class Directory
                     \RecursiveIteratorIterator::SELF_FIRST | \FilesystemIterator::CURRENT_AS_FILEINFO | \FilesystemIterator::SKIP_DOTS
                 );
                 foreach($iterator as $item) {
+                    if (in_array($item->getFilename(), array('.', '..'))) {
+                        continue;
+                    }
                     if ($item->isDir()) {
                         if (true!==$ok = chmod($item, Filesystem::getOctal($mode))) {
                             $logs[] = sprintf('Can not change mode on sub-directory "%s" (trying to set them on "%d").', $item, $mode);
