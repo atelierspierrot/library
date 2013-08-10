@@ -140,13 +140,82 @@ echo '// => '.var_export($ctt_html,1)."\n";
 
 <h3 id="request">Library\HttpFundamental\Request</h3>
 
-<p>You can play with this object adding GET arguments to current URL.</p>
+<h4>Current request</h4>
+
+<p>The object below is populated analyzing the current request made to view this page.</p>
+<p>You can play with this object adding arguments or data to current URL. Some tools can help you to do so, such as the <a href="http://addons.mozilla.org/fr/firefox/addon/tamper-data/" title="Extension's webpage">Tamper Data</a> extension for <a href="http://www.mozilla.org/en-US/firefox/fx/" title="Web-browser webpage">Firefox</a>.</p>
 
     <pre class="code" data-language="php">
 <?php
 $request = new Library\HttpFundamental\Request;
 echo '$request = new Library\HttpFundamental\Request;'."\n";
 echo var_export($request,1)."\n";
+?>
+    </pre>
+
+<h4>Custom request</h4>
+
+    <pre class="code" data-language="php">
+<?php
+/*
+    public static function create(
+        $url = null, $flag = self::NO_REWRITE,
+        $protocol = 'http', $method = 'get', array $headers = null, 
+        array $arguments = null, array $data = null, 
+        array $session = null, array $files = null, array $cookies = null
+    ) {
+*/
+$url = Library\Helper\Url::getRequestUrl(false, true);
+$flag = Library\HttpFundamental\Request::NO_REWRITE;
+$protocol = 'http';
+$method = 'get';
+$headers = null;
+$get = array(
+    'get_arg1'=>'value 1',
+    'get_arg2'=>'value 2',
+);
+$post = array(
+    'post_arg1'=>'value 1',
+    'post_arg2'=>'value 2',
+);
+$session = null;
+$files = null;
+$cookies = null;
+$custom_request = Library\HttpFundamental\Request::create(
+    $url, $flag, $protocol, $method, $headers, $get, $post, $session, $files, $cookies
+);
+
+echo '$url = Library\Helper\Url::getRequestUrl(false, true);'."\n";
+echo '$flag = Library\HttpFundamental\Request::NO_REWRITE;'."\n";
+echo '$protocol = "http";'."\n";
+echo '$method = "get";'."\n";
+echo '$headers = null;'."\n";
+echo '$get = array('."\n"
+    ."\t".'"get_arg1"=>"value 1",'."\n"
+    ."\t".'"get_arg2"=>"value 2",'."\n"
+.');'."\n";
+echo '$post = array('."\n"
+    ."\t".'"post_arg1"=>"value 1",'."\n"
+    ."\t".'"post_arg2"=>"value 2",'."\n"
+.');'."\n";
+echo '$session = null;'."\n";
+echo '$files = null;'."\n";
+echo '$cookies = null;'."\n";
+echo '$custom_request = Library\HttpFundamental\Request::create('."\n"
+    ."\t".'$url, $flag, $protocol, $method, $headers, $get, $post, $session, $files, $cookies'."\n"
+.');'."\n";
+echo "\n";
+echo var_export($custom_request,1)."\n";
+echo "\n";
+echo 'echo $custom_request->buildUrl()'."\n";
+echo '// '.$custom_request->buildUrl()."\n";
+echo "\n";
+echo '$custom_request->setFlag(Library\HttpFundamental\Request::REWRITE_SEGMENTS_QUERY)'."\n";
+$custom_request->setFlag(Library\HttpFundamental\Request::REWRITE_SEGMENTS_QUERY);
+echo '$custom_request->setUser("anonymous")'."\n";
+$custom_request->setAuthenticationUser('anonymous');
+echo 'echo $custom_request->buildUrl()'."\n";
+echo '// '.$custom_request->buildUrl()."\n";
 ?>
     </pre>
 
