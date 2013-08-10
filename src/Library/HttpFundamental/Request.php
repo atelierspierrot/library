@@ -138,6 +138,7 @@ class Request
     {
         $this->setFlag($flag);
         if (is_null($url)) $this->guessFromCurrent();
+        else $this->setUrl($url);
     }
 
     /**
@@ -474,6 +475,37 @@ class Request
         }
     }
 
+// -----------------------
+// URL builder
+// -----------------------
+
+    /**
+     * @return string
+     */
+    public function buildUrl()
+    {
+        $url = UrlHelper::parse($this->getUrl());
+        
+        $get = $this->getArguments();
+        if (!empty($get)) {
+            foreach ($get as $arg=>$val) {
+                if ($this->getFlag() & self::REWRITE_SEGMENTS_QUERY) {
+                    $url['path'] .= '/'.$arg.'/'.urlencode($val);
+                } else {
+                    $url['params'][$arg] = $val;
+                }
+            }
+        }
+
+        $user = $this->getAuthentication('user');
+        if (!empty($user)) $url['user'] = $user;
+        $pwd = $this->getAuthentication('pwd');
+        if (!empty($pwd)) $url['pass'] = $pwd;
+
+        $built_url = UrlHelper::build($url);        
+        return $built_url;
+    }
+    
 // -----------------------
 // Aliases
 // -----------------------
