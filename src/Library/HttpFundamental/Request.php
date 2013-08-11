@@ -655,7 +655,7 @@ class Request
         } elseif (is_array($arg_value)) {
             $result = array();
             foreach($arg_value as $arg=>$value) {
-                $result[$arg] = self::cleanArg($value, $flags, $encoding);
+                $result[$arg] = self::cleanArgument($value, $flags, $encoding);
             }
         }
         return $result;
