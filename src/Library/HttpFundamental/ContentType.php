@@ -8,9 +8,9 @@
  */
 namespace Library\HttpFundamental;
 
-use Library\HttpFundamental\ContentTypeInterface,
-    Library\HttpFundamental\Response,
-    Library\Helper\Text as TextHelper;
+use \Library\HttpFundamental\ContentTypeInterface,
+    \Library\HttpFundamental\Response,
+    \Library\Helper\Text as TextHelper;
 
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>

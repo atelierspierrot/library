@@ -9,7 +9,7 @@
 
 namespace Library;
 
-use Library\Helper\Html as HtmlHelper;
+use \Library\Helper\Html as HtmlHelper;
 
 /**
  * Reporter Adapters interface

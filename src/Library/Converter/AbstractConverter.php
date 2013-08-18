@@ -14,7 +14,15 @@ namespace Library\Converter;
 abstract class AbstractConverter
 {
 
-	public static function convert($content);
+    /**
+     * Process a content conversion
+     *
+     * @param misc $content
+     *
+     * @return misc
+     */
+	abstract public static function convert($content);
+
 }
 
 // Endfile

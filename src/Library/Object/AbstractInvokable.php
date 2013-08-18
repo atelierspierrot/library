@@ -9,8 +9,10 @@
 
 namespace Library\Object;
 
-use ReflectionClass, ReflectionMethod, ReflectionProperty;
-use Library\Helper\Code as CodeHelper;
+use \ReflectionClass,
+    \ReflectionMethod,
+    \ReflectionProperty;
+use \Library\Helper\Code as CodeHelper;
 
 /**
  * Magic handling of properties access

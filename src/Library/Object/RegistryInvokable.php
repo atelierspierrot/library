@@ -9,9 +9,9 @@
 
 namespace Library\Object;
 
-use InvalidArgumentException;
-use Patterns\Commons\Registry;
-use Library\Helper\Code as CodeHelper;
+use \InvalidArgumentException;
+use \Patterns\Commons\Registry;
+use \Library\Helper\Code as CodeHelper;
 
 /**
  * Magic handling of properties access

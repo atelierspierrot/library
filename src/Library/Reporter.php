@@ -9,7 +9,7 @@
 
 namespace Library;
 
-use Library\AbstractReporterAdapter;
+use \Library\AbstractReporterAdapter;
 
 /**
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>

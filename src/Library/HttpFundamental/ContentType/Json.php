@@ -8,8 +8,8 @@
  */
 namespace Library\HttpFundamental\ContentType;
 
-use Library\HttpFundamental\ContentTypeInterface,
-    Library\HttpFundamental\Response;
+use \Library\HttpFundamental\ContentTypeInterface,
+    \Library\HttpFundamental\Response;
 
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>

@@ -96,9 +96,11 @@ function getPhpClassManualLink( $class_name, $ln='en' )
 	<h2 id="tests">Tests & documentation</h2>
 
 <?php
-require_once __DIR__."/../src/SplClassLoader.php";
-$classLoader = new SplClassLoader("Library", __DIR__."/../src");
-$classLoader->register();
+if (file_exists($_f = __DIR__."/../vendor/autoload.php")) {
+    require_once $_f;
+} else {
+    trigger_error('You need to run Composer on your package to install dependencies!', E_USER_ERROR);
+}
 ?>
     
 <h3 id="contentype">Library\HttpFundamental\ContentType</h3>

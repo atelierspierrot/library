@@ -8,7 +8,7 @@
  */
 namespace Library\HttpFundamental;
 
-use Library\HttpFundamental\Response;
+use \Library\HttpFundamental\Response;
 
 /**
  */

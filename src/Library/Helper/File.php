@@ -9,7 +9,7 @@
 
 namespace Library\Helper;
 
-use Library\Helper\Text as TextHelper;
+use \Library\Helper\Text as TextHelper;
  
 /**
  * File helper
