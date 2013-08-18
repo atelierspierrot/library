@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Library\Helper\Code | Library</title>
+        <title>Library\Helper\Code | </title>
                     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
                             </head>
         <body id="class">
@@ -16,7 +16,7 @@
             
         </ul>
 
-        <div id="title">Library</div>
+        <div id="title"></div>
 
             <div class="type">Class</div>
     <h1><a href="../../Library/Helper.html">Library\Helper</a>\Code</h1>
@@ -30,7 +30,7 @@
 
 <p>For convenience, the best practice is to use:</p>
 
-<pre><code> use Library\Helper\Code as CodeHelper;
+<pre><code>use Library\Helper\Code as CodeHelper;
 </code></pre>
 </p>
         </div>
@@ -67,6 +67,36 @@
                 <td class="last">
                     <a href="#method_impelementsInterface">impelementsInterface</a>(string|object $class_name, string $interface_name)
                     <p>Check if a class implements a certain interface</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_extendsClass">extendsClass</a>(string|object $class_name, string $mother_name)
+                    <p>Check if a class extends a certain class</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isClassInstance">isClassInstance</a>(object $object, string $class_name)
+                    <p>Check if a an object is an instance of a class</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Library\Helper\misc">misc</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_fetchArguments">fetchArguments</a>(string $_class = null, string $_method = null, <abbr title="Library\Helper\misc">misc</abbr> $args = null)
+                    <p>Launch a class's method fetching it arguments according to method declaration</p>
                 </td>
                 <td></td>
             </tr>
@@ -194,6 +224,136 @@
                     <table>
         <tr>
             <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_extendsClass">
+        <div class="location">at line 79</div>
+        <code>        static    public            bool
+    <strong>extendsClass</strong>(string|object $class_name, string $mother_name)</code>
+    </h3>
+    <div class="details">
+        <p>Check if a class extends a certain class</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string|object</td>
+                <td>$class_name</td>
+                <td>The class name to test or a full object of this class</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$mother_name</td>
+                <td>The class name to extend</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isClassInstance">
+        <div class="location">at line 98</div>
+        <code>        static    public            bool
+    <strong>isClassInstance</strong>(object $object, string $class_name)</code>
+    </h3>
+    <div class="details">
+        <p>Check if a an object is an instance of a class</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>object</td>
+                <td>$object</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$class_name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_fetchArguments">
+        <div class="location">at line 115</div>
+        <code>        static    public            <abbr title="Library\Helper\misc">misc</abbr>
+    <strong>fetchArguments</strong>(string $_class = null, string $_method = null, <abbr title="Library\Helper\misc">misc</abbr> $args = null)</code>
+    </h3>
+    <div class="details">
+        <p>Launch a class's method fetching it arguments according to method declaration</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$_class</td>
+                <td>The class name</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$_method</td>
+                <td>The class method name</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Library\Helper\misc">misc</abbr></td>
+                <td>$args</td>
+                <td>A set of arguments to fetch</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Helper\misc">misc</abbr></td>
             <td>
 </td>
         </tr>

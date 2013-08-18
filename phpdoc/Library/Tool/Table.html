@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Library\Tool\Table | Library</title>
+        <title>Library\Tool\Table | </title>
                     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
                             </head>
         <body id="class">
@@ -16,7 +16,7 @@
             
         </ul>
 
-        <div id="title">Library</div>
+        <div id="title"></div>
 
             <div class="type">Class</div>
     <h1><a href="../../Library/Tool.html">Library\Tool</a>\Table</h1>
@@ -29,44 +29,44 @@
             <p><h2>Presentation</h2>
 
 <p>This class helps to build and work with table in an HTML style, meaning that the table
- may have a caption, and three parts separated in a header, a footer and a body composed
- of lines separated in cells. The class does NOT build any HTML string but organizes and
- completes each table part to have a cleaned and ready-to-work-with array representation
- of the table.</p>
+may have a caption, and three parts separated in a header, a footer and a body composed
+of lines separated in cells. The class does NOT build any HTML string but organizes and
+completes each table part to have a cleaned and ready-to-work-with array representation
+of the table.</p>
 
 <p>A full text schema like a Mysql query result is embedded using method <code>render()</code>.</p>
 
-<p>## Construction of the table</p>
+<h2>Construction of the table</h2>
 
 <p>The table built in this class can be schematized like below ; it is considered as a set
- of cells stored in lines that builds columns.</p>
+of cells stored in lines that builds columns.</p>
 
-<pre><code> +------------+------------+
- | table      | headers    | // "thead" : can be more than 1 line
- +------------+------------+
- | table      | line 1     | // "tbody"
- | table      | line 2     |
- +------------+------------+
- | table      | footers    | // "tfoot" : can be more than 1 line
- +------------+------------+
+<pre><code>+------------+------------+
+| table      | headers    | // "thead" : can be more than 1 line
++------------+------------+
+| table      | line 1     | // "tbody"
+| table      | line 2     |
++------------+------------+
+| table      | footers    | // "tfoot" : can be more than 1 line
++------------+------------+
 </code></pre>
 
 <p>This schema is render as a matrix like, concerning only the body:</p>
 
-<pre><code>        | col A   | col B   |
-        ---------------------
- line 1 | cell A1 | cell B1 |
- line 2 | cell A2 | cell B2 |
+<pre><code>       | col A   | col B   |
+       ---------------------
+line 1 | cell A1 | cell B1 |
+line 2 | cell A2 | cell B2 |
 </code></pre>
 
 <p>Lines, columns and cells are 1 based arrays: first item has key "1" when you want 
- to get or set a position.</p>
+to get or set a position.</p>
 
-<p>## Usage</p>
+<h2>Usage</h2>
 
 <p>For convenience, the best practice is to use an alias:</p>
 
-<pre><code> use Library\Tool\Table as TableTool;
+<pre><code>use Library\Tool\Table as TableTool;
 </code></pre>
 </p>
         </div>
@@ -968,7 +968,7 @@
         <h2>Details</h2>
 
                         <h3 id="method___construct">
-        <div class="location">at line 160</div>
+        <div class="location">at line 161</div>
         <code>            public            
     <strong>__construct</strong>(array $body = array(), array $header = array(), array $footer = array(), string $title = null, int $pad_flag = self::PAD_BY_EMPTY_CELLS)</code>
     </h3>
@@ -1039,7 +1039,7 @@
     </div>
 
                 <h3 id="method___toString">
-        <div class="location">at line 186</div>
+        <div class="location">at line 187</div>
         <code>            public            string
     <strong>__toString</strong>()</code>
     </h3>
@@ -1073,7 +1073,7 @@
     </div>
 
                 <h3 id="method_getTable">
-        <div class="location">at line 200</div>
+        <div class="location">at line 201</div>
         <code>            public            array
     <strong>getTable</strong>()</code>
     </h3>
@@ -1099,15 +1099,15 @@
     </div>
 
                 <h3 id="method_getTableIterator">
-        <div class="location">at line 226</div>
+        <div class="location">at line 227</div>
         <code>            public            object
     <strong>getTableIterator</strong>(string $part = &#039;body&#039;, int $iterator_flag = self::ITERATE_ON_LINES)</code>
     </h3>
     <div class="details">
         <p>Get the full table or a part of the table as an <code>ArrayIterator</code> object</p>
         <p>With a <code>null</code> first parameter (default is <code>body</code>), the iterator will be constructed
- on all the table lines or columns, first the headers one, then the body and finally
- the footers one (without distinction).</p>
+on all the table lines or columns, first the headers one, then the body and finally
+the footers one (without distinction).</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1158,7 +1158,7 @@
     </div>
 
                 <h3 id="method_getLine">
-        <div class="location">at line 284</div>
+        <div class="location">at line 285</div>
         <code>            public            array|null
     <strong>getLine</strong>(int $line_index = null)</code>
     </h3>
@@ -1194,7 +1194,7 @@
     </div>
 
                 <h3 id="method_addLine">
-        <div class="location">at line 296</div>
+        <div class="location">at line 297</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addLine</strong>(array|string $contents = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -1234,7 +1234,7 @@
     </div>
 
                 <h3 id="method_getColumn">
-        <div class="location">at line 308</div>
+        <div class="location">at line 309</div>
         <code>            public            array|null
     <strong>getColumn</strong>(int $column_index = null)</code>
     </h3>
@@ -1270,7 +1270,7 @@
     </div>
 
                 <h3 id="method_addColumn">
-        <div class="location">at line 322</div>
+        <div class="location">at line 323</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addColumn</strong>(array|string $body = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null, array $headers = null, array $footers = null)</code>
     </h3>
@@ -1320,7 +1320,7 @@
     </div>
 
                 <h3 id="method_getCell">
-        <div class="location">at line 341</div>
+        <div class="location">at line 342</div>
         <code>            public            string|null
     <strong>getCell</strong>(int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -1361,7 +1361,7 @@
     </div>
 
                 <h3 id="method_addCell">
-        <div class="location">at line 352</div>
+        <div class="location">at line 353</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addCell</strong>(string $cell = null)</code>
     </h3>
@@ -1396,7 +1396,7 @@
     </div>
 
                 <h3 id="method_setPadFlag">
-        <div class="location">at line 368</div>
+        <div class="location">at line 369</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setPadFlag</strong>(int $flag)</code>
     </h3>
@@ -1431,7 +1431,7 @@
     </div>
 
                 <h3 id="method_getPadFlag">
-        <div class="location">at line 380</div>
+        <div class="location">at line 381</div>
         <code>            public            int
     <strong>getPadFlag</strong>()</code>
     </h3>
@@ -1457,7 +1457,7 @@
     </div>
 
                 <h3 id="method_setTitle">
-        <div class="location">at line 391</div>
+        <div class="location">at line 392</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setTitle</strong>(string $title)</code>
     </h3>
@@ -1492,7 +1492,7 @@
     </div>
 
                 <h3 id="method_getTitle">
-        <div class="location">at line 402</div>
+        <div class="location">at line 403</div>
         <code>            public            string
     <strong>getTitle</strong>()</code>
     </h3>
@@ -1518,14 +1518,14 @@
     </div>
 
                 <h3 id="method_setHeader">
-        <div class="location">at line 417</div>
+        <div class="location">at line 418</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setHeader</strong>(array $contents)</code>
     </h3>
     <div class="details">
         <p>Set the table headers lines</p>
         <p>The parameter may be an array of array where each item is a line, or a simple
- array that will be considered as 1 line.</p>
+array that will be considered as 1 line.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -1562,7 +1562,7 @@
     </div>
 
                 <h3 id="method_setHeaderLine">
-        <div class="location">at line 433</div>
+        <div class="location">at line 434</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setHeaderLine</strong>(array $contents, int $line_index = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -1616,7 +1616,7 @@
     </div>
 
                 <h3 id="method_addHeaderLine">
-        <div class="location">at line 449</div>
+        <div class="location">at line 450</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addHeaderLine</strong>(array $contents, int $line_index = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -1670,7 +1670,7 @@
     </div>
 
                 <h3 id="method_setHeaderColumn">
-        <div class="location">at line 465</div>
+        <div class="location">at line 466</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setHeaderColumn</strong>(array $contents = array(), int $column_index = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -1724,7 +1724,7 @@
     </div>
 
                 <h3 id="method_addHeaderColumn">
-        <div class="location">at line 481</div>
+        <div class="location">at line 482</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addHeaderColumn</strong>(array $contents = array(), int $column_index = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -1778,7 +1778,7 @@
     </div>
 
                 <h3 id="method_setHeaderCell">
-        <div class="location">at line 498</div>
+        <div class="location">at line 499</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setHeaderCell</strong>(array $content, int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -1832,7 +1832,7 @@
     </div>
 
                 <h3 id="method_addHeaderCell">
-        <div class="location">at line 515</div>
+        <div class="location">at line 516</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addHeaderCell</strong>(array $content, int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -1886,7 +1886,7 @@
     </div>
 
                 <h3 id="method_getHeader">
-        <div class="location">at line 527</div>
+        <div class="location">at line 528</div>
         <code>            public            array
     <strong>getHeader</strong>()</code>
     </h3>
@@ -1920,7 +1920,7 @@
     </div>
 
                 <h3 id="method_getHeaderLine">
-        <div class="location">at line 539</div>
+        <div class="location">at line 540</div>
         <code>            public            array
     <strong>getHeaderLine</strong>(int $line_index = null)</code>
     </h3>
@@ -1964,7 +1964,7 @@
     </div>
 
                 <h3 id="method_getHeaderColumn">
-        <div class="location">at line 551</div>
+        <div class="location">at line 552</div>
         <code>            public            array
     <strong>getHeaderColumn</strong>(int $column_index = null)</code>
     </h3>
@@ -2008,7 +2008,7 @@
     </div>
 
                 <h3 id="method_getHeaderCell">
-        <div class="location">at line 564</div>
+        <div class="location">at line 565</div>
         <code>            public            array
     <strong>getHeaderCell</strong>(int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -2057,14 +2057,14 @@
     </div>
 
                 <h3 id="method_setBody">
-        <div class="location">at line 579</div>
+        <div class="location">at line 580</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setBody</strong>(array $contents)</code>
     </h3>
     <div class="details">
         <p>Set the table body lines</p>
         <p>The parameter may be an array of array where each item is a line, or a simple
- array that will be considered as 1 line.</p>
+array that will be considered as 1 line.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2101,7 +2101,7 @@
     </div>
 
                 <h3 id="method_setBodyLine">
-        <div class="location">at line 594</div>
+        <div class="location">at line 595</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setBodyLine</strong>(array $contents, int $line_index = null)</code>
     </h3>
@@ -2150,7 +2150,7 @@
     </div>
 
                 <h3 id="method_addBodyLine">
-        <div class="location">at line 609</div>
+        <div class="location">at line 610</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addBodyLine</strong>(array $contents, int $line_index = null)</code>
     </h3>
@@ -2199,7 +2199,7 @@
     </div>
 
                 <h3 id="method_setBodyColumn">
-        <div class="location">at line 625</div>
+        <div class="location">at line 626</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setBodyColumn</strong>(array $contents = array(), int $column_index = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -2253,7 +2253,7 @@
     </div>
 
                 <h3 id="method_addBodyColumn">
-        <div class="location">at line 641</div>
+        <div class="location">at line 642</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addBodyColumn</strong>(array $contents = array(), int $column_index = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -2307,7 +2307,7 @@
     </div>
 
                 <h3 id="method_setBodyCell">
-        <div class="location">at line 658</div>
+        <div class="location">at line 659</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setBodyCell</strong>(array $content, int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -2361,7 +2361,7 @@
     </div>
 
                 <h3 id="method_addBodyCell">
-        <div class="location">at line 675</div>
+        <div class="location">at line 676</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addBodyCell</strong>(array $content, int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -2415,7 +2415,7 @@
     </div>
 
                 <h3 id="method_getBody">
-        <div class="location">at line 687</div>
+        <div class="location">at line 688</div>
         <code>            public            array
     <strong>getBody</strong>()</code>
     </h3>
@@ -2449,7 +2449,7 @@
     </div>
 
                 <h3 id="method_getBodyLine">
-        <div class="location">at line 699</div>
+        <div class="location">at line 700</div>
         <code>            public            array
     <strong>getBodyLine</strong>(int $line_index = null)</code>
     </h3>
@@ -2493,7 +2493,7 @@
     </div>
 
                 <h3 id="method_getBodyColumn">
-        <div class="location">at line 711</div>
+        <div class="location">at line 712</div>
         <code>            public            array|null
     <strong>getBodyColumn</strong>(int $column_index = null)</code>
     </h3>
@@ -2538,7 +2538,7 @@
     </div>
 
                 <h3 id="method_getBodyCell">
-        <div class="location">at line 724</div>
+        <div class="location">at line 725</div>
         <code>            public            array
     <strong>getBodyCell</strong>(int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -2587,14 +2587,14 @@
     </div>
 
                 <h3 id="method_setFooter">
-        <div class="location">at line 739</div>
+        <div class="location">at line 740</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setFooter</strong>(array $contents)</code>
     </h3>
     <div class="details">
         <p>Set the table footer lines</p>
         <p>The parameter may be an array of array where each item is a line, or a simple
- array that will be considered as 1 line.</p>
+array that will be considered as 1 line.</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -2631,7 +2631,7 @@
     </div>
 
                 <h3 id="method_setFooterLine">
-        <div class="location">at line 754</div>
+        <div class="location">at line 755</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setFooterLine</strong>(array $contents, int $line_index = null)</code>
     </h3>
@@ -2680,7 +2680,7 @@
     </div>
 
                 <h3 id="method_addFooterLine">
-        <div class="location">at line 769</div>
+        <div class="location">at line 770</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addFooterLine</strong>(array $contents, int $line_index = null)</code>
     </h3>
@@ -2729,7 +2729,7 @@
     </div>
 
                 <h3 id="method_setFooterColumn">
-        <div class="location">at line 785</div>
+        <div class="location">at line 786</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setFooterColumn</strong>(array $contents = array(), int $column_index = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -2783,7 +2783,7 @@
     </div>
 
                 <h3 id="method_addFooterColumn">
-        <div class="location">at line 801</div>
+        <div class="location">at line 802</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addFooterColumn</strong>(array $contents = array(), int $column_index = null, <abbr title="Library\Tool\misc">misc</abbr> $default = null)</code>
     </h3>
@@ -2837,7 +2837,7 @@
     </div>
 
                 <h3 id="method_setFooterCell">
-        <div class="location">at line 818</div>
+        <div class="location">at line 819</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>setFooterCell</strong>(array $content, int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -2891,7 +2891,7 @@
     </div>
 
                 <h3 id="method_addFooterCell">
-        <div class="location">at line 835</div>
+        <div class="location">at line 836</div>
         <code>            public            <a href="../../Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a>
     <strong>addFooterCell</strong>(array $content, int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -2945,7 +2945,7 @@
     </div>
 
                 <h3 id="method_getFooter">
-        <div class="location">at line 847</div>
+        <div class="location">at line 848</div>
         <code>            public            array
     <strong>getFooter</strong>()</code>
     </h3>
@@ -2979,7 +2979,7 @@
     </div>
 
                 <h3 id="method_getFooterLine">
-        <div class="location">at line 859</div>
+        <div class="location">at line 860</div>
         <code>            public            array
     <strong>getFooterLine</strong>(int $line_index = null)</code>
     </h3>
@@ -3023,7 +3023,7 @@
     </div>
 
                 <h3 id="method_getFooterColumn">
-        <div class="location">at line 871</div>
+        <div class="location">at line 872</div>
         <code>            public            array
     <strong>getFooterColumn</strong>(int $column_index = null)</code>
     </h3>
@@ -3067,7 +3067,7 @@
     </div>
 
                 <h3 id="method_getFooterCell">
-        <div class="location">at line 884</div>
+        <div class="location">at line 885</div>
         <code>            public            array
     <strong>getFooterCell</strong>(int $line_index = null, int $cell_index = null)</code>
     </h3>
@@ -3116,7 +3116,7 @@
     </div>
 
                 <h3 id="method_getTableColumnSize">
-        <div class="location">at line 894</div>
+        <div class="location">at line 895</div>
         <code>            public            int
     <strong>getTableColumnSize</strong>()</code>
     </h3>
@@ -3142,7 +3142,7 @@
     </div>
 
                 <h3 id="method_getTableLineSize">
-        <div class="location">at line 907</div>
+        <div class="location">at line 908</div>
         <code>            public            int
     <strong>getTableLineSize</strong>()</code>
     </h3>
@@ -3168,7 +3168,7 @@
     </div>
 
                 <h3 id="method_getTableCellSize">
-        <div class="location">at line 920</div>
+        <div class="location">at line 921</div>
         <code>            public            int
     <strong>getTableCellSize</strong>()</code>
     </h3>
@@ -3194,7 +3194,7 @@
     </div>
 
                 <h3 id="method_getSizesInfos">
-        <div class="location">at line 933</div>
+        <div class="location">at line 934</div>
         <code>            public            string
     <strong>getSizesInfos</strong>()</code>
     </h3>
@@ -3220,7 +3220,7 @@
     </div>
 
                 <h3 id="method__resetSizes">
-        <div class="location">at line 1263</div>
+        <div class="location">at line 1264</div>
         <code>            public            void
     <strong>_resetSizes</strong>()</code>
     </h3>
@@ -3246,7 +3246,7 @@
     </div>
 
                 <h3 id="method_render">
-        <div class="location">at line 1310</div>
+        <div class="location">at line 1311</div>
         <code>            public            string
     <strong>render</strong>(int $str_pad_flag = STR_PAD_RIGHT)</code>
     </h3>
@@ -3291,7 +3291,7 @@
     </div>
 
                 <h3 id="method_setContents">
-        <div class="location">at line 1382</div>
+        <div class="location">at line 1383</div>
         <code>            public            
     <strong>setContents</strong>()</code>
     </h3>
@@ -3317,7 +3317,7 @@
     </div>
 
                 <h3 id="method_setContentLine">
-        <div class="location">at line 1390</div>
+        <div class="location">at line 1391</div>
         <code>            public            
     <strong>setContentLine</strong>()</code>
     </h3>
@@ -3343,7 +3343,7 @@
     </div>
 
                 <h3 id="method_addContentLine">
-        <div class="location">at line 1398</div>
+        <div class="location">at line 1399</div>
         <code>            public            
     <strong>addContentLine</strong>()</code>
     </h3>
@@ -3369,7 +3369,7 @@
     </div>
 
                 <h3 id="method_setContentColumn">
-        <div class="location">at line 1406</div>
+        <div class="location">at line 1407</div>
         <code>            public            
     <strong>setContentColumn</strong>()</code>
     </h3>
@@ -3395,7 +3395,7 @@
     </div>
 
                 <h3 id="method_setContentCol">
-        <div class="location">at line 1414</div>
+        <div class="location">at line 1415</div>
         <code>            public            
     <strong>setContentCol</strong>()</code>
     </h3>
@@ -3421,7 +3421,7 @@
     </div>
 
                 <h3 id="method_setBodyCol">
-        <div class="location">at line 1422</div>
+        <div class="location">at line 1423</div>
         <code>            public            
     <strong>setBodyCol</strong>()</code>
     </h3>
@@ -3447,7 +3447,7 @@
     </div>
 
                 <h3 id="method_addContentColumn">
-        <div class="location">at line 1430</div>
+        <div class="location">at line 1431</div>
         <code>            public            
     <strong>addContentColumn</strong>()</code>
     </h3>
@@ -3473,7 +3473,7 @@
     </div>
 
                 <h3 id="method_addContentCol">
-        <div class="location">at line 1438</div>
+        <div class="location">at line 1439</div>
         <code>            public            
     <strong>addContentCol</strong>()</code>
     </h3>
@@ -3499,7 +3499,7 @@
     </div>
 
                 <h3 id="method_addBodyCol">
-        <div class="location">at line 1446</div>
+        <div class="location">at line 1447</div>
         <code>            public            
     <strong>addBodyCol</strong>()</code>
     </h3>
@@ -3525,7 +3525,7 @@
     </div>
 
                 <h3 id="method_setContentCell">
-        <div class="location">at line 1454</div>
+        <div class="location">at line 1455</div>
         <code>            public            
     <strong>setContentCell</strong>()</code>
     </h3>
@@ -3551,7 +3551,7 @@
     </div>
 
                 <h3 id="method_addContentCell">
-        <div class="location">at line 1462</div>
+        <div class="location">at line 1463</div>
         <code>            public            
     <strong>addContentCell</strong>()</code>
     </h3>
@@ -3577,7 +3577,7 @@
     </div>
 
                 <h3 id="method_getContents">
-        <div class="location">at line 1470</div>
+        <div class="location">at line 1471</div>
         <code>            public            
     <strong>getContents</strong>()</code>
     </h3>
@@ -3603,7 +3603,7 @@
     </div>
 
                 <h3 id="method_getContentLine">
-        <div class="location">at line 1478</div>
+        <div class="location">at line 1479</div>
         <code>            public            
     <strong>getContentLine</strong>()</code>
     </h3>
@@ -3629,7 +3629,7 @@
     </div>
 
                 <h3 id="method_getContentColumn">
-        <div class="location">at line 1486</div>
+        <div class="location">at line 1487</div>
         <code>            public            
     <strong>getContentColumn</strong>()</code>
     </h3>
@@ -3655,7 +3655,7 @@
     </div>
 
                 <h3 id="method_getContentCol">
-        <div class="location">at line 1494</div>
+        <div class="location">at line 1495</div>
         <code>            public            
     <strong>getContentCol</strong>()</code>
     </h3>
@@ -3681,7 +3681,7 @@
     </div>
 
                 <h3 id="method_getBodyCol">
-        <div class="location">at line 1502</div>
+        <div class="location">at line 1503</div>
         <code>            public            
     <strong>getBodyCol</strong>()</code>
     </h3>
@@ -3707,7 +3707,7 @@
     </div>
 
                 <h3 id="method_getContentCell">
-        <div class="location">at line 1510</div>
+        <div class="location">at line 1511</div>
         <code>            public            
     <strong>getContentCell</strong>()</code>
     </h3>
@@ -3733,7 +3733,7 @@
     </div>
 
                 <h3 id="method_getTableColSize">
-        <div class="location">at line 1518</div>
+        <div class="location">at line 1519</div>
         <code>            public            
     <strong>getTableColSize</strong>()</code>
     </h3>
@@ -3759,7 +3759,7 @@
     </div>
 
                 <h3 id="method_getCol">
-        <div class="location">at line 1526</div>
+        <div class="location">at line 1527</div>
         <code>            public            
     <strong>getCol</strong>()</code>
     </h3>
@@ -3785,7 +3785,7 @@
     </div>
 
                 <h3 id="method_getHeaderCol">
-        <div class="location">at line 1534</div>
+        <div class="location">at line 1535</div>
         <code>            public            
     <strong>getHeaderCol</strong>()</code>
     </h3>
@@ -3811,7 +3811,7 @@
     </div>
 
                 <h3 id="method_addHeaderCol">
-        <div class="location">at line 1542</div>
+        <div class="location">at line 1543</div>
         <code>            public            
     <strong>addHeaderCol</strong>()</code>
     </h3>
@@ -3837,7 +3837,7 @@
     </div>
 
                 <h3 id="method_setHeaderCol">
-        <div class="location">at line 1550</div>
+        <div class="location">at line 1551</div>
         <code>            public            
     <strong>setHeaderCol</strong>()</code>
     </h3>
@@ -3863,7 +3863,7 @@
     </div>
 
                 <h3 id="method_getFooterCol">
-        <div class="location">at line 1558</div>
+        <div class="location">at line 1559</div>
         <code>            public            
     <strong>getFooterCol</strong>()</code>
     </h3>
@@ -3889,7 +3889,7 @@
     </div>
 
                 <h3 id="method_addFooterCol">
-        <div class="location">at line 1566</div>
+        <div class="location">at line 1567</div>
         <code>            public            
     <strong>addFooterCol</strong>()</code>
     </h3>
@@ -3915,7 +3915,7 @@
     </div>
 
                 <h3 id="method_setFooterCol">
-        <div class="location">at line 1574</div>
+        <div class="location">at line 1575</div>
         <code>            public            
     <strong>setFooterCol</strong>()</code>
     </h3>
@@ -3941,7 +3941,7 @@
     </div>
 
                 <h3 id="method_getColumnSize">
-        <div class="location">at line 1582</div>
+        <div class="location">at line 1583</div>
         <code>            public            
     <strong>getColumnSize</strong>()</code>
     </h3>
@@ -3967,7 +3967,7 @@
     </div>
 
                 <h3 id="method_getColSize">
-        <div class="location">at line 1590</div>
+        <div class="location">at line 1591</div>
         <code>            public            
     <strong>getColSize</strong>()</code>
     </h3>
@@ -3993,7 +3993,7 @@
     </div>
 
                 <h3 id="method_getLineSize">
-        <div class="location">at line 1598</div>
+        <div class="location">at line 1599</div>
         <code>            public            
     <strong>getLineSize</strong>()</code>
     </h3>
@@ -4019,7 +4019,7 @@
     </div>
 
                 <h3 id="method_getCellSize">
-        <div class="location">at line 1606</div>
+        <div class="location">at line 1607</div>
         <code>            public            
     <strong>getCellSize</strong>()</code>
     </h3>

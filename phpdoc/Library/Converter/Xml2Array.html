@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Library\Helper\Filesystem | </title>
+        <title>Library\Converter\Xml2Array | </title>
                     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
                             </head>
         <body id="class">
@@ -19,20 +19,15 @@
         <div id="title"></div>
 
             <div class="type">Class</div>
-    <h1><a href="../../Library/Helper.html">Library\Helper</a>\Filesystem</h1>
+    <h1><a href="../../Library/Converter.html">Library\Converter</a>\Xml2Array</h1>
     </div>
         <div class="content">
-                <p>class    <strong>Filesystem</strong></p>
+                <p>class    <strong>Xml2Array</strong>        extends <a href="../../Library/Converter/AbstractConverter.html"><abbr title="Library\Converter\AbstractConverter">AbstractConverter</abbr></a></p>
 
             <div class="description">
-            <p>File helper</p>
-            <p>As for all helpers, all methods are statics.</p>
-
-<p>For convenience, the best practice is to use:</p>
-
-<pre><code>use Library\Helper\Filesystem as FilesystemHelper;
-</code></pre>
-</p>
+            <p>XML to array converter</p>
+            <p>Freely (but mostly) inspired by the work of Adrien aka Gaarf &amp; contributors
+(see <a href="http://gaarf.info/2009/08/13/xml-string-to-php-array/">http://gaarf.info/2009/08/13/xml-string-to-php-array/</a>).</p>
         </div>
     
     
@@ -42,21 +37,22 @@
             <table>
                     <tr>
                 <td class="type">
-                    static&nbsp;string
+                    static&nbsp;<abbr title="Library\Converter\misc">misc</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_resolveRelatedPath">resolveRelatedPath</a>(string $from, string $to)
-                    <p>Returns a relative path between two filesystem realpaths</p>
+                    <a href="#method_convert">convert</a>($xmlstr)
+                    <p>Process a content conversion</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    static&nbsp;int
+                    static&nbsp;
                 </td>
                 <td class="last">
-                    <a href="#method_getOctal">getOctal</a>(int $int)
-                    <p>Get safely the octal form of <code>$int</code> if necessary</p>
+                    <a href="#method_parse">parse</a>($node)
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -65,13 +61,13 @@
 
         <h2>Details</h2>
 
-                        <h3 id="method_resolveRelatedPath">
-        <div class="location">at line 33</div>
-        <code>        static    public            string
-    <strong>resolveRelatedPath</strong>(string $from, string $to)</code>
+                        <h3 id="method_convert">
+        <div class="location">at line 21</div>
+        <code>        static    public            <abbr title="Library\Converter\misc">misc</abbr>
+    <strong>convert</strong>($xmlstr)</code>
     </h3>
     <div class="details">
-        <p>Returns a relative path between two filesystem realpaths</p>
+        <p>Process a content conversion</p>
         <p>
 </p>
         <div class="tags">
@@ -79,48 +75,8 @@
 
                     <table>
                     <tr>
-                <td>string</td>
-                <td>$from</td>
-                <td>The absolute path to work from</td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$to</td>
-                <td>The absolute path to resolve from <code>$from</code></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table>
-        <tr>
-            <td>string</td>
-            <td>The relative path from <code>$from</code> to <code>$to</code></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_getOctal">
-        <div class="location">at line 62</div>
-        <code>        static    public            int
-    <strong>getOctal</strong>(int $int)</code>
-    </h3>
-    <div class="details">
-        <p>Get safely the octal form of <code>$int</code> if necessary</p>
-        <p>
-</p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td>int</td>
-                <td>$int</td>
+                <td></td>
+                <td>$xmlstr</td>
                 <td>
 </td>
             </tr>
@@ -131,12 +87,40 @@
 
                     <table>
         <tr>
-            <td>int</td>
+            <td><abbr title="Library\Converter\misc">misc</abbr></td>
             <td>
 </td>
         </tr>
     </table>
 
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_parse">
+        <div class="location">at line 31</div>
+        <code>        static    public            
+    <strong>parse</strong>($node)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$node</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
             
             
                     </div>
