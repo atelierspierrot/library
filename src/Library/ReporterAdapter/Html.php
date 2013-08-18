@@ -9,9 +9,8 @@
 
 namespace Library\ReporterAdapter;
 
-use Library\AbstractReporterAdapter;
-
-use Library\Tool\Table as TableTool;
+use \Library\AbstractReporterAdapter;
+use \Library\Tool\Table as TableTool;
 
 /**
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>

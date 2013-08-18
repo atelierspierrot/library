@@ -8,13 +8,15 @@
  */
 namespace Library\HttpFundamental;
 
-use Library\Helper\Url as UrlHelper;
+use \Patterns\Interfaces\RequestInterface;
+use \Library\Helper\Url as UrlHelper;
 
 /**
  * The global request class
+ *
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Request
+class Request implements RequestInterface
 {
 
     /**
@@ -112,7 +114,8 @@ class Request
         array $arguments = null, array $data = null, 
         array $session = null, array $files = null, array $cookies = null
     ) {
-        $request = new self($url, $flag);
+        $_cls = get_called_class();
+        $request = new $_cls($url, $flag);
         if (!is_null($protocol)) $request->setProtocol($protocol);
         if (!is_null($method)) $request->setMethod($method);
         if (!is_null($headers)) $request->setHeaders($headers);

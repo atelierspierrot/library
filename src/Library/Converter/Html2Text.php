@@ -13,7 +13,7 @@ namespace Library\Converter;
  * HTML to plain text converter
  *
  * Freely (but mostly) inspired by the work of Jon Abernathy <jon@chuggnutt.com>
- * and hes "class.html2text.inc" (see <http://www.chuggnutt.com/html2text>).
+ * and his "class.html2text.inc" (see <http://www.chuggnutt.com/html2text>).
  */
 class Html2Text extends AbstractConverter
 {
