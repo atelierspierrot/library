@@ -10,7 +10,7 @@
 namespace Library;
 
 /**
- * Source code parser
+ * Simple crypter 
  *
  * @author      Pierre Cassat & contributors <piero.wbmstr@gmail.com>
  */

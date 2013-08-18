@@ -9,7 +9,7 @@
 
 namespace Library\Helper;
 
-use Library\Helper\Text as TextHelper;
+use \Library\Helper\Text as TextHelper;
 
 /**
  * Code helper
@@ -67,6 +67,65 @@ class Code
         }
         return false;
     }
+
+    /**
+     * Check if a class extends a certain class
+     *
+     * @param string|object $class_name The class name to test or a full object of this class
+     * @param string $mother_name The class name to extend
+     *
+     * @return bool
+     */
+    public static function extendsClass($class_name, $mother_name)
+    {
+        if (is_object($class_name)) {
+            $class_name = get_class($class_name);
+        }
+        if (class_exists($class_name)) {
+            return is_subclass_of($class_name, $mother_name);
+        }
+        return false;
+    }
+
+    /**
+     * Check if a an object is an instance of a class
+     *
+     * @param object $object
+     * @param string $class_name
+     *
+     * @return bool
+     */
+    public static function isClassInstance($object, $class_name)
+    {
+        if (class_exists($class_name) && is_object($object)) {
+            return ($object instanceof $class_name);
+        }
+        return false;
+    }
+
+	/**
+	 * Launch a class's method fetching it arguments according to method declaration
+	 *
+	 * @param string $_class The class name
+	 * @param string $_method The class method name
+	 * @param misc $args A set of arguments to fetch
+	 *
+	 * @return misc
+	 */
+	public static function fetchArguments($_class = null, $_method = null, $args = null)
+	{
+		if (empty($_class) || empty($_method)) return;
+		$args_def = array();
+		if (!empty($args)) {
+			$analyze = new \ReflectionMethod($_class, $_method);
+			foreach ($analyze->getParameters() as $_param) {
+				$arg_index = $_param->getName();
+				$args_def[$_param->getPosition()] = isset($args[$arg_index]) ?
+					$args[$arg_index] : ( $_param->isOptional() ? $_param->getDefaultValue() : null );
+			}
+		}
+		return call_user_func_array(array($_class, $_method), $args_def);
+	}
 
 }
 
