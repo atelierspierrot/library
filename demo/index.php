@@ -303,19 +303,31 @@ var_export($logs);
     <pre class="code" data-language="php">
 <?php
 interface MyInterface {
-    public function MustImplement();
+    public function mustImplement();
 }
 class MyClass implements MyInterface {
-    public function MustImplement()
+    public function mustImplement()
+    {
+        return;
+    }
+}
+class MyChildClass extends MyClass {
+    public function myChildMethod()
     {
         return;
     }
 }
 echo 'interface MyInterface {'."\n"
-    ."\t".'public function MustImplement();'."\n"
+    ."\t".'public function mustImplement();'."\n"
     .'}'."\n"
     .'class MyClass implements MyInterface {'."\n"
-    ."\t".'public function MustImplement()'."\n"
+    ."\t".'public function mustImplement()'."\n"
+    ."\t".'{'."\n"
+    ."\t\t".'return;'."\n"
+    ."\t".'}'."\n"
+    .'}'."\n"
+    .'class MyChildClass extends MyClass {'."\n"
+    ."\t".'public function myChildMethod()'."\n"
     ."\t".'{'."\n"
     ."\t\t".'return;'."\n"
     ."\t".'}'."\n"
@@ -325,8 +337,29 @@ echo 'echo Library\Helper\Code::impelementsInterface("MyClass", "MyInterface");'
 echo '=> '.var_export(Library\Helper\Code::impelementsInterface('MyClass', 'MyInterface'),1)."\n";
 echo 'echo Library\Helper\Code::impelementsInterface("MyClass", "UnknownInterface");'."\n";
 echo '=> '.var_export(Library\Helper\Code::impelementsInterface('MyClass', 'UnknownInterface'),1)."\n";
-
-echo "\n\n";
+echo 'echo Library\Helper\Code::impelementsInterface("UnknownClass", "MyInterface");'."\n";
+echo '=> '.var_export(Library\Helper\Code::impelementsInterface('UnknownClass', 'MyInterface'),1)."\n";
+echo "\n";
+echo 'echo Library\Helper\Code::extendsClass("MyChildClass", "MyClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'MyClass'),1)."\n";
+echo 'echo Library\Helper\Code::extendsClass("MyChildClass", "UnknownClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'UnknownClass'),1)."\n";
+echo 'echo Library\Helper\Code::extendsClass("UnknownClass", "MyClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('UnknownClass', 'MyClass'),1)."\n";
+echo "\n";
+$obj = new MyClass;
+echo '$obj = new MyClass;'."\n";
+echo 'echo Library\Helper\Code::isClassInstance($obj, "MyClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyClass'),1)."\n";
+echo 'echo Library\Helper\Code::isClassInstance($obj, "MyChildClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyChildClass'),1)."\n";
+echo 'echo Library\Helper\Code::isClassInstance($obj, "UnknownClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'UnknownClass'),1)."\n";
+$no_obj = "my var";
+echo '$no_obj = "my var";'."\n";
+echo 'echo Library\Helper\Code::isClassInstance($no_obj, "MyClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($no_obj, 'MyClass'),1)."\n";
+echo "\n";
 echo 'echo Library\Helper\Code::namespaceExists("Library\Helper");'."\n";
 echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\Helper'),1)."\n";
 echo 'echo Library\Helper\Code::namespaceExists("Library\NotExists");'."\n";
