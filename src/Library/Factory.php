@@ -221,13 +221,21 @@ class Factory
             // object creation
             $reflection_obj = new ReflectionClass($_cls);
             if (
-                method_exists($_cls, '__construct') &&
-                is_callable(array($_cls, '__construct'))
+                $reflection_obj->hasMethod('__construct') &&
+                $reflection_obj->getConstructor()->isPublic()
             ) {
-                $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), $parameters);
+                if ($this->call_method==='__construct') {
+                    $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), $parameters);
+                } else {
+                    $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), array());
+                }
             } else {
                 try {
-                    $_caller = new $_cls($parameters);
+                    if ($this->call_method==='__construct') {
+                        $_caller = new $_cls($parameters);
+                    } else {
+                        $_caller = new $_cls;
+                    }
                 } catch (Exception $e) {
                     if ($flag & self::ERROR_ON_FAILURE) {
                         throw new \RuntimeException(
@@ -240,8 +248,8 @@ class Factory
                 $object = $_caller;
             } else {
                 if (
-                    method_exists($_caller, $this->call_method) &&
-                    is_callable(array($_caller, $this->call_method))
+                    $reflection_obj->hasMethod($this->call_method) &&
+                    $reflection_obj->getMethod($this->call_method)->isPublic()
                 ) {
                     if ($reflection_obj->getMethod($this->call_method)->isStatic()) {
                         $object = call_user_func_array(array($_cls, $this->call_method), $parameters);
@@ -284,7 +292,7 @@ class Factory
             $class_names = array($class_names);
         }
         foreach ($class_names as $_cls) {
-            if (true===@class_exists($_cls)) {
+            if (true===class_exists($_cls)) {
                 return $_cls;
             }
         }
@@ -351,7 +359,7 @@ class Factory
         }
         foreach ($names as $_name) {
             foreach ($interfaces as $_interface) {
-                if (@interface_exists($_interface) && CodeHelper::impelementsInterface($_name, $_interface)) {
+                if (interface_exists($_interface) && CodeHelper::impelementsInterface($_name, $_interface)) {
                     return true;
                 }
             }
@@ -372,9 +380,9 @@ class Factory
         if (!is_array($names)) {
             $names = array($names);
         }
-        foreach ($name as $_name) {
+        foreach ($names as $_name) {
             foreach ($classes as $_class) {
-                if (@class_exists($_interface) && CodeHelper::extendsClass($_name, $_class)) {
+                if (class_exists($_class) && CodeHelper::extendsClass($_name, $_class)) {
                     return true;
                 }
             }
