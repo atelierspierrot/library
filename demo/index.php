@@ -365,6 +365,85 @@ echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\Helper'),1).
 echo 'echo Library\Helper\Code::namespaceExists("Library\NotExists");'."\n";
 echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\NotExists'),1)."\n";
 
+
+function MyMethod( $arg_one, $arg_two = 'default 2', $arg_three = 'default 3') 
+{
+    echo "=> calling ".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
+}
+
+class MyTestClass
+{
+    function MyMethod( $arg_one, $arg_two = 'default 2', $arg_three = 'default 3') 
+    {
+        echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
+    }
+    function MyMethod2( $arg_one = 'default 1', $arg_two, $arg_three = 'default 3') 
+    {
+        echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
+    }
+}
+
+echo "\n";
+echo 'function MyMethod( $arg_one, $arg_two = "default 2", $arg_three = "default 3")'."\n"
+    ."{\n"
+    ."\t".'echo "=> calling ".__FUNCTION__." with arguments ".var_export(func_get_args(),1);'."\n"
+    ."}\n";
+echo "\n";
+$rest = array();
+echo '$rest = array()'."\n";
+echo 'echo Library\Helper\Code::organizeArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), null, $logs = array());'."\n";
+echo '=> '.var_export(Library\Helper\Code::organizeArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), null, $rest),1)."\n";
+echo 'echo $rest;'."\n";
+echo '=> '.var_export($rest,1)."\n";
+echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"));'."\n";
+Library\Helper\Code::fetchArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'));
+echo "\n";
+echo "\n";
+echo 'class MyTestClass'."\n"
+    .'{'."\n"
+    ."\t".'function MyMethod( $arg_one, $arg_two = "default 2", $arg_three = "default 3")'."\n"
+    ."\t".'{'."\n"
+    ."\t\t".'echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);'."\n"
+    ."\t".'}'."\n"
+    ."\t".'function MyMethod2( $arg_one = "default 1", $arg_two, $arg_three = "default 3")'."\n"
+    ."\t".'{'."\n"
+    ."\t\t".'echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);'."\n"
+    ."\t".'}'."\n"
+    .'}'."\n";
+echo "\n";
+$rest = array();
+echo '$rest = array()'."\n";
+echo 'echo Library\Helper\Code::organizeArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), "MyTestClass", $rest);'."\n";
+echo '=> '.var_export(Library\Helper\Code::organizeArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass', $rest),1)."\n";
+echo 'echo $rest;'."\n";
+echo '=> '.var_export($rest,1)."\n";
+echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), "MyTestClass");'."\n";
+Library\Helper\Code::fetchArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass');
+echo "\n";
+echo "\n";
+$rest = array();
+echo '$rest = array()'."\n";
+echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_three"=>"test B", "arg_four"=>"test"), "MyTestClass", $rest);'."\n";
+Library\Helper\Code::fetchArguments('MyMethod', array('arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass', $rest);
+echo "\n";
+echo 'echo $rest;'."\n";
+echo '=> '.var_export($rest,1)."\n";
+echo "\n";
+$rest = array();
+echo '$rest = array()'."\n";
+echo 'echo Library\Helper\Code::fetchArguments("MyMethod", "test", "MyTestClass", $rest);'."\n";
+Library\Helper\Code::fetchArguments('MyMethod', 'test', 'MyTestClass', $rest);
+echo "\n";
+echo 'echo $rest;'."\n";
+echo '=> '.var_export($rest,1)."\n";
+echo "\n";
+$rest = array();
+echo '$rest = array()'."\n";
+echo 'echo Library\Helper\Code::fetchArguments("MyMethod2", "test", "MyTestClass", $rest);'."\n";
+Library\Helper\Code::fetchArguments('MyMethod2', 'test', 'MyTestClass', $rest);
+echo "\n";
+echo 'echo $rest;'."\n";
+echo '=> '.var_export($rest,1)."\n";
 ?>
     </pre>
 
