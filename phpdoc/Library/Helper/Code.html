@@ -137,8 +137,18 @@
                     static&nbsp;<abbr title="Library\Helper\misc">misc</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_fetchArguments">fetchArguments</a>(string $_class = null, string $_method = null, <abbr title="Library\Helper\misc">misc</abbr> $args = null)
-                    <p>Launch a class's method fetching it arguments according to method declaration</p>
+                    <a href="#method_fetchArguments">fetchArguments</a>(string $method_name = null, <abbr title="Library\Helper\misc">misc</abbr> $arguments = null, string $class_name = null, array $logs = array())
+                    <p>Launch a function or class's method fetching it arguments according to its declaration</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Library\Helper\misc">misc</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_organizeArguments">organizeArguments</a>(string $method_name = null, <abbr title="Library\Helper\misc">misc</abbr> $arguments = null, string $class_name = null, array $logs = array())
+                    <p>Organize an array of arguments to pass to a function or class's method according to its declaration</p>
                 </td>
                 <td></td>
             </tr>
@@ -398,12 +408,12 @@
     </div>
 
                 <h3 id="method_fetchArguments">
-        <div class="location">at line 197</div>
+        <div class="location">at line 199</div>
         <code>        static    public            <abbr title="Library\Helper\misc">misc</abbr>
-    <strong>fetchArguments</strong>(string $_class = null, string $_method = null, <abbr title="Library\Helper\misc">misc</abbr> $args = null)</code>
+    <strong>fetchArguments</strong>(string $method_name = null, <abbr title="Library\Helper\misc">misc</abbr> $arguments = null, string $class_name = null, array $logs = array())</code>
     </h3>
     <div class="details">
-        <p>Launch a class's method fetching it arguments according to method declaration</p>
+        <p>Launch a function or class's method fetching it arguments according to its declaration</p>
         <p>
 </p>
         <div class="tags">
@@ -412,18 +422,76 @@
                     <table>
                     <tr>
                 <td>string</td>
-                <td>$_class</td>
-                <td>The class name</td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$_method</td>
-                <td>The class method name</td>
+                <td>$method_name</td>
+                <td>The method name</td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Helper\misc">misc</abbr></td>
-                <td>$args</td>
+                <td>$arguments</td>
                 <td>A set of arguments to fetch</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$class_name</td>
+                <td>The class name</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$logs</td>
+                <td>Will be filled with indexes <code>miss</code> with missing required arguments and <code>rest</code> with unused <code>$arguments</code> - Passed by reference</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Helper\misc">misc</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_organizeArguments">
+        <div class="location">at line 225</div>
+        <code>        static    public            <abbr title="Library\Helper\misc">misc</abbr>
+    <strong>organizeArguments</strong>(string $method_name = null, <abbr title="Library\Helper\misc">misc</abbr> $arguments = null, string $class_name = null, array $logs = array())</code>
+    </h3>
+    <div class="details">
+        <p>Organize an array of arguments to pass to a function or class's method according to its declaration</p>
+        <p>Undefined arguments will be fetched with their default value if available or <code>null</code> otherwise.</p>
+
+<p>If <code>$arguments</code> is not an array, the method will search for the first argument with
+no default value and define it on the <code>$arguments</code> value.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$method_name</td>
+                <td>The method name</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Library\Helper\misc">misc</abbr></td>
+                <td>$arguments</td>
+                <td>A set of arguments to fetch</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$class_name</td>
+                <td>The class name</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$logs</td>
+                <td>Will be filled with indexes <code>miss</code> with missing required arguments and <code>rest</code> with unused <code>$arguments</code> - Passed by reference</td>
             </tr>
             </table>
 
