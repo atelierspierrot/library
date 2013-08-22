@@ -10,6 +10,7 @@
 namespace Library\Helper;
 
 use \Library\Helper\Text as TextHelper;
+use \Library\Helper\Directory as DirectoryHelper;
 
 /**
  * Code helper
@@ -103,29 +104,110 @@ class Code
         return false;
     }
 
-	/**
-	 * Launch a class's method fetching it arguments according to method declaration
-	 *
-	 * @param string $_class The class name
-	 * @param string $_method The class method name
-	 * @param misc $args A set of arguments to fetch
-	 *
-	 * @return misc
-	 */
-	public static function fetchArguments($_class = null, $_method = null, $args = null)
-	{
-		if (empty($_class) || empty($_method)) return;
-		$args_def = array();
-		if (!empty($args)) {
-			$analyze = new \ReflectionMethod($_class, $_method);
-			foreach ($analyze->getParameters() as $_param) {
-				$arg_index = $_param->getName();
-				$args_def[$_param->getPosition()] = isset($args[$arg_index]) ?
-					$args[$arg_index] : ( $_param->isOptional() ? $_param->getDefaultValue() : null );
-			}
-		}
-		return call_user_func_array(array($_class, $_method), $args_def);
-	}
+    /**
+     * @var string
+     */
+    const NAMESPACE_SEPARATOR = '\\';
+
+    /**
+     * @var string
+     */
+    const COMPOSER_AUTOLOADER_CLASSNAME = '\Composer\Autoload\ClassLoader';
+
+    /**
+     * @var string
+     */
+    const COMPOSER_COMMON_NAMESPACES_AUTOLOADER = 'autoload_namespaces.php';
+
+    /**
+     * Test if a namespace can be found in declared classes or via Composer autoloader if so
+     * 
+     * This method will search concerned namespace in PHP declared classes namespaces and, if
+     * found, in a Composer namespaces mapping usually stored in `vendor/composer/autoload_namespaces.php`,
+     * searching for a directory that should contains the nameapace following the 
+     * [FIG standards](https://github.com/php-fig/fig-standards).
+     * 
+     * @param string $namespace
+     * 
+     * @return bool
+     */
+    public static function namespaceExists($namespace)
+    {
+        $namespace = trim($namespace, self::NAMESPACE_SEPARATOR);
+        $namespace .= self::NAMESPACE_SEPARATOR;
+
+        foreach (get_declared_classes() as $name) {
+            if (strpos($name, $namespace) === 0) {
+                return true;
+            }
+        }
+
+        if (class_exists($_composer_loader = self::COMPOSER_AUTOLOADER_CLASSNAME)) {
+            $_composer_reflection = new \ReflectionClass($_composer_loader);
+            $_loader_filename = $_composer_reflection->getFilename();
+            $_classmap_filename = dirname($_loader_filename)
+                .DIRECTORY_SEPARATOR
+                .self::COMPOSER_COMMON_NAMESPACES_AUTOLOADER;
+            if (file_exists($_classmap_filename)) {
+                $namespaces_map = include $_classmap_filename;
+                foreach ($namespaces_map as $_ns=>$_dir) {
+                    $_ns = trim($_ns, self::NAMESPACE_SEPARATOR);
+                    if (strpos($_ns, $namespace) === 0) {
+                        return true;
+                    }
+                    if (substr($namespace, 0, strlen($_ns))===$_ns) {
+                        if (false !== $pos = strrpos($namespace, self::NAMESPACE_SEPARATOR)) {
+                            // namespaced class name
+                            $namespace_path = strtr(substr($namespace, 0, $pos), self::NAMESPACE_SEPARATOR, DIRECTORY_SEPARATOR);
+                            $namespace_name = substr($namespace, $pos + 1);
+                        } else {
+                            // PEAR-like class name
+                            $namespace_path = null;
+                            $namespace_name = $namespace;
+                        }
+                        $namespace_path .= strtr($namespace_name, '_', DIRECTORY_SEPARATOR);
+                        
+                        if (!is_array($_dir)) {
+                            $_dir = array($_dir);
+                        }
+                        foreach ($_dir as $_testdir) {
+                            $_d = DirectoryHelper::slashDirname($_testdir) . $namespace_path;
+                            if (file_exists($_d) && is_dir($_d)) {
+                                return true;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Launch a class's method fetching it arguments according to method declaration
+     *
+     * @param string $_class The class name
+     * @param string $_method The class method name
+     * @param misc $args A set of arguments to fetch
+     *
+     * @return misc
+     */
+    public static function fetchArguments($_class = null, $_method = null, $args = null)
+    {
+        if (empty($_class) || empty($_method)) return;
+        $args_def = array();
+        if (!empty($args)) {
+            $analyze = new \ReflectionMethod($_class, $_method);
+            foreach ($analyze->getParameters() as $_param) {
+                $arg_index = $_param->getName();
+                $args_def[$_param->getPosition()] = isset($args[$arg_index]) ?
+                    $args[$arg_index] : ( $_param->isOptional() ? $_param->getDefaultValue() : null );
+            }
+        }
+        return call_user_func_array(array($_class, $_method), $args_def);
+    }
 
 }
 

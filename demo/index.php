@@ -55,7 +55,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
     <link rel="stylesheet" href="assets/html5boilerplate/css/normalize.css" />
     <link rel="stylesheet" href="assets/html5boilerplate/css/main.css" />
     <script src="assets/html5boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-	<link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
     <!--[if lt IE 7]>
@@ -72,8 +72,8 @@ function getPhpClassManualLink( $class_name, $ln='en' )
         </div>
     </header>
 
-	<nav>
-		<h2>Map of the package</h2>
+    <nav>
+        <h2>Map of the package</h2>
         <ul id="navigation_menu" class="menu" role="navigation">
             <li><a href="index.php">Homepage</a><ul>
                 <li><a href="index.php#helpers">Helpers</a><ul>
@@ -105,8 +105,8 @@ function getPhpClassManualLink( $class_name, $ln='en' )
             <p class="comment">The sources of this plugin are hosted on <a href="http://github.com">GitHub</a>. To follow sources updates, report a bug or read opened bug tickets and any other information, please see the GitHub website above.</p>
         </div>
 
-    	<p class="credits" id="user_agent"></p>
-	</nav>
+        <p class="credits" id="user_agent"></p>
+    </nav>
 
     <div id="content" role="main">
 
@@ -117,7 +117,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
     <p>For clarity, the examples below are NOT written as a working PHP code when it seems not necessary. For example, rather than write <var>echo "my_string";</var> we would write <var>echo my_string</var> or rather than <var>var_export($data);</var> we would write <var>echo $data</var>. The main code for these classes'usage is written strictly.</p>
     <p>As a reminder, and because it's always useful, have a look at the <a href="http://pear.php.net/manual/<?php echo $arg_ln; ?>/standards.php">PHP common coding standards</a>.</p>
 
-	<h2 id="tests">Tests & documentation</h2>
+    <h2 id="tests">Tests & documentation</h2>
     
 <h3>Include the <var>Library</var> namespace</h3>
 
@@ -303,19 +303,31 @@ var_export($logs);
     <pre class="code" data-language="php">
 <?php
 interface MyInterface {
-    public function MustImplement();
+    public function mustImplement();
 }
 class MyClass implements MyInterface {
-    public function MustImplement()
+    public function mustImplement()
+    {
+        return;
+    }
+}
+class MyChildClass extends MyClass {
+    public function myChildMethod()
     {
         return;
     }
 }
 echo 'interface MyInterface {'."\n"
-    ."\t".'public function MustImplement();'."\n"
+    ."\t".'public function mustImplement();'."\n"
     .'}'."\n"
     .'class MyClass implements MyInterface {'."\n"
-    ."\t".'public function MustImplement()'."\n"
+    ."\t".'public function mustImplement()'."\n"
+    ."\t".'{'."\n"
+    ."\t\t".'return;'."\n"
+    ."\t".'}'."\n"
+    .'}'."\n"
+    .'class MyChildClass extends MyClass {'."\n"
+    ."\t".'public function myChildMethod()'."\n"
     ."\t".'{'."\n"
     ."\t\t".'return;'."\n"
     ."\t".'}'."\n"
@@ -325,6 +337,34 @@ echo 'echo Library\Helper\Code::impelementsInterface("MyClass", "MyInterface");'
 echo '=> '.var_export(Library\Helper\Code::impelementsInterface('MyClass', 'MyInterface'),1)."\n";
 echo 'echo Library\Helper\Code::impelementsInterface("MyClass", "UnknownInterface");'."\n";
 echo '=> '.var_export(Library\Helper\Code::impelementsInterface('MyClass', 'UnknownInterface'),1)."\n";
+echo 'echo Library\Helper\Code::impelementsInterface("UnknownClass", "MyInterface");'."\n";
+echo '=> '.var_export(Library\Helper\Code::impelementsInterface('UnknownClass', 'MyInterface'),1)."\n";
+echo "\n";
+echo 'echo Library\Helper\Code::extendsClass("MyChildClass", "MyClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'MyClass'),1)."\n";
+echo 'echo Library\Helper\Code::extendsClass("MyChildClass", "UnknownClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'UnknownClass'),1)."\n";
+echo 'echo Library\Helper\Code::extendsClass("UnknownClass", "MyClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('UnknownClass', 'MyClass'),1)."\n";
+echo "\n";
+$obj = new MyClass;
+echo '$obj = new MyClass;'."\n";
+echo 'echo Library\Helper\Code::isClassInstance($obj, "MyClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyClass'),1)."\n";
+echo 'echo Library\Helper\Code::isClassInstance($obj, "MyChildClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyChildClass'),1)."\n";
+echo 'echo Library\Helper\Code::isClassInstance($obj, "UnknownClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'UnknownClass'),1)."\n";
+$no_obj = "my var";
+echo '$no_obj = "my var";'."\n";
+echo 'echo Library\Helper\Code::isClassInstance($no_obj, "MyClass");'."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($no_obj, 'MyClass'),1)."\n";
+echo "\n";
+echo 'echo Library\Helper\Code::namespaceExists("Library\Helper");'."\n";
+echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\Helper'),1)."\n";
+echo 'echo Library\Helper\Code::namespaceExists("Library\NotExists");'."\n";
+echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\NotExists'),1)."\n";
+
 ?>
     </pre>
 
@@ -1200,12 +1240,12 @@ echo '// => '.var_export($myerrorregistry2->getOne(),1).' (magic getter acces is
     </div>
 
     <footer id="footer">
-		<div class="credits float-left">
-		    This page is <a href="" title="Check now online" id="html_validation">HTML5</a> & <a href="" title="Check now online" id="css_validation">CSS3</a> valid.
-		</div>
-		<div class="credits float-right">
+        <div class="credits float-left">
+            This page is <a href="" title="Check now online" id="html_validation">HTML5</a> & <a href="" title="Check now online" id="css_validation">CSS3</a> valid.
+        </div>
+        <div class="credits float-right">
             <a href="http://github.com/atelierspierrot/library">atelierspierrot/library</a> package by <a href="https://github.com/atelierspierrot">Les Ateliers Pierrot</a> under <a href="http://opensource.org/licenses/GPL-3.0">GNU GPL v.3</a> license.
-		</div>
+        </div>
     </footer>
 
     <div class="back_menu" id="short_navigation">
