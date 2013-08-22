@@ -16,7 +16,9 @@ namespace Library\Helper;
  *
  * For convenience, the best practice is to use:
  *
- *     use Library\Helper\Html as HtmlHelper;
+ *     use Library\Helper\ConditionalComment as ConditionalCommentHelper;
+ *     // or
+ *     use Library\Helper\ConditionalComment as CCHelper;
  *
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
