@@ -186,27 +186,95 @@ class Code
     }
 
     /**
-     * Launch a class's method fetching it arguments according to method declaration
+     * Launch a function or class's method fetching it arguments according to its declaration
      *
-     * @param string $_class The class name
-     * @param string $_method The class method name
-     * @param misc $args A set of arguments to fetch
+     * @param string $method_name The method name
+     * @param misc $arguments A set of arguments to fetch
+     * @param string $class_name The class name
+     * @param array $logs Will be filled with indexes `miss` with missing required arguments
+     *              and `rest` with unused `$arguments` - Passed by reference
      *
      * @return misc
      */
-    public static function fetchArguments($_class = null, $_method = null, $args = null)
+    public static function fetchArguments($method_name = null, $arguments = null, $class_name = null, &$logs = array())
     {
-        if (empty($_class) || empty($_method)) return;
+        $args_def = self::organizeArguments($method_name, $arguments, $class_name, $logs);
+        if (!empty($class_name)) {
+            return call_user_func_array(array($class_name, $method_name), $args_def);
+        } else {
+            return call_user_func_array($method_name, $args_def);
+        }
+    }
+
+    /**
+     * Organize an array of arguments to pass to a function or class's method according to its declaration
+     *
+     * Undefined arguments will be fetched with their default value if available or `null` otherwise.
+     *
+     * If `$arguments` is not an array, the method will search for the first argument with
+     * no default value and define it on the `$arguments` value.
+     *
+     * @param string $method_name The method name
+     * @param misc $arguments A set of arguments to fetch
+     * @param string $class_name The class name
+     * @param array $logs Will be filled with indexes `miss` with missing required arguments
+     *              and `rest` with unused `$arguments` - Passed by reference
+     *
+     * @return misc
+     */
+    public static function organizeArguments($method_name = null, $arguments = null, $class_name = null, &$logs = array())
+    {
+        if (empty($method_name)) return;
+        $args_passed = $arguments;
         $args_def = array();
-        if (!empty($args)) {
-            $analyze = new \ReflectionMethod($_class, $_method);
-            foreach ($analyze->getParameters() as $_param) {
+        if (!empty($args_passed)) {
+            if (!empty($class_name)) {
+                $method_reflect = new \ReflectionMethod($class_name, $method_name);
+            } else {
+                $method_reflect = new \ReflectionFunction($method_name);
+            }
+            if (!is_array($args_passed)) {
+                $tmp_index = -1;
+                foreach ($method_reflect->getParameters() as $_param) {
+                    if (!$_param->isDefaultValueAvailable() && $tmp_index===-1) {
+                        $tmp_index = $_param->getPosition();
+                    } elseif (!$_param->isDefaultValueAvailable() && $tmp_index!==-1) {
+                        if (!isset($logs['miss'])) {
+                            $logs['miss'] = array();
+                        }
+                        $logs['miss'][$arg_pos] = sprintf('Argument "%s" is missing and defined on NULL', $_param->getName());
+                    }
+                }
+                if ($tmp_index===-1) {
+                    $tmp_index = 0;
+                }
+                $args_passed = array( $tmp_index=>$args_passed );
+            }
+            foreach ($method_reflect->getParameters() as $_param) {
                 $arg_index = $_param->getName();
-                $args_def[$_param->getPosition()] = isset($args[$arg_index]) ?
-                    $args[$arg_index] : ( $_param->isOptional() ? $_param->getDefaultValue() : null );
+                $arg_pos = $_param->getPosition();
+                $arg_val = null;
+                if (isset($args_passed[$arg_index])) {
+                     $arg_val = $args_passed[$arg_index];
+                     unset($args_passed[$arg_index]);
+                } elseif (isset($args_passed[$arg_pos])) {
+                     $arg_val = $args_passed[$arg_pos];
+                     unset($args_passed[$arg_pos]);
+                } elseif ($_param->isDefaultValueAvailable()) {
+                     $arg_val = $_param->getDefaultValue();
+                } else {
+                    if (!isset($logs['miss'])) {
+                        $logs['miss'] = array();
+                    }
+                    $logs['miss'][$arg_pos] = sprintf('Argument "%s" is missing and defined on NULL', $arg_index);
+                }
+                $args_def[$arg_pos] = $arg_val;
             }
         }
-        return call_user_func_array(array($_class, $_method), $args_def);
+        if (!empty($args_passed)) {
+            $logs['rest'] = $args_passed;
+        }
+        return $args_def;
     }
 
 }
