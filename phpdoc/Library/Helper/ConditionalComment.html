@@ -30,7 +30,9 @@
 
 <p>For convenience, the best practice is to use:</p>
 
-<pre><code>use Library\Helper\Html as HtmlHelper;
+<pre><code>use Library\Helper\ConditionalComment as ConditionalCommentHelper;
+// or
+use Library\Helper\ConditionalComment as CCHelper;
 </code></pre>
 </p>
         </div>
@@ -111,7 +113,7 @@
         <h2>Details</h2>
 
                         <h3 id="method_buildCondition">
-        <div class="location">at line 72</div>
+        <div class="location">at line 74</div>
         <code>        static    public            <abbr title="Library\Helper\str">str</abbr>
     <strong>buildCondition</strong>($content, $condition = &#039;if IE&#039;, $operator = &#039;OR&#039;, $global = false)</code>
     </h3>
@@ -168,7 +170,7 @@ for IE "greater than or equal to" version 5.</p>
     </div>
 
                 <h3 id="method_writeCondition">
-        <div class="location">at line 102</div>
+        <div class="location">at line 104</div>
         <code>        static    public            <abbr title="Library\Helper\str">str</abbr>
     <strong>writeCondition</strong>(string $content, string $condition = null, bool $global = false)</code>
     </h3>
@@ -216,7 +218,7 @@ for IE "greater than or equal to" version 5.</p>
     </div>
 
                 <h3 id="method_parseSingleCondition">
-        <div class="location">at line 124</div>
+        <div class="location">at line 126</div>
         <code>        static    public            <abbr title="Library\Helper\str">str</abbr>
     <strong>parseSingleCondition</strong>(string $condition)</code>
     </h3>
