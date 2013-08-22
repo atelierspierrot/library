@@ -24,52 +24,112 @@ class Factory
 {
 
 	/**
+	 * String added to error messages to identify the caller
+	 *
 	 * @var string A name to identify factory error messages
+	 * @use $factory->factoryName( $name )
 	 */
 	protected $factory_name = '';
 
 	/**
+	 * Current builder flag value
+	 *
+	 * @var int A class contant
+	 * @use $factory->flag( const )
+	 */
+	protected $flag = null;
+
+	/**
+	 * Method called on the object's builder class to create the instance
+	 *
+	 * Final object class MUST implement this method.
+	 *
+	 * If this is not the constructor but the class do have a public constructor, it will
+	 * be called first to create the instance.
+	 *
 	 * @var string Method to call for object construction
+	 * @use $factory->callMethod( $method )
 	 */
 	protected $call_method = '__construct';
 
 	/**
+	 * Array of masks used to construct the final class name using `printf()` method
+	 *
+	 * Final object class CAN be named following one of these masks.
+	 *
 	 * @var string Printf expression (%s will be replaced by the `$name` in CamelCase)
+	 * @use $factory->classNameMask( array( $maskX, $maskY ) ) or $factory->classNameMask( $maskX )
 	 */
 	protected $class_name_mask = array('%s');
 
 	/**
+	 * Array of possible optional namespaces used to search the class
+	 *
+	 * Final object class CAN be included in one of these namespaces.
+	 *
 	 * @var array
+	 * @use $factory->defaultNamespace( array( $nameX, $nameY ) ) or $factory->defaultNamespace( $maskX )
 	 */
 	protected $default_namespace = array();
 
 	/**
+	 * Array of possible namespaces the class MUST be included in
+	 *
+	 * Final object class MUST be included in one of these namespaces.
+	 *
 	 * @var array
+	 * @use $factory->mandatoryNamespace( array( $nameX, $nameY ) ) or $factory->mandatoryNamespace( $maskX )
 	 */
 	protected $mandatory_namespace = array();
 
 	/**
+	 * Array of possible interfaces the class MUST implement
+	 *
+	 * Final object class MUST implement one of these items.
+	 *
 	 * @var array
+	 * @use $factory->mustImplement( array( $nameX, $nameY ) ) or $factory->mustImplement( $maskX )
 	 */
 	protected $must_implement = array();
 
 	/**
+	 * Array of interfaces the class MUST implement
+	 *
+	 * Final object class MUST implement ALL these items.
+	 *
 	 * @var array
+	 * @use $factory->mustImplementAll( array( $nameX, $nameY ) )
+	 */
+	protected $must_implement_all = array();
+
+	/**
+	 * Array of possible classes the class MUST extend
+	 *
+	 * Final object class MUST extend one of these items.
+	 *
+	 * @var array
+	 * @use $factory->mustExtend( array( $nameX, $nameY ) ) or $factory->mustExtend( $maskX )
 	 */
 	protected $must_extend = array();
 
 	/**
+	 * Array of possible interfaces or classes the class MUST implement or extend
+	 *
+	 * Final object class MUST implement or extend one of these items.
+	 *
 	 * @var array
+	 * @use $factory->mustImplementOrExtend( array( $nameX, $nameY ) )
 	 */
 	protected $must_implement_or_extend = array();
 
 	/**
-	 * @var array
-	 */
-	protected $must_implement_and_extend = array();
-
-	/**
+	 * Initialize the factory with an array of options
+	 *
+	 * The options must be defined like `property => value`
+	 *
 	 * @param array $options
+	 *
+	 * @return void
 	 */
 	public function init(array $options = null)
 	{
@@ -79,7 +139,7 @@ class Factory
 	}
 
     /**
-     * Magic method to allow usage of `$factory->mustImplementOrExtend()` for each property
+     * Magic method to allow usage of `$factory->propertyInCamelCase()` for each property
      *
      * @param string $name
      * @param array $arguments
@@ -91,17 +151,17 @@ class Factory
         $property_name = CodeHelper::getPropertyName($name);
         if (property_exists($this, $property_name)) {
             $param = array_shift($arguments);
-            if (is_array($this->{$property_name})) {
-                $this->{$property_name} = is_array($param) ? $param : array($param);
-            } else {
-                $this->{$property_name} = $param;
-            }
+            $this->setOptions(array(
+                $property_name => is_array($this->{$property_name}) ? (
+                    is_array($param) ? $param : array($param)
+                ) : $param
+            ));
         }
         return $this;
     }
 
     /**
-     * Set the object options
+     * Set the object options like `property => value`
      *
      * @param array $options
      *
@@ -118,14 +178,15 @@ class Factory
     }
 
     /**
-     * Load an object following the factory settings
+     * Build the object instance following current factory settings
      *
-     * Errors are thrown by default but can be "gracefully" skipped using the flag `GRACEFULLY_FAILURE`
+     * Errors are thrown by default but can be "gracefully" skipped using the flag `GRACEFULLY_FAILURE`.
+     * In all cases, error messages are loaded in final parameter `$logs` passed by reference.
      *
      * @param string $name
      * @param array $parameters
      * @param int $flag One of the class constants flags
-     * @param array $options
+     * @param array $logs Passed by reference
      *
      * @return object
      *
@@ -133,13 +194,87 @@ class Factory
      * @throws RuntimeException if the class doesn't implement or extend some required dependencies
      * @throws RuntimeException if the class method for construction is not callable
      */
-    public function build($name, array $parameters = null, $flag = self::ERROR_ON_FAILURE, array $options = null)
+    public function build($name, array $parameters = null, $flag = self::ERROR_ON_FAILURE, array &$logs = array())
     {
+        $this->flag($flag);
         $object = null;
-	    if (!empty($options)) {
-	        $this->setOptions($options);
-	    }
+        $builder_class_name = $this->findBuilder($name, $flag, $logs);
 
+        if (!empty($builder_class_name)) {
+            $reflection_obj = new ReflectionClass($builder_class_name);
+            if (
+                $reflection_obj->hasMethod('__construct') &&
+                $reflection_obj->getConstructor()->isPublic()
+            ) {
+                if ($this->call_method==='__construct') {
+                    $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), $parameters);
+                } else {
+                    $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), array());
+                }
+            } else {
+                try {
+                    if ($this->call_method==='__construct') {
+                        $_caller = new $builder_class_name($parameters);
+                    } else {
+                        $_caller = new $builder_class_name;
+                    }
+                } catch (Exception $e) {
+                    $logs[] = $this->_getErrorMessage('Constructor method for class "%s" is not callable!', $builder_class_name);
+                    if ($flag & self::ERROR_ON_FAILURE) {
+                        throw new \RuntimeException(end($logs));
+                    }
+                }
+            }
+            if ($this->call_method==='__construct') {
+                $object = $_caller;
+            } else {
+                if (
+                    $reflection_obj->hasMethod($this->call_method) &&
+                    $reflection_obj->getMethod($this->call_method)->isPublic()
+                ) {
+                    if ($reflection_obj->getMethod($this->call_method)->isStatic()) {
+                        $object = call_user_func_array(array($builder_class_name, $this->call_method), $parameters);
+                    } else {
+                        $object = call_user_func_array(array($_caller, $this->call_method), $parameters);
+                    }
+                } else {
+                    $logs[] = $this->_getErrorMessage('Method "%s" for factory construction of class "%s" is not callable!',
+                        $this->call_method, $builder_class_name);
+                    if ($flag & self::ERROR_ON_FAILURE) {
+                        throw new \RuntimeException(end($logs));
+                    }
+                }
+            }
+
+        } else {
+            $logs[] = $this->_getErrorMessage('No matching class found for factory build "%s"!', $name);
+            if ($flag & self::ERROR_ON_FAILURE) {
+                throw new \RuntimeException(end($logs));
+            }
+        }
+
+        return $object;
+    }
+
+    /**
+     * Find the object builder class following current factory settings
+     *
+     * Errors are thrown by default but can be "gracefully" skipped using the flag `GRACEFULLY_FAILURE`.
+     * In all cases, error messages are loaded in final parameter `$logs` passed by reference.
+     *
+     * @param string $name
+     * @param int $flag One of the class constants flags
+     * @param array $logs Passed by reference
+     *
+     * @return null|string
+     *
+     * @throws RuntimeException if the class is not found
+     * @throws RuntimeException if the class doesn't implement or extend some required dependencies
+     * @throws RuntimeException if the class method for construction is not callable
+     */
+    public function findBuilder($name, $flag = self::ERROR_ON_FAILURE, array &$logs = array())
+    {
+        $this->flag($flag);
         $cc_name = array(TextHelper::toCamelCase($name));
         if (!$this->_findClasses($cc_name)) {
             $cc_name = $this->_buildClassesNames($cc_name, $this->class_name_mask);
@@ -162,32 +297,46 @@ class Factory
         
             // required namespace
             if (!empty($this->mandatory_namespace) && !$this->_classesInNamespaces($_cls, $this->mandatory_namespace)) {
+                $logs[] = $this->_getErrorMessage(
+                    count($this->mandatory_namespace)>1 ? 'Class "%s" must be included in one of the following namespaces "%s"!' : 'Class "%s" must be in namespace "%s"!',
+                    $_cls, implode('", "', $this->mandatory_namespace));
                 if ($flag & self::ERROR_ON_FAILURE) {
-                    throw new \RuntimeException(
-                        $this->_getErrorMessage('Class "%s" must be in namespace "%s"!', $_cls, array_shift($this->mandatory_namespace))
-                    );
+                    throw new \RuntimeException(end($logs));
                 }
-                return $object;
+                return null;
             }
 
             // required interface
-            if (!empty($this->must_implement) && !$this->_classesImplements($_cls, $this->must_implement)) {
+            if (!empty($this->must_implement) && !$this->_classesImplements($_cls, $this->must_implement, false, $logs)) {
+                $logs[] = $this->_getErrorMessage(
+                    count($this->must_implement)>1 ? 'Class "%s" must implement one of the following interfaces "%s"!' : 'Class "%s" must implement interface "%s"!',
+                    $_cls, implode('", "', $this->must_implement));
                 if ($flag & self::ERROR_ON_FAILURE) {
-                    throw new \RuntimeException(
-                        $this->_getErrorMessage('Class "%s" must implement interface "%s"!', $_cls, array_shift($this->must_implement))
-                    );
+                    throw new \RuntimeException(end($logs));
                 }
-                return $object;
+                return null;
+            }
+
+            // required interfaces
+            if (!empty($this->must_implement_all) && !$this->_classesImplements($_cls, $this->must_implement_all, true, $logs)) {
+                $logs[] = $this->_getErrorMessage(
+                    count($this->must_implement_all)>1 ? 'Class "%s" must implement the following interfaces "%s"!' : 'Class "%s" must implement interface "%s"!',
+                    $_cls, implode('", "', $this->must_implement_all));
+                if ($flag & self::ERROR_ON_FAILURE) {
+                    throw new \RuntimeException(end($logs));
+                }
+                return null;
             }
 
             // required inheritance
-            if (!empty($this->must_extend) && !$this->_classesExtends($_cls, $this->must_extend)) {
+            if (!empty($this->must_extend) && !$this->_classesExtends($_cls, $this->must_extend, $logs)) {
+                $logs[] = $this->_getErrorMessage(
+                    count($this->must_extend)>1 ? 'Class "%s" must extend one of the following classes "%s"!' : 'Class "%s" must extend class "%s"!',
+                    $_cls, implode('", "', $this->must_extend));
                 if ($flag & self::ERROR_ON_FAILURE) {
-                    throw new \RuntimeException(
-                        $this->_getErrorMessage('Class "%s" must extend class "%s"!', $_cls, array_shift($this->must_extend))
-                    );
+                    throw new \RuntimeException(end($logs));
                 }
-                return $object;
+                return null;
             }
 
             // required interface OR inheritance
@@ -195,84 +344,17 @@ class Factory
                 !$this->_classesImplements($_cls, $this->must_implement_or_extend) &&
                 !$this->_classesExtends($_cls, $this->must_implement_or_extend)
             ) {
+                $logs[] = $this->_getErrorMessage('Class "%s" doesn\'t implement or extend the following required interfaces or classes "%s"!', 
+                            $_cls, implode('", "', $this->must_implement_or_extend));
                 if ($flag & self::ERROR_ON_FAILURE) {
-                    throw new \RuntimeException(
-                        $this->_getErrorMessage('Class "%s" doesn\'t implement or extend required interfaces or classes (%s)!', 
-                            $_cls, implode(', ', $this->must_implement_or_extend))
-                    );
+                    throw new \RuntimeException(end($logs));
                 }
-                return $object;
+                return null;
             }
 
-            // required interface AND inheritance
-            if (!empty($this->must_implement_and_extend) && (
-                !$this->_classesImplements($_cls, $this->must_implement_and_extend) ||
-                !$this->_classesExtends($_cls, $this->must_implement_and_extend)
-            )) {
-                if ($flag & self::ERROR_ON_FAILURE) {
-                    throw new \RuntimeException(
-                        $this->_getErrorMessage('Class "%s" doesn\'t implement and extend required interfaces or classes (%s)!', 
-                            $_cls, implode(', ', $this->must_implement_and_extend))
-                    );
-                }
-                return $object;
-            }
-
-            // object creation
-            $reflection_obj = new ReflectionClass($_cls);
-            if (
-                $reflection_obj->hasMethod('__construct') &&
-                $reflection_obj->getConstructor()->isPublic()
-            ) {
-                if ($this->call_method==='__construct') {
-                    $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), $parameters);
-                } else {
-                    $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), array());
-                }
-            } else {
-                try {
-                    if ($this->call_method==='__construct') {
-                        $_caller = new $_cls($parameters);
-                    } else {
-                        $_caller = new $_cls;
-                    }
-                } catch (Exception $e) {
-                    if ($flag & self::ERROR_ON_FAILURE) {
-                        throw new \RuntimeException(
-                            $this->_getErrorMessage('Constructor method for class "%s" is not callable!', $_cls)
-                        );
-                    }
-                }
-            }
-            if ($this->call_method==='__construct') {
-                $object = $_caller;
-            } else {
-                if (
-                    $reflection_obj->hasMethod($this->call_method) &&
-                    $reflection_obj->getMethod($this->call_method)->isPublic()
-                ) {
-                    if ($reflection_obj->getMethod($this->call_method)->isStatic()) {
-                        $object = call_user_func_array(array($_cls, $this->call_method), $parameters);
-                    } else {
-                        $object = call_user_func_array(array($_caller, $this->call_method), $parameters);
-                    }
-                } else {
-                    if ($flag & self::ERROR_ON_FAILURE) {
-                        throw new \RuntimeException(
-                            $this->_getErrorMessage('Method "%s" for factory construction of class "%s" is not callable!', $this->call_method, $_cls)
-                        );
-                    }
-                }
-            }
-
-        } elseif ($flag & self::ERROR_ON_FAILURE) {
-            throw new \RuntimeException(
-                $this->_getErrorMessage('No matching class found for factory build "%s" (searched in %s)!',
-                    $name, implode(', ', $cc_name))
-            );
+            return $_cls;
         }
-
-        return $object;
+        return null;
     }
 
 // -----------------------
@@ -326,10 +408,11 @@ class Factory
      *
      * @param string|array $names
      * @param array $namespaces
+     * @param array $logs Passed by reference
      *
      * @return array
      */
-    protected function _addNamespaces($names, array $namespaces)
+    protected function _addNamespaces($names, array $namespaces, array &$logs = array())
     {
         if (!is_array($names)) {
             $names = array($names);
@@ -337,8 +420,12 @@ class Factory
         $return_names = array();
         foreach ($names as $_name) {
             foreach ($namespaces as $_namespace) {
-                $tmp_namespace = rtrim(TextHelper::toCamelCase($_namespace), '\\').'\\';
-                $return_names[] = $tmp_namespace.str_replace($tmp_namespace, '', TextHelper::toCamelCase($_name));
+                if (CodeHelper::namespaceExists($_namespace)) {
+                    $tmp_namespace = rtrim(TextHelper::toCamelCase($_namespace), '\\').'\\';
+                    $return_names[] = $tmp_namespace.str_replace($tmp_namespace, '', TextHelper::toCamelCase($_name));
+                } else {
+                    $logs[] = $this->_getErrorMessage('Namespace "%s" not found!', $_namespace);
+                }
             }
         }
         return $return_names;
@@ -349,22 +436,31 @@ class Factory
      *
      * @param string|array $names
      * @param array $interfaces
+     * @param bool $must_implement_all
+     * @param array $logs Passed by reference
      *
      * @return bool
      */
-    protected function _classesImplements($names, array $interfaces)
+    protected function _classesImplements($names, array $interfaces, $must_implement_all = false, array &$logs = array())
     {
         if (!is_array($names)) {
             $names = array($names);
         }
+        $ok = false;
         foreach ($names as $_name) {
             foreach ($interfaces as $_interface) {
-                if (interface_exists($_interface) && CodeHelper::impelementsInterface($_name, $_interface)) {
-                    return true;
+                if (interface_exists($_interface)) {
+                    if (CodeHelper::impelementsInterface($_name, $_interface)) {
+                        $ok = true;
+                    } elseif ($must_implement_all) {
+                        $ok = false;
+                    }
+                } else {
+                    $logs[] = $this->_getErrorMessage('Interface "%s" not found!', $_interface);
                 }
             }
         }
-        return false;
+        return $ok;
     }
 
     /**
@@ -372,18 +468,23 @@ class Factory
      *
      * @param string|array $names
      * @param array $classes
+     * @param array $logs Passed by reference
      *
      * @return bool
      */
-    protected function _classesExtends($names, array $classes)
+    protected function _classesExtends($names, array $classes, array &$logs = array())
     {
         if (!is_array($names)) {
             $names = array($names);
         }
         foreach ($names as $_name) {
             foreach ($classes as $_class) {
-                if (class_exists($_class) && CodeHelper::extendsClass($_name, $_class)) {
-                    return true;
+                if (class_exists($_class)) {
+                    if (CodeHelper::extendsClass($_name, $_class)) {
+                        return true;
+                    }
+                } else {
+                    $logs[] = $this->_getErrorMessage('Class "%s" not found!', $_class);
                 }
             }
         }
@@ -395,19 +496,24 @@ class Factory
      *
      * @param string|array $names
      * @param array $namespaces
+     * @param array $logs Passed by reference
      *
      * @return string|bool
      */
-    protected function _classesInNamespaces($names, array $namespaces)
+    protected function _classesInNamespaces($names, array $namespaces, array &$logs = array())
     {
         if (!is_array($names)) {
             $names = array($names);
         }
         foreach ($names as $_name) {
             foreach ($namespaces as $_namespace) {
-                $tmp_namespace = rtrim(TextHelper::toCamelCase($_namespace), '\\').'\\';
-                if (substr_count(TextHelper::toCamelCase($_name), $tmp_namespace)>0) {
-                    return $_name;
+                if (CodeHelper::namespaceExists($_namespace)) {
+                    $tmp_namespace = rtrim(TextHelper::toCamelCase($_namespace), '\\').'\\';
+                    if (substr_count(TextHelper::toCamelCase($_name), $tmp_namespace)>0) {
+                        return $_name;
+                    }
+                } else {
+                    $logs[] = $this->_getErrorMessage('Namespace "%s" not found!', $_namespace);
                 }
             }
         }
