@@ -16,6 +16,60 @@ use \Library\Helper\Text as TextHelper;
 use \ReflectionClass;
 
 /**
+ * Factory will try to create an object following user rules and passing it arguments
+ *
+ * ## Usage
+ *
+ *     $factory = \Library\Factory::create()
+ *         // all methods are optional
+ *         ->factoryName('A Name To Identify Error Message')
+ *         ->mustImplement('RequiredInterrace')
+ *         ->mustImplementAll(array('RequiredInterrace1', 'RequiredInterrace2'))
+ *         ->mustExtend('RequiredInheritance')
+ *         ->mustImplementOrExtend(array('RequiredInheritance', 'OR', 'RequiredInterface'))
+ *         ->defaultNamespace('\Possible\Namespace')
+ *         ->mandatoryNamespace('\Required\Namespace')
+ *         ->classNameMask(array('%s', '%s_Suffix'))
+ *         ->callMethod('load')
+ *         ;
+ *
+ * You can also define all options as an array to the creator:
+ *
+ *     $factory = \Library\Factory::create(array(
+ *         // all options are optional
+ *         'factory_name' => 'A Name To Identify Error Message',
+ *         'must_implement' => 'RequiredInterrace',
+ *         'must_implement_all' => array('RequiredInterrace1', 'RequiredInterrace2'),
+ *         'must_extend' => 'RequiredInheritance',
+ *         'must_implement_or_extend' => array('RequiredInheritance', 'OR', 'RequiredInterface'),
+ *         'default_namespace' => '\Possible\Namespace',
+ *         'mandatory_namespace' => '\Required\Namespace',
+ *         'class_name_mask' => array('%s', '%s_Suffix'),
+ *         'call_method' => 'load',
+ *     ));
+ *
+ * Then, to try to build the object:
+ *
+ *     $object = $factory->build($name, $params);
+ *
+ * Errors are thrown by default. You can avoid this using the `GRACEFULLY_FAILURE` constant flag.
+ * All error messages are loaded in the `$logs` last parameter of the `build()` and
+ * `findBuilder()` methods.
+ *
+ * ## Method parameters
+ *
+ * When the object creation method is called, the parameters passed to the `Factory::build()`
+ * method are re-organized before to pass them to the method. This way, you can define the
+ * parameters as an array using explicit indexes corresponding to the parameters names in
+ * method declaration without worriing about their order.
+ *
+ * ## Specific method to build the instance
+ *
+ * In the case of a specific `$call_method` (not the classic `__construct`), the builder will
+ * try to first construct the object except if the call method is static. If it is not static,
+ * any existing constructor will be first called without paremeters and then the defined
+ * call method passing it the parameters.
+ *
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
 class Factory
@@ -68,7 +122,7 @@ class Factory
 	 * Final object class CAN be included in one of these namespaces.
 	 *
 	 * @var array
-	 * @use $factory->defaultNamespace( array( $nameX, $nameY ) ) or $factory->defaultNamespace( $maskX )
+	 * @use $factory->defaultNamespace( array( $nameX, $nameY ) ) or $factory->defaultNamespace( $nameX )
 	 */
 	protected $default_namespace = array();
 
@@ -78,7 +132,7 @@ class Factory
 	 * Final object class MUST be included in one of these namespaces.
 	 *
 	 * @var array
-	 * @use $factory->mandatoryNamespace( array( $nameX, $nameY ) ) or $factory->mandatoryNamespace( $maskX )
+	 * @use $factory->mandatoryNamespace( array( $nameX, $nameY ) ) or $factory->mandatoryNamespace( $nameX )
 	 */
 	protected $mandatory_namespace = array();
 
@@ -88,7 +142,7 @@ class Factory
 	 * Final object class MUST implement one of these items.
 	 *
 	 * @var array
-	 * @use $factory->mustImplement( array( $nameX, $nameY ) ) or $factory->mustImplement( $maskX )
+	 * @use $factory->mustImplement( array( $nameX, $nameY ) ) or $factory->mustImplement( $nameX )
 	 */
 	protected $must_implement = array();
 
@@ -108,7 +162,7 @@ class Factory
 	 * Final object class MUST extend one of these items.
 	 *
 	 * @var array
-	 * @use $factory->mustExtend( array( $nameX, $nameY ) ) or $factory->mustExtend( $maskX )
+	 * @use $factory->mustExtend( array( $nameX, $nameY ) ) or $factory->mustExtend( $nameX )
 	 */
 	protected $must_extend = array();
 
@@ -139,7 +193,7 @@ class Factory
 	}
 
     /**
-     * Magic method to allow usage of `$factory->propertyInCamelCase()` for each property
+     * Magic method to allow usage of `$factory->propertyInCamelCase()` for each class property
      *
      * @param string $name
      * @param array $arguments
@@ -202,30 +256,35 @@ class Factory
 
         if (!empty($builder_class_name)) {
             $reflection_obj = new ReflectionClass($builder_class_name);
-            if (
-                $reflection_obj->hasMethod('__construct') &&
-                $reflection_obj->getConstructor()->isPublic()
-            ) {
-                if ($this->call_method==='__construct') {
-                    $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), $parameters);
-                } else {
-                    $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), array());
-                }
-            } else {
-                try {
+            $is_static = ($reflection_obj->hasMethod($this->call_method) && $reflection_obj->getMethod($this->call_method)->isStatic());
+            if (!$is_static || $this->call_method==='__construct') {
+                if (
+                    $reflection_obj->hasMethod('__construct') &&
+                    $reflection_obj->getConstructor()->isPublic()
+                ) {
                     if ($this->call_method==='__construct') {
-                        $_caller = new $builder_class_name($parameters);
+                        $organized_parameters = CodeHelper::organizeArguments('__construct', $parameters, $builder_class_name);
+                        $_caller = call_user_func_array(array($reflection_obj, 'newInstance'), $organized_parameters);
                     } else {
-                        $_caller = new $builder_class_name;
+                        $_caller = call_user_func(array($reflection_obj, 'newInstance'));
                     }
-                } catch (Exception $e) {
-                    $logs[] = $this->_getErrorMessage('Constructor method for class "%s" is not callable!', $builder_class_name);
-                    if ($flag & self::ERROR_ON_FAILURE) {
-                        throw new \RuntimeException(end($logs));
+                } else {
+                    try {
+                        if ($this->call_method==='__construct') {
+                            $_caller = new $builder_class_name($parameters);
+                        } else {
+                            $_caller = new $builder_class_name;
+                        }
+                    } catch (Exception $e) {
+                        $logs[] = $this->_getErrorMessage('Constructor method for class "%s" is not callable!', $builder_class_name);
+                        if ($flag & self::ERROR_ON_FAILURE) {
+                            throw new \RuntimeException(end($logs));
+                        }
                     }
                 }
             }
-            if ($this->call_method==='__construct') {
+
+            if (isset($_caller) && $this->call_method==='__construct') {
                 $object = $_caller;
             } else {
                 if (
@@ -233,12 +292,20 @@ class Factory
                     $reflection_obj->getMethod($this->call_method)->isPublic()
                 ) {
                     if ($reflection_obj->getMethod($this->call_method)->isStatic()) {
-                        $object = call_user_func_array(array($builder_class_name, $this->call_method), $parameters);
+                        $organized_parameters = CodeHelper::organizeArguments($this->call_method, $parameters, $builder_class_name);
+                        $object = call_user_func_array(array($builder_class_name, $this->call_method), $organized_parameters);
+                    } elseif (isset($_caller)) {
+                        $organized_parameters = CodeHelper::organizeArguments($this->call_method, $parameters, $_caller);
+                        $object = call_user_func_array(array($_caller, $this->call_method), $organized_parameters);
                     } else {
-                        $object = call_user_func_array(array($_caller, $this->call_method), $parameters);
+                        $logs[] = $this->_getErrorMessage('Error while trying to create "%s->%s" by factory builder!',
+                            $builder_class_name, $this->call_method);
+                        if ($flag & self::ERROR_ON_FAILURE) {
+                            throw new \RuntimeException(end($logs));
+                        }
                     }
                 } else {
-                    $logs[] = $this->_getErrorMessage('Method "%s" for factory construction of class "%s" is not callable!',
+                    $logs[] = $this->_getErrorMessage('Method "%s" for factory building of class "%s" is not callable!',
                         $this->call_method, $builder_class_name);
                     if ($flag & self::ERROR_ON_FAILURE) {
                         throw new \RuntimeException(end($logs));
