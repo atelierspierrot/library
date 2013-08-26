@@ -260,7 +260,9 @@ class Router implements RouterInterface
 	/**
 	 * URL parser : load and parse the current URL
 	 *
-	 * 
+	 * The class will pass arguments values to any `$this->fromUrlParam($value)` method for the 
+	 * parameter named `param`.
+	 *
 	 */
 	protected function _parseUrl()
 	{
@@ -270,6 +272,10 @@ class Router implements RouterInterface
 			$frgts = array();
 			$url_args = $this->getArgumentsMap();
 			foreach ($url_frgts['params'] as $_var=>$_val) {
+                $_meth = 'fromUrl'.TextHelper::toCamelCase($_var);
+                if (method_exists($this, $_meth)) {
+                    $_val = call_user_func_array(array($this, $_meth), array($_val));
+                }
 				if (isset($url_args[$_var])) {
                     $route[$url_args[$_var]] = $_val;
 				} else {
@@ -289,28 +295,6 @@ class Router implements RouterInterface
 		if (!empty($route_rule)) {
     		$this->setRouteParsed($route_rule);
 		}
-	}
-
-	/**
-	 * Special 'urlencode' function to only encode strings and let any "%s" mask not encoded
-	 *
-	 * @param string $str The URL or argument to encode
-	 * @param bool $keep_mask
-	 *
-	 * @return string The encoded URL if so
-	 */
-	public static function urlEncode($str = null, $keep_mask = true)
-	{
-		if (
-		    (!empty($str) && is_numeric($str)) ||
-		    (true===$keep_mask && $str==='%s')
-		) {
-		    return $str;
-		}
-		if (empty($str) || !is_string($str)) {
-		    return '';
-		}
-		return urlencode($str);
 	}
 
     /**
@@ -435,6 +419,28 @@ class Router implements RouterInterface
 MESSAGE;
 		}
 		exit;
+	}
+
+	/**
+	 * Special 'urlencode' function to only encode strings and let any "%s" mask not encoded
+	 *
+	 * @param string $str The URL or argument to encode
+	 * @param bool $keep_mask
+	 *
+	 * @return string The encoded URL if so
+	 */
+	public static function urlEncode($str = null, $keep_mask = true)
+	{
+		if (
+		    (!empty($str) && is_numeric($str)) ||
+		    (true===$keep_mask && $str==='%s')
+		) {
+		    return $str;
+		}
+		if (empty($str) || !is_string($str)) {
+		    return '';
+		}
+		return urlencode($str);
 	}
 
 }

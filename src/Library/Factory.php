@@ -283,6 +283,7 @@ class Factory
                     }
                 }
             }
+
             if (isset($_caller) && $this->call_method==='__construct') {
                 $object = $_caller;
             } else {
@@ -294,7 +295,8 @@ class Factory
                         $organized_parameters = CodeHelper::organizeArguments($this->call_method, $parameters, $builder_class_name);
                         $object = call_user_func_array(array($builder_class_name, $this->call_method), $organized_parameters);
                     } elseif (isset($_caller)) {
-                        $object = call_user_func_array(array($_caller, $this->call_method), $parameters);
+                        $organized_parameters = CodeHelper::organizeArguments($this->call_method, $parameters, $_caller);
+                        $object = call_user_func_array(array($_caller, $this->call_method), $organized_parameters);
                     } else {
                         $logs[] = $this->_getErrorMessage('Error while trying to create "%s->%s" by factory builder!',
                             $builder_class_name, $this->call_method);
