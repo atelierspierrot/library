@@ -53,5 +53,6 @@ var tree = [["[Global Namespace]",,"",
                 [        ]],["FileRotator","Library\/FileRotator.html","",
                 [        ]],["Logger","Library\/Logger.html"," < AbstractLogger",
                 [        ]],["Reporter","Library\/Reporter.html","",
+                [        ]],["Router","Library\/Router.html","",
                 [        ]]        ]]        ]
 

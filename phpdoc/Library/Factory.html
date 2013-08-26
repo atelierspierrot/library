@@ -25,6 +25,63 @@
                 <p>class    <strong>Factory</strong>        extends <abbr title="Patterns\Abstracts\AbstractStaticCreator">AbstractStaticCreator</abbr>        implements
         <a href="../Library/FactoryInterface.html"><abbr title="Library\FactoryInterface">FactoryInterface</abbr></a></p>
 
+            <div class="description">
+            <p>Factory will try to create an object following user rules and passing it arguments</p>
+            <p><h2>Usage</h2>
+
+<pre><code>$factory = \Library\Factory::create()
+    // all methods are optional
+    -&gt;factoryName('A Name To Identify Error Message')
+    -&gt;mustImplement('RequiredInterrace')
+    -&gt;mustImplementAll(array('RequiredInterrace1', 'RequiredInterrace2'))
+    -&gt;mustExtend('RequiredInheritance')
+    -&gt;mustImplementOrExtend(array('RequiredInheritance', 'OR', 'RequiredInterface'))
+    -&gt;defaultNamespace('\Possible\Namespace')
+    -&gt;mandatoryNamespace('\Required\Namespace')
+    -&gt;classNameMask(array('%s', '%s_Suffix'))
+    -&gt;callMethod('load')
+    ;
+</code></pre>
+
+<p>You can also define all options as an array to the creator:</p>
+
+<pre><code>$factory = \Library\Factory::create(array(
+    // all options are optional
+    'factory_name' =&gt; 'A Name To Identify Error Message',
+    'must_implement' =&gt; 'RequiredInterrace',
+    'must_implement_all' =&gt; array('RequiredInterrace1', 'RequiredInterrace2'),
+    'must_extend' =&gt; 'RequiredInheritance',
+    'must_implement_or_extend' =&gt; array('RequiredInheritance', 'OR', 'RequiredInterface'),
+    'default_namespace' =&gt; '\Possible\Namespace',
+    'mandatory_namespace' =&gt; '\Required\Namespace',
+    'class_name_mask' =&gt; array('%s', '%s_Suffix'),
+    'call_method' =&gt; 'load',
+));
+</code></pre>
+
+<p>Then, to try to build the object:</p>
+
+<pre><code>$object = $factory-&gt;build($name, $params);
+</code></pre>
+
+<p>Errors are thrown by default. You can avoid this using the <code>GRACEFULLY_FAILURE</code> constant flag.
+All error messages are loaded in the <code>$logs</code> last parameter of the <code>build()</code> and
+<code>findBuilder()</code> methods.</p>
+
+<h2>Method parameters</h2>
+
+<p>When the object creation method is called, the parameters passed to the <code>Factory::build()</code>
+method are re-organized before to pass them to the method. This way, you can define the
+parameters as an array using explicit indexes corresponding to the parameters names in
+method declaration without worriing about their order.</p>
+
+<h2>Specific method to build the instance</h2>
+
+<p>In the case of a specific <code>$call_method</code> (not the classic <code>__construct</code>), the builder will
+try to first construct the object except if the call method is static. If it is not static,
+any existing constructor will be first called without paremeters and then the defined
+call method passing it the parameters.</p>
+        </div>
     
     
     
@@ -47,7 +104,7 @@
                 </td>
                 <td class="last">
                     <a href="#method___call">__call</a>(string $name, array $arguments)
-                    <p>Magic method to allow usage of <code>$factory-&gt;propertyInCamelCase()</code> for each property</p>
+                    <p>Magic method to allow usage of <code>$factory-&gt;propertyInCamelCase()</code> for each class property</p>
                 </td>
                 <td></td>
             </tr>
@@ -87,7 +144,7 @@
         <h2>Details</h2>
 
                         <h3 id="method_init">
-        <div class="location">at line 134</div>
+        <div class="location">at line 188</div>
         <code>            public            void
     <strong>init</strong>(array $options = null)</code>
     </h3>
@@ -123,12 +180,12 @@
     </div>
 
                 <h3 id="method___call">
-        <div class="location">at line 149</div>
+        <div class="location">at line 203</div>
         <code>            public            <a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a>
     <strong>__call</strong>(string $name, array $arguments)</code>
     </h3>
     <div class="details">
-        <p>Magic method to allow usage of <code>$factory-&gt;propertyInCamelCase()</code> for each property</p>
+        <p>Magic method to allow usage of <code>$factory-&gt;propertyInCamelCase()</code> for each class property</p>
         <p>
 </p>
         <div class="tags">
@@ -166,7 +223,7 @@
     </div>
 
                 <h3 id="method_setOptions">
-        <div class="location">at line 170</div>
+        <div class="location">at line 224</div>
         <code>            public            <a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a>
     <strong>setOptions</strong>(array $options)</code>
     </h3>
@@ -203,7 +260,7 @@
     </div>
 
                 <h3 id="method_build">
-        <div class="location">at line 197</div>
+        <div class="location">at line 251</div>
         <code>            public            object
     <strong>build</strong>(string $name, array $parameters = null, int $flag = self::ERROR_ON_FAILURE, array $logs = array())</code>
     </h3>
@@ -251,29 +308,12 @@ In all cases, error messages are loaded in final parameter <code>$logs</code> pa
     </table>
 
             
-                            <h4>Exceptions</h4>
-
-                    <table>
-                    <tr>
-                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
-                <td>if the class is not found</td>
-            </tr>
-                    <tr>
-                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
-                <td>if the class doesn't implement or extend some required dependencies</td>
-            </tr>
-                    <tr>
-                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
-                <td>if the class method for construction is not callable</td>
-            </tr>
-            </table>
-
             
                     </div>
     </div>
 
                 <h3 id="method_findBuilder">
-        <div class="location">at line 275</div>
+        <div class="location">at line 342</div>
         <code>            public            null|string
     <strong>findBuilder</strong>(string $name, int $flag = self::ERROR_ON_FAILURE, array $logs = array())</code>
     </h3>
@@ -315,23 +355,6 @@ In all cases, error messages are loaded in final parameter <code>$logs</code> pa
     </table>
 
             
-                            <h4>Exceptions</h4>
-
-                    <table>
-                    <tr>
-                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
-                <td>if the class is not found</td>
-            </tr>
-                    <tr>
-                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
-                <td>if the class doesn't implement or extend some required dependencies</td>
-            </tr>
-                    <tr>
-                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
-                <td>if the class method for construction is not callable</td>
-            </tr>
-            </table>
-
             
                     </div>
     </div>
