@@ -64,7 +64,7 @@ class Code
         }
         if (class_exists($class_name)) {
             $interfaces = class_implements($class_name);
-            return in_array($interface_name, $interfaces);
+            return in_array($interface_name, $interfaces) || in_array(trim($interface_name, '\\'), $interfaces);
         }
         return false;
     }
