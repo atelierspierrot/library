@@ -38,7 +38,7 @@ class Logger
 		'max_log' => 100,
 		'logfile' => 'history',
 		'error_logfile' => 'error',
-		'datetime_format' => 'd-m-Y H:i:s',
+		'datetime_format' => 'Y-m-d H:i:s',
 		'duplicate_errors' => true,
 		'rotator'=>array(
             'period_duration' => 86400,
@@ -224,7 +224,7 @@ class Logger
 			'pid' => @getmypid(),
             'extra' => array(),
 		);
-		return self::write( self::getLogRecord( $record ), $level );
+		return self::write(self::getLogRecord($record)."\n", $level);
 	}
 
 	/**
@@ -331,8 +331,12 @@ class Logger
 		$prefix[] = $record['level_name'].' :';
 
 		// last infos
-		$suffix[] = '['.$this->writeArray($record['context']).']';
-		$suffix[] = '['.$this->writeArray($record['extra']).']';
+		if (!empty($record['context'])) {
+    		$suffix[] = '['.$this->writeArray($record['context']).']';
+		}
+		if (!empty($record['extra'])) {
+    		$suffix[] = '['.$this->writeArray($record['extra']).']';
+    	}
 		
 		return join(' ', $prefix).' '.preg_replace("/\n*$/", ' ', $record['message']).' '.join(' ', $suffix);
 	}
