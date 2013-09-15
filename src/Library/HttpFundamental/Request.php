@@ -156,7 +156,7 @@ class Request implements RequestInterface
             ->setUrl(UrlHelper::getRequestUrl())
             ->setProtocol(UrlHelper::getHttpProtocol())
             ->setMethod($_SERVER['REQUEST_METHOD'])
-            ->setHeaders(getallheaders())
+            ->setHeaders($this->getallheaders())
             ->setArguments(isset($_GET) ? $_GET : array())
             ->setData(isset($_POST) ? $_POST : array())
             ->setSession(isset($_SESSION) ? $_SESSION : array())
@@ -493,7 +493,13 @@ class Request implements RequestInterface
         if (!empty($get)) {
             foreach ($get as $arg=>$val) {
                 if ($this->getFlag() & self::REWRITE_SEGMENTS_QUERY) {
-                    $url['path'] .= '/'.$arg.'/'.urlencode($val);
+                    $url['params'][$arg] = null;
+                    $path = '/'.$arg.'/';
+                    if (1===preg_match('#\/'.$arg.'\/[^\/]*#i', $url['path'], $matches)) {
+                        $url['path'] = str_replace($matches[0], '/'.$arg.'/'.urlencode($val), $url['path']);
+                    } else {
+                        $url['path'] .= '/'.$arg.'/'.urlencode($val);
+                    }
                 } else {
                     $url['params'][$arg] = $val;
                 }
@@ -687,6 +693,24 @@ class Request implements RequestInterface
         }
         return $ip;
     }
+
+    /**
+     * Emulation of internal `getallheaders()` function as it doesn't exist each time
+     */
+    public static function getallheaders()
+    {
+        if (function_exists('getallheaders')) {
+            return getallheaders();
+        } else {
+            $headers = '';
+            foreach ($_SERVER as $name => $value) {
+               if (substr($name, 0, 5) == 'HTTP_') {
+                   $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+               }
+            }
+            return $headers;
+        }
+    } 
 
 }
 
