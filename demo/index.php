@@ -633,12 +633,15 @@ echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry4'),1)."\n"
     <pre class="code" data-language="php">
 <?php
 echo '$command = new Library\Command;'."\n";
-echo 'echo $command->run("whoami");'."\n";
 $command = new Library\Command;
+echo 'echo $command->run("whoami");'."\n";
 echo '=> '.var_export($command->run("whoami"),1);
 echo "\n";
-echo 'echo $command->run("pwd");'."\n";
-echo '=> '.var_export($command->run("pwd"),1);
+echo 'echo $pwd = $command->getCommandPath("pwd");'."\n";
+echo '=> '.var_export($pwd = $command->getCommandPath("pwd"),1);
+echo "\n";
+echo 'echo $command->run($pwd);'."\n";
+echo '=> '.var_export($command->run($pwd),1);
 
 ?>
     </pre>
