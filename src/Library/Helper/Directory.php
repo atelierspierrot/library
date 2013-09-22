@@ -45,6 +45,13 @@ class Directory
         return rtrim($dirname, '/ '.DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
     }
 
+    /**
+     * Test if a path seems to be a git clone
+     *
+     * @param string $path
+     *
+     * @return bool
+     */
     public static function isGitClone($path = null)
     {
         if (is_null($path) || empty($path)) return false;
@@ -52,6 +59,13 @@ class Directory
         return file_exists($dir_path) && is_dir($dir_path);
     }
 
+    /**
+     * Test if a filename seems to have a dot as first character
+     *
+     * @param string $path
+     *
+     * @return bool
+     */
     public static function isDotPath($path = null)
     {
         if (is_null($path) || empty($path)) return false;
@@ -68,6 +82,7 @@ class Directory
      * @param string $path
      * @param int $mode
      * @param bool $recursive
+     *
      * @return bool
      */
     public static function ensureExists($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
@@ -82,6 +97,7 @@ class Directory
      * @param string $path
      * @param int $mode
      * @param bool $recursive
+     *
      * @return bool
      */
     public static function create($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
@@ -90,12 +106,11 @@ class Directory
     }
 
     /**
-     * Build a directory with its whole hierarchy if necessary
+     * Remove a directory with its whole contents
      *
      * @param string $path
-     * @param int $mode
-     * @param bool $recursive
      * @param array $logs Logs registry passed by reference
+     *
      * @return bool
      */
     public static function remove($path, array &$logs = array())
@@ -111,6 +126,35 @@ class Directory
                     $logs[$path] = sprintf('Can not unlink file "%s".', $path);
                 }
             }
+            $ok = self::purge($path, $logs);
+            if (true===$ok) {
+                if (array_key_exists($path, $logs)) {
+                    return false;
+                }
+                if (rmdir($path)) {
+                    return true;
+                } else {
+                    $logs[$path] = sprintf('Can not remove directory "%s".', $path);
+                }
+            }
+            clearstatcache();
+            return $ok;
+        } else {
+            $logs[$path] = sprintf('Directory "%s" not found.', $path);
+        }
+        return false;
+    }
+
+    /**
+     * Remove a directory contents but not the directory itself
+     *
+     * @param string $path
+     * @param array $logs Logs registry passed by reference
+     * @return bool
+     */
+    public static function purge($path, array &$logs = array())
+    {
+        if (file_exists($path) && is_dir($path)) {
             $iterator = new \RecursiveIteratorIterator(
                 new \RecursiveDirectoryIterator($path), 
                 \RecursiveIteratorIterator::SELF_FIRST | \FilesystemIterator::CURRENT_AS_FILEINFO | \FilesystemIterator::SKIP_DOTS
@@ -133,16 +177,6 @@ class Directory
                     }
                 }
             } 
-            if (true===$ok) {
-                if (array_key_exists($path, $logs)) {
-                    return false;
-                }
-                if (rmdir($path)) {
-                    return true;
-                } else {
-                    $logs[$path] = sprintf('Can not remove directory "%s".', $path);
-                }
-            }
             clearstatcache();
             return $ok;
         } else {

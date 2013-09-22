@@ -74,7 +74,7 @@ class FileRotator
 	        }
             $f = @fopen($this->file_path, "ab");
             if ($f) {
-                fputs($f, "\n".str_replace('<', '&lt;', $content));
+                fputs($f, str_replace('<', '&lt;', $content));
                 fclose($f);
 	            $this->file_mtime = filemtime($this->file_path);
                 return true;

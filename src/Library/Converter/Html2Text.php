@@ -94,7 +94,7 @@ class Html2Text extends AbstractConverter
 	    );
 
 	    // Strip any other HTML tags
-	    $text = strip_tags($text, $_this->allowed_tags);
+	    $text = strip_tags($text, join('', $_this->allowed_tags));
 
     	// Bring down number of empty lines to 2 max
 	    $text = preg_replace("/\n\s+\n/", "\n\n", $text);
