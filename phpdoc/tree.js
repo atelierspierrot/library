@@ -1,6 +1,4 @@
-var tree = [["[Global Namespace]",,"",
-                [["SplClassLoader","SplClassLoader.html","",
-                [        ]]        ]],["Library","Library.html","",
+var tree = [["Library","Library.html","",
                 [["CommandLine","Library\/CommandLine.html","",
                 [["AbstractCommandLineController","Library\/CommandLine\/AbstractCommandLineController.html","",
                 [        ]],["CommandLineControllerInterface","Library\/CommandLine\/CommandLineControllerInterface.html","",

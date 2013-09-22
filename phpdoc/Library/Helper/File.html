@@ -104,7 +104,7 @@
                     static&nbsp;
                 </td>
                 <td class="last">
-                    <a href="#method_getTransformedFilesize">getTransformedFilesize</a>(<abbr title="Library\Helper\float">float</abbr> $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)
+                    <a href="#method_getTransformedFilesize">getTransformedFilesize</a>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)
                     <p>Returns a formatted file size in bytes or derived unit</p>
                 </td>
                 <td></td>
@@ -321,7 +321,7 @@ and a set of commonly used separator characters in file or directories names.</p
                 <h3 id="method_getTransformedFilesize">
         <div class="location">at line 137</div>
         <code>        static    public            
-    <strong>getTransformedFilesize</strong>(<abbr title="Library\Helper\float">float</abbr> $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)</code>
+    <strong>getTransformedFilesize</strong>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)</code>
     </h3>
     <div class="details">
         <p>Returns a formatted file size in bytes or derived unit</p>
@@ -332,7 +332,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
 
                     <table>
                     <tr>
-                <td><abbr title="Library\Helper\float">float</abbr></td>
+                <td>float</td>
                 <td>$size</td>
                 <td>Refer to the size (in standard format given by the <code>stat()</code> function)</td>
             </tr>
@@ -355,7 +355,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_touch">
-        <div class="location">at line 164</div>
+        <div class="location">at line 165</div>
         <code>        static    public            bool
     <strong>touch</strong>(string $file_path, array $logs = array())</code>
     </h3>
@@ -397,7 +397,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_remove">
-        <div class="location">at line 188</div>
+        <div class="location">at line 190</div>
         <code>        static    public            bool
     <strong>remove</strong>(string $file_path, array $logs = array())</code>
     </h3>
@@ -439,7 +439,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_copy">
-        <div class="location">at line 212</div>
+        <div class="location">at line 215</div>
         <code>        static    public            bool
     <strong>copy</strong>(string $file_path, string $target_path, bool $force = false, array $logs = array())</code>
     </h3>
