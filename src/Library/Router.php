@@ -313,7 +313,7 @@ class Router implements RouterInterface
      *
      * @todo manage the case of $route_infos = route
      */
-    public function generateUrl($route_infos, $base_uri, $hash = null, $separator = '&amp;')
+    public function generateUrl($route_infos, $base_uri = null, $hash = null, $separator = '&amp;')
 	{
 		$url_args = $this->getArgumentsMap()->getCollection();
 		
