@@ -4,7 +4,7 @@
 @ini_set('display_errors','1'); @error_reporting(E_ALL ^ E_NOTICE);
 
 // set a default timezone to avoid PHP5 warnings
-$dtmz = date_default_timezone_get();
+$dtmz = @date_default_timezone_get();
 date_default_timezone_set( !empty($dtmz) ? $dtmz:'Europe/Paris' );
 
 // for security
@@ -256,7 +256,7 @@ $logs = array();
 $dir = __DIR__.'/tmp_tmp';
 echo '$logs = array();'."\n";
 echo '$dir = __DIR__."/tmp_tmp";'."\n";
-
+/*
 \Library\Helper\Directory::ensureExists($dir);
 \Library\Helper\File::touch($dir.'/test1');
 \Library\Helper\File::touch($dir.'/test2');
@@ -264,6 +264,7 @@ echo '$dir = __DIR__."/tmp_tmp";'."\n";
 \Library\Helper\File::touch($dir.'/test/test2');
 \Library\Helper\Directory::chmod($dir, 777, true, 766, $logs);
 \Library\Helper\Directory::remove($dir, $logs);
+*/
 echo "\n";
 echo '\Library\Helper\Directory::ensureExists($dir);'."\n";
 echo '\Library\Helper\File::touch($dir."/test1");'."\n";
