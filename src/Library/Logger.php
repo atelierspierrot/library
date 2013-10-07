@@ -9,9 +9,9 @@
 
 namespace Library;
 
-use \Psr\Log\LoggerInterface,
-    \Psr\Log\AbstractLogger,
-    \Psr\Log\LogLevel;
+use Psr\Log\LoggerInterface,
+    Psr\Log\AbstractLogger,
+    Psr\Log\LogLevel;
 
 /**
  * Write some log infos in log files
@@ -38,7 +38,7 @@ class Logger
 		'max_log' => 100,
 		'logfile' => 'history',
 		'error_logfile' => 'error',
-		'datetime_format' => 'Y-m-d H:i:s',
+		'datetime_format' => 'd-m-Y H:i:s',
 		'duplicate_errors' => true,
 		'rotator'=>array(
             'period_duration' => 86400,
@@ -224,7 +224,7 @@ class Logger
 			'pid' => @getmypid(),
             'extra' => array(),
 		);
-		return self::write(self::getLogRecord($record)."\n", $level);
+		return self::write( self::getLogRecord( $record ), $level );
 	}
 
 	/**
@@ -331,12 +331,8 @@ class Logger
 		$prefix[] = $record['level_name'].' :';
 
 		// last infos
-		if (!empty($record['context'])) {
-    		$suffix[] = '['.$this->writeArray($record['context']).']';
-		}
-		if (!empty($record['extra'])) {
-    		$suffix[] = '['.$this->writeArray($record['extra']).']';
-    	}
+		$suffix[] = '['.$this->writeArray($record['context']).']';
+		$suffix[] = '['.$this->writeArray($record['extra']).']';
 		
 		return join(' ', $prefix).' '.preg_replace("/\n*$/", ' ', $record['message']).' '.join(' ', $suffix);
 	}
@@ -349,10 +345,8 @@ class Logger
 	 */
 	protected function getFilePath($level = 100)
 	{
-	    $filename = $this->getFileName($level);
-	    $filext = '.'.trim($this->logfile_extension, '.');
-	    $filename = str_replace($filext, '', $filename) . $filext;
-		return rtrim($this->directory, '/') . '/' . $filename;
+		return rtrim($this->directory, '/').'/'.$this->getFileName($level)
+			.'.'.trim($this->logfile_extension, '.');
 	}
 
 	/**
@@ -400,5 +394,56 @@ class Logger
 	}
 
 }
+
+/*
+class TestClass
+{
+    var $msg;
+    function __construct( $str )
+    {
+        $this->msg = $str;
+    }
+    function __toString()
+    {
+        return $this->msg;
+    }
+}
+
+// test of global logger
+$logger = getContainer()->get('logger');
+var_export($logger);
+
+// write a simple log
+$ok = getContainer()->get('logger')->log($logger::DEBUG, 'my message');
+var_export($ok);
+
+// write a log message with placeholders
+$ok = getContainer()->get('logger')->log($logger::DEBUG, 'my message with placeholders : {one} and {two}', array(
+    'one' => 'my value for first placeholder',
+    'two' => new TestClass( 'my test class with a toString method' )
+));
+var_export($ok);
+
+// write logs in a specific "test" file
+$ok = getContainer()->get('logger')->log($logger::DEBUG, 'my message', array(), 'test');
+var_export($ok);
+
+// write many logs
+for ($i=0; $i<1000; $i++)
+{
+    $ok = getContainer()->get('logger')->log( \App\Logger::DEBUG, '[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
+    $ok = getContainer()->get('logger')->log( \App\Logger::ERROR, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
+    $ok = getContainer()->get('logger')->log( \App\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test' );
+}
+
+// write error logs
+		try{
+//			fopen(); // error
+			if (2 != 4) // false
+				throw new \App\Exception("Capture l'exception par défaut", 12);
+		} catch(\App\Exception $e) {
+			echo $e;
+		}
+*/
 
 // Endfile

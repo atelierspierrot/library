@@ -9,11 +9,11 @@
 
 namespace Library\CommandLine;
 
-use \InvalidArgumentException;
+use InvalidArgumentException;
 
-use \Library\CodeParser,
-    \Library\CommandLine\Formater,
-    \Library\CommandLine\Stream;
+use Library\CodeParser,
+    Library\CommandLine\Formater,
+    Library\CommandLine\Stream;
 
 /**
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>

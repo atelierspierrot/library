@@ -8,15 +8,13 @@
  */
 namespace Library\HttpFundamental;
 
-use \Patterns\Interfaces\RequestInterface;
-use \Library\Helper\Url as UrlHelper;
+use Library\Helper\Url as UrlHelper;
 
 /**
  * The global request class
- *
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Request implements RequestInterface
+class Request
 {
 
     /**
@@ -114,8 +112,7 @@ class Request implements RequestInterface
         array $arguments = null, array $data = null, 
         array $session = null, array $files = null, array $cookies = null
     ) {
-        $_cls = get_called_class();
-        $request = new $_cls($url, $flag);
+        $request = new self($url, $flag);
         if (!is_null($protocol)) $request->setProtocol($protocol);
         if (!is_null($method)) $request->setMethod($method);
         if (!is_null($headers)) $request->setHeaders($headers);
@@ -141,7 +138,6 @@ class Request implements RequestInterface
     {
         $this->setFlag($flag);
         if (is_null($url)) $this->guessFromCurrent();
-        else $this->setUrl($url);
     }
 
     /**
@@ -156,14 +152,14 @@ class Request implements RequestInterface
             ->setUrl(UrlHelper::getRequestUrl())
             ->setProtocol(UrlHelper::getHttpProtocol())
             ->setMethod($_SERVER['REQUEST_METHOD'])
-            ->setHeaders($this->getallheaders())
-            ->setArguments(isset($_GET) ? $_GET : array())
-            ->setData(isset($_POST) ? $_POST : array())
-            ->setSession(isset($_SESSION) ? $_SESSION : array())
-            ->setFiles(isset($_FILES) ? $_FILES : array())
-            ->setCookies(isset($_COOKIE) ? $_COOKIE : array())
-            ->setAuthenticationUser(isset($_SERVER['PHP_AUTH_USER']) ? $_SERVER['PHP_AUTH_USER'] : null)
-            ->setAuthenticationPassword(isset($_SERVER['PHP_AUTH_PW']) ? $_SERVER['PHP_AUTH_PW'] : null)
+            ->setHeaders(getallheaders())
+            ->setArguments($_GET)
+            ->setData($_POST)
+            ->setSession($_SESSION)
+            ->setFiles($_FILES)
+            ->setCookies($_COOKIE)
+            ->setAuthenticationUser($_SERVER['PHP_AUTH_USER'])
+            ->setAuthenticationPassword($_SERVER['PHP_AUTH_PW'])
             ->setAuthenticationType(!empty($_SERVER['PHP_AUTH_DIGEST']) ? 'digest' : 'basic')
             ;
         return $this;
@@ -479,43 +475,6 @@ class Request implements RequestInterface
     }
 
 // -----------------------
-// URL builder
-// -----------------------
-
-    /**
-     * @return string
-     */
-    public function buildUrl()
-    {
-        $url = UrlHelper::parse($this->getUrl());
-        
-        $get = $this->getArguments();
-        if (!empty($get)) {
-            foreach ($get as $arg=>$val) {
-                if ($this->getFlag() & self::REWRITE_SEGMENTS_QUERY) {
-                    $url['params'][$arg] = null;
-                    $path = '/'.$arg.'/';
-                    if (1===preg_match('#\/'.$arg.'\/[^\/]*#i', $url['path'], $matches)) {
-                        $url['path'] = str_replace($matches[0], '/'.$arg.'/'.urlencode($val), $url['path']);
-                    } else {
-                        $url['path'] .= '/'.$arg.'/'.urlencode($val);
-                    }
-                } else {
-                    $url['params'][$arg] = $val;
-                }
-            }
-        }
-
-        $user = $this->getAuthentication('user');
-        if (!empty($user)) $url['user'] = $user;
-        $pwd = $this->getAuthentication('pwd');
-        if (!empty($pwd)) $url['pass'] = $pwd;
-
-        $built_url = UrlHelper::build($url);        
-        return $built_url;
-    }
-    
-// -----------------------
 // Aliases
 // -----------------------
 
@@ -664,7 +623,7 @@ class Request implements RequestInterface
         } elseif (is_array($arg_value)) {
             $result = array();
             foreach($arg_value as $arg=>$value) {
-                $result[$arg] = self::cleanArgument($value, $flags, $encoding);
+                $result[$arg] = self::cleanArg($value, $flags, $encoding);
             }
         }
         return $result;
@@ -693,24 +652,6 @@ class Request implements RequestInterface
         }
         return $ip;
     }
-
-    /**
-     * Emulation of internal `getallheaders()` function as it doesn't exist each time
-     */
-    public static function getallheaders()
-    {
-        if (function_exists('getallheaders')) {
-            return getallheaders();
-        } else {
-            $headers = '';
-            foreach ($_SERVER as $name => $value) {
-               if (substr($name, 0, 5) == 'HTTP_') {
-                   $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
-               }
-            }
-            return $headers;
-        }
-    } 
 
 }
 

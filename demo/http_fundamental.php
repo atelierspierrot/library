@@ -1,36 +1,19 @@
 <?php
 
-/**
- * Show errors at least initially
- *
- * `E_ALL` => for hard dev
- * `E_ALL & ~E_STRICT` => for hard dev in PHP5.4 avoiding strict warnings
- * `E_ALL & ~E_NOTICE & ~E_STRICT` => classic setting
- */
-//@ini_set('display_errors','1'); @error_reporting(E_ALL);
-//@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_STRICT);
-@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+// show errors at least initially
+@ini_set('display_errors','1'); @error_reporting(E_ALL ^ E_NOTICE);
 
-/**
- * Set a default timezone to avoid PHP5 warnings
- */
-$dtmz = @date_default_timezone_get();
-date_default_timezone_set($dtmz?:'Europe/Paris');
+// set a default timezone to avoid PHP5 warnings
+$dtmz = date_default_timezone_get();
+date_default_timezone_set( !empty($dtmz) ? $dtmz:'Europe/Paris' );
 
-/**
- * For security, transform a realpath as '/[***]/package_root/...'
- *
- * @param string $path
- * @param int $depth_from_root
- *
- * @return string
- */
-function _getSecuredRealPath($path, $depth_from_root = 1)
+// for security
+function _getSecuredRealPath( $str )
 {
-    $ds = DIRECTORY_SEPARATOR;
-    $parts = explode($ds, realpath('.'));
-    for ($i=0; $i<=$depth_from_root; $i++) array_pop($parts);
-    return str_replace(join($ds, $parts), $ds.'[***]', $path);
+    $parts = explode('/', realpath('.'));
+    array_pop($parts);
+    array_pop($parts);
+    return str_replace(join('/', $parts), '/[***]', $str);
 }
 
 function getPhpClassManualLink( $class_name, $ln='en' )
@@ -96,11 +79,9 @@ function getPhpClassManualLink( $class_name, $ln='en' )
 	<h2 id="tests">Tests & documentation</h2>
 
 <?php
-if (file_exists($_f = __DIR__."/../vendor/autoload.php")) {
-    require_once $_f;
-} else {
-    trigger_error('You need to run Composer on your package to install dependencies!', E_USER_ERROR);
-}
+require_once __DIR__."/../src/SplClassLoader.php";
+$classLoader = new SplClassLoader("Library", __DIR__."/../src");
+$classLoader->register();
 ?>
     
 <h3 id="contentype">Library\HttpFundamental\ContentType</h3>
@@ -142,82 +123,13 @@ echo '// => '.var_export($ctt_html,1)."\n";
 
 <h3 id="request">Library\HttpFundamental\Request</h3>
 
-<h4>Current request</h4>
-
-<p>The object below is populated analyzing the current request made to view this page.</p>
-<p>You can play with this object adding arguments or data to current URL. Some tools can help you to do so, such as the <a href="http://addons.mozilla.org/fr/firefox/addon/tamper-data/" title="Extension's webpage">Tamper Data</a> extension for <a href="http://www.mozilla.org/en-US/firefox/fx/" title="Web-browser webpage">Firefox</a>.</p>
+<p>You can play with this object adding GET arguments to current URL.</p>
 
     <pre class="code" data-language="php">
 <?php
 $request = new Library\HttpFundamental\Request;
 echo '$request = new Library\HttpFundamental\Request;'."\n";
 echo var_export($request,1)."\n";
-?>
-    </pre>
-
-<h4>Custom request</h4>
-
-    <pre class="code" data-language="php">
-<?php
-/*
-    public static function create(
-        $url = null, $flag = self::NO_REWRITE,
-        $protocol = 'http', $method = 'get', array $headers = null, 
-        array $arguments = null, array $data = null, 
-        array $session = null, array $files = null, array $cookies = null
-    ) {
-*/
-$url = Library\Helper\Url::getRequestUrl(false, true);
-$flag = Library\HttpFundamental\Request::NO_REWRITE;
-$protocol = 'http';
-$method = 'get';
-$headers = null;
-$get = array(
-    'get_arg1'=>'value 1',
-    'get_arg2'=>'value 2',
-);
-$post = array(
-    'post_arg1'=>'value 1',
-    'post_arg2'=>'value 2',
-);
-$session = null;
-$files = null;
-$cookies = null;
-$custom_request = Library\HttpFundamental\Request::create(
-    $url, $flag, $protocol, $method, $headers, $get, $post, $session, $files, $cookies
-);
-
-echo '$url = Library\Helper\Url::getRequestUrl(false, true);'."\n";
-echo '$flag = Library\HttpFundamental\Request::NO_REWRITE;'."\n";
-echo '$protocol = "http";'."\n";
-echo '$method = "get";'."\n";
-echo '$headers = null;'."\n";
-echo '$get = array('."\n"
-    ."\t".'"get_arg1"=>"value 1",'."\n"
-    ."\t".'"get_arg2"=>"value 2",'."\n"
-.');'."\n";
-echo '$post = array('."\n"
-    ."\t".'"post_arg1"=>"value 1",'."\n"
-    ."\t".'"post_arg2"=>"value 2",'."\n"
-.');'."\n";
-echo '$session = null;'."\n";
-echo '$files = null;'."\n";
-echo '$cookies = null;'."\n";
-echo '$custom_request = Library\HttpFundamental\Request::create('."\n"
-    ."\t".'$url, $flag, $protocol, $method, $headers, $get, $post, $session, $files, $cookies'."\n"
-.');'."\n";
-echo "\n";
-echo var_export($custom_request,1)."\n";
-echo "\n";
-echo 'echo $custom_request->buildUrl()'."\n";
-echo '// '.$custom_request->buildUrl()."\n";
-echo "\n";
-echo '$custom_request->setFlag(Library\HttpFundamental\Request::REWRITE_SEGMENTS_QUERY)'."\n";
-$custom_request->setFlag(Library\HttpFundamental\Request::REWRITE_SEGMENTS_QUERY);
-echo '$custom_request->setUser("anonymous")'."\n";
-$custom_request->setAuthenticationUser('anonymous');
-echo 'echo $custom_request->buildUrl()'."\n";
-echo '// '.$custom_request->buildUrl()."\n";
 ?>
     </pre>
 

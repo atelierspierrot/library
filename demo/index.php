@@ -1,40 +1,20 @@
 <?php
 
-/**
- * Show errors at least initially
- *
- * `E_ALL` => for hard dev
- * `E_ALL & ~E_STRICT` => for hard dev in PHP5.4 avoiding strict warnings
- * `E_ALL & ~E_NOTICE & ~E_STRICT` => classic setting
- */
-//@ini_set('display_errors','1'); @error_reporting(E_ALL);
-//@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_STRICT);
-@ini_set('display_errors','1'); @error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+// show errors at least initially
+@ini_set('display_errors','1'); @error_reporting(E_ALL ^ E_NOTICE);
 
-/**
- * Set a default timezone to avoid PHP5 warnings
- */
-$dtmz = @date_default_timezone_get();
-date_default_timezone_set($dtmz?:'Europe/Paris');
+// set a default timezone to avoid PHP5 warnings
+$dtmz = date_default_timezone_get();
+date_default_timezone_set( !empty($dtmz) ? $dtmz:'Europe/Paris' );
 
-/**
- * For security, transform a realpath as '/[***]/package_root/...'
- *
- * @param string $path
- * @param int $depth_from_root
- *
- * @return string
- */
-function _getSecuredRealPath($path, $depth_from_root = 1)
+// for security
+function _getSecuredRealPath( $str )
 {
-    $ds = DIRECTORY_SEPARATOR;
-    $parts = explode($ds, realpath('.'));
-    for ($i=0; $i<=$depth_from_root; $i++) array_pop($parts);
-    return str_replace(join($ds, $parts), $ds.'[***]', $path);
+    $parts = explode('/', realpath('.'));
+    array_pop($parts);
+    array_pop($parts);
+    return str_replace(join('/', $parts), '/[***]', $str);
 }
-
-// arguments settings
-$arg_ln = isset($_GET['ln']) ? $_GET['ln'] : 'en';
 
 function getPhpClassManualLink( $class_name, $ln='en' )
 {
@@ -55,7 +35,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
     <link rel="stylesheet" href="assets/html5boilerplate/css/normalize.css" />
     <link rel="stylesheet" href="assets/html5boilerplate/css/main.css" />
     <script src="assets/html5boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-    <link rel="stylesheet" href="assets/styles.css" />
+	<link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
     <!--[if lt IE 7]>
@@ -72,8 +52,8 @@ function getPhpClassManualLink( $class_name, $ln='en' )
         </div>
     </header>
 
-    <nav>
-        <h2>Map of the package</h2>
+	<nav>
+		<h2>Map of the package</h2>
         <ul id="navigation_menu" class="menu" role="navigation">
             <li><a href="index.php">Homepage</a><ul>
                 <li><a href="index.php#helpers">Helpers</a><ul>
@@ -105,8 +85,8 @@ function getPhpClassManualLink( $class_name, $ln='en' )
             <p class="comment">The sources of this plugin are hosted on <a href="http://github.com">GitHub</a>. To follow sources updates, report a bug or read opened bug tickets and any other information, please see the GitHub website above.</p>
         </div>
 
-        <p class="credits" id="user_agent"></p>
-    </nav>
+    	<p class="credits" id="user_agent"></p>
+	</nav>
 
     <div id="content" role="main">
 
@@ -117,7 +97,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
     <p>For clarity, the examples below are NOT written as a working PHP code when it seems not necessary. For example, rather than write <var>echo "my_string";</var> we would write <var>echo my_string</var> or rather than <var>var_export($data);</var> we would write <var>echo $data</var>. The main code for these classes'usage is written strictly.</p>
     <p>As a reminder, and because it's always useful, have a look at the <a href="http://pear.php.net/manual/<?php echo $arg_ln; ?>/standards.php">PHP common coding standards</a>.</p>
 
-    <h2 id="tests">Tests & documentation</h2>
+	<h2 id="tests">Tests & documentation</h2>
     
 <h3>Include the <var>Library</var> namespace</h3>
 
@@ -303,31 +283,19 @@ var_export($logs);
     <pre class="code" data-language="php">
 <?php
 interface MyInterface {
-    public function mustImplement();
+    public function MustImplement();
 }
 class MyClass implements MyInterface {
-    public function mustImplement()
-    {
-        return;
-    }
-}
-class MyChildClass extends MyClass {
-    public function myChildMethod()
+    public function MustImplement()
     {
         return;
     }
 }
 echo 'interface MyInterface {'."\n"
-    ."\t".'public function mustImplement();'."\n"
+    ."\t".'public function MustImplement();'."\n"
     .'}'."\n"
     .'class MyClass implements MyInterface {'."\n"
-    ."\t".'public function mustImplement()'."\n"
-    ."\t".'{'."\n"
-    ."\t\t".'return;'."\n"
-    ."\t".'}'."\n"
-    .'}'."\n"
-    .'class MyChildClass extends MyClass {'."\n"
-    ."\t".'public function myChildMethod()'."\n"
+    ."\t".'public function MustImplement()'."\n"
     ."\t".'{'."\n"
     ."\t\t".'return;'."\n"
     ."\t".'}'."\n"
@@ -337,113 +305,6 @@ echo 'echo Library\Helper\Code::impelementsInterface("MyClass", "MyInterface");'
 echo '=> '.var_export(Library\Helper\Code::impelementsInterface('MyClass', 'MyInterface'),1)."\n";
 echo 'echo Library\Helper\Code::impelementsInterface("MyClass", "UnknownInterface");'."\n";
 echo '=> '.var_export(Library\Helper\Code::impelementsInterface('MyClass', 'UnknownInterface'),1)."\n";
-echo 'echo Library\Helper\Code::impelementsInterface("UnknownClass", "MyInterface");'."\n";
-echo '=> '.var_export(Library\Helper\Code::impelementsInterface('UnknownClass', 'MyInterface'),1)."\n";
-echo "\n";
-echo 'echo Library\Helper\Code::extendsClass("MyChildClass", "MyClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'MyClass'),1)."\n";
-echo 'echo Library\Helper\Code::extendsClass("MyChildClass", "UnknownClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'UnknownClass'),1)."\n";
-echo 'echo Library\Helper\Code::extendsClass("UnknownClass", "MyClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::extendsClass('UnknownClass', 'MyClass'),1)."\n";
-echo "\n";
-$obj = new MyClass;
-echo '$obj = new MyClass;'."\n";
-echo 'echo Library\Helper\Code::isClassInstance($obj, "MyClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyClass'),1)."\n";
-echo 'echo Library\Helper\Code::isClassInstance($obj, "MyChildClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyChildClass'),1)."\n";
-echo 'echo Library\Helper\Code::isClassInstance($obj, "UnknownClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'UnknownClass'),1)."\n";
-$no_obj = "my var";
-echo '$no_obj = "my var";'."\n";
-echo 'echo Library\Helper\Code::isClassInstance($no_obj, "MyClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::isClassInstance($no_obj, 'MyClass'),1)."\n";
-echo "\n";
-echo 'echo Library\Helper\Code::namespaceExists("Library\Helper");'."\n";
-echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\Helper'),1)."\n";
-echo 'echo Library\Helper\Code::namespaceExists("Library\NotExists");'."\n";
-echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\NotExists'),1)."\n";
-
-
-function MyMethod( $arg_one, $arg_two = 'default 2', $arg_three = 'default 3') 
-{
-    echo "=> calling ".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
-}
-
-class MyTestClass
-{
-    function MyMethod( $arg_one, $arg_two = 'default 2', $arg_three = 'default 3') 
-    {
-        echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
-    }
-    function MyMethod2( $arg_one = 'default 1', $arg_two, $arg_three = 'default 3') 
-    {
-        echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
-    }
-}
-
-echo "\n";
-echo 'function MyMethod( $arg_one, $arg_two = "default 2", $arg_three = "default 3")'."\n"
-    ."{\n"
-    ."\t".'echo "=> calling ".__FUNCTION__." with arguments ".var_export(func_get_args(),1);'."\n"
-    ."}\n";
-echo "\n";
-$rest = array();
-echo '$rest = array()'."\n";
-echo 'echo Library\Helper\Code::organizeArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), null, $logs = array());'."\n";
-echo '=> '.var_export(Library\Helper\Code::organizeArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), null, $rest),1)."\n";
-echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
-echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"));'."\n";
-Library\Helper\Code::fetchArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'));
-echo "\n";
-echo "\n";
-echo 'class MyTestClass'."\n"
-    .'{'."\n"
-    ."\t".'function MyMethod( $arg_one, $arg_two = "default 2", $arg_three = "default 3")'."\n"
-    ."\t".'{'."\n"
-    ."\t\t".'echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);'."\n"
-    ."\t".'}'."\n"
-    ."\t".'function MyMethod2( $arg_one = "default 1", $arg_two, $arg_three = "default 3")'."\n"
-    ."\t".'{'."\n"
-    ."\t\t".'echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);'."\n"
-    ."\t".'}'."\n"
-    .'}'."\n";
-echo "\n";
-$rest = array();
-echo '$rest = array()'."\n";
-echo 'echo Library\Helper\Code::organizeArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), "MyTestClass", $rest);'."\n";
-echo '=> '.var_export(Library\Helper\Code::organizeArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass', $rest),1)."\n";
-echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
-echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), "MyTestClass");'."\n";
-Library\Helper\Code::fetchArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass');
-echo "\n";
-echo "\n";
-$rest = array();
-echo '$rest = array()'."\n";
-echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_three"=>"test B", "arg_four"=>"test"), "MyTestClass", $rest);'."\n";
-Library\Helper\Code::fetchArguments('MyMethod', array('arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass', $rest);
-echo "\n";
-echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
-echo "\n";
-$rest = array();
-echo '$rest = array()'."\n";
-echo 'echo Library\Helper\Code::fetchArguments("MyMethod", "test", "MyTestClass", $rest);'."\n";
-Library\Helper\Code::fetchArguments('MyMethod', 'test', 'MyTestClass', $rest);
-echo "\n";
-echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
-echo "\n";
-$rest = array();
-echo '$rest = array()'."\n";
-echo 'echo Library\Helper\Code::fetchArguments("MyMethod2", "test", "MyTestClass", $rest);'."\n";
-Library\Helper\Code::fetchArguments('MyMethod2', 'test', 'MyTestClass', $rest);
-echo "\n";
-echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
 ?>
     </pre>
 
@@ -633,15 +494,12 @@ echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry4'),1)."\n"
     <pre class="code" data-language="php">
 <?php
 echo '$command = new Library\Command;'."\n";
-$command = new Library\Command;
 echo 'echo $command->run("whoami");'."\n";
+$command = new Library\Command;
 echo '=> '.var_export($command->run("whoami"),1);
 echo "\n";
-echo 'echo $pwd = $command->getCommandPath("pwd");'."\n";
-echo '=> '.var_export($pwd = $command->getCommandPath("pwd"),1);
-echo "\n";
-echo 'echo $command->run($pwd);'."\n";
-echo '=> '.var_export($command->run($pwd),1);
+echo 'echo $command->run("pwd");'."\n";
+echo '=> '.var_export($command->run("pwd"),1);
 
 ?>
     </pre>
@@ -907,9 +765,8 @@ echo $reporter->render($full_table_contents, "table");
 
 echo $reporter->render($full_table_contents, "table", $table_args);
 
-/*
 echo $reporter->render($errors_full_table_contents, "table", $errors_table_args);
-*/
+
 echo $reporter->render($definitions, "definition");
 ?>
 </blockquote>
@@ -1322,12 +1179,12 @@ echo '// => '.var_export($myerrorregistry2->getOne(),1).' (magic getter acces is
     </div>
 
     <footer id="footer">
-        <div class="credits float-left">
-            This page is <a href="" title="Check now online" id="html_validation">HTML5</a> & <a href="" title="Check now online" id="css_validation">CSS3</a> valid.
-        </div>
-        <div class="credits float-right">
+		<div class="credits float-left">
+		    This page is <a href="" title="Check now online" id="html_validation">HTML5</a> & <a href="" title="Check now online" id="css_validation">CSS3</a> valid.
+		</div>
+		<div class="credits float-right">
             <a href="http://github.com/atelierspierrot/library">atelierspierrot/library</a> package by <a href="https://github.com/atelierspierrot">Les Ateliers Pierrot</a> under <a href="http://opensource.org/licenses/GPL-3.0">GNU GPL v.3</a> license.
-        </div>
+		</div>
     </footer>
 
     <div class="back_menu" id="short_navigation">

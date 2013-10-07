@@ -2,27 +2,28 @@
     "name": "atelierspierrot/library",
     "type": "library",
     "description": "The PHP library package of Les Ateliers Pierrot.",
-    "keywords": [ "library", "helpers" ],
-    "homepage": "http://github.com/atelierspierrot/library",
-    "version": "1.1.3",
+    "keywords": [ "php", "library", "helpers" ],
+    "homepage": "https://github.com/atelierspierrot/library",
+    "version": "1.0.12",
     "license": "GPL-3.0",
-    "authors": [{
-        "name": "Les Ateliers Pierrot & contributors",
-        "email": "contact@ateliers-pierrot.fr",
-        "homepage": "http://www.ateliers-pierrot.fr/"
-    },{
-        "name": "Pierre Cassat",
-        "email": "piero.wbmstr@gmail.com",
-        "homepage": "https://github.com/PieroWbmstr"
-    }],
+    "authors": [
+        {
+            "name": "Les Ateliers Pierrot & contributors",
+            "email": "contact@ateliers-pierrot.fr",
+            "homepage": "http://www.ateliers-pierrot.fr/"
+        },{
+            "name": "Pierre Cassat",
+            "email": "piero.wbmstr@gmail.com",
+            "homepage": "https://github.com/PieroWbmstr"
+        }
+    ],
     "require": {
         "php": ">=5.3.0",
         "atelierspierrot/patterns": "dev-master"
     },
     "require-dev": {
         "psr/log": "dev-master",
-        "sami/sami": "dev-master",
-        "phpmd/phpmd" : "1.4.*"
+        "sami/sami": "dev-master"
     },
     "autoload": { "psr-0": {  "Library": "src" } }
 }

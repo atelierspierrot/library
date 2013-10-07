@@ -9,7 +9,7 @@
 
 namespace Library\Helper;
 
-use \Library\Helper\Text as TextHelper;
+use Library\Helper\Text as TextHelper;
  
 /**
  * File helper
@@ -159,7 +159,6 @@ class File
      *
      * @param string $file_path
      * @param array $logs Logs registry passed by reference
-     *
      * @return bool
      */
     public static function touch($file_path, array &$logs = array())
@@ -184,7 +183,6 @@ class File
      *
      * @param string $file_path
      * @param array $logs Logs registry passed by reference
-     *
      * @return bool
      */
     public static function remove($file_path, array &$logs = array())
@@ -209,7 +207,6 @@ class File
      * @param string $target_path
      * @param bool $force
      * @param array $logs Logs registry passed by reference
-     *
      * @return bool
      */
     public static function copy($file_path, $target_path, $force = false, array &$logs = array())

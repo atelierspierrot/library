@@ -9,10 +9,8 @@
 
 namespace Library\Object;
 
-use \ReflectionClass,
-    \ReflectionMethod,
-    \ReflectionProperty;
-use \Library\Helper\Code as CodeHelper;
+use ReflectionClass, ReflectionMethod, ReflectionProperty;
+use Library\Helper\Code as CodeHelper;
 
 /**
  * Magic handling of properties access
@@ -303,7 +301,7 @@ abstract class AbstractInvokable implements InvokableInterface
         $is_static = self::__isStatic($name);
         $property = $this->findPropertyName($name);
         if (!empty($property)) {
-            return $is_static ? @$this::${$property} : @$this->{$property};
+            return $is_static ? $this::${$property} : $this->{$property};
         }
         return $default;
     }
@@ -378,7 +376,7 @@ abstract class AbstractInvokable implements InvokableInterface
      * @param string $name The property name
      * @return bool
      */
-    private static function __isInvokableStatic($name)
+    private function __isInvokableStatic($name)
     {
         $classname = get_called_class();
         $reflection_class = new ReflectionClass($classname);

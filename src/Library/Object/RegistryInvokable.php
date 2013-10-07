@@ -9,16 +9,16 @@
 
 namespace Library\Object;
 
-use \InvalidArgumentException;
-use \Patterns\Commons\Registry;
-use \Library\Helper\Code as CodeHelper;
+use InvalidArgumentException;
+use Patterns\Commons\Registry;
+use Library\Helper\Code as CodeHelper;
 
 /**
  * Magic handling of properties access
  *
  * ## Presentation
  *
- * This model will store any property dynamically set in the `$_data` registry:
+ * This model will store any property dynamically setted in the `$_data` registry:
  *
  *     $obj->prop = value => $_data[prop] = value
  *     $obj->setProp(value) => $_data[prop] = value
@@ -39,7 +39,7 @@ use \Library\Helper\Code as CodeHelper;
  *
  * ## Flags
  *
- * Three constants flags are defined in the class to let you choose the visibility of the object
+ * Three contants flags are defined in the class to let you choose the visibility of the object
  * properties:
  *
  * - `PUBLIC_PROPERTIES`: every type of property invocation is allowed,

@@ -9,8 +9,7 @@
 
 namespace Library\Tool;
 
-use \ArrayIterator,
-    \InvalidArgumentException;
+use ArrayIterator, InvalidArgumentException;
 
 /*
 TODO

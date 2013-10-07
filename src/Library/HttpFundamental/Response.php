@@ -8,8 +8,7 @@
  */
 namespace Library\HttpFundamental;
 
-use \Library\Converter\Html2Text;
-use \Patterns\Interfaces\ResponseInterface;
+use Library\Converter\Html2Text;
 
 /**
  * The global response class

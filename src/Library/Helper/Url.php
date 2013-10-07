@@ -16,45 +16,35 @@ namespace Library\Helper;
  *
  *     use Library\Helper\Url as UrlHelper;
  *
- * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
+ * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
 class Url
 {
 
     /**
-     * Get the current browser/server URL
+     * Get the current browser URL
      *
      * @param bool $entities Protect '&' entities parsing them in '&amp;' ? (default is FALSE)
      * @param bool $base Do you want just the base URL, without any URI (default is FALSE)
      * @param bool $no_file Do you want just the base URL path, without the input file and any URI (default is FALSE)
-     * @param bool $no_rewrite Do you want the real file pointed by the URL in case of URL rewriting (default is FALSE)
-     * 
-     * @return string
+     * @return string The URL found
      */
-    public static function getRequestUrl($entities = false, $base = false, $no_file = false, $no_rewrite = false)
+    public static function getRequestUrl($entities = false, $base = false, $no_file = false)
     {
-        $protocol = self::getHttpProtocol();
-        if ($no_rewrite) {
-            $url = $protocol.'://'.$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
-            if (!empty($_SERVER['QUERY_STRING'])) {
-                $url .= '?'.$_SERVER['QUERY_STRING'];
-            }
-        } else {
-            $request_uri = isset($GLOBALS['REQUEST_URI']) ? $GLOBALS['REQUEST_URI'] : null;
-            if (empty($request_uri)) {
-                if (isset($_SERVER['REQUEST_URI'])) {
-                    $request_uri = $_SERVER['REQUEST_URI'];
-                } else {
-                    $request_uri = $_SERVER['PHP_SELF'];
-                    if (
-                        $_SERVER['QUERY_STRING'] && !strpos($_SERVER['REQUEST_URI'], '?')
-                    ) {
-                        $request_uri .= '?'.$_SERVER['QUERY_STRING'];
-                    }
+        $protocl = self::getHttpProtocol();
+        if (!isset($GLOBALS['REQUEST_URI'])) {
+            if (isset($_SERVER['REQUEST_URI'])) {
+                $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
+            } else {
+                $GLOBALS['REQUEST_URI'] = $_SERVER['PHP_SELF'];
+                if (
+                    $_SERVER['QUERY_STRING'] && !strpos($_SERVER['REQUEST_URI'], '?')
+                ) {
+                    $GLOBALS['REQUEST_URI'] .= '?'.$_SERVER['QUERY_STRING'];
                 }
             }
-            $url = $protocol.'://'.$_SERVER['HTTP_HOST'].$request_uri;
         }
+        $url = $protocl.'://'.$_SERVER['HTTP_HOST'].$GLOBALS['REQUEST_URI'];
         if ($base && strpos($url, '?')) {
             $url = substr($url, 0, strrpos($url, '?'));
         }
@@ -93,7 +83,7 @@ class Url
         if (isset($_urls['query'])) {
             parse_str($_urls['query'], $_urls['params']);
         }
-        return $_urls;  
+        return $_urls;	
     }
     
     /**
@@ -108,16 +98,16 @@ class Url
     public static function resolvePath($url, $realpath = false)
     {
         while (
-            preg_match(',/\.?/,', $url, $regs)      # supprime // et /./
-            || preg_match(',/[^/]*/\.\./,S', $url, $regs)   # supprime /toto/../
-            || preg_match(',^/\.\./,S', $url, $regs)        # supprime les /../ du haut
+            preg_match(',/\.?/,', $url, $regs)		# supprime // et /./
+            || preg_match(',/[^/]*/\.\./,S', $url, $regs)	# supprime /toto/../
+            || preg_match(',^/\.\./,S', $url, $regs)		# supprime les /../ du haut
         ) {
             $url = str_replace($regs[0], '/', $url);
         }
         $url = '/'.preg_replace(',^/,S', '', $url);
         if ($realpath && $ok = @realpath($url) )
             return $ok;
-        return $url;        
+        return $url;		
     }
 
     /**
@@ -276,7 +266,7 @@ class Url
             if (!is_string($localhost)) $localhost = 'localhost';
             if (substr_count($url, $localhost)) return true;
         }
-        return (bool) preg_match("/^[".join('|', $protocols)."]+[:\/\/]+[A-Za-z0-9\-_]+(\\.)?+[A-Za-z0-9\.\/%&=\?\-_]+$/i", $url); 
+		return (bool) preg_match("/^[".join('|', $protocols)."]+[:\/\/]+[A-Za-z0-9\-_]+(\\.)?+[A-Za-z0-9\.\/%&=\?\-_]+$/i", $url); 
     }
     
     /**
@@ -288,7 +278,7 @@ class Url
     public static function isEmail($email = null)
     {
         if (is_null($email) || !$email || !is_string($email)) return false;
-        return (bool) preg_match('/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/', $email);
+		return (bool) preg_match('/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/', $email);
     }
 
 }
