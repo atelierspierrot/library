@@ -700,16 +700,16 @@ class Request implements RequestInterface
     public static function getallheaders()
     {
         if (function_exists('getallheaders')) {
-            return getallheaders();
+            $return = getallheaders();
         } else {
-            $headers = '';
+            $return = array();
             foreach ($_SERVER as $name => $value) {
                if (substr($name, 0, 5) == 'HTTP_') {
-                   $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+                   $return[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
                }
             }
-            return $headers;
         }
+        return !empty($return) ? $return : array();
     } 
 
 }
