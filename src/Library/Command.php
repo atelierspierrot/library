@@ -93,7 +93,7 @@ class Command
     {
         $descriptorspec = array(
             1 => array('pipe', 'w'),
-            2 => array('pipe', 'w'),
+            2 => array('pipe', 'a'),
         );
         $pipes = array();
         $resource = proc_open($command, $descriptorspec, $pipes, $path);
