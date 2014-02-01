@@ -49,7 +49,7 @@ class Xml implements ContentTypeInterface
         if (is_array($content)) {
             $ctt = '';
             foreach ($content as $key=>$ctt_entry) {
-                $ctt .= "\n".$ctt_entry;
+                $ctt .= $ctt_entry;
             }
             $content = $ctt;
         }
@@ -63,7 +63,7 @@ class Xml implements ContentTypeInterface
      */
     public static function getContentType()
     {
-        return 'text/html';
+        return 'application/xml';
     }
 
 }
