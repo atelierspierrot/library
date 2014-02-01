@@ -260,7 +260,10 @@ class Response
     {
         if (empty($this->content_type)) $this->guessContentType();
 
-        $this->addHeader('Content-type', $this->content_type.'; charset='.strtoupper($this->getCharset()));
+        $existing_content_type = $this->getHeader('Content-type');
+        if (empty($existing_content_type)) {
+            $this->addHeader('Content-type', $this->content_type.'; charset='.strtoupper($this->getCharset()));
+        }
         $this->renderHeaders();
 
         $response = $this->content_type->prepareContent($this->getContents());

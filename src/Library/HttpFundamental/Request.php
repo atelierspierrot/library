@@ -511,7 +511,7 @@ class Request implements RequestInterface
         $pwd = $this->getAuthentication('pwd');
         if (!empty($pwd)) $url['pass'] = $pwd;
 
-        $built_url = UrlHelper::build($url);        
+        $built_url = UrlHelper::build($url);
         return $built_url;
     }
     
