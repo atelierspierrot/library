@@ -16,7 +16,8 @@ use \Library\Helper\Url as UrlHelper;
  *
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Request implements RequestInterface
+class Request
+    implements RequestInterface
 {
 
     /**

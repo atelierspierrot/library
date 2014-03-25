@@ -9,9 +9,9 @@
 
 namespace Library;
 
-use \Psr\Log\LoggerInterface,
-    \Psr\Log\AbstractLogger,
-    \Psr\Log\LogLevel;
+use \Psr\Log\LoggerInterface;
+use \Psr\Log\AbstractLogger;
+use \Psr\Log\LogLevel;
 
 /**
  * Write some log infos in log files

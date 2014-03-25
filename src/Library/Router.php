@@ -19,7 +19,8 @@ use \Patterns\Commons\Collection;
  *
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Router implements RouterInterface
+class Router
+    implements RouterInterface
 {
 
     /**

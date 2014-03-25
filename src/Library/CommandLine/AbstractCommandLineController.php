@@ -9,11 +9,11 @@
 
 namespace Library\CommandLine;
 
-use \Library\CodeParser,
-    \Library\CommandLine\Helper, 
-    \Library\CommandLine\Formater,
-    \Library\CommandLine\Stream,
-    \Library\CommandLine\CommandLineControllerInterface;
+use \Library\CodeParser;
+use \Library\CommandLine\Helper;
+use \Library\CommandLine\Formater;
+use \Library\CommandLine\Stream;
+use \Library\CommandLine\CommandLineControllerInterface;
 
 /**
  * Basic command line controller

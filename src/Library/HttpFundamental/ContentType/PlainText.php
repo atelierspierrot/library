@@ -8,14 +8,15 @@
  */
 namespace Library\HttpFundamental\ContentType;
 
-use \Library\HttpFundamental\ContentTypeInterface,
-    \Library\HttpFundamental\Response,
-    \Library\Converter\Html2Text;
+use \Library\HttpFundamental\ContentTypeInterface;
+use \Library\HttpFundamental\Response;
+use \Library\Converter\Html2Text;
 
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class PlainText implements ContentTypeInterface
+class PlainText
+    implements ContentTypeInterface
 {
 
     /**
