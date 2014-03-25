@@ -9,9 +9,9 @@
 
 namespace Library\Object;
 
-use \ReflectionClass,
-    \ReflectionMethod,
-    \ReflectionProperty;
+use \ReflectionClass;
+use \ReflectionMethod;
+use \ReflectionProperty;
 use \Library\Helper\Code as CodeHelper;
 
 /**
@@ -32,7 +32,8 @@ use \Library\Helper\Code as CodeHelper;
  *
  * @author      Pierre Cassat & contributors <piero.wbmstr@gmail.com>
  */
-abstract class AbstractInvokable implements InvokableInterface
+abstract class AbstractInvokable
+    implements InvokableInterface
 {
 
     /**

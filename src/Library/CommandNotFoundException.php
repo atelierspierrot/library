@@ -11,7 +11,8 @@ namespace Library;
 
 use \RuntimeException;
 
-class CommandNotFoundException extends RuntimeException
+class CommandNotFoundException
+    extends RuntimeException
 {
 
     public function __construct($command = '', $code = 0, Exception $previous = null)

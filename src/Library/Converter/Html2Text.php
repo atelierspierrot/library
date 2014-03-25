@@ -15,7 +15,8 @@ namespace Library\Converter;
  * Freely (but mostly) inspired by the work of Jon Abernathy <jon@chuggnutt.com>
  * and his "class.html2text.inc" (see <http://www.chuggnutt.com/html2text>).
  */
-class Html2Text extends AbstractConverter
+class Html2Text
+    extends AbstractConverter
 {
 
 	public static $correspondances = array(

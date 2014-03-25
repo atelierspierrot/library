@@ -16,7 +16,8 @@ use \Library\Session\Session;
  *
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class FlashSession extends Session
+class FlashSession
+    extends Session
 {
 
 	/**

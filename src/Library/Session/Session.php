@@ -16,7 +16,8 @@ use \Library\Session\SessionInterface;
  *
  * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Session implements SessionInterface
+class Session
+    implements SessionInterface
 {
 
 	/**
