@@ -8,13 +8,14 @@
  */
 namespace Library\HttpFundamental\ContentType;
 
-use \Library\HttpFundamental\ContentTypeInterface,
-    \Library\HttpFundamental\Response;
+use \Library\HttpFundamental\ContentTypeInterface;
+use \Library\HttpFundamental\Response;
 
 /**
  * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
  */
-class Html implements ContentTypeInterface
+class Html
+    implements ContentTypeInterface
 {
 
     /**

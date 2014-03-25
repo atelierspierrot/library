@@ -9,9 +9,9 @@
 
 namespace Library;
 
-use \ReflectionClass,
-    \ReflectionMethod,
-    \ReflectionFunction;
+use \ReflectionClass;
+use \ReflectionMethod;
+use \ReflectionFunction;
 
 /**
  * Source code parser

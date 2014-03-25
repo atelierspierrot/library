@@ -15,7 +15,8 @@ namespace Library\Converter;
  * Freely (but mostly) inspired by the work of Adrien aka Gaarf & contributors
  * (see <http://gaarf.info/2009/08/13/xml-string-to-php-array/>).
  */
-class Xml2Array extends AbstractConverter
+class Xml2Array
+    extends AbstractConverter
 {
 
     public static function convert($xmlstr)

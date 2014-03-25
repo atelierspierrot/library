@@ -55,7 +55,8 @@ use \Library\Helper\Code as CodeHelper;
  *
  * @author      Pierre Cassat & contributors <piero.wbmstr@gmail.com>
  */
-class RegistryInvokable implements InvokableInterface
+class RegistryInvokable
+    implements InvokableInterface
 {
 
     /**

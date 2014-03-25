@@ -14,7 +14,8 @@ use \OutOfBoundsException;
 /**
  * @author      Pierre Cassat & contributors <piero.wbmstr@gmail.com>
  */
-class InvokableAccessException extends OutOfBoundsException
+class InvokableAccessException
+    extends OutOfBoundsException
 {
 
     /**
