@@ -200,7 +200,14 @@ class Code
     {
         $args_def = self::organizeArguments($method_name, $arguments, $class_name, $logs);
         if (!empty($class_name)) {
-            return call_user_func_array(array($class_name, $method_name), $args_def);
+            if (is_callable(array($class_name, $method_name))) {
+                return call_user_func_array(array($class_name, $method_name), $args_def);
+            } else {
+                $_cls = is_object($class_name) ? get_class($class_name) : $class_name;
+                throw new \InvalidArgumentException(
+                    sprintf('Method "%s" of class object "%s" is not callable!', $method_name, $_cls)
+                );
+            }
         } else {
             return call_user_func_array($method_name, $args_def);
         }
