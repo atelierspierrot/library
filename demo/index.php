@@ -83,6 +83,7 @@ function getPhpClassManualLink( $class_name, $ln='en' )
                     <li><a href="index.php#filehelper">File</a></li>
                     <li><a href="index.php#dirhelper">Directory</a></li>
                     <li><a href="index.php#codehelper">Code</a></li>
+                    <li><a href="index.php#numberhelper">Number</a></li>
                 </ul></li>
                 <li><a href="index.php#tools">Tools</a><ul>
                     <li><a href="index.php#tabletool">Table</a></li>
@@ -444,6 +445,40 @@ Library\Helper\Code::fetchArguments('MyMethod2', 'test', 'MyTestClass', $rest);
 echo "\n";
 echo 'echo $rest;'."\n";
 echo '=> '.var_export($rest,1)."\n";
+?>
+    </pre>
+
+<h4 id="numberhelper">Library\Helper\Number</h4>
+    <pre class="code" data-language="php">
+<?php
+
+echo "echo Library\Helper\Number::isOdd(i)\n";
+for ($i=0; $i<11; $i++) {
+    echo "i=$i : ".(Library\Helper\Number::isOdd($i) ? "ODD" : "EVEN")."\n";
+}
+
+echo "echo Library\Helper\Number::isEven(i)\n";
+for ($i=10; $i<21; $i++) {
+    echo "i=$i : ".(Library\Helper\Number::isEven($i) ? "EVEN" : "ODD")."\n";
+}
+
+echo "echo Library\Helper\Number::isPrime(i)\n";
+for ($i=0; $i<50; $i++) {
+    echo "i=$i : ".(Library\Helper\Number::isPrime($i) ? "PRIME" : "-")."\n";
+}
+
+/*
+echo "echo Library\Helper\Number::isPrimordial(i)\n";
+for ($i=0; $i<30; $i++) {
+    echo "i=$i : ".(Library\Helper\Number::isPrimordial($i) ? "PRIMORDIAL" : "-")."\n";
+}
+*/
+
+echo "echo Library\Helper\Number::getFibonacciItem(i)\n";
+for ($i=0; $i<11; $i++) {
+    echo "i=$i : ".Library\Helper\Number::getFibonacciItem($i)."\n";
+}
+
 ?>
     </pre>
 
