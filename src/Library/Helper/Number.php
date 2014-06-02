@@ -129,7 +129,7 @@ class Number
      * @param   numeric     $val    The number to check INCLUDING Luhn's key at last
      * @return  bool
      */
-    public static function function isLuhn($val)
+    public static function isLuhn($val)
     {
         $_num = substr($val, 0, strlen($val)-1);
         return (intval($val) == intval($_num.self::getLuhnKey($_num)));
