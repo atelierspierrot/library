@@ -1,10 +1,10 @@
 <?php
 /**
  * PHP Library package of Les Ateliers Pierrot
- * Copyleft (c) 2013 Pierre Cassat and contributors
+ * Copyleft (c) 2013-2014 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/library>
+ * Sources <http://github.com/atelierspierrot/library>
  */
 
 namespace Library\Object;
@@ -53,7 +53,7 @@ use \Library\Helper\Code as CodeHelper;
  *
  * All setter methods returns the object itself for chainability.
  *
- * @author      Pierre Cassat & contributors <piero.wbmstr@gmail.com>
+ * @author      Pierre Cassat & contributors <me@e-piwi.fr>
  */
 class RegistryInvokable
     implements InvokableInterface

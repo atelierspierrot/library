@@ -1,10 +1,10 @@
 <?php
 /**
  * PHP Library package of Les Ateliers Pierrot
- * Copyleft (c) 2013 Pierre Cassat and contributors
+ * Copyleft (c) 2013-2014 Pierre Cassat and contributors
  * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
  * License GPL-3.0 <http://www.opensource.org/licenses/gpl-3.0.html>
- * Sources <https://github.com/atelierspierrot/library>
+ * Sources <http://github.com/atelierspierrot/library>
  */
 namespace Library\HttpFundamental\ContentType;
 
@@ -13,7 +13,7 @@ use \Library\HttpFundamental\Response;
 use \Library\Converter\Html2Text;
 
 /**
- * @author      Piero Wbmstr <piero.wbmstr@gmail.com>
+ * @author      Piero Wbmstr <me@e-piwi.fr>
  */
 class PlainText
     implements ContentTypeInterface
