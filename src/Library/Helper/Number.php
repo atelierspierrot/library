@@ -98,8 +98,8 @@ class Number
     /**
      * Luhn formula
      * 
-     * @param   numeric     $val
-     * @return  numeric
+     * @param   int     $val
+     * @return  int
      */
     public static function getLuhnKey($val)
     {
@@ -120,13 +120,13 @@ class Number
         if($luhn_key == 10) {
             $luhn_key = 0;
         }
-        return $luhn_key;	
+        return $luhn_key;
     }
 
     /**
      * Check id last number in a suite is a Luhn key
      *
-     * @param   numeric     $val    The number to check INCLUDING Luhn's key at last
+     * @param   int     $val    The number to check INCLUDING Luhn's key at last
      * @return  bool
      */
     public static function isLuhn($val)

@@ -38,7 +38,7 @@ class Array2INI
 
     public static function doConvert(array $data, array $parent = array())
     {
-        $out = '';
+        $output = '';
         foreach ($data as $k => $v) {
             $index = TextHelper::slugify($k);
             if (is_array($v)) {

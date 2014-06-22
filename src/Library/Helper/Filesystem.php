@@ -26,9 +26,9 @@ class Filesystem
     /**
      * Returns a relative path between two filesystem realpaths
      *
-     * @param string $from The absolute path to work from
-     * @param string $to The absolute path to resolve from `$from`
-     * @return string The relative path from `$from` to `$to`
+     * @param   string  $from   The absolute path to work from
+     * @param   string  $to     The absolute path to resolve from `$from`
+     * @return  string  The relative path from `$from` to `$to`
      */
     public static function resolveRelatedPath($from, $to)
     {
@@ -56,8 +56,8 @@ class Filesystem
     /**
      * Get safely the octal form of `$int` if necessary
      *
-     * @param int $int
-     * @return int
+     * @param   int     $int
+     * @return  int
      */
     public static function getOctal($int)
     {

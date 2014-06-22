@@ -28,11 +28,11 @@ class File
     /**
      * Returns a filename or directory that does not exist in the destination
      *
-     * @param string $filename The name of the file or folder you want to create
-     * @param string $dir The destination directory
-     * @param boolean $force_file Should we force the creation of a file, adding an extension? (TRUE by default)
-     * @param string $extension The extension to add in the case of a file
-     * @return string The filename or directory, with a possible addition to be sure that it does not exist in the destination directory
+     * @param   string  $filename       The name of the file or folder you want to create
+     * @param   string  $dir            The destination directory
+     * @param   boolean $force_file     Should we force the creation of a file, adding an extension? (TRUE by default)
+     * @param   string  $extension      The extension to add in the case of a file
+     * @return  string  The filename or directory, with a possible addition to be sure that it does not exist in the destination directory
      */
     public static function getUniqFilename($filename = '', $dir = null, $force_file = true, $extension = 'txt')
     {
@@ -58,10 +58,10 @@ class File
     /**
      * Formatting file names
      *
-     * @param string $string The filename to format
-     * @param boolean $lowercase Should we return the name un lowercase (FALSE by default)
-     * @param string $delimiter The demiliter used for special chars substitution
-     * @return string A filename valid on (almost) all systems
+     * @param   string  $filename   The filename to format
+     * @param   boolean $lowercase  Should we return the name un lowercase (FALSE by default)
+     * @param   string  $delimiter  The delimiter used for special chars substitution
+     * @return  string  A filename valid on (almost) all systems
      */
     public static function formatFilename($filename = '', $lowercase = false, $delimiter = '-')
     {
@@ -88,8 +88,10 @@ class File
      * Returns the extension of a file name
      *
      * It basically returns everything after last dot. No validation is done.
-     * @param string $file_name The file_name to work on
-     * @return null|string The extension if found, `null` otherwise
+     *
+     * @param   string  $file_name  The file_name to work on
+     * @param   bool    $dot
+     * @return  null|string     The extension if found, `null` otherwise
      */
     public static function getExtension($file_name = '', $dot = false)
     {
@@ -107,8 +109,8 @@ class File
      * The original file name is rebuilt striping the extension
      * and a set of commonly used separator characters in file or directories names.
      *
-     * @param string $file_name The file_name to work on
-     * @return string The resulting human readable file name
+     * @param   string  $file_name  The file_name to work on
+     * @return  string  The resulting human readable file name
      */
     public static function getHumanReadableFilename($file_name = '')
     {
@@ -130,9 +132,10 @@ class File
      * This will return the size received transforming it to be readable, with the appropriate
      * unit chosen in `self::$FILESIZE_ORDERED_UNITS`.
      *
-     * @param float $size Refer to the size (in standard format given by the `stat()` function)
-     * @param int $round The number of decimal places (default is 3)
-     * @param string $dec_delimiter The decimal separator (default is a comma)
+     * @param   float   $size           Refer to the size (in standard format given by the `stat()` function)
+     * @param   int     $round          The number of decimal places (default is 3)
+     * @param   string  $dec_delimiter  The decimal separator (default is a comma)
+     * @return  int
      */
     public static function getTransformedFilesize($size = 0, $round = 3, $dec_delimiter = ',')
     {
@@ -157,10 +160,9 @@ class File
     /**
      * Create an empty file or touch an existing file
      *
-     * @param string $file_path
-     * @param array $logs Logs registry passed by reference
-     *
-     * @return bool
+     * @param   string  $file_path
+     * @param   array   $logs   Logs registry passed by reference
+     * @return  bool
      */
     public static function touch($file_path, array &$logs = array())
     {
@@ -182,10 +184,9 @@ class File
     /**
      * Remove a file if it exists
      *
-     * @param string $file_path
-     * @param array $logs Logs registry passed by reference
-     *
-     * @return bool
+     * @param   string  $file_path
+     * @param   array   $logs       Logs registry passed by reference
+     * @return  bool
      */
     public static function remove($file_path, array &$logs = array())
     {
@@ -205,12 +206,11 @@ class File
     /**
      * Copy file `$file_path` if it exists to `$target_path`
      *
-     * @param string $file_path
-     * @param string $target_path
-     * @param bool $force
-     * @param array $logs Logs registry passed by reference
-     *
-     * @return bool
+     * @param   string  $file_path
+     * @param   string  $target_path
+     * @param   bool    $force
+     * @param   array   $logs   Logs registry passed by reference
+     * @return  bool
      */
     public static function copy($file_path, $target_path, $force = false, array &$logs = array())
     {
@@ -221,7 +221,7 @@ class File
         $target_dir = dirname($target_path);
         $ok = (!file_exists($target_dir) && true===$force) ? Directory::create($target_dir) : true;
         if ($ok) {
-            if (!file_exists($target_path) || true===$force) {
+            if (!file_exists($target_path) || true===$force) {
                 if (copy($file_path, $target_path)) {
                     return true;
                 } else {

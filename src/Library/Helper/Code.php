@@ -188,13 +188,13 @@ class Code
     /**
      * Launch a function or class's method fetching it arguments according to its declaration
      *
-     * @param string $method_name The method name
-     * @param misc $arguments A set of arguments to fetch
-     * @param string $class_name The class name
-     * @param array $logs Will be filled with indexes `miss` with missing required arguments
-     *              and `rest` with unused `$arguments` - Passed by reference
-     *
-     * @return misc
+     * @param   string  $method_name    The method name
+     * @param   mixed   $arguments      A set of arguments to fetch
+     * @param   string  $class_name     The class name
+     * @param   array   $logs           Will be filled with indexes `miss` with missing required arguments
+     *                                  and `rest` with unused `$arguments` - Passed by reference
+     * @return  mixed
+     * @throws  \InvalidArgumentException if the method is not callable
      */
     public static function fetchArguments($method_name = null, $arguments = null, $class_name = null, &$logs = array())
     {
@@ -221,13 +221,12 @@ class Code
      * If `$arguments` is not an array, the method will search for the first argument with
      * no default value and define it on the `$arguments` value.
      *
-     * @param string $method_name The method name
-     * @param misc $arguments A set of arguments to fetch
-     * @param string $class_name The class name
-     * @param array $logs Will be filled with indexes `miss` with missing required arguments
-     *              and `rest` with unused `$arguments` - Passed by reference
-     *
-     * @return misc
+     * @param   string  $method_name    The method name
+     * @param   mixed   $arguments      A set of arguments to fetch
+     * @param   string  $class_name     The class name
+     * @param   array   $logs           Will be filled with indexes `miss` with missing required arguments
+     *                                  and `rest` with unused `$arguments` - Passed by reference
+     * @return  mixed
      */
     public static function organizeArguments($method_name = null, $arguments = null, $class_name = null, &$logs = array())
     {

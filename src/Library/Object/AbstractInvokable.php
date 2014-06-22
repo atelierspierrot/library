@@ -49,7 +49,7 @@ abstract class AbstractInvokable
      * @see Library\Object\AbstractInvokable::_invokeGet()
      *
      * @param string $name The property name called on the object
-     * @return misc This will return the result of the magic getter, or nothing if nothing can be done
+     * @return mixed This will return the result of the magic getter, or nothing if nothing can be done
      */
     public function __invoke($name)
     {
@@ -77,7 +77,7 @@ abstract class AbstractInvokable
      *
      * @param string $name The non-existing method name called on the object
      * @param array $arguments The arguments array passed calling the method
-     * @return misc This will return the result of a magic method, or nothing if nothing can be done
+     * @return mixed This will return the result of a magic method, or nothing if nothing can be done
      */
     public function __call($name, array $arguments)
     {
@@ -122,7 +122,7 @@ abstract class AbstractInvokable
      *
      * @param string $name The non-existing method name called on the object
      * @param array $arguments The arguments array passed calling the method
-     * @return misc This will return the result of a magic method, or nothing if nothing can be done
+     * @return mixed This will return the result of a magic method, or nothing if nothing can be done
      */
     public static function __callStatic($name, array $arguments)
     {
@@ -143,7 +143,7 @@ abstract class AbstractInvokable
             try {
                 $object = new $classname;
                 $return = call_user_func_array(array($object, '__call'), array($name, $arguments));
-            } catch(Exception $e) {}
+            } catch(\Exception $e) {}
         }
         return $return;
     }
@@ -157,7 +157,7 @@ abstract class AbstractInvokable
      * @see Library\Object\AbstractInvokable::_invokeGet()
      *
      * @param string $name The name of the property to get
-     * @return misc This will return the result of a magic method, or nothing if nothing can be done
+     * @return mixed This will return the result of a magic method, or nothing if nothing can be done
      */
     public function __get($name)
     {
@@ -173,7 +173,7 @@ abstract class AbstractInvokable
      * @see Library\Object\AbstractInvokable::_invokeSet()
      *
      * @param string $name The name of the property to get
-     * @param misc $value The value to set for the property
+     * @param mixed $value The value to set for the property
      * @return self Returns `$this` for method chaining
      */
     public function __set($name, $value)
@@ -293,8 +293,8 @@ abstract class AbstractInvokable
      * Magic method called when `getProp(arg, default)` or `$this->prop` are invoked.
      *
      * @param string $name The name of the property to get
-     * @param misc $default The default value to return if the property doesn't exist
-     * @return misc This will return the result of a magic method, or nothing if nothing can be done
+     * @param mixed $default The default value to return if the property doesn't exist
+     * @return mixed This will return the result of a magic method, or nothing if nothing can be done
      */
     protected function _invokeGet($name, $default = null)
     {
@@ -315,7 +315,7 @@ abstract class AbstractInvokable
      * Magic method called when `setProp(arg, value)` or `$this->arg = value` are invoked.
      *
      * @param string $name The name of the property to get
-     * @param misc $value The value to set for the property
+     * @param mixed $value The value to set for the property
      * @return self Returns `$this` for method chaining
      */
     protected function _invokeSet($name, $value)

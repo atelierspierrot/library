@@ -10,9 +10,9 @@
 namespace Library\StaticConfiguration;
 
 /**
- * Config class interface to use with Library\StaticConfiguration\Config
+ * Config class interface to use with \Library\StaticConfiguration\Config
  *
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 interface ConfiguratorInterface
 {

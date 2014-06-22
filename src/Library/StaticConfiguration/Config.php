@@ -12,14 +12,14 @@ namespace Library\StaticConfiguration;
 /**
  * Static global configuration object manager
  *
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 class Config
 {
 
     /**
      * The global configuration object
-     * @var object Library\StaticConfiguration\ConfiguratorInterface
+     * @var \Library\StaticConfiguration\ConfiguratorInterface
      */
     private static $__configurator;
 
@@ -41,9 +41,9 @@ class Config
     /**
      * @param string $class_name
      * @return void
-     * @throws InvalidArgumentException if no `$class_name` is defined for the first call
-     * @throws DomainException if class `$class_name` doesn't implement the ConfiguratorInterface
-     * @throws DomainException if class `$class_name` doesn't exist
+     * @throws \InvalidArgumentException if no `$class_name` is defined for the first call
+     * @throws \DomainException if class `$class_name` doesn't implement the ConfiguratorInterface
+     * @throws \DomainException if class `$class_name` doesn't exist
      */
     public static function load($class_name = null)
     {
@@ -96,9 +96,9 @@ class Config
     }
     
     /**
-     * @param object $object Library\StaticConfiguration\ConfiguratorInterface
+     * @param \Library\StaticConfiguration\ConfiguratorInterface $object
      * @return void
-     * @throws Exception if the config class do not define all required values
+     * @throws \Exception if the config class do not define all required values
      */
     public static function setConfigurator(ConfiguratorInterface $object)
     {
@@ -186,7 +186,9 @@ class Config
 
     /**
      * Overload a config registry
-     * @return void
+     *
+     * @param   array   $settings
+     * @return  void
      */
     public static function overload(array $settings)
     {
@@ -197,9 +199,9 @@ class Config
     }
     
     /**
-     * @param string $name
-     * @param misc $value
-     * @return void
+     * @param   string  $name
+     * @param   mixed   $value
+     * @return  void
      */
     public static function set($name, $value)
     {
@@ -210,9 +212,9 @@ class Config
     }
 
     /**
-     * @param string $name
-     * @param misc $default
-     * @return misc
+     * @param   string  $name
+     * @param   mixed   $default
+     * @return  mixed
      */
     public static function get($name, $default = null)
     {
@@ -224,8 +226,8 @@ class Config
     }
 
     /**
-     * @param string $name
-     * @return misc
+     * @param   string $name
+     * @return  mixed
      */
     public static function getDefault($name)
     {
