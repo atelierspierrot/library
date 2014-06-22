@@ -35,8 +35,8 @@ class Html
     /**
      * Verify if a reference is already defined in the DOM IDs register
      *
-     * @param string $reference The reference to search
-     * @return bool True if the reference exists in the register, false otherwise
+     * @param   string  $reference The reference to search
+     * @return  bool    True if the reference exists in the register, false otherwise
      */
     public static function hasId($reference)
     {
@@ -46,9 +46,9 @@ class Html
     /**
      * Get a DOM unique ID 
      *
-     * @param string $reference A reference used to store the ID (and retrieve it - by default, a uniqid)
-     * @param string|bool $base_id A string that will be used to construct the ID, if set to `true`, the reference will be used as `$base_id`)
-     * @return str The unique ID created or the existing one for the reference if so
+     * @param   string      $reference  A reference used to store the ID (and retrieve it - by default, a uniqid)
+     * @param   string|bool $base_id    A string that will be used to construct the ID, if set to `true`, the reference will be used as `$base_id`)
+     * @return  string      The unique ID created or the existing one for the reference if so
      */
     public static function getId($reference = null, $base_id = null)
     {
@@ -64,9 +64,9 @@ class Html
     /**
      * Create and get a new DOM unique ID 
      *
-     * @param string $reference A reference used to store the ID (and retrieve it - by default, a uniqid)
-     * @param string|bool $base_id A string that will be used to construct the ID, if set to `true`, the reference will be used as `$base_id`)
-     * @return str The unique ID created
+     * @param   string      $reference  A reference used to store the ID (and retrieve it - by default, a uniqid)
+     * @param   string|bool $base_id    A string that will be used to construct the ID, if set to `true`, the reference will be used as `$base_id`)
+     * @return  string      The unique ID created
      */
     public static function getNewId($reference = null, $base_id = null)
     {
@@ -110,11 +110,11 @@ class Html
     /**
      * Build an HTML string for a specific tag with attributes
      *
-     * @param string $tag_name The tag name
-     * @param string $content The tag content
-     * @param array $attrs An attributes array
-     * @param bool $intag_close Can this kind of tag be directly closed (default is `false`)
-     * @return str The HTML string for the tag
+     * @param   string  $tag_name   The tag name
+     * @param   string  $content    The tag content
+     * @param   array   $attrs      An attributes array
+     * @param   bool    $intag_close Can this kind of tag be directly closed (default is `false`)
+     * @return  string  The HTML string for the tag
      */
     public static function writeHtmlTag($tag_name, $content = '', $attrs = array(), $intag_close = false)
     {
@@ -130,8 +130,8 @@ class Html
     /**
      * Build an attributes HTML string from an array like `variable => value` pairs
      *
-     * @param array $attrs The attributes array
-     * @return str The attributes string ready for HTML insertion
+     * @param   array   $attrs The attributes array
+     * @return  string  The attributes string ready for HTML insertion
      */
     public static function parseAttributes(array $attrs = array())
     {
@@ -145,9 +145,9 @@ class Html
     /**
      * Build an HTML string to use in javascripts attributes or functions
      *
-     * @param string $str The HTML string to protect
-     * @param bool $protect_quotes Protect all quotes (simple and double) with a slash
-     * @return str The HTML string ready for javascript insertion
+     * @param   string  $str The HTML string to protect
+     * @param   bool    $protect_quotes Protect all quotes (simple and double) with a slash
+     * @return  string  The HTML string ready for javascript insertion
      */
     public static function javascriptProtect($str = '', $protect_quotes = false)
     {

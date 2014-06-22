@@ -26,7 +26,7 @@ interface InvokableInterface
      * @param string $name The non-existing method name called on the object
      * @param array $arguments The arguments array passed calling the method
      * @see <http://www.php.net/manual/en/language.oop5.overloading.php>
-     * @return misc Must return the result of a magic method, or nothing if nothing can be done
+     * @return mixed Must return the result of a magic method, or nothing if nothing can be done
      */
     public function __call($name, array $arguments);
     
@@ -39,7 +39,7 @@ interface InvokableInterface
      * @param string $name The non-existing method name called on the object
      * @param array $arguments The arguments array passed calling the method
      * @see <http://www.php.net/manual/en/language.oop5.overloading.php>
-     * @return misc Must return the result of a magic method, or nothing if nothing can be done
+     * @return mixed Must return the result of a magic method, or nothing if nothing can be done
      */
     public static function __callStatic($name, array $arguments);
     
@@ -50,7 +50,7 @@ interface InvokableInterface
      *
      * @see <http://www.php.net/manual/en/language.oop5.overloading.php>
      * @param string $name The name of the property to get
-     * @return misc This will return the result of a magic method, or nothing if nothing can be done
+     * @return mixed This will return the result of a magic method, or nothing if nothing can be done
      */
     public function __get($name);
     
@@ -61,7 +61,7 @@ interface InvokableInterface
      *
      * @see <http://www.php.net/manual/en/language.oop5.overloading.php>
      * @param string $name The name of the property to get
-     * @param misc $value The value to set for the property
+     * @param mixed $value The value to set for the property
      * @return self Returns `$this` for method chaining
      */
     public function __set($name, $value);

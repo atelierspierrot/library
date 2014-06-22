@@ -36,8 +36,8 @@ class Directory
     /**
      * Get a dirname with one and only trailing slash
      *
-     * @param string $dirname
-     * @return string
+     * @param   string  $dirname
+     * @return  string
      */
     public static function slashDirname($dirname = null)
     {
@@ -48,9 +48,8 @@ class Directory
     /**
      * Test if a path seems to be a git clone
      *
-     * @param string $path
-     *
-     * @return bool
+     * @param   string  $path
+     * @return  bool
      */
     public static function isGitClone($path = null)
     {
@@ -62,9 +61,8 @@ class Directory
     /**
      * Test if a filename seems to have a dot as first character
      *
-     * @param string $path
-     *
-     * @return bool
+     * @param   string  $path
+     * @return  bool
      */
     public static function isDotPath($path = null)
     {
@@ -79,11 +77,10 @@ class Directory
     /**
      * Build a directory with its whole hierarchy if necessary
      *
-     * @param string $path
-     * @param int $mode
-     * @param bool $recursive
-     *
-     * @return bool
+     * @param   string  $path
+     * @param   int     $mode
+     * @param   bool    $recursive
+     * @return  bool
      */
     public static function ensureExists($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
     {
@@ -94,11 +91,10 @@ class Directory
     /**
      * Create a directory if necessary
      *
-     * @param string $path
-     * @param int $mode
-     * @param bool $recursive
-     *
-     * @return bool
+     * @param   string  $path
+     * @param   int     $mode
+     * @param   bool    $recursive
+     * @return  bool
      */
     public static function create($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
     {
@@ -108,10 +104,9 @@ class Directory
     /**
      * Remove a directory with its whole contents
      *
-     * @param string $path
-     * @param array $logs Logs registry passed by reference
-     *
-     * @return bool
+     * @param   string  $path
+     * @param   array   $logs   Logs registry passed by reference
+     * @return  bool
      */
     public static function remove($path, array &$logs = array())
     {
@@ -148,9 +143,9 @@ class Directory
     /**
      * Remove a directory contents but not the directory itself
      *
-     * @param string $path
-     * @param array $logs Logs registry passed by reference
-     * @return bool
+     * @param   string  $path
+     * @param   array   $logs   Logs registry passed by reference
+     * @return  bool
      */
     public static function purge($path, array &$logs = array())
     {
@@ -188,12 +183,12 @@ class Directory
     /**
      * Change rights on a directory
      *
-     * @param string $path
-     * @param int $mode
-     * @param bool $recursive
-     * @param int $file_mode
-     * @param array $logs Logs registry passed by reference
-     * @return bool
+     * @param   string  $path
+     * @param   int     $mode
+     * @param   bool    $recursive
+     * @param   int     $file_mode
+     * @param   array   $logs       Logs registry passed by reference
+     * @return  bool
      */
     public static function chmod(
         $path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES,

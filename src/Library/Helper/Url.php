@@ -185,9 +185,9 @@ class Url
     /**
      * Get the value of an URL parameter
      *
-     * @param string/null $url The URL to work on (`self::getRequestUrl()` by default)
-     * @param string/bool $param A parameter to get, or `false` to get the global parameters array
-     * @return string/array The parameter value or the global array of parameters
+     * @param   string/bool     $param  A parameter to get, or `false` to get the global parameters array
+     * @param   string/null     $url    The URL to work on (`self::getRequestUrl()` by default)
+     * @return  string/array    The parameter value or the global array of parameters
      */
     public static function getParameter($param = false, $url = false)
     {
@@ -212,11 +212,11 @@ class Url
     /**
      * Set the value of an URL parameter
      *
-     * @param string/null $url The URL to work on (`self::getRequestUrl()` by default)
-     * @param string/bool $param A parameter to get, or `false` to get the global parameters array
-     * @param string/null $value The value of the `$param` argument (if `null`, the argument is stripped)
-     * @param boolean $rebuild Return a rebuilt URL (`true` by dfault - if `false`, the URL components array is returned)
-     * @return string/array The final URL
+     * @param   string/bool     $var        A parameter to get, or `false` to get the global parameters array
+     * @param   string/false    $val        The value of the `$param` argument (if `null`, the argument is stripped)
+     * @param   string/false    $url        The URL to work on (`self::getRequestUrl()` by default)
+     * @param   bool            $rebuild    Return a rebuilt URL (`true` by dfault - if `false`, the URL components array is returned)
+     * @return  string/array    The final URL
      */
     public static function setParameter($var = '', $val = false, $url = false, $rebuild = true)
     {
@@ -264,10 +264,10 @@ class Url
     /**
      * Validate an URL
      *
-     * @param string $url The string to validate
-     * @param bollean/string $localhost Is it locally (useful for validating 'http://localhost ...') (FALSE by default) - You can specify a string to check
-     * @param array $protocols Table of Internet protocols to verify (by default : 'http', 'https', 'ftp')
-     * @return bool Returns `true` if this is a URL in one of the specified protocols
+     * @param   string      $url The string to validate
+     * @param   array       $protocols Table of Internet protocols to verify (by default : 'http', 'https', 'ftp')
+     * @param   bool/string $localhost Is it locally (useful for validating 'http://localhost ...') (FALSE by default) - You can specify a string to check
+     * @return  bool        Returns `true` if this is a URL in one of the specified protocols
      */
     public static function isUrl($url = null, $protocols = array('http','https','ftp'), $localhost = false)
     { 
@@ -280,10 +280,10 @@ class Url
     }
     
     /**
-     * Validate an email adress
+     * Validate an email address
      *
-     * @param string $email The string to validate
-     * @return bool Returns `true` if this is an email
+     * @param   string  $email The string to validate
+     * @return  bool    Returns `true` if this is an email
      */
     public static function isEmail($email = null)
     {

@@ -21,11 +21,11 @@ use \Patterns\Interfaces\ResponseInterface;
 class Response
 {
 
-    const STATUS_OK = '200 OK';
-    const STATUS_BAD_REQUEST = '400 Bad Request';
-    const STATUS_NOT_FOUND = '404 Not Found';
-    const STATUS_UNPROCESSABLE_ENTITY = '422 Unprocessable Entity';
-    const STATUS_ERROR = '500 Internal Server Error';
+    const STATUS_OK                     = '200 OK';
+    const STATUS_BAD_REQUEST            = '400 Bad Request';
+    const STATUS_NOT_FOUND              = '404 Not Found';
+    const STATUS_UNPROCESSABLE_ENTITY   = '422 Unprocessable Entity';
+    const STATUS_ERROR                  = '500 Internal Server Error';
 
     protected $protocol = 'HTTP/1.1';
 
@@ -232,9 +232,9 @@ class Response
 // Send
 // ----------------------
 
-	/**
-	 * @return void
-	 */
+    /**
+     * @return void
+     */
     public function renderHeaders()
     {
         self::header($this->getProtocol() . ' ' . $this->getStatus());

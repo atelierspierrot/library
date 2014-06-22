@@ -13,7 +13,7 @@ use \Library\AbstractReporterAdapter;
 use \Library\Tool\Table as TableTool;
 
 /**
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 class Html
     extends AbstractReporterAdapter
@@ -23,36 +23,36 @@ class Html
 // Masks
 // ----------------------------------
 
-	const mask_default = '%s';
-	const mask_new_line = '<br />';
-	const mask_tab = '&nbsp;';
-	const mask_key_value = '<strong>%1$s</strong>: %2$s';
-	const mask_unordered_list = '<ul %2$s>%1$s</ul>';
-	const mask_unordered_list_item = '<li %2$s>%1$s</li>';
-	const mask_ordered_list = '<ol %2$s>%1$s</ol>';
-	const mask_ordered_list_item = '<li %2$s>%1$s</li>';
-	const mask_table = '<table %2$s>%1$s</table>';
-	const mask_table_title = '<caption>%1$s</caption>';
-	const mask_table_head = '<thead>%1$s</thead>';
-	const mask_table_head_line = '<tr %2$s>%1$s</tr>';
-	const mask_table_head_cell = '<th %2$s>%1$s</th>';
-	const mask_table_body = '<tbody>%1$s</tbody>';
-	const mask_table_body_line = '<tr %2$s>%1$s</tr>';
-	const mask_table_body_cell = '<td %2$s>%1$s</td>';
-	const mask_table_foot = '<tfoot>%1$s</tfoot>';
-	const mask_table_foot_line = '<tr %2$s>%1$s</tr>';
-	const mask_table_foot_cell = '<td %2$s>%1$s</td>';
-	const mask_definition = '<dl %2$s>%1$s</dl>';
-	const mask_definition_term = '<dt %2$s>%1$s</dt>';
-	const mask_definition_description = '<dd %2$s>%1$s</dd>';
-	const mask_code = '<code %2$s>%1$s</code>';
-	const mask_pre_formated = "<pre %2\$s>\n%1\$s\n</pre>";
-	const mask_title = '<h%2$d %3$s>%1$s</h%2$d>';
-	const mask_paragraph = '<p %2$s>%1$s</p>';
-	const mask_citation = '<blockquote %2$s>%1$s</blockquote>';
-	const mask_bold = '<strong %2$s>%1$s</strong>';
-	const mask_italic = '<em %2$s>%1$s</em>';
-	const mask_link = '<a href="%1$s" title="See online %1$s" %2$s>%1$.20s</a>';
+    const mask_default = '%s';
+    const mask_new_line = '<br />';
+    const mask_tab = '&nbsp;';
+    const mask_key_value = '<strong>%1$s</strong>: %2$s';
+    const mask_unordered_list = '<ul %2$s>%1$s</ul>';
+    const mask_unordered_list_item = '<li %2$s>%1$s</li>';
+    const mask_ordered_list = '<ol %2$s>%1$s</ol>';
+    const mask_ordered_list_item = '<li %2$s>%1$s</li>';
+    const mask_table = '<table %2$s>%1$s</table>';
+    const mask_table_title = '<caption>%1$s</caption>';
+    const mask_table_head = '<thead>%1$s</thead>';
+    const mask_table_head_line = '<tr %2$s>%1$s</tr>';
+    const mask_table_head_cell = '<th %2$s>%1$s</th>';
+    const mask_table_body = '<tbody>%1$s</tbody>';
+    const mask_table_body_line = '<tr %2$s>%1$s</tr>';
+    const mask_table_body_cell = '<td %2$s>%1$s</td>';
+    const mask_table_foot = '<tfoot>%1$s</tfoot>';
+    const mask_table_foot_line = '<tr %2$s>%1$s</tr>';
+    const mask_table_foot_cell = '<td %2$s>%1$s</td>';
+    const mask_definition = '<dl %2$s>%1$s</dl>';
+    const mask_definition_term = '<dt %2$s>%1$s</dt>';
+    const mask_definition_description = '<dd %2$s>%1$s</dd>';
+    const mask_code = '<code %2$s>%1$s</code>';
+    const mask_pre_formated = "<pre %2\$s>\n%1\$s\n</pre>";
+    const mask_title = '<h%2$d %3$s>%1$s</h%2$d>';
+    const mask_paragraph = '<p %2$s>%1$s</p>';
+    const mask_citation = '<blockquote %2$s>%1$s</blockquote>';
+    const mask_bold = '<strong %2$s>%1$s</strong>';
+    const mask_italic = '<em %2$s>%1$s</em>';
+    const mask_link = '<a href="%1$s" title="See online %1$s" %2$s>%1$.20s</a>';
 
 // ----------------------------------
 // AbstractReporterAdapter
@@ -64,71 +64,71 @@ class Html
      */
     public static $table_scopes = array( 'head', 'body', 'foot' );
 
-	/**
-	 * Render a content with a specific tag mask
-	 *
-	 * The `$tag_type` may be one of the `Library\Reporter::$default_tag_types` array.
-	 *
-	 * @param array|string $content The content string to use or an array of strings (for lists for instance)
-	 * @param string $tag_type The type of tag mask to use
-	 * @param array $args An array of arguments to pass to the mask
-	 * @return string Must return the content string built
-	 */
-	public function renderTag($content, $tag_type = 'default', array $args = array())
-	{
-	    switch($tag_type) {
+    /**
+     * Render a content with a specific tag mask
+     *
+     * The `$tag_type` may be one of the `Library\Reporter::$default_tag_types` array.
+     *
+     * @param array|string $content The content string to use or an array of strings (for lists for instance)
+     * @param string $tag_type The type of tag mask to use
+     * @param array $args An array of arguments to pass to the mask
+     * @return string Must return the content string built
+     */
+    public function renderTag($content, $tag_type = 'default', array $args = array())
+    {
+        switch($tag_type) {
 
-	        // case of the tables ($content is an array of lines that are an array of cells)
-	        case 'table':
-	            if (!is_array($content)) $content = array( $content );
-	            // cleaning the contents
-	            $correspondances = array(
-	                'thead'=>'head', 'tbody'=>'body', 'tfoot'=>'foot'
-	            );
-	            foreach($correspondances as $var=>$val) {
-    	            if (isset($content[$var])) {
-    	                $content[$val] = $content[$var];
-    	                unset($content[$var]);
-    	            }
-	            }
-	            if (!isset($content['body'])) $content = array( 'body'=>$content );
-	            $this->_doTable($content, $args);
-	            break;
-	        
-	        // case of the lists ($content is an array of items)
-	        case 'list': case 'unordered_list': case 'ordered_list':
-	            if ('list'===$tag_type) $tag_type = 'unordered_list';
-	            if (!is_array($content)) $content = array( $content );
-	            $this->_doList($content, $args, $tag_type);
-	            break;
+            // case of the tables ($content is an array of lines that are an array of cells)
+            case 'table':
+                if (!is_array($content)) $content = array( $content );
+                // cleaning the contents
+                $correspondances = array(
+                    'thead'=>'head', 'tbody'=>'body', 'tfoot'=>'foot'
+                );
+                foreach($correspondances as $var=>$val) {
+                    if (isset($content[$var])) {
+                        $content[$val] = $content[$var];
+                        unset($content[$var]);
+                    }
+                }
+                if (!isset($content['body'])) $content = array( 'body'=>$content );
+                $this->_doTable($content, $args);
+                break;
 
-	        // case of the definitions lists ($content is an array of items liek term=>def)
-	        case 'def': case 'definition': case 'definitions':
-	            if (!is_array($content)) {
-	                $tag_type = 'default';
-	            } else {
-	                $this->_doDefinitions($content, $args);
-	            }
-	            break;
+            // case of the lists ($content is an array of items)
+            case 'list': case 'unordered_list': case 'ordered_list':
+                if ('list'===$tag_type) $tag_type = 'unordered_list';
+                if (!is_array($content)) $content = array( $content );
+                $this->_doList($content, $args, $tag_type);
+                break;
 
-	        // case of the titles (if no argument, will render a h1)
-	        case 'title':
-	            if (empty($args)) $args = array(1);
-	            break;
+            // case of the definitions lists ($content is an array of items liek term=>def)
+            case 'def': case 'definition': case 'definitions':
+                if (!is_array($content)) {
+                    $tag_type = 'default';
+                } else {
+                    $this->_doDefinitions($content, $args);
+                }
+                break;
 
-	        default: break;
-	    }
-	    return $this->_tagComposer($content, $tag_type, $args);
-	}
+            // case of the titles (if no argument, will render a h1)
+            case 'title':
+                if (empty($args)) $args = array(1);
+                break;
+
+            default: break;
+        }
+        return $this->_tagComposer($content, $tag_type, $args);
+    }
 
     /**
      * Find a specific entry in arguments and unset it
      *
-	 * @param array $args An array of arguments to pass to the mask
-	 * @param string $scope A scope to search in the arguments array
-	 * @param misc $default The default value to send if the scope was not found in `$args`
-	 * @param bool $unset Unset the entry if found (default is `true`)
-	 * @return misc Returns the found entry in `$args` if so
+     * @param array $args An array of arguments to pass to the mask
+     * @param string $scope A scope to search in the arguments array
+     * @param mixed $default The default value to send if the scope was not found in `$args`
+     * @param bool $unset Unset the entry if found (default is `true`)
+     * @return mixed Returns the found entry in `$args` if so
      */
     protected function _getArgsStack(array &$args = array(), $scope = null, $default = array(), $unset = true)
     {
@@ -145,14 +145,14 @@ class Html
     /**
      * Process a list content
      *
-	 * To build a list, `$content` may be the array of list items. You can specify a set of
-	 * arguments used for all items defining `$args[ items ]` and a specific set of arguments
-	 * for each item defining `$args[ itemX ]` where X is the item key (0 based numeric key).
-	 *
-	 * @param array $content The content array of list items
-	 * @param array $args An array of arguments to pass to the mask
-	 * @param string $tag_type The type of tag mask to use
-	 * @return void Returns nothing as the `$content` and `$args` parameters are passed by reference
+     * To build a list, `$content` may be the array of list items. You can specify a set of
+     * arguments used for all items defining `$args[ items ]` and a specific set of arguments
+     * for each item defining `$args[ itemX ]` where X is the item key (0 based numeric key).
+     *
+     * @param array $content The content array of list items
+     * @param array $args An array of arguments to pass to the mask
+     * @param string $tag_type The type of tag mask to use
+     * @return void Returns nothing as the `$content` and `$args` parameters are passed by reference
      */
     protected function _doList(&$content, array &$args = array(), $tag_type = 'unordered_list')
     {
@@ -168,16 +168,16 @@ class Html
             $items_content .= $this->_tagComposer($item_str, $tag_type.'_item', $item_args);
             $i++;
         }
-        
+
         $content = $items_content;
     }
 
     /**
      * Process a definitions list content
      *
-	 * @param array $content The content array of definitions items like "term => description"
-	 * @param array $args An array of arguments to pass to the mask
-	 * @return void Returns nothing as the `$content` and `$args` parameters are passed by reference
+     * @param array $content The content array of definitions items like "term => description"
+     * @param array $args An array of arguments to pass to the mask
+     * @return void Returns nothing as the `$content` and `$args` parameters are passed by reference
      */
     protected function _doDefinitions(&$content, array &$args = array())
     {
@@ -192,21 +192,21 @@ class Html
         foreach ($content as $term=>$def) {
             $term_args = array_merge_recursive($terms_args, $this->_getArgsStack($args, 'term'.$i));
             $description_args = array_merge_recursive($descriptions_args, $this->_getArgsStack($args, 'description'.$i));
-            $items_content .= 
+            $items_content .=
                 $this->_tagComposer($term, 'definition_term', $term_args)
                 .$this->_tagComposer($def, 'definition_description', $description_args);
             $i++;
         }
-        
+
         $content = $items_content;
     }
 
     /**
      * Process a table content
      *
-	 * @param array $content The content array of table lines
-	 * @param array $args An array of arguments to pass to the mask
-	 * @return void Returns nothing as the `$content` and `$args` parameters are passed by reference
+     * @param array $content The content array of table lines
+     * @param array $args An array of arguments to pass to the mask
+     * @return void Returns nothing as the `$content` and `$args` parameters are passed by reference
      */
     protected function _doTable(&$content, array &$args = array())
     {
@@ -233,7 +233,7 @@ class Html
             $scope_tag = 'table_'.$scope;
             $table_content .= $this->_tagComposer($scope_lines, $scope_tag, $scope_args);
         }
-        
+
         // caption
         if (isset($table_stacks['title'])) {
             $caption_args = $this->_getArgsStack($args, 'title');
@@ -251,9 +251,9 @@ class Html
     /**
      * Process a table line
      *
-	 * @param array $content The content array of the table line (cells)
-	 * @param array $args An array of arguments to pass to the mask
-	 * @return void Returns nothing as the `$content` and `$args` parameters are passed by reference
+     * @param array $content The content array of the table line (cells)
+     * @param array $args An array of arguments to pass to the mask
+     * @return void Returns nothing as the `$content` and `$args` parameters are passed by reference
      */
     protected function _doTableLine(&$content, array &$args = array(), $scope = 'body')
     {
@@ -275,10 +275,10 @@ class Html
      * all is defined, the whole entry will be considered as default for all scopre and will
      * be returned.
      *
-	 * @param array $args An array of arguments to pass to the mask
-	 * @param string $entry The entry of the args to search in
-	 * @param string $scope A scope to search in the arguments array
-	 * @return misc Returns the found entry in `$args` if so
+     * @param array $args An array of arguments to pass to the mask
+     * @param string $entry The entry of the args to search in
+     * @param string $scope A scope to search in the arguments array
+     * @return mixed Returns the found entry in `$args` if so
      */
     protected function _getArgsStackForTable(array &$args, $entry, $scope)
     {
@@ -305,9 +305,9 @@ class Html
     /**
      * Clean the arguments array at the end of the table build
      *
-	 * @param array $args An array of arguments to pass to the mask
-	 * @param string $entry The entry of the args to search in
-	 * @return void Returns nothing as the `$args` parameter is passed by reference
+     * @param array $args An array of arguments to pass to the mask
+     * @param string $entry The entry of the args to search in
+     * @return void Returns nothing as the `$args` parameter is passed by reference
      */
     protected function _purgeArgsStackForTable(array &$args, $entry)
     {

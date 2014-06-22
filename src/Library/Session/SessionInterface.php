@@ -10,80 +10,80 @@
 namespace Library\Session;
 
 /**
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 interface SessionInterface
 {
 
-	/**
-	 * Start the current session and load it
-	 */
-	public function start();
+    /**
+     * Start the current session and load it
+     */
+    public function start();
 
-	/**
-	 * Open the current session
-	 */
-	public function open();
+    /**
+     * Open the current session
+     */
+    public function open();
 
-	/**
-	 * Close the current session
-	 */
-	public function close();
+    /**
+     * Close the current session
+     */
+    public function close();
 
-	/**
-	 * Test if the current session is already started
-	 *
-	 * @return bool
-	 */
-	public function isOpened();
+    /**
+     * Test if the current session is already started
+     *
+     * @return bool
+     */
+    public function isOpened();
 
-	/**
-	 * Read current session contents
-	 */
-	public function read();
+    /**
+     * Read current session contents
+     */
+    public function read();
 
-	/**
-	 * Test if the current session is already loaded
-	 *
-	 * @return bool
-	 */
-	public function isLoaded();
+    /**
+     * Test if the current session is already loaded
+     *
+     * @return bool
+     */
+    public function isLoaded();
 
     /**
      * Save current session contents
      */
-	public function commit();
+    public function commit();
 
     /**
      * Destroy current session
      */
-	public function clear();
+    public function clear();
 
     /**
      * Regenrate current session ID
      */
-	public function regenerateId();
+    public function regenerateId();
 
     /**
      * Get current session ID
-	 *
-	 * @return string
+     *
+     * @return string
      */
-	public function getId();
+    public function getId();
 
     /**
      * Get current session name
-	 *
-	 * @return string
+     *
+     * @return string
      */
-	public function getName();
+    public function getName();
 
-	/**
-	 * Get all curent session values
-	 *
-	 * @return array
-	 */
-	public function getAttributes();
+    /**
+     * Get all current session values
+     *
+     * @return array
+     */
+    public function getAttributes();
 
     /**
      * Test if the current session has a parameter
@@ -91,30 +91,30 @@ interface SessionInterface
      * @param string $param
      * @return bool
      */
-	public function has($param);
+    public function has($param);
 
     /**
      * Get current session parameter
      *
      * @param string $param
-     * @return misc
+     * @return mixed
      */
-	public function get($param);
+    public function get($param);
 
     /**
      * Set current session parameter
      *
      * @param string $param
-     * @param misc $value
+     * @param mixed $value
      */
-	public function set($param, $value);
+    public function set($param, $value);
 
     /**
      * Delete a session parameter
      *
      * @param string $param
      */
-	public function remove($param);
+    public function remove($param);
 
 }
 

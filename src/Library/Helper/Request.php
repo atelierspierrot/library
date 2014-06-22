@@ -26,7 +26,7 @@ class Request
     /**
      * Check if the request is sent by command line interface
      *
-     * @return boolean TRUE if it is so ...
+     * @return bool TRUE if it is so ...
      */
     public static function isCli() 
     {
@@ -36,7 +36,7 @@ class Request
     /**
      * Check if the request is sent via AJAX
      *
-     * @return boolean TRUE if it is so ...
+     * @return bool TRUE if it is so ...
      */
     public static function isAjax()
     {

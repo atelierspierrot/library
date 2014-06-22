@@ -9,6 +9,8 @@
 
 namespace Library;
 
+use \Library\CommandNotFoundException;
+
 /**
  * Largely inspired from <http://github.com/kbjr/Git.php>
  */
@@ -115,7 +117,7 @@ class Command
      *
      * @param string $cmd The command name to retrieve
      * @return string The realpath of the command in the system
-     * @throw Throws a `CommandNotFoundExcpetion` if the command doesn't exist
+     * @throws \Library\CommandNotFoundException if the command doesn't exist
      */
     public static function getCommandPath($cmd)
     {

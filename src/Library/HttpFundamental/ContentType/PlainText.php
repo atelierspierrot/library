@@ -22,7 +22,7 @@ class PlainText
     /**
      * Prepare the content of the response before to send it to client
      *
-     * @param object $response \Library\HttpFundamental\Response
+     * @param \Library\HttpFundamental\Response $response
      * @return void
      */
     public function prepareResponse(Response $response)
@@ -33,7 +33,7 @@ class PlainText
      * Parse an input content
      *
      * @param string $content
-     * @return misc
+     * @return mixed
      */
     public function parseContent($content)
     {
@@ -43,7 +43,7 @@ class PlainText
     /**
      * Prepare a content for output
      *
-     * @param misc $content
+     * @param mixed $content
      * @return string
      */
     public function prepareContent($content)

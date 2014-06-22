@@ -24,9 +24,9 @@ class InvokableAccessException
      * @param string $property_name The name of the property getted
      * @param string $object_name The name of the invokable class object
      * @param int $code The exception code
-     * @param Exception $previous The previous catched excpetion
+     * @param \Exception $previous The previous catched excpetion
      */
-    public function __construct($property_name = '', $object_name = '', $code = 0, Exception $previous = null)
+    public function __construct($property_name = '', $object_name = '', $code = 0, \Exception $previous = null)
     {
         parent::__construct(
             sprintf('Direct access to property "%s" on object "%s" is not allowed!', $property_name, $object_name),

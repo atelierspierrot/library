@@ -98,16 +98,19 @@ class Request
 // -----------------------
 
     /**
-     * Constructor : defines the current URL and gets the routes
+     * Static constructor : defines the current URL and gets the routes
      *
-     * @param string $url
-     * @param array $arguments
-     * @param array $data
-     * @param array $session
-     * @param array $files
-     * @param array $cookies
-     *
-     * @return self
+     * @param   string  $url
+     * @param   int     $flag
+     * @param   string  $protocol
+     * @param   string  $method
+     * @param   array   $headers
+     * @param   array   $arguments
+     * @param   array   $data
+     * @param   array   $session
+     * @param   array   $files
+     * @param   array   $cookies
+     * @return  self
      */
     public static function create(
         $url = null, $flag = self::NO_REWRITE,
@@ -117,14 +120,14 @@ class Request
     ) {
         $_cls = get_called_class();
         $request = new $_cls($url, $flag);
-        if (!is_null($protocol)) $request->setProtocol($protocol);
-        if (!is_null($method)) $request->setMethod($method);
-        if (!is_null($headers)) $request->setHeaders($headers);
-        if (!is_null($arguments)) $request->setArguments($arguments);
-        if (!is_null($data)) $request->setData($data);
-        if (!is_null($session)) $request->setSession($session);
-        if (!is_null($files)) $request->setFiles($files);
-        if (!is_null($cookies)) $request->setCookies($cookies);
+        if (!is_null($protocol))    $request->setProtocol($protocol);
+        if (!is_null($method))      $request->setMethod($method);
+        if (!is_null($headers))     $request->setHeaders($headers);
+        if (!is_null($arguments))   $request->setArguments($arguments);
+        if (!is_null($data))        $request->setData($data);
+        if (!is_null($session))     $request->setSession($session);
+        if (!is_null($files))       $request->setFiles($files);
+        if (!is_null($cookies))     $request->setCookies($cookies);
         return $request;
     }
 
@@ -294,12 +297,12 @@ class Request
     }
 
     /**
-     * @param string $param The parameter name if so, or 'args' to get all parameters values
-     * @param misc $default The default value sent if the argument is not setted
-     * @param bool $clean Clean the argument before return ? (default is true)
-     * @param const $flags The PHP flags used with htmlentities() (default is ENT_QUOTES)
-     * @param string $encoding The encoding used with htmlentities() (default is UTF-8)
-     * @return string The value retrieved, $default otherwise
+     * @param   string  $param      The parameter name if so, or 'args' to get all parameters values
+     * @param   mixed   $default    The default value sent if the argument is not set
+     * @param   bool    $clean      Clean the argument before return ? (default is true)
+     * @param   int     $clean_flags    The PHP flags used with `htmlentities()` (default is ENT_QUOTES)
+     * @param   string  $clean_encoding The encoding used with `htmlentities()` (default is UTF-8)
+     * @return  string  The value retrieved, $default otherwise
      */
     public function getArgument($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = 'UTF-8') 
     {
@@ -322,12 +325,12 @@ class Request
     }
 
     /**
-     * @param string $param The parameter name if so, or 'args' to get all parameters values
-     * @param misc $default The default value sent if the argument is not setted
-     * @param bool $clean Clean the argument before return ? (default is true)
-     * @param const $flags The PHP flags used with htmlentities() (default is ENT_QUOTES)
-     * @param string $encoding The encoding used with htmlentities() (default is UTF-8)
-     * @return string|array|null
+     * @param   string  $param      The parameter name if so, or 'args' to get all parameters values
+     * @param   mixed   $default    The default value sent if the argument is not set
+     * @param   bool    $clean      Clean the argument before return ? (default is true)
+     * @param   int     $clean_flags    The PHP flags used with `htmlentities()` (default is ENT_QUOTES)
+     * @param   string  $clean_encoding The encoding used with `htmlentities()` (default is UTF-8)
+     * @return  string  The value retrieved, $default otherwise
      */
     public function getData($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = 'UTF-8')
     {
@@ -361,8 +364,9 @@ class Request
     }
 
     /**
-     * @param string $param
-     * @return array|null
+     * @param   string $param
+     * @param   string  $index
+     * @return  array|null
      */
     public function getFile($param, $index = null) 
     {
@@ -563,7 +567,8 @@ class Request
 
     /**
      * @param string $varname
-     * @return misc|false
+     * @param mixed $default
+     * @return mixed|false
      */
     public function getGet($varname, $default = null)
     {
@@ -572,7 +577,8 @@ class Request
 
     /**
      * @param string $varname
-     * @return misc|false
+     * @param mixed $default
+     * @return mixed|false
      */
     public function getPost($varname, $default = null)
     {
@@ -581,7 +587,8 @@ class Request
 
     /**
      * @param string $varname
-     * @return misc|false
+     * @param mixed $default
+     * @return mixed|false
      */
     public function getGetOrPost($varname, $default = null)
     {
@@ -594,7 +601,8 @@ class Request
 
     /**
      * @param string $varname
-     * @return misc|false
+     * @param mixed $default
+     * @return mixed|false
      */
     public function getPostOrGet($varname, $default = null)
     {
@@ -652,10 +660,9 @@ class Request
     /**
      * Clean the value taken from request arguments or data
      *
-     * @param string $param The parameter name if so, or 'args' to get all parameters values
-     * @param const $flags The PHP flags used with htmlentities() (default is ENT_QUOTES)
-     * @param string $encoding The encoding used with htmlentities() (default is UTF-8)
-     *
+     * @param string    $arg_value The parameter name if so, or 'args' to get all parameters values
+     * @param int       $flags The PHP flags used with htmlentities() (default is ENT_QUOTES)
+     * @param string    $encoding The encoding used with htmlentities() (default is UTF-8)
      * @return string The cleaned value
      */
     public static function cleanArgument($arg_value, $flags = ENT_QUOTES, $encoding = 'UTF-8') 
@@ -673,7 +680,7 @@ class Request
 
     /**
      * @param string $varname
-     * @return misc|false
+     * @return mixed|false
      */
     public static function getEnvironment($varname)
     {

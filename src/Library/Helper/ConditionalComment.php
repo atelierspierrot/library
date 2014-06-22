@@ -69,7 +69,7 @@ class ConditionalComment
      * @param string $operator Can be 'OR' (default) or 'AND'
      * @param bool $global May the content be also defined globally
      *
-     * @return str
+     * @return string
      */
     public static function buildCondition($content, $condition = 'if IE', $operator = 'OR', $global = false)
     {
@@ -99,7 +99,7 @@ class ConditionalComment
      * @param string $condition
      * @param bool $global May the content be also defined globally
      *
-     * @return str
+     * @return string
      */
     public static function writeCondition($content, $condition = null, $global = false)
     {
@@ -121,7 +121,7 @@ class ConditionalComment
      *
      * @param string $condition
      *
-     * @return str
+     * @return string
      */
     public static function parseSingleCondition($condition)
     {

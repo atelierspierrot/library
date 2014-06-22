@@ -26,10 +26,10 @@ class Text
     /**
      * Truncate a string at a maximum length, adding it a suffix like '...'
      *
-     * @param string $string The string to cut
-     * @param integer $length The maximum length to keep (`120` by default)
-     * @param string $end_str The suffix to add if the string was cut (` ...` by default)
-     * @return string
+     * @param   string  $string     The string to cut
+     * @param   int     $length     The maximum length to keep (`120` by default)
+     * @param   string  $end_str    The suffix to add if the string was cut (` ...` by default)
+     * @return  string
      */
     public static function cut($string = '', $length = 120, $end_str = ' ...')
     {
@@ -52,8 +52,8 @@ class Text
     /**
      * Strip all special characters in a string
      *
-     * @param string $string The string to format
-     * @return string
+     * @param   string $string The string to format
+     * @return  string
      */
     public static function stripSpecialChars($string = '')
     {
@@ -77,8 +77,8 @@ class Text
      *
      * By Miguel Santirso (http://sourcecookbook.com/en/recipes/8/function-to-slugify-strings-in-php)
      *
-     * @param string $string The string to format
-     * @return string
+     * @param   string $string The string to format
+     * @return  string
      */
     public static function slugify($string = '')
     {
@@ -93,8 +93,8 @@ class Text
     /**
      * Transform a string to a human readable one
      *
-     * @param string $string The string to transform
-     * @return string The transformed version of `$string`
+     * @param   string $string The string to transform
+     * @return  string The transformed version of `$string`
      */
     public static function getHumanReadable($string = '')
     {
@@ -104,10 +104,10 @@ class Text
     /**
      * Transform a name in CamelCase
      *
-     * @param string $name The string to transform
-     * @param string $replace Replacement character
-     * @param bool $capitalize_first_char May the first letter be in upper case (default is `true`)
-     * @return string The CamelCase version of `$name`
+     * @param   string  $name       The string to transform
+     * @param   string  $replace    Replacement character
+     * @param   bool    $capitalize_first_char May the first letter be in upper case (default is `true`)
+     * @return  string The CamelCase version of `$name`
      */
     public static function toCamelCase($name = '', $replace = '_', $capitalize_first_char = true)
     {
@@ -121,10 +121,10 @@ class Text
     /**
      * Transform a name from CamelCase to other
      *
-     * @param string $name The string to transform
-     * @param string $replace Replacement character
-     * @param bool $capitalize_first_char May the first letter be in upper case (default is `true`)
-     * @return string The CamelCase version of `$name`
+     * @param   string  $name       The string to transform
+     * @param   string  $replace    Replacement character
+     * @param   bool    $lowerize_first_char  May the first letter be in lower case (default is `true`)
+     * @return  string  The un-CamelCase version of `$name`
      */
     public static function fromCamelCase($name = '', $replace = '_', $lowerize_first_char = true)
     {

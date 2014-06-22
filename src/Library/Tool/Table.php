@@ -70,22 +70,22 @@ class Table
     /**
      * Using this flag as `$pad_flag`, last cell is pad as an HTML `colspan` for each line if necessary
      */
-    const PAD_BY_SPAN = 1;
+    const PAD_BY_SPAN           = 1;
 
     /**
      * Using this flag as `$pad_flag`, each line is completed by empty cells if necessary
      */
-    const PAD_BY_EMPTY_CELLS = 2;
+    const PAD_BY_EMPTY_CELLS    = 2;
 
     /**
      * Using this flag, the `getTableIterator` method returns an iterator on table lines
      */
-    const ITERATE_ON_LINES = 1;
+    const ITERATE_ON_LINES      = 1;
 
     /**
      * Using this flag, the `getTableIterator` method returns an iterator on table columns
      */
-    const ITERATE_ON_COLUMNS = 2;
+    const ITERATE_ON_COLUMNS    = 2;
 
     /**
      * Table title
@@ -152,11 +152,11 @@ class Table
      * @param array $footer The array of footers lines
      * @param string $title The table title
      * @param int $pad_flag The flag to use for cell padding, must be one of the class `PAD_` constants
-     * @see Library\Tool\Table::setPadFlag()
-     * @see Library\Tool\Table::setTitle()
-     * @see Library\Tool\Table::setBody()
-     * @see Library\Tool\Table::setHeader()
-     * @see Library\Tool\Table::setFooter()
+     * @see self::setPadFlag()
+     * @see self::setTitle()
+     * @see self::setBody()
+     * @see self::setHeader()
+     * @see self::setFooter()
      */
     public function __construct(
         array $body = array(), array $header = array(), array $footer = array(),
@@ -182,7 +182,7 @@ class Table
      * Rendering of the table
      *
      * @return string The result of `$this->render()`
-     * @see Library\Tool\Table::render()
+     * @see self::render()
      */
     public function __toString()
     {
@@ -217,12 +217,12 @@ class Table
      * on all the table lines or columns, first the headers one, then the body and finally
      * the footers one (without distinction).
      *
-     * @param string $part One of the parts of the table array built by method `getTable()`
-     * @param int $iterator_flag The flag to use to build the iterator, must be one of the class
-     *              `ITERATE_` constants
-     * @return object An `ArrayIterator` instance
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
-     * @see ArrayIterator
+     * @param   string  $part           One of the parts of the table array built by method `getTable()`
+     * @param   int     $iterator_flag  The flag to use to build the iterator, must be one of the class
+     *                                  `ITERATE_` constants
+     * @return  object An `ArrayIterator` instance
+     * @throws  \InvalidArgumentException if the part doesn't exist in the table
+     * @see     \ArrayIterator
      */
     public function getTableIterator($part = 'body', $iterator_flag = self::ITERATE_ON_LINES)
     {
@@ -291,8 +291,8 @@ class Table
      * Add a new line in the table body
      *
      * @param array|string $contents The content of the line
-     * @param misc $default The default value for empty cells
-     * @return self Returns `$this` for chainability
+     * @param mixed $default The default value for empty cells
+     * @return self
      */
     public function addLine($contents = null, $default = null)
     {
@@ -315,10 +315,10 @@ class Table
      * Add a new column in the table body
      *
      * @param array|string $body The array of body lines
-     * @param misc $default The default value for empty cells, if `null`, the class will use its `pad_flag`
+     * @param mixed $default The default value for empty cells, if `null`, the class will use its `pad_flag`
      * @param array $headers The array of headers lines
      * @param array $footers The array of footers lines
-     * @return self Returns `$this` for chainability
+     * @return self
      */
     public function addColumn($body = null, $default = null, $headers = null, $footers = null)
     {
@@ -348,7 +348,7 @@ class Table
      * Add a new cell in the current line of the table body
      *
      * @param string $cell The content of the cell
-     * @return self Returns `$this` for chainability
+     * @return self
      */
     public function addCell($cell = null)
     {
@@ -364,7 +364,7 @@ class Table
      * Set the table flag used for cell padding
      *
      * @param int $flag The flag to use for cell padding, must be one of the class `PAD_` constants
-     * @return self Returns `$this` for chainability
+     * @return self
      */
     public function setPadFlag($flag)
     {
@@ -387,7 +387,7 @@ class Table
      * Set the table title
      *
      * @param string $title The table title
-     * @return self Returns `$this` for chainability
+     * @return self
      */
     public function setTitle($title)
     {
@@ -412,8 +412,8 @@ class Table
      * array that will be considered as 1 line.
      *
      * @param array $contents The array of headers lines
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPart()
+     * @return self 
+     * @see self::_setPart()
      */
     public function setHeader(array $contents)
     {
@@ -427,9 +427,9 @@ class Table
      * @param array $contents The content of the line
      * @param int $line_index The index of the line to set, if `null`, the line will be added at
      *              the end of the headers
-     * @param misc $default The default value for empty cells
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartLine()
+     * @param mixed $default The default value for empty cells
+     * @return self 
+     * @see self::_setPartLine()
      */
     public function setHeaderLine(array $contents, $line_index = null, $default = null)
     {
@@ -443,9 +443,9 @@ class Table
      * @param array $contents The content of the line
      * @param int $line_index The index of the line to set, if `null`, the line will be added at
      *              the end of the headers
-     * @param misc $default The default value for empty cells
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartLine()
+     * @param mixed $default The default value for empty cells
+     * @return self 
+     * @see self::_setPartLine()
      */
     public function addHeaderLine(array $contents, $line_index = null, $default = null)
     {
@@ -459,9 +459,9 @@ class Table
      * @param array $contents The content of the column
      * @param int $column_index The index of the column to set, if `null`, the column will be added at
      *              the end of each line
-     * @param misc $default The default value for empty cells, if `null`, the class will use its `pad_flag`
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartColumn()
+     * @param mixed $default The default value for empty cells, if `null`, the class will use its `pad_flag`
+     * @return self 
+     * @see self::_setPartColumn()
      */
     public function setHeaderColumn(array $contents = array(), $column_index = null, $default = null)
     {
@@ -475,9 +475,9 @@ class Table
      * @param array $contents The content of the column
      * @param int $column_index The index of the column to set, if `null`, the column will be added at
      *              the end of each line
-     * @param misc $default The default value for empty cells, if `null`, the class will use its `pad_flag`
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartColumn()
+     * @param mixed $default The default value for empty cells, if `null`, the class will use its `pad_flag`
+     * @return self 
+     * @see self::_setPartColumn()
      */
     public function addHeaderColumn(array $contents = array(), $column_index = null, $default = null)
     {
@@ -493,8 +493,8 @@ class Table
      *              the headers'last line
      * @param int $cell_index The index of the cell to set in the line, if `null`, the cell will 
      *              be added at the end of the line
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartCell()
+     * @return self 
+     * @see self::_setPartCell()
      */
     public function setHeaderCell($content, $line_index = null, $cell_index = null)
     {
@@ -510,8 +510,8 @@ class Table
      *              the headers'last line
      * @param int $cell_index The index of the cell to set in the line, if `null`, the cell will 
      *              be added at the end of the line
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartCell()
+     * @return self 
+     * @see self::_setPartCell()
      */
     public function addHeaderCell($content, $line_index = null, $cell_index = null)
     {
@@ -523,7 +523,7 @@ class Table
      * Get the table headers lines
      *
      * @return array The lines array
-     * @see Library\Tool\Table::_getPart()
+     * @see self::_getPart()
      */
     public function getHeader()
     {
@@ -535,7 +535,7 @@ class Table
      *
      * @param int $line_index The index of the line to get, if `null`, the last line is returned
      * @return array The corresponding line
-     * @see Library\Tool\Table::_getPartLine()
+     * @see self::_getPartLine()
      */
     public function getHeaderLine($line_index = null)
     {
@@ -547,7 +547,7 @@ class Table
      *
      * @param int $column_index The index of the column to get, if `null`, the last line is returned
      * @return array The corresponding column
-     * @see Library\Tool\Table::_getPartColumn()
+     * @see self::_getPartColumn()
      */
     public function getHeaderColumn($column_index = null)
     {
@@ -560,7 +560,7 @@ class Table
      * @param int $line_index The index of the line to get, if `null`, the last line is returned
      * @param int $cell_index The index of the cell to get in the line, if `null`, the last cell is returned
      * @return array The corresponding cell
-     * @see Library\Tool\Table::_getPartCell()
+     * @see self::_getPartCell()
      */
     public function getHeaderCell($line_index = null, $cell_index = null)
     {
@@ -574,8 +574,8 @@ class Table
      * array that will be considered as 1 line.
      *
      * @param array $contents The array of body lines
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPart()
+     * @return self 
+     * @see self::_setPart()
      */
     public function setBody(array $contents)
     {
@@ -589,8 +589,8 @@ class Table
      * @param array $contents The content of the line
      * @param int $line_index The index of the line to set, if `null`, the line will be added at
      *              the end of the body
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartLine()
+     * @return self 
+     * @see self::_setPartLine()
      */
     public function setBodyLine(array $contents, $line_index = null)
     {
@@ -604,8 +604,8 @@ class Table
      * @param array $contents The content of the line
      * @param int $line_index The index of the line to set, if `null`, the line will be added at
      *              the end of the body
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartLine()
+     * @return self 
+     * @see self::_setPartLine()
      */
     public function addBodyLine(array $contents, $line_index = null)
     {
@@ -619,9 +619,9 @@ class Table
      * @param array $contents The content of the column
      * @param int $column_index The index of the column to set, if `null`, the column will be added at
      *              the end of each line
-     * @param misc $default The default value for empty cells, if `null`, the class will use its `pad_flag`
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartColumn()
+     * @param mixed $default The default value for empty cells, if `null`, the class will use its `pad_flag`
+     * @return self 
+     * @see self::_setPartColumn()
      */
     public function setBodyColumn(array $contents = array(), $column_index = null, $default = null)
     {
@@ -635,9 +635,9 @@ class Table
      * @param array $contents The content of the column
      * @param int $column_index The index of the column to set, if `null`, the column will be added at
      *              the end of each line
-     * @param misc $default The default value for empty cells, if `null`, the class will use its `pad_flag`
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartColumn()
+     * @param mixed $default The default value for empty cells, if `null`, the class will use its `pad_flag`
+     * @return self 
+     * @see self::_setPartColumn()
      */
     public function addBodyColumn(array $contents = array(), $column_index = null, $default = null)
     {
@@ -653,8 +653,8 @@ class Table
      *              the body's last line
      * @param int $cell_index The index of the cell to set in the line, if `null`, the cell will 
      *              be added at the end of the line
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartCell()
+     * @return self 
+     * @see self::_setPartCell()
      */
     public function setBodyCell($content, $line_index = null, $cell_index = null)
     {
@@ -670,8 +670,8 @@ class Table
      *              the body's last line
      * @param int $cell_index The index of the cell to set in the line, if `null`, the cell will 
      *              be added at the end of the line
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartCell()
+     * @return self 
+     * @see self::_setPartCell()
      */
     public function addBodyCell($content, $line_index = null, $cell_index = null)
     {
@@ -683,7 +683,7 @@ class Table
      * Get the table body lines
      *
      * @return array The lines array
-     * @see Library\Tool\Table::_getPart()
+     * @see self::_getPart()
      */
     public function getBody()
     {
@@ -695,7 +695,7 @@ class Table
      *
      * @param int $line_index The index of the line to get, if `null`, the last line is returned
      * @return array The corresponding line
-     * @see Library\Tool\Table::_getPartLine()
+     * @see self::_getPartLine()
      */
     public function getBodyLine($line_index = null)
     {
@@ -707,7 +707,7 @@ class Table
      *
      * @param int $column_index The index of the column to get, if `null`, the last column is returned
      * @return array|null
-     * @see Library\Tool\Table::_getPartColumn()
+     * @see self::_getPartColumn()
      */
     public function getBodyColumn($column_index = null)
     {
@@ -720,7 +720,7 @@ class Table
      * @param int $line_index The index of the line to get, if `null`, the last line is returned
      * @param int $cell_index The index of the cell to get in the line, if `null`, the last cell is returned
      * @return array The corresponding cell
-     * @see Library\Tool\Table::_getPartCell()
+     * @see self::_getPartCell()
      */
     public function getBodyCell($line_index = null, $cell_index = null)
     {
@@ -734,8 +734,8 @@ class Table
      * array that will be considered as 1 line.
      *
      * @param array $contents The array of footer lines
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPart()
+     * @return self 
+     * @see self::_setPart()
      */
     public function setFooter(array $contents)
     {
@@ -749,8 +749,8 @@ class Table
      * @param array $contents The content of the line
      * @param int $line_index The index of the line to set, if `null`, the line will be added at
      *              the end of the footers
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartLine()
+     * @return self 
+     * @see self::_setPartLine()
      */
     public function setFooterLine(array $contents, $line_index = null)
     {
@@ -764,8 +764,8 @@ class Table
      * @param array $contents The content of the line
      * @param int $line_index The index of the line to set, if `null`, the line will be added at
      *              the end of the footers
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartLine()
+     * @return self 
+     * @see self::_setPartLine()
      */
     public function addFooterLine(array $contents, $line_index = null)
     {
@@ -779,9 +779,9 @@ class Table
      * @param array $contents The content of the column
      * @param int $column_index The index of the column to set, if `null`, the column will be added at
      *              the end of each line
-     * @param misc $default The default value for empty cells, if `null`, the class will use its `pad_flag`
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartColumn()
+     * @param mixed $default The default value for empty cells, if `null`, the class will use its `pad_flag`
+     * @return self 
+     * @see self::_setPartColumn()
      */
     public function setFooterColumn(array $contents = array(), $column_index = null, $default = null)
     {
@@ -795,9 +795,9 @@ class Table
      * @param array $contents The content of the column
      * @param int $column_index The index of the column to set, if `null`, the column will be added at
      *              the end of each line
-     * @param misc $default The default value for empty cells, if `null`, the class will use its `pad_flag`
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartColumn()
+     * @param mixed $default The default value for empty cells, if `null`, the class will use its `pad_flag`
+     * @return self 
+     * @see self::_setPartColumn()
      */
     public function addFooterColumn(array $contents = array(), $column_index = null, $default = null)
     {
@@ -813,8 +813,8 @@ class Table
      *              the footers'last line
      * @param int $cell_index The index of the cell to set in the line, if `null`, the cell will 
      *              be added at the end of the line
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartCell()
+     * @return self 
+     * @see self::_setPartCell()
      */
     public function setFooterCell($content, $line_index = null, $cell_index = null)
     {
@@ -830,8 +830,8 @@ class Table
      *              the footers'last line
      * @param int $cell_index The index of the cell to set in the line, if `null`, the cell will 
      *              be added at the end of the line
-     * @return self Returns `$this` for chainability
-     * @see Library\Tool\Table::_setPartCell()
+     * @return self 
+     * @see self::_setPartCell()
      */
     public function addFooterCell($content, $line_index = null, $cell_index = null)
     {
@@ -843,7 +843,7 @@ class Table
      * Get the table footers lines
      *
      * @return array The lines array
-     * @see Library\Tool\Table::_getPart()
+     * @see self::_getPart()
      */
     public function getFooter()
     {
@@ -855,7 +855,7 @@ class Table
      *
      * @param int $line_index The index of the line to get, if `null`, the last line is returned
      * @return array The corresponding line
-     * @see Library\Tool\Table::_getPartLine()
+     * @see self::_getPartLine()
      */
     public function getFooterLine($line_index = null)
     {
@@ -867,7 +867,7 @@ class Table
      *
      * @param int $column_index The index of the column to get, if `null`, the last line is returned
      * @return array The corresponding column
-     * @see Library\Tool\Table::_getPartColumn()
+     * @see self::_getPartColumn()
      */
     public function getFooterColumn($column_index = null)
     {
@@ -880,7 +880,7 @@ class Table
      * @param int $line_index The index of the line to get, if `null`, the last line is returned
      * @param int $cell_index The index of the cell to get in the line, if `null`, the last cell is returned
      * @return array The corresponding cell
-     * @see Library\Tool\Table::_getPartCell()
+     * @see self::_getPartCell()
      */
     public function getFooterCell($line_index = null, $cell_index = null)
     {
@@ -953,7 +953,7 @@ class Table
      * @param array $contents The array of footer lines
      * @param string $part One of the table `$_table_parts`
      * @return void
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
+     * @throws \InvalidArgumentException if the part doesn't exist in the table
      */
     protected function _setPart(array $contents, $part)
     {
@@ -976,7 +976,7 @@ class Table
      * @param string $part One of the table `$_table_parts`
      * @param string $action An action in "insert/replace"
      * @return void
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
+     * @throws \InvalidArgumentException if the part doesn't exist in the table
      */
     protected function _setPartLine(array $contents, $line_index, $part, $action = 'replace')
     {
@@ -1009,11 +1009,11 @@ class Table
      * @param array $contents The content of the column
      * @param int $column_index The index of the column to set, if `null`, the column will be added at
      *              the end of each line
-     * @param misc $default The default value for empty cells, if `null`, the class will use its `pad_flag`
+     * @param mixed $default The default value for empty cells, if `null`, the class will use its `pad_flag`
      * @param string $part One of the table `$_table_parts`
      * @param string $action An action in "insert/replace"
      * @return void
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
+     * @throws \InvalidArgumentException if the part doesn't exist in the table
      */
     protected function _setPartColumn(array $contents, $column_index, $default, $part, $action = 'replace')
     {
@@ -1052,7 +1052,7 @@ class Table
      * @param string $part One of the table `$_table_parts`
      * @param string $action An action in "insert/replace"
      * @return void
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
+     * @throws \InvalidArgumentException if the part doesn't exist in the table
      */
     protected function _setPartCell($content, $line_index, $cell_index, $part, $action = 'replace')
     {
@@ -1094,7 +1094,7 @@ class Table
      *
      * @param string $part One of the table `$_table_parts`
      * @return array The lines array
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
+     * @throws \InvalidArgumentException if the part doesn't exist in the table
      */
     protected function _getPart($part)
     {
@@ -1113,7 +1113,7 @@ class Table
      * @param int $line_index The index of the line to get, if `null`, the last line is returned
      * @param string $part One of the table `$_table_parts`
      * @return array The corresponding line
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
+     * @throws \InvalidArgumentException if the part doesn't exist in the table
      */
     protected function _getPartLine($line_index, $part)
     {
@@ -1137,7 +1137,7 @@ class Table
      * @param int $column_index The index of the column to get, if `null`, the last column is returned
      * @param string $part One of the table `$_table_parts`
      * @return array|null
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
+     * @throws \InvalidArgumentException if the part doesn't exist in the table
      */
     protected function _getPartColumn($column_index, $part)
     {
@@ -1166,7 +1166,7 @@ class Table
      * @param int $cell_index The index of the cell to get in the line, if `null`, the last cell is returned
      * @param string $part One of the table `$_table_parts`
      * @return array The corresponding cell
-     * @throws An `InvalidArgumentException` is thrown if the part dosen't exist in the table
+     * @throws \InvalidArgumentException if the part doesn't exist in the table
      */
     protected function _getPartCell($line_index, $cell_index, $part)
     {
@@ -1374,11 +1374,11 @@ class Table
     }
 
 // --------------------
-// Setters / Getters aliases for convience
+// Setters / Getters aliases for convenience
 // --------------------
 
     /**
-     * @see Library\Tool\Table::setBody()
+     * @see self::setBody()
      */
     public function setContents()
     {
@@ -1386,7 +1386,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::setBodyLine()
+     * @see self::setBodyLine()
      */
     public function setContentLine()
     {
@@ -1394,7 +1394,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::addBodyLine()
+     * @see self::addBodyLine()
      */
     public function addContentLine()
     {
@@ -1402,7 +1402,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::setBodyColumn()
+     * @see self::setBodyColumn()
      */
     public function setContentColumn()
     {
@@ -1410,7 +1410,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::setBodyColumn()
+     * @see self::setBodyColumn()
      */
     public function setContentCol()
     {
@@ -1418,7 +1418,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::setBodyColumn()
+     * @see self::setBodyColumn()
      */
     public function setBodyCol()
     {
@@ -1426,7 +1426,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::addBodyColumn()
+     * @see self::addBodyColumn()
      */
     public function addContentColumn()
     {
@@ -1434,7 +1434,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::addBodyColumn()
+     * @see self::addBodyColumn()
      */
     public function addContentCol()
     {
@@ -1442,7 +1442,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::addBodyColumn()
+     * @see self::addBodyColumn()
      */
     public function addBodyCol()
     {
@@ -1450,7 +1450,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::setBodyCell()
+     * @see self::setBodyCell()
      */
     public function setContentCell()
     {
@@ -1458,7 +1458,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::addBodyCell()
+     * @see self::addBodyCell()
      */
     public function addContentCell()
     {
@@ -1466,7 +1466,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getBody()
+     * @see self::getBody()
      */
     public function getContents()
     {
@@ -1474,7 +1474,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getBodyLine()
+     * @see self::getBodyLine()
      */
     public function getContentLine()
     {
@@ -1482,7 +1482,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getBodyColumn()
+     * @see self::getBodyColumn()
      */
     public function getContentColumn()
     {
@@ -1490,7 +1490,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getBodyColumn()
+     * @see self::getBodyColumn()
      */
     public function getContentCol()
     {
@@ -1498,7 +1498,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getBodyColumn()
+     * @see self::getBodyColumn()
      */
     public function getBodyCol()
     {
@@ -1506,7 +1506,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getBodyCell()
+     * @see self::getBodyCell()
      */
     public function getContentCell()
     {
@@ -1514,7 +1514,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getTableColumnSize()
+     * @see self::getTableColumnSize()
      */
     public function getTableColSize()
     {
@@ -1522,7 +1522,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getBodyColumn()
+     * @see self::getBodyColumn()
      */
     public function getCol()
     {
@@ -1530,7 +1530,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getHeaderColumn()
+     * @see self::getHeaderColumn()
      */
     public function getHeaderCol()
     {
@@ -1538,7 +1538,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::addHeaderColumn()
+     * @see self::addHeaderColumn()
      */
     public function addHeaderCol()
     {
@@ -1546,7 +1546,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::setHeaderColumn()
+     * @see self::setHeaderColumn()
      */
     public function setHeaderCol()
     {
@@ -1554,7 +1554,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getFooterColumn()
+     * @see self::getFooterColumn()
      */
     public function getFooterCol()
     {
@@ -1562,7 +1562,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::addFooterColumn()
+     * @see self::addFooterColumn()
      */
     public function addFooterCol()
     {
@@ -1570,7 +1570,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::setFooterColumn()
+     * @see self::setFooterColumn()
      */
     public function setFooterCol()
     {
@@ -1578,7 +1578,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getTableColumnSize()
+     * @see self::getTableColumnSize()
      */
     public function getColumnSize()
     {
@@ -1586,7 +1586,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getTableColumnSize()
+     * @see self::getTableColumnSize()
      */
     public function getColSize()
     {
@@ -1594,7 +1594,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getTableLineSize()
+     * @see self::getTableLineSize()
      */
     public function getLineSize()
     {
@@ -1602,7 +1602,7 @@ class Table
     }
 
     /**
-     * @see Library\Tool\Table::getTableCellSize()
+     * @see self::getTableCellSize()
      */
     public function getCellSize()
     {

@@ -19,7 +19,7 @@ class Html2Text
     extends AbstractConverter
 {
 
-	public static $correspondances = array(
+    public static $correspondances = array(
         "/\r/"=>'',                                     // Non-legal carriage return
         "/[\n\t]+/"=>' ',                               // Newlines and tabs
         '/[ ]{2,}/'=>' ',                               // Runs of spaces, pre-handling
@@ -66,50 +66,50 @@ class Html2Text
         '/[ ]{2,}/'=>' ',                              // Runs of spaces, post-handling
     );
 
-	public $allowed_tags=array();
-	public $line_width;
+    public $allowed_tags=array();
+    public $line_width;
 
-	public function setAllowedTags($tags)
-	{
-		$this->allowed_tags = $tags;
-	}
+    public function setAllowedTags($tags)
+    {
+        $this->allowed_tags = $tags;
+    }
 
-	public function setLineWidth($line_width)
-	{
-		$this->line_width = $line_width;
-	}
+    public function setLineWidth($line_width)
+    {
+        $this->line_width = $line_width;
+    }
 
-	public static function convert($content, $allowed_tags = null, $line_width = null)
-	{
-		$_this = new Html2Text;
-		if (!empty($allowed_tags)) self::setAllowedTags($allowed_tags);
-		if (!empty($line_width)) self::setLineWidth($line_width);
+    public static function convert($content, $allowed_tags = null, $line_width = null)
+    {
+        $_this = new Html2Text;
+        if (!empty($allowed_tags)) self::setAllowedTags($allowed_tags);
+        if (!empty($line_width)) self::setLineWidth($line_width);
 
-	    $text = trim(stripslashes($content));
+        $text = trim(stripslashes($content));
 
-	    // Run our defined search-and-replace
-    	$text = preg_replace(
-    		array_keys(self::$correspondances), 
-	    	array_values(self::$correspondances), 
-    		$text
-	    );
+        // Run our defined search-and-replace
+        $text = preg_replace(
+            array_keys(self::$correspondances),
+            array_values(self::$correspondances),
+            $text
+        );
 
-	    // Strip any other HTML tags
-	    $text = strip_tags($text, join('', $_this->allowed_tags));
+        // Strip any other HTML tags
+        $text = strip_tags($text, join('', $_this->allowed_tags));
 
-    	// Bring down number of empty lines to 2 max
-	    $text = preg_replace("/\n\s+\n/", "\n\n", $text);
-    	$text = preg_replace("/[\n]{3,}/", "\n\n", $text);
+        // Bring down number of empty lines to 2 max
+        $text = preg_replace("/\n\s+\n/", "\n\n", $text);
+        $text = preg_replace("/[\n]{3,}/", "\n\n", $text);
 
-	    // Wrap the text to a readable format
-    	// for PHP versions >= 4.0.2. Default line_width is 75
-	    // If line_width is 0 or less, don't wrap the text.
-    	if ( $_this->line_width > 0 ) {
-	    	$text = wordwrap($text, $_this->line_width);
-    	}
+        // Wrap the text to a readable format
+        // for PHP versions >= 4.0.2. Default line_width is 75
+        // If line_width is 0 or less, don't wrap the text.
+        if ( $_this->line_width > 0 ) {
+            $text = wordwrap($text, $_this->line_width);
+        }
 
-	    return $text;
-	}
+        return $text;
+    }
 
 }
 
