@@ -18,7 +18,7 @@ interface ContentTypeInterface
     /**
      * Prepare the content of the response before to send it to client
      *
-     * @param object $response \Library\HttpFundamental\Response
+     * @param \Library\HttpFundamental\Response $response
      * @return void
      */
     public function prepareResponse(Response $response);

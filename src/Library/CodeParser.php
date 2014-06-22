@@ -48,7 +48,7 @@ class CodeParser
      * Construct a code parser object
      *
      * @param string $object_name The name of the object to analyze
-     * @param string $object_yype A flag that must be a class constant
+     * @param int $object_type A flag that must be a class constant
      */
     public function __construct($object_name = null, $object_type = self::PARSE_CLASS)
     {
@@ -129,8 +129,9 @@ class CodeParser
     }
 
     /**
-     * Analizes self methods using reflection
+     * Analyzes self methods using reflection
      *
+     * @param object $object
      * @return bool
      */
     private function __getMethods($object)
@@ -184,8 +185,10 @@ class CodeParser
     
     /**
      * Manipulates a DocString and returns a readable string
+     *
      * @param string $DocComment
      * @param int/array $lines Which lines of the comment to get
+     * @param bool $parse_tags
      * @return array $_tmp
      */
     private function __extractDocString($DocComment, $lines = null, $parse_tags = false)

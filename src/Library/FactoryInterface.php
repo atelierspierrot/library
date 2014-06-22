@@ -10,7 +10,7 @@
 namespace Library;
 
 /**
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 interface FactoryInterface
 {
@@ -35,7 +35,6 @@ interface FactoryInterface
      * @param array $parameters
      * @param int $flag One of the class constants flags
      * @param array $logs Passed by reference
-     *
      * @return object
      */
     public function build($name, array $parameters = null, $flag = self::ERROR_ON_FAILURE, array &$logs = array());
@@ -49,7 +48,6 @@ interface FactoryInterface
      * @param string $name
      * @param int $flag One of the class constants flags
      * @param array $logs Passed by reference
-     *
      * @return null|string
      */
     public function findBuilder($name, $flag = self::ERROR_ON_FAILURE, array &$logs = array());

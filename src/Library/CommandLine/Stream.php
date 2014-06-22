@@ -14,7 +14,7 @@ namespace Library\CommandLine;
  *
  * Use this class to write on `STDOUT` or `STDERR` and read from `STDIN`.
  *
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 class Stream
 {
@@ -22,22 +22,22 @@ class Stream
     /**
      * STDOUT stream for writing
      */
-	public $stream;
+    public $stream;
 
     /**
      * STDERR stream for writing
      */
-	public $error;
+    public $error;
 
     /**
      * STDIN stream for reading
      */
-	public $input;
+    public $input;
 
     /**
      * User input in STDIN when a prompt is launched
      */
-	private $user_response;
+    private $user_response;
 
 // ------------------------------------
 // MAGIC METHODS
@@ -46,15 +46,15 @@ class Stream
     /**
      * The three streams are initiated
      *
-     * They are created with the defaults `STDIN`, `STDOUT` and `STDERR` if present or 
+     * They are created with the defaults `STDIN`, `STDOUT` and `STDERR` if present or
      * opened as file streams otherwise.
      */
-	public function __construct()
-	{
-		$this->stream = defined('STDOUT') ? STDOUT : fopen('php://stdout', 'w');
-		$this->input = defined('STDIN') ? STDIN : fopen('php://stdin', 'r');
-		$this->error = defined('STDERR') ? STDERR : fopen('php://stderr', 'w');
-	}
+    public function __construct()
+    {
+        $this->stream = defined('STDOUT') ? STDOUT : fopen('php://stdout', 'w');
+        $this->input = defined('STDIN') ? STDIN : fopen('php://stdin', 'r');
+        $this->error = defined('STDERR') ? STDERR : fopen('php://stderr', 'w');
+    }
 
     /**
      * Exit the script execution
@@ -62,11 +62,11 @@ class Stream
      * @param string $str Optional string to write before exit
      * @return void
      */
-	public function __exit($str = null)
-	{
-		if ($str) self::write( $str );
-		exit;
-	}
+    public function __exit($str = null)
+    {
+        if ($str) self::write( $str );
+        exit;
+    }
 
     /**
      * Write a message on `STDERR` and exit with an error status
@@ -76,12 +76,12 @@ class Stream
      * @param bool $new_line Pass a new line befor exit (default is `true`)
      * @return void
      */
-	public function error($str, $status = 1, $new_line = true)
-	{
+    public function error($str, $status = 1, $new_line = true)
+    {
         fwrite($this->error, $str.( true===$new_line ? PHP_EOL : '' ));
         fflush($this->error);
         if ($status>0) exit($status);
-	}
+    }
 
     /**
      * Write a message on `STDOUT`
@@ -90,11 +90,11 @@ class Stream
      * @param bool $new_line Pass a new line befor exit (default is `true`)
      * @return void
      */
-	public function write($str, $new_line = true)
-	{
+    public function write($str, $new_line = true)
+    {
         fwrite($this->stream, $str.( true===$new_line ? PHP_EOL : '' ));
         fflush($this->stream);
-	}
+    }
 
     /**
      * Write a message on `STDOUT` and wait for a user input on `STDIN`
@@ -102,21 +102,21 @@ class Stream
      * @param string $str The error message string to write
      * @return void
      */
-	public function prompt($str)
-	{
-		self::write( $str, false );
-		$this->user_response = trim( fgets( $this->input, 4096 ) );
-	}
+    public function prompt($str)
+    {
+        self::write( $str, false );
+        $this->user_response = trim( fgets( $this->input, 4096 ) );
+    }
 
     /**
      * Get last user input on `STDIN`
      *
      * @return string The last user input from `STDIN`
      */
-	public function getUserResponse()
-	{
-		return $this->user_response;
-	}
+    public function getUserResponse()
+    {
+        return $this->user_response;
+    }
 
 }
 

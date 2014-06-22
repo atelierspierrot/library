@@ -83,9 +83,9 @@ class ContentType
 // ----------------------
 
     /**
-     * @param string $content_type
-     * @return self
-     * @throws Excpetion if the content_type was not declared and unknown
+     * @param   string $content_type
+     * @return  self
+     * @throws  \Exception if the content_type was not declared and unknown
      */
     public function setContentType($content_type) 
     {
@@ -110,7 +110,7 @@ class ContentType
     }
 
     /**
-     * @param object $content_type_object Must implement the `\Library\HttpFundamental\ContentTypeInterface`
+     * @param \Library\HttpFundamental\ContentTypeInterface $content_type_object
      * @return self
      */
     public function setContentTypeObject(ContentTypeInterface $content_type_object) 
@@ -149,7 +149,7 @@ class ContentType
     /**
      * Prepare the content of the response before to send it to client
      *
-     * @param object $response \Library\HttpFundamental\Response
+     * @param \Library\HttpFundamental\Response $response
      * @return void
      */
     public function prepareResponse(Response $response)
@@ -167,7 +167,7 @@ class ContentType
      * Parse an input content
      *
      * @param string $content
-     * @return misc
+     * @return mixed
      */
     public function parseContent($content)
     {
@@ -182,7 +182,7 @@ class ContentType
     /**
      * Prepare a content for output
      *
-     * @param misc $content
+     * @param mixed $content
      * @return string
      */
     public function prepareContent($content)

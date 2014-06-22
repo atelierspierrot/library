@@ -42,12 +42,12 @@ class Cookie
     protected $name;
 
     /**
-     * @var misc Value of the cookie
+     * @var mixed Value of the cookie
      */
     protected $value;
 
     /**
-     * @var inte Expiration time for the cookie (UNIX timestamp)
+     * @var int Expiration time for the cookie (UNIX timestamp)
      */
     protected $expire;
 
@@ -339,7 +339,7 @@ class Cookie
     
     /**
      * @param string $var
-     * @return misc
+     * @return mixed
      */
     public function getCookieFuncArgument($var)
     {
@@ -348,7 +348,7 @@ class Cookie
 
     /**
      * @param string $var
-     * @param misc $val
+     * @param mixed $val
      * @return self
      */
     public function addCookieFuncArgument($var, $val)
@@ -396,7 +396,8 @@ class Cookie
     /**
      * @param string $var_name
      * @param bool $safe_value
-     * @return misc
+     * @return mixed
+     * @throws \RuntimeException
      */
     protected function _getSafeCookieFuncArgument($var_name, $safe_value = true)
     {
@@ -407,7 +408,7 @@ class Cookie
         } elseif (true===$safe_value && method_exists($this, $_meth_safe) && is_callable(array($this, $_meth_safe))) {
             return call_user_func(array($this, $_meth_safe));
         } else {
-            throw new RuntimeException(
+            throw new \RuntimeException(
                 sprintf('Unknown method "%s::%s" nor "%s::%s" for required cookie function argument!', __CLASS__, $_meth, __CLASS__, $_meth_safe)
             );
         }
@@ -421,7 +422,6 @@ class Cookie
      * Test if a cookie exists
      * 
      * @param string $cookie_name
-     * 
      * @return bool
      */
     public function exists($cookie_name = null)
@@ -436,7 +436,6 @@ class Cookie
      * Get a cookie value
      * 
      * @param string $cookie_name
-     * 
      * @return string|array
      */
     public function read($cookie_name = null)
@@ -460,7 +459,6 @@ class Cookie
      * 
      * @param string $cookie_name
      * @param string|array $cookie_value
-     * 
      * @return bool
      */
     public function send($cookie_name = null, $cookie_value = null)
@@ -492,7 +490,6 @@ class Cookie
      * @param string $variable_name
      * @param string $variable_value
      * @param string $cookie_name
-     * 
      * @return bool
      */
     public function addInCookie($variable_name, $variable_value, $cookie_name = null)
@@ -512,7 +509,6 @@ class Cookie
      * Clear a cookie
      * 
      * @param string $cookie_name
-     * 
      * @return bool
      */
     public function clear($cookie_name = null)

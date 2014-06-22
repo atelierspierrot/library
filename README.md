@@ -101,9 +101,9 @@ The latest version of this documentation is available online at <http://docs.ate
 
 >    PHP Library
 
->    https://github.com/atelierspierrot/library
+>    http://github.com/atelierspierrot/library
 
->    Copyleft 2013, Pierre Cassat and contributors
+>    Copyleft 2013-2014, Pierre Cassat and contributors
 
 >    Licensed under the GPL Version 3 license.
 

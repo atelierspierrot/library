@@ -23,8 +23,8 @@ use \ReflectionClass;
  *     $factory = \Library\Factory::create()
  *         // all methods are optional
  *         ->factoryName('A Name To Identify Error Message')
- *         ->mustImplement('RequiredInterrace')
- *         ->mustImplementAll(array('RequiredInterrace1', 'RequiredInterrace2'))
+ *         ->mustImplement('RequiredInterface')
+ *         ->mustImplementAll(array('RequiredInterface1', 'RequiredInterface2'))
  *         ->mustExtend('RequiredInheritance')
  *         ->mustImplementOrExtend(array('RequiredInheritance', 'OR', 'RequiredInterface'))
  *         ->defaultNamespace('\Possible\Namespace')
@@ -38,8 +38,8 @@ use \ReflectionClass;
  *     $factory = \Library\Factory::create(array(
  *         // all options are optional
  *         'factory_name' => 'A Name To Identify Error Message',
- *         'must_implement' => 'RequiredInterrace',
- *         'must_implement_all' => array('RequiredInterrace1', 'RequiredInterrace2'),
+ *         'must_implement' => 'RequiredInterface',
+ *         'must_implement_all' => array('RequiredInterface1', 'RequiredInterface2'),
  *         'must_extend' => 'RequiredInheritance',
  *         'must_implement_or_extend' => array('RequiredInheritance', 'OR', 'RequiredInterface'),
  *         'default_namespace' => '\Possible\Namespace',
@@ -61,143 +61,142 @@ use \ReflectionClass;
  * When the object creation method is called, the parameters passed to the `Factory::build()`
  * method are re-organized before to pass them to the method. This way, you can define the
  * parameters as an array using explicit indexes corresponding to the parameters names in
- * method declaration without worriing about their order.
+ * method declaration without working about their order.
  *
  * ## Specific method to build the instance
  *
  * In the case of a specific `$call_method` (not the classic `__construct`), the builder will
  * try to first construct the object except if the call method is static. If it is not static,
- * any existing constructor will be first called without paremeters and then the defined
+ * any existing constructor will be first called without parameters and then the defined
  * call method passing it the parameters.
  *
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 class Factory
     extends AbstractStaticCreator
     implements FactoryInterface
 {
 
-	/**
-	 * String added to error messages to identify the caller
-	 *
-	 * @var string A name to identify factory error messages
-	 * @use $factory->factoryName( $name )
-	 */
-	protected $factory_name = '';
+    /**
+     * String added to error messages to identify the caller
+     *
+     * @var string A name to identify factory error messages
+     * @use $factory->factoryName( $name )
+     */
+    protected $factory_name = '';
 
-	/**
-	 * Current builder flag value
-	 *
-	 * @var int A class contant
-	 * @use $factory->flag( const )
-	 */
-	protected $flag = null;
+    /**
+     * Current builder flag value
+     *
+     * @var int A class constant
+     * @use $factory->flag( const )
+     */
+    protected $flag = null;
 
-	/**
-	 * Method called on the object's builder class to create the instance
-	 *
-	 * Final object class MUST implement this method.
-	 *
-	 * If this is not the constructor but the class do have a public constructor, it will
-	 * be called first to create the instance.
-	 *
-	 * @var string Method to call for object construction
-	 * @use $factory->callMethod( $method )
-	 */
-	protected $call_method = '__construct';
+    /**
+     * Method called on the object's builder class to create the instance
+     *
+     * Final object class MUST implement this method.
+     *
+     * If this is not the constructor but the class do have a public constructor, it will
+     * be called first to create the instance.
+     *
+     * @var string Method to call for object construction
+     * @use $factory->callMethod( $method )
+     */
+    protected $call_method = '__construct';
 
-	/**
-	 * Array of masks used to construct the final class name using `printf()` method
-	 *
-	 * Final object class CAN be named following one of these masks.
-	 *
-	 * @var string Printf expression (%s will be replaced by the `$name` in CamelCase)
-	 * @use $factory->classNameMask( array( $maskX, $maskY ) ) or $factory->classNameMask( $maskX )
-	 */
-	protected $class_name_mask = array('%s');
+    /**
+     * Array of masks used to construct the final class name using `printf()` method
+     *
+     * Final object class CAN be named following one of these masks.
+     *
+     * @var string Printf expression (%s will be replaced by the `$name` in CamelCase)
+     * @use $factory->classNameMask( array( $maskX, $maskY ) ) or $factory->classNameMask( $maskX )
+     */
+    protected $class_name_mask = array('%s');
 
-	/**
-	 * Array of possible optional namespaces used to search the class
-	 *
-	 * Final object class CAN be included in one of these namespaces.
-	 *
-	 * @var array
-	 * @use $factory->defaultNamespace( array( $nameX, $nameY ) ) or $factory->defaultNamespace( $nameX )
-	 */
-	protected $default_namespace = array();
+    /**
+     * Array of possible optional namespaces used to search the class
+     *
+     * Final object class CAN be included in one of these namespaces.
+     *
+     * @var array
+     * @use $factory->defaultNamespace( array( $nameX, $nameY ) ) or $factory->defaultNamespace( $nameX )
+     */
+    protected $default_namespace = array();
 
-	/**
-	 * Array of possible namespaces the class MUST be included in
-	 *
-	 * Final object class MUST be included in one of these namespaces.
-	 *
-	 * @var array
-	 * @use $factory->mandatoryNamespace( array( $nameX, $nameY ) ) or $factory->mandatoryNamespace( $nameX )
-	 */
-	protected $mandatory_namespace = array();
+    /**
+     * Array of possible namespaces the class MUST be included in
+     *
+     * Final object class MUST be included in one of these namespaces.
+     *
+     * @var array
+     * @use $factory->mandatoryNamespace( array( $nameX, $nameY ) ) or $factory->mandatoryNamespace( $nameX )
+     */
+    protected $mandatory_namespace = array();
 
-	/**
-	 * Array of possible interfaces the class MUST implement
-	 *
-	 * Final object class MUST implement one of these items.
-	 *
-	 * @var array
-	 * @use $factory->mustImplement( array( $nameX, $nameY ) ) or $factory->mustImplement( $nameX )
-	 */
-	protected $must_implement = array();
+    /**
+     * Array of possible interfaces the class MUST implement
+     *
+     * Final object class MUST implement one of these items.
+     *
+     * @var array
+     * @use $factory->mustImplement( array( $nameX, $nameY ) ) or $factory->mustImplement( $nameX )
+     */
+    protected $must_implement = array();
 
-	/**
-	 * Array of interfaces the class MUST implement
-	 *
-	 * Final object class MUST implement ALL these items.
-	 *
-	 * @var array
-	 * @use $factory->mustImplementAll( array( $nameX, $nameY ) )
-	 */
-	protected $must_implement_all = array();
+    /**
+     * Array of interfaces the class MUST implement
+     *
+     * Final object class MUST implement ALL these items.
+     *
+     * @var array
+     * @use $factory->mustImplementAll( array( $nameX, $nameY ) )
+     */
+    protected $must_implement_all = array();
 
-	/**
-	 * Array of possible classes the class MUST extend
-	 *
-	 * Final object class MUST extend one of these items.
-	 *
-	 * @var array
-	 * @use $factory->mustExtend( array( $nameX, $nameY ) ) or $factory->mustExtend( $nameX )
-	 */
-	protected $must_extend = array();
+    /**
+     * Array of possible classes the class MUST extend
+     *
+     * Final object class MUST extend one of these items.
+     *
+     * @var array
+     * @use $factory->mustExtend( array( $nameX, $nameY ) ) or $factory->mustExtend( $nameX )
+     */
+    protected $must_extend = array();
 
-	/**
-	 * Array of possible interfaces or classes the class MUST implement or extend
-	 *
-	 * Final object class MUST implement or extend one of these items.
-	 *
-	 * @var array
-	 * @use $factory->mustImplementOrExtend( array( $nameX, $nameY ) )
-	 */
-	protected $must_implement_or_extend = array();
+    /**
+     * Array of possible interfaces or classes the class MUST implement or extend
+     *
+     * Final object class MUST implement or extend one of these items.
+     *
+     * @var array
+     * @use $factory->mustImplementOrExtend( array( $nameX, $nameY ) )
+     */
+    protected $must_implement_or_extend = array();
 
-	/**
-	 * Initialize the factory with an array of options
-	 *
-	 * The options must be defined like `property => value`
-	 *
-	 * @param array $options
-	 *
-	 * @return void
-	 */
-	public function init(array $options = null)
-	{
-	    if (!empty($options)) {
-	        $this->setOptions($options);
-	    }
-	}
+    /**
+     * Initialize the factory with an array of options
+     *
+     * The options must be defined like `property => value`
+     *
+     * @param array $options
+     *
+     * @return void
+     */
+    public function init(array $options = null)
+    {
+        if (!empty($options)) {
+            $this->setOptions($options);
+        }
+    }
 
     /**
      * Magic method to allow usage of `$factory->propertyInCamelCase()` for each class property
      *
      * @param string $name
      * @param array $arguments
-     *
      * @return self
      */
     public function __call($name, array $arguments)
@@ -218,7 +217,6 @@ class Factory
      * Set the object options like `property => value`
      *
      * @param array $options
-     *
      * @return self
      */
     public function setOptions(array $options)
@@ -241,12 +239,10 @@ class Factory
      * @param array $parameters
      * @param int $flag One of the class constants flags
      * @param array $logs Passed by reference
-     *
      * @return object
-     *
-     * @throws RuntimeException if the class is not found
-     * @throws RuntimeException if the class doesn't implement or extend some required dependencies
-     * @throws RuntimeException if the class method for construction is not callable
+     * @throws \RuntimeException if the class is not found
+     * @throws \RuntimeException if the class doesn't implement or extend some required dependencies
+     * @throws \RuntimeException if the class method for construction is not callable
      */
     public function build($name, array $parameters = null, $flag = self::ERROR_ON_FAILURE, array &$logs = array())
     {
@@ -275,7 +271,7 @@ class Factory
                         } else {
                             $_caller = new $builder_class_name;
                         }
-                    } catch (Exception $e) {
+                    } catch (\Exception $e) {
                         $logs[] = $this->_getErrorMessage('Constructor method for class "%s" is not callable!', $builder_class_name);
                         if ($flag & self::ERROR_ON_FAILURE) {
                             throw new \RuntimeException(end($logs));
@@ -332,12 +328,10 @@ class Factory
      * @param string $name
      * @param int $flag One of the class constants flags
      * @param array $logs Passed by reference
-     *
      * @return null|string
-     *
-     * @throws RuntimeException if the class is not found
-     * @throws RuntimeException if the class doesn't implement or extend some required dependencies
-     * @throws RuntimeException if the class method for construction is not callable
+     * @throws \RuntimeException if the class is not found
+     * @throws \RuntimeException if the class doesn't implement or extend some required dependencies
+     * @throws \RuntimeException if the class method for construction is not callable
      */
     public function findBuilder($name, $flag = self::ERROR_ON_FAILURE, array &$logs = array())
     {
@@ -432,8 +426,7 @@ class Factory
      * Build the class name filling the `$class_name_mask`
      *
      * @param string|array $class_names
-     *
-     * @return misc The found class name if it exists, false otherwise
+     * @return mixed The found class name if it exists, false otherwise
      */
     protected function _findClasses($class_names)
     {
@@ -453,7 +446,6 @@ class Factory
      *
      * @param string|array $names
      * @param array $masks
-     *
      * @return array
      */
     protected function _buildClassesNames($names, array $masks)
@@ -476,7 +468,6 @@ class Factory
      * @param string|array $names
      * @param array $namespaces
      * @param array $logs Passed by reference
-     *
      * @return array
      */
     protected function _addNamespaces($names, array $namespaces, array &$logs = array())
@@ -505,7 +496,6 @@ class Factory
      * @param array $interfaces
      * @param bool $must_implement_all
      * @param array $logs Passed by reference
-     *
      * @return bool
      */
     protected function _classesImplements($names, array $interfaces, $must_implement_all = false, array &$logs = array())
@@ -536,7 +526,6 @@ class Factory
      * @param string|array $names
      * @param array $classes
      * @param array $logs Passed by reference
-     *
      * @return bool
      */
     protected function _classesExtends($names, array $classes, array &$logs = array())
@@ -564,7 +553,6 @@ class Factory
      * @param string|array $names
      * @param array $namespaces
      * @param array $logs Passed by reference
-     *
      * @return string|bool
      */
     protected function _classesInNamespaces($names, array $namespaces, array &$logs = array())

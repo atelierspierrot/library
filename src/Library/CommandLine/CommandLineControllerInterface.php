@@ -12,46 +12,46 @@ namespace Library\CommandLine;
 /**
  * CommandLine controller interface
  *
- * @author 		Piero Wbmstr <me@e-piwi.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 interface CommandLineControllerInterface
 {
 
-	/**
-	 * Adding a method in the collection of done methods
-	 *
-	 * @param string $mathod_name The name of the method
-	 */
-	public function addDoneMethod($method_name);
+    /**
+     * Adding a method in the collection of done methods
+     * @param   string  $method_name    The name of the method
+     */
+    public function addDoneMethod($method_name);
 
-	/**
-	 * Get the collection of done methods
-	 */
-	public function getDoneMethods();
+    /**
+     * Get the collection of done methods
+     * @return  array
+     */
+    public function getDoneMethods();
 
-	/**
-	 * Set the current command line script called
-	 *
-	 * @param string $script_name The script name
-	 */
-	public function setScript($script_name);
+    /**
+     * Set the current command line script called
+     * @param   string  $script_name    The script name
+     */
+    public function setScript($script_name);
 
-	/**
-	 * Get the current command line script called
-	 */
-	public function getScript();
+    /**
+     * Get the current command line script called
+     * @return  string|null
+     */
+    public function getScript();
 
-	/**
-	 * Set the command line parameters
-	 *
-	 * @param array $params The collection of parameters
-	 */
-	public function setParameters(array $params);
+    /**
+     * Set the command line parameters
+     * @param   array   $params     The collection of parameters
+     */
+    public function setParameters(array $params);
 
-	/**
-	 * Get the parameters collection
-	 */
-	public function getParameters();
+    /**
+     * Get the parameters collection
+     * @return  array
+     */
+    public function getParameters();
 
 }
 

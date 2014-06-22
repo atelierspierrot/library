@@ -17,11 +17,10 @@ abstract class AbstractConverter
     /**
      * Process a content conversion
      *
-     * @param misc $content
-     *
-     * @return misc
+     * @param mixed $content
+     * @return mixed
      */
-	abstract public static function convert($content);
+    abstract public static function convert($content);
 
 }
 

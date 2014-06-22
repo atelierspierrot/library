@@ -28,7 +28,7 @@ use \Library\Helper\Code as CodeHelper;
  *     echo $obj->prop // if flag=PUBLIC_PROPERTIES
  *     echo $obj->getProp() // if flag=PROTECTED_PROPERTIES
  *
- * Be very carefull about the properties names as they will all be transformed in lower case
+ * Be very careful about the properties names as they will all be transformed in lower case
  * and underscore:
  *
  *     $obj->myPropertyName => $_data[ my_property_name ]
@@ -76,7 +76,7 @@ class RegistryInvokable
 
     /**
      * The registry
-     * @var $_data Patterns\Commons\Registry
+     * @var $_data \Patterns\Commons\Registry
      */
      protected $_data;
 
@@ -110,8 +110,8 @@ class RegistryInvokable
     /**
      * Set the object flag for registry properties visibility
      *
-     * @param int $flag Must be one of the class contsants
-     * @return self Returns `$this` for chainability
+     * @param int $flag Must be one of the class constants
+     * @return self
      */
     public function setFlag($flag)
     {
@@ -143,7 +143,7 @@ class RegistryInvokable
      *
      * @param string $name The non-existing method name called on the object
      * @param array $arguments The arguments array passed calling the method
-     * @return misc This will return the result of a magic method, or nothing if nothing can be done
+     * @return mixed This will return the result of a magic method, or nothing if nothing can be done
      */
     public function __call($name, array $arguments)
     {
@@ -200,8 +200,8 @@ class RegistryInvokable
      * @see Patterns\Commons\Registry::getEntry()
      *
      * @param string $name The name of the property to get
-     * @return misc This will return the result of a magic method, or nothing if nothing can be done
-     * @throws Throws an `InvokableAccessException` if direct access to properties is avoid by the 
+     * @return mixed This will return the result of a magic method, or nothing if nothing can be done
+     * @throws InvokableAccessException Throws an `InvokableAccessException` if direct access to properties is avoid by the
      *              `self::UNAUTHORIZED_PROPERTIES` flag
      */
     public function __get($name)
@@ -224,7 +224,7 @@ class RegistryInvokable
      * @see Patterns\Commons\Registry::setEntry()
      *
      * @param string $name The name of the property to get
-     * @param misc $value The value to set for the property
+     * @param mixed $value The value to set for the property
      * @return self Returns `$this` for method chaining
      */
     public function __set($name, $value)
@@ -272,8 +272,8 @@ class RegistryInvokable
      * Get the value of a registry property or the whole registry array.
      *
      * @param string $name The name of a property to get if so (optional)
-     * @param misc $default A default value to send if the property doesn't exist in the object
-     * @return misc The value of the property if so, the default value if the property doesn't exist, or
+     * @param mixed $default A default value to send if the property doesn't exist in the object
+     * @return mixed The value of the property if so, the default value if the property doesn't exist, or
      *              the flobal data array without a property name
      */    
     public function getData($name = null, $default = null)
@@ -291,11 +291,11 @@ class RegistryInvokable
      * Set the value of a registry property or the whole registry array.
      *
      * @param string|array $value The name of the property if `$arg2` is defined, or an array of the whole object values
-     * @param misc $arg2 The value of a property to get if so (optional - `$value` must be a string)
-     * @param misc $default A default value to send if the property doesn't exist in the object
-     * @return misc The value of the property if so, the default value if the property doesn't exist, or
+     * @param mixed $arg2 The value of a property to get if so (optional - `$value` must be a string)
+     * @param mixed $default A default value to send if the property doesn't exist in the object
+     * @return mixed The value of the property if so, the default value if the property doesn't exist, or
      *              the flobal data array without a property name
-     * @throws Throws an InvalidArgumentExcpetion if `$name` is null and `$value` is not an array
+     * @throws \InvalidArgumentExcpetion Throws an InvalidArgumentExcpetion if `$name` is null and `$value` is not an array
      */    
     public function setData($value, $arg2 = null)
     {
@@ -303,7 +303,7 @@ class RegistryInvokable
             return $this->__set($value, $arg2);
         } else {
             if (!is_array($value)) {
-                throw new InvalidArgumentException(
+                throw new \InvalidArgumentException(
                     sprintf('First argument of method "%s()" must be an array to set the global object\'s data!', __METHOD__)
                 );
             }
