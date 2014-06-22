@@ -42,14 +42,14 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_addDoneMethod">addDoneMethod</a>($method_name)
+                    <a href="#method_addDoneMethod">addDoneMethod</a>(string $method_name)
                     <p>Adding a method in the collection of done methods</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    array
                 </td>
                 <td class="last">
                     <a href="#method_getDoneMethods">getDoneMethods</a>()
@@ -69,7 +69,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    string|null
                 </td>
                 <td class="last">
                     <a href="#method_getScript">getScript</a>()
@@ -89,7 +89,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    array
                 </td>
                 <td class="last">
                     <a href="#method_getParameters">getParameters</a>()
@@ -103,9 +103,9 @@
         <h2>Details</h2>
 
                         <h3 id="method_addDoneMethod">
-        <div class="location">at line 25</div>
+        <div class="location">at line 24</div>
         <code>            public            
-    <strong>addDoneMethod</strong>($method_name)</code>
+    <strong>addDoneMethod</strong>(string $method_name)</code>
     </h3>
     <div class="details">
         <p>Adding a method in the collection of done methods</p>
@@ -116,10 +116,9 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$method_name</td>
-                <td>
-</td>
+                <td>The name of the method</td>
             </tr>
             </table>
 
@@ -131,7 +130,7 @@
 
                 <h3 id="method_getDoneMethods">
         <div class="location">at line 30</div>
-        <code>            public            
+        <code>            public            array
     <strong>getDoneMethods</strong>()</code>
     </h3>
     <div class="details">
@@ -140,13 +139,23 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_setScript">
-        <div class="location">at line 37</div>
+        <div class="location">at line 36</div>
         <code>            public            
     <strong>setScript</strong>(string $script_name)</code>
     </h3>
@@ -173,7 +182,7 @@
 
                 <h3 id="method_getScript">
         <div class="location">at line 42</div>
-        <code>            public            
+        <code>            public            string|null
     <strong>getScript</strong>()</code>
     </h3>
     <div class="details">
@@ -182,13 +191,23 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_setParameters">
-        <div class="location">at line 49</div>
+        <div class="location">at line 48</div>
         <code>            public            
     <strong>setParameters</strong>(array $params)</code>
     </h3>
@@ -215,7 +234,7 @@
 
                 <h3 id="method_getParameters">
         <div class="location">at line 54</div>
-        <code>            public            
+        <code>            public            array
     <strong>getParameters</strong>()</code>
     </h3>
     <div class="details">
@@ -224,6 +243,16 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>

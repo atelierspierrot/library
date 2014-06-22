@@ -126,7 +126,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    null
+                    bool
                 </td>
                 <td class="last">
                     <a href="#method_log">log</a>(int $level, string $message, array $context = array(), string $logname = null)
@@ -139,14 +139,14 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method___set">__set</a>(string $var, <abbr title="Library\misc">misc</abbr> $val)
+                    <a href="#method___set">__set</a>(string $var, mixed $val)
                     <p>Allows to set a property or a configuration entry like : $logger->config_name = $val</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method___get">__get</a>(string $var)
@@ -156,7 +156,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    static&nbsp;
+                    static&nbsp;array
                 </td>
                 <td class="last">
                     <a href="#method_getOptions">getOptions</a>()
@@ -201,7 +201,7 @@
         <h2>Details</h2>
 
                         <h3 id="method___construct">
-        <div class="location">at line 81</div>
+        <div class="location">at line 101</div>
         <code>            public            
     <strong>__construct</strong>(array $user_options = array())</code>
     </h3>
@@ -236,8 +236,8 @@
     </div>
 
                 <h3 id="method_log">
-        <div class="location">at line 95</div>
-        <code>            public            null
+        <div class="location">at line 116</div>
+        <code>            public            bool
     <strong>log</strong>(int $level, string $message, array $context = array(), string $logname = null)</code>
     </h3>
     <div class="details">
@@ -275,21 +275,30 @@
 
                     <table>
         <tr>
-            <td>null</td>
+            <td>bool</td>
             <td>
 </td>
         </tr>
     </table>
 
             
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td>if <code>$level</code> is unknown</td>
+            </tr>
+            </table>
+
             
                     </div>
     </div>
 
                 <h3 id="method___set">
-        <div class="location">at line 135</div>
+        <div class="location">at line 159</div>
         <code>            public            
-    <strong>__set</strong>(string $var, <abbr title="Library\misc">misc</abbr> $val)</code>
+    <strong>__set</strong>(string $var, mixed $val)</code>
     </h3>
     <div class="details">
         <p>Allows to set a property or a configuration entry like : $logger->config_name = $val</p>
@@ -305,7 +314,7 @@
                 <td>A property name or an entry of the $config class static</td>
             </tr>
                     <tr>
-                <td><abbr title="Library\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$val</td>
                 <td>The value to set</td>
             </tr>
@@ -313,13 +322,22 @@
 
             
             
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td>if so</td>
+            </tr>
+            </table>
+
             
                     </div>
     </div>
 
                 <h3 id="method___get">
-        <div class="location">at line 153</div>
-        <code>            public            <abbr title="Library\misc">misc</abbr>
+        <div class="location">at line 177</div>
+        <code>            public            mixed
     <strong>__get</strong>(string $var)</code>
     </h3>
     <div class="details">
@@ -342,7 +360,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="Library\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>The value if found, null otherwise</td>
         </tr>
     </table>
@@ -353,8 +371,8 @@
     </div>
 
                 <h3 id="method_getOptions">
-        <div class="location">at line 164</div>
-        <code>        static    public            
+        <div class="location">at line 189</div>
+        <code>        static    public            array
     <strong>getOptions</strong>()</code>
     </h3>
     <div class="details">
@@ -364,13 +382,23 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_interpolate">
-        <div class="location">at line 178</div>
+        <div class="location">at line 204</div>
         <code>        static    public            string
     <strong>interpolate</strong>(string $message, array $context = array(), bool $silent = false)</code>
     </h3>
@@ -410,12 +438,22 @@
     </table>
 
             
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
             
                     </div>
     </div>
 
                 <h3 id="method_getUserIp">
-        <div class="location">at line 376</div>
+        <div class="location">at line 404</div>
         <code>        static    public            
     <strong>getUserIp</strong>()</code>
     </h3>
@@ -431,7 +469,7 @@
     </div>
 
                 <h3 id="method_writeArray">
-        <div class="location">at line 393</div>
+        <div class="location">at line 421</div>
         <code>        static    public            string
     <strong>writeArray</strong>(array $array)</code>
     </h3>
@@ -446,7 +484,8 @@
                     <tr>
                 <td>array</td>
                 <td>$array</td>
-                <td>The array to write</td>
+                <td>
+</td>
             </tr>
             </table>
 

@@ -64,8 +64,8 @@
                     static&nbsp;<a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_create">create</a>($url = null, $flag = self::NO_REWRITE, $protocol = &#039;http&#039;, $method = &#039;get&#039;, array $headers = null, array $arguments = null, array $data = null, array $session = null, array $files = null, array $cookies = null)
-                    <p>Constructor : defines the current URL and gets the routes</p>
+                    <a href="#method_create">create</a>(string $url = null, int $flag = self::NO_REWRITE, string $protocol = &#039;http&#039;, string $method = &#039;get&#039;, array $headers = null, array $arguments = null, array $data = null, array $session = null, array $files = null, array $cookies = null)
+                    <p>Static constructor : defines the current URL and gets the routes</p>
                 </td>
                 <td></td>
             </tr>
@@ -237,7 +237,7 @@
                     string
                 </td>
                 <td class="last">
-                    <a href="#method_getArgument">getArgument</a>($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = &#039;UTF-8&#039;)
+                    <a href="#method_getArgument">getArgument</a>(string $param = null, mixed $default = false, bool $clean = true, int $clean_flags = ENT_QUOTES, string $clean_encoding = &#039;UTF-8&#039;)
                     <p>
 </p>
                 </td>
@@ -256,10 +256,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    string|array|null
+                    string
                 </td>
                 <td class="last">
-                    <a href="#method_getData">getData</a>($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = &#039;UTF-8&#039;)
+                    <a href="#method_getData">getData</a>(string $param = null, mixed $default = false, bool $clean = true, int $clean_flags = ENT_QUOTES, string $clean_encoding = &#039;UTF-8&#039;)
                     <p>
 </p>
                 </td>
@@ -292,7 +292,7 @@
                     array|null
                 </td>
                 <td class="last">
-                    <a href="#method_getFile">getFile</a>($param, $index = null)
+                    <a href="#method_getFile">getFile</a>(string $param, string $index = null)
                     <p>
 </p>
                 </td>
@@ -476,10 +476,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                    mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_getGet">getGet</a>($varname, $default = null)
+                    <a href="#method_getGet">getGet</a>(string $varname, mixed $default = null)
                     <p>
 </p>
                 </td>
@@ -487,10 +487,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                    mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_getPost">getPost</a>($varname, $default = null)
+                    <a href="#method_getPost">getPost</a>(string $varname, mixed $default = null)
                     <p>
 </p>
                 </td>
@@ -498,10 +498,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                    mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_getGetOrPost">getGetOrPost</a>($varname, $default = null)
+                    <a href="#method_getGetOrPost">getGetOrPost</a>(string $varname, mixed $default = null)
                     <p>
 </p>
                 </td>
@@ -509,10 +509,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                    mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_getPostOrGet">getPostOrGet</a>($varname, $default = null)
+                    <a href="#method_getPostOrGet">getPostOrGet</a>(string $varname, mixed $default = null)
                     <p>
 </p>
                 </td>
@@ -523,14 +523,14 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_cleanArgument">cleanArgument</a>($arg_value, $flags = ENT_QUOTES, $encoding = &#039;UTF-8&#039;)
+                    <a href="#method_cleanArgument">cleanArgument</a>(string $arg_value, int $flags = ENT_QUOTES, string $encoding = &#039;UTF-8&#039;)
                     <p>Clean the value taken from request arguments or data</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    static&nbsp;<abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+                    static&nbsp;mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
                 </td>
                 <td class="last">
                     <a href="#method_getEnvironment">getEnvironment</a>(string $varname)
@@ -566,12 +566,12 @@
         <h2>Details</h2>
 
                         <h3 id="method_create">
-        <div class="location">at line 112</div>
+        <div class="location">at line 115</div>
         <code>        static    public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-    <strong>create</strong>($url = null, $flag = self::NO_REWRITE, $protocol = &#039;http&#039;, $method = &#039;get&#039;, array $headers = null, array $arguments = null, array $data = null, array $session = null, array $files = null, array $cookies = null)</code>
+    <strong>create</strong>(string $url = null, int $flag = self::NO_REWRITE, string $protocol = &#039;http&#039;, string $method = &#039;get&#039;, array $headers = null, array $arguments = null, array $data = null, array $session = null, array $files = null, array $cookies = null)</code>
     </h3>
     <div class="details">
-        <p>Constructor : defines the current URL and gets the routes</p>
+        <p>Static constructor : defines the current URL and gets the routes</p>
         <p>
 </p>
         <div class="tags">
@@ -579,25 +579,25 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$url</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$flag</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$protocol</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$method</td>
                 <td>
 </td>
@@ -657,7 +657,7 @@
     </div>
 
                 <h3 id="method___construct">
-        <div class="location">at line 141</div>
+        <div class="location">at line 144</div>
         <code>            public            
     <strong>__construct</strong>(string $url = null, int $flag = self::NO_REWRITE)</code>
     </h3>
@@ -689,7 +689,7 @@
     </div>
 
                 <h3 id="method_guessFromCurrent">
-        <div class="location">at line 154</div>
+        <div class="location">at line 157</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>guessFromCurrent</strong>()</code>
     </h3>
@@ -724,7 +724,7 @@
     </div>
 
                 <h3 id="method_setFlag">
-        <div class="location">at line 181</div>
+        <div class="location">at line 184</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setFlag</strong>(int $flag)</code>
     </h3>
@@ -761,7 +761,7 @@
     </div>
 
                 <h3 id="method_getFlag">
-        <div class="location">at line 190</div>
+        <div class="location">at line 193</div>
         <code>            public            int
     <strong>getFlag</strong>()</code>
     </h3>
@@ -788,7 +788,7 @@
     </div>
 
                 <h3 id="method_setUrl">
-        <div class="location">at line 199</div>
+        <div class="location">at line 202</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setUrl</strong>(string $url)</code>
     </h3>
@@ -826,7 +826,7 @@
     </div>
 
                 <h3 id="method_getUrl">
-        <div class="location">at line 208</div>
+        <div class="location">at line 211</div>
         <code>            public            string|null
     <strong>getUrl</strong>()</code>
     </h3>
@@ -853,7 +853,7 @@
     </div>
 
                 <h3 id="method_setProtocol">
-        <div class="location">at line 217</div>
+        <div class="location">at line 220</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setProtocol</strong>(string $protocol)</code>
     </h3>
@@ -891,7 +891,7 @@
     </div>
 
                 <h3 id="method_getProtocol">
-        <div class="location">at line 226</div>
+        <div class="location">at line 229</div>
         <code>            public            string|null
     <strong>getProtocol</strong>()</code>
     </h3>
@@ -918,7 +918,7 @@
     </div>
 
                 <h3 id="method_setMethod">
-        <div class="location">at line 235</div>
+        <div class="location">at line 238</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setMethod</strong>(string $method)</code>
     </h3>
@@ -956,7 +956,7 @@
     </div>
 
                 <h3 id="method_getMethod">
-        <div class="location">at line 244</div>
+        <div class="location">at line 247</div>
         <code>            public            string|null
     <strong>getMethod</strong>()</code>
     </h3>
@@ -983,7 +983,7 @@
     </div>
 
                 <h3 id="method_setHeaders">
-        <div class="location">at line 253</div>
+        <div class="location">at line 256</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setHeaders</strong>(array $headers = null)</code>
     </h3>
@@ -1021,7 +1021,7 @@
     </div>
 
                 <h3 id="method_getHeaders">
-        <div class="location">at line 262</div>
+        <div class="location">at line 265</div>
         <code>            public            array|null
     <strong>getHeaders</strong>()</code>
     </h3>
@@ -1048,7 +1048,7 @@
     </div>
 
                 <h3 id="method_getHeader">
-        <div class="location">at line 271</div>
+        <div class="location">at line 274</div>
         <code>            public            string|null
     <strong>getHeader</strong>(string $name)</code>
     </h3>
@@ -1086,7 +1086,7 @@
     </div>
 
                 <h3 id="method_setArguments">
-        <div class="location">at line 280</div>
+        <div class="location">at line 283</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setArguments</strong>(string|array $arguments = null)</code>
     </h3>
@@ -1124,7 +1124,7 @@
     </div>
 
                 <h3 id="method_getArguments">
-        <div class="location">at line 291</div>
+        <div class="location">at line 294</div>
         <code>            public            array|null
     <strong>getArguments</strong>()</code>
     </h3>
@@ -1151,9 +1151,9 @@
     </div>
 
                 <h3 id="method_getArgument">
-        <div class="location">at line 304</div>
+        <div class="location">at line 307</div>
         <code>            public            string
-    <strong>getArgument</strong>($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = &#039;UTF-8&#039;)</code>
+    <strong>getArgument</strong>(string $param = null, mixed $default = false, bool $clean = true, int $clean_flags = ENT_QUOTES, string $clean_encoding = &#039;UTF-8&#039;)</code>
     </h3>
     <div class="details">
         <p>
@@ -1165,34 +1165,29 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$param</td>
-                <td>
-</td>
+                <td>The parameter name if so, or 'args' to get all parameters values</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$default</td>
-                <td>
-</td>
+                <td>The default value sent if the argument is not set</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$clean</td>
-                <td>
-</td>
+                <td>Clean the argument before return ? (default is true)</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$clean_flags</td>
-                <td>
-</td>
+                <td>The PHP flags used with <code>htmlentities()</code> (default is ENT_QUOTES)</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$clean_encoding</td>
-                <td>
-</td>
+                <td>The encoding used with <code>htmlentities()</code> (default is UTF-8)</td>
             </tr>
             </table>
 
@@ -1212,7 +1207,7 @@
     </div>
 
                 <h3 id="method_setData">
-        <div class="location">at line 317</div>
+        <div class="location">at line 320</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setData</strong>(array|string $data = null)</code>
     </h3>
@@ -1250,9 +1245,9 @@
     </div>
 
                 <h3 id="method_getData">
-        <div class="location">at line 332</div>
-        <code>            public            string|array|null
-    <strong>getData</strong>($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = &#039;UTF-8&#039;)</code>
+        <div class="location">at line 335</div>
+        <code>            public            string
+    <strong>getData</strong>(string $param = null, mixed $default = false, bool $clean = true, int $clean_flags = ENT_QUOTES, string $clean_encoding = &#039;UTF-8&#039;)</code>
     </h3>
     <div class="details">
         <p>
@@ -1264,34 +1259,29 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$param</td>
-                <td>
-</td>
+                <td>The parameter name if so, or 'args' to get all parameters values</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$default</td>
-                <td>
-</td>
+                <td>The default value sent if the argument is not set</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$clean</td>
-                <td>
-</td>
+                <td>Clean the argument before return ? (default is true)</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$clean_flags</td>
-                <td>
-</td>
+                <td>The PHP flags used with <code>htmlentities()</code> (default is ENT_QUOTES)</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$clean_encoding</td>
-                <td>
-</td>
+                <td>The encoding used with <code>htmlentities()</code> (default is UTF-8)</td>
             </tr>
             </table>
 
@@ -1300,9 +1290,8 @@
 
                     <table>
         <tr>
-            <td>string|array|null</td>
-            <td>
-</td>
+            <td>string</td>
+            <td>The value retrieved, $default otherwise</td>
         </tr>
     </table>
 
@@ -1312,7 +1301,7 @@
     </div>
 
                 <h3 id="method_setFiles">
-        <div class="location">at line 349</div>
+        <div class="location">at line 352</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setFiles</strong>(array $files = null)</code>
     </h3>
@@ -1350,7 +1339,7 @@
     </div>
 
                 <h3 id="method_getFiles">
-        <div class="location">at line 358</div>
+        <div class="location">at line 361</div>
         <code>            public            array|null
     <strong>getFiles</strong>()</code>
     </h3>
@@ -1377,9 +1366,9 @@
     </div>
 
                 <h3 id="method_getFile">
-        <div class="location">at line 367</div>
+        <div class="location">at line 371</div>
         <code>            public            array|null
-    <strong>getFile</strong>($param, $index = null)</code>
+    <strong>getFile</strong>(string $param, string $index = null)</code>
     </h3>
     <div class="details">
         <p>
@@ -1391,13 +1380,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$param</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$index</td>
                 <td>
 </td>
@@ -1421,7 +1410,7 @@
     </div>
 
                 <h3 id="method_setSession">
-        <div class="location">at line 383</div>
+        <div class="location">at line 387</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setSession</strong>(array $session = null)</code>
     </h3>
@@ -1459,7 +1448,7 @@
     </div>
 
                 <h3 id="method_getSession">
-        <div class="location">at line 393</div>
+        <div class="location">at line 397</div>
         <code>            public            array|null
     <strong>getSession</strong>(string $param = null)</code>
     </h3>
@@ -1497,7 +1486,7 @@
     </div>
 
                 <h3 id="method_setCookies">
-        <div class="location">at line 406</div>
+        <div class="location">at line 410</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setCookies</strong>(array $cookies = null)</code>
     </h3>
@@ -1535,7 +1524,7 @@
     </div>
 
                 <h3 id="method_getCookies">
-        <div class="location">at line 415</div>
+        <div class="location">at line 419</div>
         <code>            public            array|null
     <strong>getCookies</strong>()</code>
     </h3>
@@ -1562,7 +1551,7 @@
     </div>
 
                 <h3 id="method_getCookie">
-        <div class="location">at line 424</div>
+        <div class="location">at line 428</div>
         <code>            public            array|null
     <strong>getCookie</strong>(string $param)</code>
     </h3>
@@ -1600,7 +1589,7 @@
     </div>
 
                 <h3 id="method_setAuthentication">
-        <div class="location">at line 433</div>
+        <div class="location">at line 437</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setAuthentication</strong>(array $authentication = null)</code>
     </h3>
@@ -1638,7 +1627,7 @@
     </div>
 
                 <h3 id="method_setAuthenticationType">
-        <div class="location">at line 443</div>
+        <div class="location">at line 447</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setAuthenticationType</strong>(string $type)</code>
     </h3>
@@ -1676,7 +1665,7 @@
     </div>
 
                 <h3 id="method_setAuthenticationUser">
-        <div class="location">at line 453</div>
+        <div class="location">at line 457</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setAuthenticationUser</strong>(string $user)</code>
     </h3>
@@ -1714,7 +1703,7 @@
     </div>
 
                 <h3 id="method_setAuthenticationPassword">
-        <div class="location">at line 463</div>
+        <div class="location">at line 467</div>
         <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setAuthenticationPassword</strong>(string $pw)</code>
     </h3>
@@ -1752,7 +1741,7 @@
     </div>
 
                 <h3 id="method_getAuthentication">
-        <div class="location">at line 473</div>
+        <div class="location">at line 477</div>
         <code>            public            array|string|null
     <strong>getAuthentication</strong>(string $param = null)</code>
     </h3>
@@ -1790,7 +1779,7 @@
     </div>
 
                 <h3 id="method_buildUrl">
-        <div class="location">at line 489</div>
+        <div class="location">at line 493</div>
         <code>            public            string
     <strong>buildUrl</strong>()</code>
     </h3>
@@ -1817,7 +1806,7 @@
     </div>
 
                 <h3 id="method_isAjax">
-        <div class="location">at line 526</div>
+        <div class="location">at line 530</div>
         <code>        static    public            bool
     <strong>isAjax</strong>()</code>
     </h3>
@@ -1844,7 +1833,7 @@
     </div>
 
                 <h3 id="method_isCli">
-        <div class="location">at line 535</div>
+        <div class="location">at line 539</div>
         <code>            public            bool
     <strong>isCli</strong>()</code>
     </h3>
@@ -1871,7 +1860,7 @@
     </div>
 
                 <h3 id="method_isGet">
-        <div class="location">at line 543</div>
+        <div class="location">at line 547</div>
         <code>            public            bool
     <strong>isGet</strong>()</code>
     </h3>
@@ -1898,7 +1887,7 @@
     </div>
 
                 <h3 id="method_isPost">
-        <div class="location">at line 551</div>
+        <div class="location">at line 555</div>
         <code>            public            bool
     <strong>isPost</strong>()</code>
     </h3>
@@ -1925,7 +1914,7 @@
     </div>
 
                 <h3 id="method_isPut">
-        <div class="location">at line 559</div>
+        <div class="location">at line 563</div>
         <code>            public            bool
     <strong>isPut</strong>()</code>
     </h3>
@@ -1952,9 +1941,9 @@
     </div>
 
                 <h3 id="method_getGet">
-        <div class="location">at line 568</div>
-        <code>            public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
-    <strong>getGet</strong>($varname, $default = null)</code>
+        <div class="location">at line 573</div>
+        <code>            public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getGet</strong>(string $varname, mixed $default = null)</code>
     </h3>
     <div class="details">
         <p>
@@ -1966,13 +1955,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$varname</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$default</td>
                 <td>
 </td>
@@ -1984,7 +1973,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
 </td>
         </tr>
@@ -1996,9 +1985,9 @@
     </div>
 
                 <h3 id="method_getPost">
-        <div class="location">at line 577</div>
-        <code>            public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
-    <strong>getPost</strong>($varname, $default = null)</code>
+        <div class="location">at line 583</div>
+        <code>            public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getPost</strong>(string $varname, mixed $default = null)</code>
     </h3>
     <div class="details">
         <p>
@@ -2010,13 +1999,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$varname</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$default</td>
                 <td>
 </td>
@@ -2028,7 +2017,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
 </td>
         </tr>
@@ -2040,9 +2029,9 @@
     </div>
 
                 <h3 id="method_getGetOrPost">
-        <div class="location">at line 586</div>
-        <code>            public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
-    <strong>getGetOrPost</strong>($varname, $default = null)</code>
+        <div class="location">at line 593</div>
+        <code>            public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getGetOrPost</strong>(string $varname, mixed $default = null)</code>
     </h3>
     <div class="details">
         <p>
@@ -2054,13 +2043,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$varname</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$default</td>
                 <td>
 </td>
@@ -2072,7 +2061,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
 </td>
         </tr>
@@ -2084,9 +2073,9 @@
     </div>
 
                 <h3 id="method_getPostOrGet">
-        <div class="location">at line 599</div>
-        <code>            public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
-    <strong>getPostOrGet</strong>($varname, $default = null)</code>
+        <div class="location">at line 607</div>
+        <code>            public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+    <strong>getPostOrGet</strong>(string $varname, mixed $default = null)</code>
     </h3>
     <div class="details">
         <p>
@@ -2098,13 +2087,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$varname</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$default</td>
                 <td>
 </td>
@@ -2116,7 +2105,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
 </td>
         </tr>
@@ -2128,9 +2117,9 @@
     </div>
 
                 <h3 id="method_cleanArgument">
-        <div class="location">at line 661</div>
+        <div class="location">at line 668</div>
         <code>        static    public            string
-    <strong>cleanArgument</strong>($arg_value, $flags = ENT_QUOTES, $encoding = &#039;UTF-8&#039;)</code>
+    <strong>cleanArgument</strong>(string $arg_value, int $flags = ENT_QUOTES, string $encoding = &#039;UTF-8&#039;)</code>
     </h3>
     <div class="details">
         <p>Clean the value taken from request arguments or data</p>
@@ -2141,22 +2130,19 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$arg_value</td>
-                <td>
-</td>
+                <td>The parameter name if so, or 'args' to get all parameters values</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$flags</td>
-                <td>
-</td>
+                <td>The PHP flags used with htmlentities() (default is ENT_QUOTES)</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$encoding</td>
-                <td>
-</td>
+                <td>The encoding used with htmlentities() (default is UTF-8)</td>
             </tr>
             </table>
 
@@ -2176,8 +2162,8 @@
     </div>
 
                 <h3 id="method_getEnvironment">
-        <div class="location">at line 678</div>
-        <code>        static    public            <abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr>
+        <div class="location">at line 685</div>
+        <code>        static    public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
     <strong>getEnvironment</strong>(string $varname)</code>
     </h3>
     <div class="details">
@@ -2202,7 +2188,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="Library\HttpFundamental\misc">misc</abbr>|<abbr title="Library\HttpFundamental\false">false</abbr></td>
+            <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
 </td>
         </tr>
@@ -2214,7 +2200,7 @@
     </div>
 
                 <h3 id="method_getClientIp">
-        <div class="location">at line 686</div>
+        <div class="location">at line 693</div>
         <code>        static    public            string
     <strong>getClientIp</strong>()</code>
     </h3>
@@ -2241,7 +2227,7 @@
     </div>
 
                 <h3 id="method_getallheaders">
-        <div class="location">at line 701</div>
+        <div class="location">at line 708</div>
         <code>        static    public            
     <strong>getallheaders</strong>()</code>
     </h3>

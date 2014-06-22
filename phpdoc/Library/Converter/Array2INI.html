@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Library\Converter\Xml2Array | </title>
+        <title>Library\Converter\Array2INI | </title>
                     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
                             </head>
         <body id="class">
@@ -20,16 +20,16 @@
         <div id="title"></div>
 
             <div class="type">Class</div>
-    <h1><a href="../../Library/Converter.html">Library\Converter</a>\Xml2Array</h1>
+    <h1><a href="../../Library/Converter.html">Library\Converter</a>\Array2INI</h1>
     </div>
         <div class="content">
                 <p>    class
-    <strong>Xml2Array</strong>        extends <a href="../../Library/Converter/AbstractConverter.html"><abbr title="Library\Converter\AbstractConverter">AbstractConverter</abbr></a></p>
+    <strong>Array2INI</strong>        extends <a href="../../Library/Converter/AbstractConverter.html"><abbr title="Library\Converter\AbstractConverter">AbstractConverter</abbr></a></p>
 
             <div class="description">
-            <p>XML to array converter</p>
-            <p>Freely (but mostly) inspired by the work of Adrien aka Gaarf &amp; contributors
-(see <a href="http://gaarf.info/2009/08/13/xml-string-to-php-array/">http://gaarf.info/2009/08/13/xml-string-to-php-array/</a>).</p>
+            <p>Array to INI format converter</p>
+            <p>
+</p>
         </div>
     
     
@@ -42,7 +42,7 @@
                     static&nbsp;mixed
                 </td>
                 <td class="last">
-                    <a href="#method_convert">convert</a>($xmlstr)
+                    <a href="#method_convert">convert</a>($data)
                     <p>Process a content conversion</p>
                 </td>
                 <td></td>
@@ -52,7 +52,7 @@
                     static&nbsp;
                 </td>
                 <td class="last">
-                    <a href="#method_parse">parse</a>($node)
+                    <a href="#method_doConvert">doConvert</a>(array $data, array $parent = array())
                     <p>
 </p>
                 </td>
@@ -64,9 +64,9 @@
         <h2>Details</h2>
 
                         <h3 id="method_convert">
-        <div class="location">at line 22</div>
+        <div class="location">at line 21</div>
         <code>        static    public            mixed
-    <strong>convert</strong>($xmlstr)</code>
+    <strong>convert</strong>($data)</code>
     </h3>
     <div class="details">
         <p>Process a content conversion</p>
@@ -78,7 +78,7 @@
                     <table>
                     <tr>
                 <td></td>
-                <td>$xmlstr</td>
+                <td>$data</td>
                 <td>
 </td>
             </tr>
@@ -100,10 +100,10 @@
                     </div>
     </div>
 
-                <h3 id="method_parse">
-        <div class="location">at line 32</div>
+                <h3 id="method_doConvert">
+        <div class="location">at line 39</div>
         <code>        static    public            
-    <strong>parse</strong>($node)</code>
+    <strong>doConvert</strong>(array $data, array $parent = array())</code>
     </h3>
     <div class="details">
         <p>
@@ -115,8 +115,14 @@
 
                     <table>
                     <tr>
-                <td></td>
-                <td>$node</td>
+                <td>array</td>
+                <td>$data</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$parent</td>
                 <td>
 </td>
             </tr>

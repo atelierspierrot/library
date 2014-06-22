@@ -47,7 +47,7 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_cut">cut</a>(string $string = &#039;&#039;, integer $length = 120, string $end_str = &#039; ...&#039;)
+                    <a href="#method_cut">cut</a>(string $string = &#039;&#039;, int $length = 120, string $end_str = &#039; ...&#039;)
                     <p>Truncate a string at a maximum length, adding it a suffix like '...'</p>
                 </td>
                 <td></td>
@@ -97,7 +97,7 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_fromCamelCase">fromCamelCase</a>($name = &#039;&#039;, $replace = &#039;_&#039;, $lowerize_first_char = true)
+                    <a href="#method_fromCamelCase">fromCamelCase</a>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $lowerize_first_char = true)
                     <p>Transform a name from CamelCase to other</p>
                 </td>
                 <td></td>
@@ -110,7 +110,7 @@
                         <h3 id="method_cut">
         <div class="location">at line 34</div>
         <code>        static    public            string
-    <strong>cut</strong>(string $string = &#039;&#039;, integer $length = 120, string $end_str = &#039; ...&#039;)</code>
+    <strong>cut</strong>(string $string = &#039;&#039;, int $length = 120, string $end_str = &#039; ...&#039;)</code>
     </h3>
     <div class="details">
         <p>Truncate a string at a maximum length, adding it a suffix like '...'</p>
@@ -126,7 +126,7 @@
                 <td>The string to cut</td>
             </tr>
                     <tr>
-                <td>integer</td>
+                <td>int</td>
                 <td>$length</td>
                 <td>The maximum length to keep (<code>120</code> by default)</td>
             </tr>
@@ -307,7 +307,7 @@
                 <h3 id="method_fromCamelCase">
         <div class="location">at line 129</div>
         <code>        static    public            string
-    <strong>fromCamelCase</strong>($name = &#039;&#039;, $replace = &#039;_&#039;, $lowerize_first_char = true)</code>
+    <strong>fromCamelCase</strong>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $lowerize_first_char = true)</code>
     </h3>
     <div class="details">
         <p>Transform a name from CamelCase to other</p>
@@ -318,22 +318,19 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$name</td>
-                <td>
-</td>
+                <td>The string to transform</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$replace</td>
-                <td>
-</td>
+                <td>Replacement character</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$lowerize_first_char</td>
-                <td>
-</td>
+                <td>May the first letter be in lower case (default is <code>true</code>)</td>
             </tr>
             </table>
 
@@ -343,7 +340,7 @@
                     <table>
         <tr>
             <td>string</td>
-            <td>The CamelCase version of <code>$name</code></td>
+            <td>The un-CamelCase version of <code>$name</code></td>
         </tr>
     </table>
 

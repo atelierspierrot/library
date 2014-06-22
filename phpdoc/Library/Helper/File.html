@@ -76,7 +76,7 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_formatFilename">formatFilename</a>($filename = &#039;&#039;, $lowercase = false, $delimiter = &#039;-&#039;)
+                    <a href="#method_formatFilename">formatFilename</a>(string $filename = &#039;&#039;, boolean $lowercase = false, string $delimiter = &#039;-&#039;)
                     <p>Formatting file names</p>
                 </td>
                 <td></td>
@@ -86,7 +86,7 @@
                     static&nbsp;null|string
                 </td>
                 <td class="last">
-                    <a href="#method_getExtension">getExtension</a>($file_name = &#039;&#039;, $dot = false)
+                    <a href="#method_getExtension">getExtension</a>(string $file_name = &#039;&#039;, bool $dot = false)
                     <p>Returns the extension of a file name</p>
                 </td>
                 <td></td>
@@ -103,7 +103,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    static&nbsp;
+                    static&nbsp;int
                 </td>
                 <td class="last">
                     <a href="#method_getTransformedFilesize">getTransformedFilesize</a>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)
@@ -199,7 +199,7 @@
                 <h3 id="method_formatFilename">
         <div class="location">at line 66</div>
         <code>        static    public            string
-    <strong>formatFilename</strong>($filename = &#039;&#039;, $lowercase = false, $delimiter = &#039;-&#039;)</code>
+    <strong>formatFilename</strong>(string $filename = &#039;&#039;, boolean $lowercase = false, string $delimiter = &#039;-&#039;)</code>
     </h3>
     <div class="details">
         <p>Formatting file names</p>
@@ -210,22 +210,19 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$filename</td>
-                <td>
-</td>
+                <td>The filename to format</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>boolean</td>
                 <td>$lowercase</td>
-                <td>
-</td>
+                <td>Should we return the name un lowercase (FALSE by default)</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$delimiter</td>
-                <td>
-</td>
+                <td>The delimiter used for special chars substitution</td>
             </tr>
             </table>
 
@@ -245,9 +242,9 @@
     </div>
 
                 <h3 id="method_getExtension">
-        <div class="location">at line 94</div>
+        <div class="location">at line 96</div>
         <code>        static    public            null|string
-    <strong>getExtension</strong>($file_name = &#039;&#039;, $dot = false)</code>
+    <strong>getExtension</strong>(string $file_name = &#039;&#039;, bool $dot = false)</code>
     </h3>
     <div class="details">
         <p>Returns the extension of a file name</p>
@@ -257,13 +254,12 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$file_name</td>
-                <td>
-</td>
+                <td>The file_name to work on</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$dot</td>
                 <td>
 </td>
@@ -286,7 +282,7 @@
     </div>
 
                 <h3 id="method_getHumanReadableFilename">
-        <div class="location">at line 113</div>
+        <div class="location">at line 115</div>
         <code>        static    public            string
     <strong>getHumanReadableFilename</strong>(string $file_name = &#039;&#039;)</code>
     </h3>
@@ -321,8 +317,8 @@ and a set of commonly used separator characters in file or directories names.</p
     </div>
 
                 <h3 id="method_getTransformedFilesize">
-        <div class="location">at line 137</div>
-        <code>        static    public            
+        <div class="location">at line 140</div>
+        <code>        static    public            int
     <strong>getTransformedFilesize</strong>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)</code>
     </h3>
     <div class="details">
@@ -351,13 +347,23 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_touch">
-        <div class="location">at line 165</div>
+        <div class="location">at line 167</div>
         <code>        static    public            bool
     <strong>touch</strong>(string $file_path, array $logs = array())</code>
     </h3>
@@ -399,7 +405,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_remove">
-        <div class="location">at line 190</div>
+        <div class="location">at line 191</div>
         <code>        static    public            bool
     <strong>remove</strong>(string $file_path, array $logs = array())</code>
     </h3>

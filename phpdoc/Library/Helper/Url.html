@@ -115,7 +115,7 @@
                     static&nbsp;<abbr title="Library\Helper\string/array">string/array</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_getParameter">getParameter</a>($param = false, $url = false)
+                    <a href="#method_getParameter">getParameter</a>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $param = false, <abbr title="Library\Helper\string/null">string/null</abbr> $url = false)
                     <p>Get the value of an URL parameter</p>
                 </td>
                 <td></td>
@@ -125,7 +125,7 @@
                     static&nbsp;<abbr title="Library\Helper\string/array">string/array</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_setParameter">setParameter</a>($var = &#039;&#039;, $val = false, $url = false, $rebuild = true)
+                    <a href="#method_setParameter">setParameter</a>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $var = &#039;&#039;, <abbr title="Library\Helper\string/false">string/false</abbr> $val = false, <abbr title="Library\Helper\string/false">string/false</abbr> $url = false, bool $rebuild = true)
                     <p>Set the value of an URL parameter</p>
                 </td>
                 <td></td>
@@ -145,7 +145,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_isUrl">isUrl</a>($url = null, $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), $localhost = false)
+                    <a href="#method_isUrl">isUrl</a>(string $url = null, array $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), <abbr title="Library\Helper\bool/string">bool/string</abbr> $localhost = false)
                     <p>Validate an URL</p>
                 </td>
                 <td></td>
@@ -156,7 +156,7 @@
                 </td>
                 <td class="last">
                     <a href="#method_isEmail">isEmail</a>(string $email = null)
-                    <p>Validate an email adress</p>
+                    <p>Validate an email address</p>
                 </td>
                 <td></td>
             </tr>
@@ -433,7 +433,7 @@
                 <h3 id="method_getParameter">
         <div class="location">at line 192</div>
         <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
-    <strong>getParameter</strong>($param = false, $url = false)</code>
+    <strong>getParameter</strong>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $param = false, <abbr title="Library\Helper\string/null">string/null</abbr> $url = false)</code>
     </h3>
     <div class="details">
         <p>Get the value of an URL parameter</p>
@@ -444,16 +444,14 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\Helper\string/bool">string/bool</abbr></td>
                 <td>$param</td>
-                <td>
-</td>
+                <td>A parameter to get, or <code>false</code> to get the global parameters array</td>
             </tr>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\Helper\string/null">string/null</abbr></td>
                 <td>$url</td>
-                <td>
-</td>
+                <td>The URL to work on (<code>self::getRequestUrl()</code> by default)</td>
             </tr>
             </table>
 
@@ -475,7 +473,7 @@
                 <h3 id="method_setParameter">
         <div class="location">at line 221</div>
         <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
-    <strong>setParameter</strong>($var = &#039;&#039;, $val = false, $url = false, $rebuild = true)</code>
+    <strong>setParameter</strong>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $var = &#039;&#039;, <abbr title="Library\Helper\string/false">string/false</abbr> $val = false, <abbr title="Library\Helper\string/false">string/false</abbr> $url = false, bool $rebuild = true)</code>
     </h3>
     <div class="details">
         <p>Set the value of an URL parameter</p>
@@ -486,28 +484,24 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\Helper\string/bool">string/bool</abbr></td>
                 <td>$var</td>
-                <td>
-</td>
+                <td>A parameter to get, or <code>false</code> to get the global parameters array</td>
             </tr>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\Helper\string/false">string/false</abbr></td>
                 <td>$val</td>
-                <td>
-</td>
+                <td>The value of the <code>$param</code> argument (if <code>null</code>, the argument is stripped)</td>
             </tr>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\Helper\string/false">string/false</abbr></td>
                 <td>$url</td>
-                <td>
-</td>
+                <td>The URL to work on (<code>self::getRequestUrl()</code> by default)</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$rebuild</td>
-                <td>
-</td>
+                <td>Return a rebuilt URL (<code>true</code> by dfault - if <code>false</code>, the URL components array is returned)</td>
             </tr>
             </table>
 
@@ -569,7 +563,7 @@
                 <h3 id="method_isUrl">
         <div class="location">at line 272</div>
         <code>        static    public            bool
-    <strong>isUrl</strong>($url = null, $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), $localhost = false)</code>
+    <strong>isUrl</strong>(string $url = null, array $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), <abbr title="Library\Helper\bool/string">bool/string</abbr> $localhost = false)</code>
     </h3>
     <div class="details">
         <p>Validate an URL</p>
@@ -580,22 +574,19 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$url</td>
-                <td>
-</td>
+                <td>The string to validate</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>array</td>
                 <td>$protocols</td>
-                <td>
-</td>
+                <td>Table of Internet protocols to verify (by default : 'http', 'https', 'ftp')</td>
             </tr>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\Helper\bool/string">bool/string</abbr></td>
                 <td>$localhost</td>
-                <td>
-</td>
+                <td>Is it locally (useful for validating 'http://localhost ...') (FALSE by default) - You can specify a string to check</td>
             </tr>
             </table>
 
@@ -620,7 +611,7 @@
     <strong>isEmail</strong>(string $email = null)</code>
     </h3>
     <div class="details">
-        <p>Validate an email adress</p>
+        <p>Validate an email address</p>
         <p>
 </p>
         <div class="tags">

@@ -43,7 +43,7 @@ $obj-&gt;setProp(value) =&gt; $_data[prop] = value
 echo $obj-&gt;getProp() // if flag=PROTECTED_PROPERTIES
 </code></pre>
 
-<p>Be very carefull about the properties names as they will all be transformed in lower case
+<p>Be very careful about the properties names as they will all be transformed in lower case
 and underscore:</p>
 
 <pre><code>$obj-&gt;myPropertyName =&gt; $_data[ my_property_name ]
@@ -138,7 +138,7 @@ to override these methods in your child class if necessary, without worrying abo
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\Object\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method___call">__call</a>(string $name, array $arguments)
@@ -158,7 +158,7 @@ to override these methods in your child class if necessary, without worrying abo
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\Object\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method___get">__get</a>(string $name)
@@ -171,7 +171,7 @@ to override these methods in your child class if necessary, without worrying abo
                     <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method___set">__set</a>(string $name, <abbr title="Library\Object\misc">misc</abbr> $value)
+                    <a href="#method___set">__set</a>(string $name, mixed $value)
                     <p>Magic setter</p>
                 </td>
                 <td></td>
@@ -198,17 +198,17 @@ to override these methods in your child class if necessary, without worrying abo
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\Object\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
-                    <a href="#method_getData">getData</a>(string $name = null, <abbr title="Library\Object\misc">misc</abbr> $default = null)
+                    <a href="#method_getData">getData</a>(string $name = null, mixed $default = null)
                     <p>Global getter</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="Library\Object\misc">misc</abbr>
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method_setData">setData</a>($value, $arg2 = null)
@@ -268,7 +268,7 @@ to override these methods in your child class if necessary, without worrying abo
                     <tr>
                 <td>int</td>
                 <td>$flag</td>
-                <td>Must be one of the class contsants</td>
+                <td>Must be one of the class constants</td>
             </tr>
             </table>
 
@@ -278,7 +278,8 @@ to override these methods in your child class if necessary, without worrying abo
                     <table>
         <tr>
             <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
-            <td>Returns <code>$this</code> for chainability</td>
+            <td>
+</td>
         </tr>
     </table>
 
@@ -314,7 +315,7 @@ to override these methods in your child class if necessary, without worrying abo
 
                 <h3 id="method___call">
         <div class="location">at line 148</div>
-        <code>            public            <abbr title="Library\Object\misc">misc</abbr>
+        <code>            public            mixed
     <strong>__call</strong>(string $name, array $arguments)</code>
     </h3>
     <div class="details">
@@ -343,7 +344,7 @@ to override these methods in your child class if necessary, without worrying abo
 
                     <table>
         <tr>
-            <td><abbr title="Library\Object\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>This will return the result of a magic method, or nothing if nothing can be done</td>
         </tr>
     </table>
@@ -416,7 +417,7 @@ to override these methods in your child class if necessary, without worrying abo
 
                 <h3 id="method___get">
         <div class="location">at line 207</div>
-        <code>            public            <abbr title="Library\Object\misc">misc</abbr>
+        <code>            public            mixed
     <strong>__get</strong>(string $name)</code>
     </h3>
     <div class="details">
@@ -440,7 +441,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
 
                     <table>
         <tr>
-            <td><abbr title="Library\Object\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>This will return the result of a magic method, or nothing if nothing can be done</td>
         </tr>
     </table>
@@ -450,8 +451,8 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
 
                     <table>
                     <tr>
-                <td><abbr title="Throws">Throws</abbr></td>
-                <td>an <code>InvokableAccessException</code> if direct access to properties is avoid by the <code>self::UNAUTHORIZED_PROPERTIES</code> flag</td>
+                <td><abbr title="InvokableAccessException">InvokableAccessException</abbr></td>
+                <td>Throws an <code>InvokableAccessException</code> if direct access to properties is avoid by the <code>self::UNAUTHORIZED_PROPERTIES</code> flag</td>
             </tr>
             </table>
 
@@ -475,7 +476,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                 <h3 id="method___set">
         <div class="location">at line 230</div>
         <code>            public            <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
-    <strong>__set</strong>(string $name, <abbr title="Library\Object\misc">misc</abbr> $value)</code>
+    <strong>__set</strong>(string $name, mixed $value)</code>
     </h3>
     <div class="details">
         <p>Magic setter</p>
@@ -490,7 +491,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                 <td>The name of the property to get</td>
             </tr>
                     <tr>
-                <td><abbr title="Library\Object\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$value</td>
                 <td>The value to set for the property</td>
             </tr>
@@ -620,8 +621,8 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
 
                 <h3 id="method_getData">
         <div class="location">at line 279</div>
-        <code>            public            <abbr title="Library\Object\misc">misc</abbr>
-    <strong>getData</strong>(string $name = null, <abbr title="Library\Object\misc">misc</abbr> $default = null)</code>
+        <code>            public            mixed
+    <strong>getData</strong>(string $name = null, mixed $default = null)</code>
     </h3>
     <div class="details">
         <p>Global getter</p>
@@ -636,7 +637,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                 <td>The name of a property to get if so (optional)</td>
             </tr>
                     <tr>
-                <td><abbr title="Library\Object\misc">misc</abbr></td>
+                <td>mixed</td>
                 <td>$default</td>
                 <td>A default value to send if the property doesn't exist in the object</td>
             </tr>
@@ -647,7 +648,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
 
                     <table>
         <tr>
-            <td><abbr title="Library\Object\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>The value of the property if so, the default value if the property doesn't exist, or the flobal data array without a property name</td>
         </tr>
     </table>
@@ -659,7 +660,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
 
                 <h3 id="method_setData">
         <div class="location">at line 300</div>
-        <code>            public            <abbr title="Library\Object\misc">misc</abbr>
+        <code>            public            mixed
     <strong>setData</strong>($value, $arg2 = null)</code>
     </h3>
     <div class="details">
@@ -688,7 +689,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
 
                     <table>
         <tr>
-            <td><abbr title="Library\Object\misc">misc</abbr></td>
+            <td>mixed</td>
             <td>The value of the property if so, the default value if the property doesn't exist, or the flobal data array without a property name</td>
         </tr>
     </table>
@@ -698,8 +699,8 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
 
                     <table>
                     <tr>
-                <td><abbr title="Throws">Throws</abbr></td>
-                <td>an InvalidArgumentExcpetion if <code>$name</code> is null and <code>$value</code> is not an array</td>
+                <td><abbr title="InvalidArgumentExcpetion">InvalidArgumentExcpetion</abbr></td>
+                <td>Throws an InvalidArgumentExcpetion if <code>$name</code> is null and <code>$value</code> is not an array</td>
             </tr>
             </table>
 
