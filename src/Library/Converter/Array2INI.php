@@ -40,7 +40,7 @@ class Array2INI
     {
         $output = '';
         foreach ($data as $k => $v) {
-            $index = TextHelper::slugify($k);
+            $index = str_replace(' ', '-', $k);
             if (is_array($v)) {
                 $sec = array_merge((array) $parent, (array) $index);
                 $output .= PHP_EOL . '[' . join('.', $sec) . ']' . PHP_EOL;
