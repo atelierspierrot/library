@@ -95,7 +95,8 @@ class File
      */
     public static function getExtension($file_name = '', $dot = false)
     {
-        return strpos($file_name, '.') ? ($dot ? '.' : '').end(explode('.', $file_name)) : null;
+        $exploded_file_name = explode('.', $file_name);
+        return strpos($file_name, '.') ? ($dot ? '.' : '').end($exploded_file_name) : null;
     }
 
     /**
