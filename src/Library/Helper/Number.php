@@ -135,6 +135,116 @@ class Number
         return (intval($val) == intval($_num.self::getLuhnKey($_num)));
     }
 
+    /**
+     * Calculate the sum of the digits of a number (its absolute entire value)
+     *
+     * @param $a
+     * @return int
+     */
+    public static function getSumOfDigits($a)
+    {
+        $nbs = str_split(pow(abs($a), 0));
+        $result = 0;
+        foreach ($nbs as $nb) {
+            $result += (int) $nb;
+        }
+        return $result;
+    }
+
+    /**
+     * Test if a number is "self-describing":
+     *
+     * assuming digit positions are labeled 0 to N-1,
+     * the digit in each position is equal to the number of times that digit appears in the number
+     *
+     * @param $a
+     * @return bool
+     */
+    public static function isSelfDescribing($a)
+    {
+        for ($i=0; $i<strlen($a); $i++) {
+            $val = $a{$i};
+            $occ = substr_count($a, $i);
+            if ($val != $occ) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Test if a series of numbers is a "Jolly Jumper":
+     *
+     * A sequence of n > 0 integers where the absolute values of the
+     * differences between successive elements take on all possible values 1 through n - 1.
+     *
+     * @param array $a
+     * @return bool
+     */
+    public static function isJollyJumperSeries(array $a)
+    {
+        if (count($items)==1) {
+            return true;
+        }
+        $diffs = array();
+        for ($i=0; $i<count($items)-1; $i++) {
+            $diffs[] = abs($items[$i] - $items[$i+1]);
+        }
+        $diffs = array_filter($diffs);
+        $limit = min(max($diffs)+1, count($items));
+        $isjj = true;
+        for ($i=1; $i<$limit; $i++) {
+            if (!in_array($i,$diffs)) {
+                $isjj = false;
+            }
+        }
+        return $isjj;
+    }
+
+    public static $romans_numbers = array(
+        1,5,10,50,100,500,1000
+    );
+
+    public static $romans_letters = array(
+        'I','V','X','L','C','D','M'
+    );
+
+    /**
+     * Get the roman notation of a number inferior to 5000
+     *
+     * @param $a
+     * @return string
+     */
+    public static function getRomanNumeralsNotation($a)
+    {
+        if ($a>4999) return null;
+        $ctt = '';
+        $counter = 1;
+        for ($i=(strlen($a)-1); $i>=0; $i--) {
+            $tmp_ctt = '';
+            $char = $a{$i};
+            if ($char>0 && $char<4) {
+                $index = array_search($counter, self::$romans_numbers);
+                $tmp_ctt .= str_pad(self::$romans_letters[$index], $char, self::$romans_letters[$index]);
+            } elseif (3<$char && $char<9) {
+                $index = array_search($counter, self::$romans_numbers);
+                if ($char==4) {
+                    $tmp_ctt .= self::$romans_letters[$index];
+                }
+                $tmp_ctt .= self::$romans_letters[$index+1];
+                if ($char>5) {
+                    $tmp_ctt .= str_pad(self::$romans_letters[$index], ($char-5), self::$romans_letters[$index]);
+                }
+            } elseif ($char==9) {
+                $index = array_search($counter, self::$romans_numbers);
+                $tmp_ctt .= self::$romans_letters[$index].self::$romans_letters[$index+2];
+            }
+            $counter = $counter*10;
+            $ctt = $tmp_ctt.$ctt;
+        }
+        return $ctt;
+    }
+
 }
 
 // Endfile
