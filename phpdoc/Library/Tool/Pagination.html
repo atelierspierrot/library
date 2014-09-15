@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Library\CommandLine\Formater | Library</title>
+        <title>Library\Tool\Pagination | Library</title>
                     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
                             </head>
         <body id="class">
@@ -20,40 +20,15 @@
         <div id="title">Library</div>
 
             <div class="type">Class</div>
-    <h1><a href="../../Library/CommandLine.html">Library\CommandLine</a>\Formater</h1>
+    <h1><a href="../../Library/Tool.html">Library\Tool</a>\Pagination</h1>
     </div>
         <div class="content">
                 <p>    class
-    <strong>Formater</strong></p>
+    <strong>Pagination</strong>        implements
+        <a href="http://php.net/Iterator"><abbr title="Iterator">Iterator</abbr></a></p>
 
     
-            <h2>Constants</h2>
-
-            <table>
-                    <tr>
-                <td>FORMAT_PATTERN</td>
-                <td class="last">
-                    <p><em>Mask used to identify a formated tag string like '<bold>string</bold>'</em></p>
-                    <p>
-</p>
-                </td>
-            </tr>
-            </table>
-
     
-            <h2>Properties</h2>
-
-            <table>
-                    <tr>
-                <td class="type" id="property_messages">
-                                                            
-                </td>
-                <td>$messages</td>
-                <td class="last">Written messages</td>
-                <td></td>
-            </tr>
-            </table>
-
     
             <h2>Methods</h2>
 
@@ -63,7 +38,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method___construct">__construct</a>(array $options = array())
+                    <a href="#method___construct">__construct</a>(array $collection = array(), int $limit = null, int $offset)
                     <p>
 </p>
                 </td>
@@ -74,7 +49,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method___toString">__toString</a>()
+                    <a href="#method_setLimit">setLimit</a>($limit)
                     <p>
 </p>
                 </td>
@@ -85,7 +60,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method___destruct">__destruct</a>()
+                    <a href="#method_setOffset">setOffset</a>($offset)
                     <p>
 </p>
                 </td>
@@ -96,7 +71,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_addOption">addOption</a>($option_name, $option_value)
+                    <a href="#method_setPagesNumber">setPagesNumber</a>($pages_number)
                     <p>
 </p>
                 </td>
@@ -107,7 +82,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_setAutospaced">setAutospaced</a>($autospaced = null)
+                    <a href="#method_setItemsNumber">setItemsNumber</a>($items_number)
                     <p>
 </p>
                 </td>
@@ -118,7 +93,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_setForegroundColor">setForegroundColor</a>($foreground = null)
+                    <a href="#method_setCollection">setCollection</a>(array $collection)
                     <p>
 </p>
                 </td>
@@ -129,7 +104,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_setBackgroundColor">setBackgroundColor</a>($background = null)
+                    <a href="#method_getLimit">getLimit</a>()
                     <p>
 </p>
                 </td>
@@ -140,7 +115,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_setTextOption">setTextOption</a>($option = null)
+                    <a href="#method_getOffset">getOffset</a>()
                     <p>
 </p>
                 </td>
@@ -151,7 +126,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_setMessage">setMessage</a>($text = null, $foreground = null, $background = null, $option = null)
+                    <a href="#method_getPagesNumber">getPagesNumber</a>()
                     <p>
 </p>
                 </td>
@@ -162,7 +137,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_newLine">newLine</a>()
+                    <a href="#method_getItemsNumber">getItemsNumber</a>()
                     <p>
 </p>
                 </td>
@@ -173,7 +148,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_message">message</a>($text = null, $foreground = null, $background = null, $option = null)
+                    <a href="#method_getCollection">getCollection</a>()
                     <p>
 </p>
                 </td>
@@ -184,7 +159,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_prompt">prompt</a>($text = null, $default = null)
+                    <a href="#method_getPaginatedCollection">getPaginatedCollection</a>()
                     <p>
 </p>
                 </td>
@@ -195,7 +170,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_buildTaggedString">buildTaggedString</a>($str, $type = null)
+                    <a href="#method_setOffsetByPageNumber">setOffsetByPageNumber</a>($page_number)
                     <p>
 </p>
                 </td>
@@ -206,7 +181,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_parse">parse</a>($message)
+                    <a href="#method_exists">exists</a>()
                     <p>
 </p>
                 </td>
@@ -217,7 +192,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_spacedStr">spacedStr</a>($str, $type = null, $newLines = false)
+                    <a href="#method_current">current</a>()
                     <p>
 </p>
                 </td>
@@ -228,7 +203,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_format">format</a>($text = null, $foreground = null, $background = null, $option = null)
+                    <a href="#method_key">key</a>()
                     <p>
 </p>
                 </td>
@@ -239,7 +214,73 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_fetch">fetch</a>($display = true, $exit = false, $last_nl = true)
+                    <a href="#method_next">next</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_rewind">rewind</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_valid">valid</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_isFirst">isFirst</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_isLast">isLast</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_isCurrent">isCurrent</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getPageNumber">getPageNumber</a>()
                     <p>
 </p>
                 </td>
@@ -251,9 +292,9 @@
         <h2>Details</h2>
 
                         <h3 id="method___construct">
-        <div class="location">at line 132</div>
+        <div class="location">at line 59</div>
         <code>            public            
-    <strong>__construct</strong>(array $options = array())</code>
+    <strong>__construct</strong>(array $collection = array(), int $limit = null, int $offset)</code>
     </h3>
     <div class="details">
         <p>
@@ -266,7 +307,19 @@
                     <table>
                     <tr>
                 <td>array</td>
-                <td>$options</td>
+                <td>$collection</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$limit</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$offset</td>
                 <td>
 </td>
             </tr>
@@ -278,44 +331,10 @@
                     </div>
     </div>
 
-                <h3 id="method___toString">
-        <div class="location">at line 141</div>
+                <h3 id="method_setLimit">
+        <div class="location">at line 73</div>
         <code>            public            
-    <strong>__toString</strong>()</code>
-    </h3>
-    <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method___destruct">
-        <div class="location">at line 146</div>
-        <code>            public            
-    <strong>__destruct</strong>()</code>
-    </h3>
-    <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_addOption">
-        <div class="location">at line 152</div>
-        <code>            public            
-    <strong>addOption</strong>($option_name, $option_value)</code>
+    <strong>setLimit</strong>($limit)</code>
     </h3>
     <div class="details">
         <p>
@@ -328,13 +347,7 @@
                     <table>
                     <tr>
                 <td></td>
-                <td>$option_name</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$option_value</td>
+                <td>$limit</td>
                 <td>
 </td>
             </tr>
@@ -346,10 +359,10 @@
                     </div>
     </div>
 
-                <h3 id="method_setAutospaced">
-        <div class="location">at line 163</div>
+                <h3 id="method_setOffset">
+        <div class="location">at line 79</div>
         <code>            public            
-    <strong>setAutospaced</strong>($autospaced = null)</code>
+    <strong>setOffset</strong>($offset)</code>
     </h3>
     <div class="details">
         <p>
@@ -362,7 +375,7 @@
                     <table>
                     <tr>
                 <td></td>
-                <td>$autospaced</td>
+                <td>$offset</td>
                 <td>
 </td>
             </tr>
@@ -374,10 +387,10 @@
                     </div>
     </div>
 
-                <h3 id="method_setForegroundColor">
-        <div class="location">at line 168</div>
+                <h3 id="method_setPagesNumber">
+        <div class="location">at line 85</div>
         <code>            public            
-    <strong>setForegroundColor</strong>($foreground = null)</code>
+    <strong>setPagesNumber</strong>($pages_number)</code>
     </h3>
     <div class="details">
         <p>
@@ -390,7 +403,7 @@
                     <table>
                     <tr>
                 <td></td>
-                <td>$foreground</td>
+                <td>$pages_number</td>
                 <td>
 </td>
             </tr>
@@ -402,10 +415,10 @@
                     </div>
     </div>
 
-                <h3 id="method_setBackgroundColor">
-        <div class="location">at line 175</div>
+                <h3 id="method_setItemsNumber">
+        <div class="location">at line 91</div>
         <code>            public            
-    <strong>setBackgroundColor</strong>($background = null)</code>
+    <strong>setItemsNumber</strong>($items_number)</code>
     </h3>
     <div class="details">
         <p>
@@ -418,7 +431,7 @@
                     <table>
                     <tr>
                 <td></td>
-                <td>$background</td>
+                <td>$items_number</td>
                 <td>
 </td>
             </tr>
@@ -430,10 +443,140 @@
                     </div>
     </div>
 
-                <h3 id="method_setTextOption">
-        <div class="location">at line 182</div>
+                <h3 id="method_setCollection">
+        <div class="location">at line 97</div>
         <code>            public            
-    <strong>setTextOption</strong>($option = null)</code>
+    <strong>setCollection</strong>(array $collection)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$collection</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLimit">
+        <div class="location">at line 105</div>
+        <code>            public            
+    <strong>getLimit</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOffset">
+        <div class="location">at line 110</div>
+        <code>            public            
+    <strong>getOffset</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPagesNumber">
+        <div class="location">at line 115</div>
+        <code>            public            
+    <strong>getPagesNumber</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getItemsNumber">
+        <div class="location">at line 120</div>
+        <code>            public            
+    <strong>getItemsNumber</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCollection">
+        <div class="location">at line 125</div>
+        <code>            public            
+    <strong>getCollection</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPaginatedCollection">
+        <div class="location">at line 130</div>
+        <code>            public            
+    <strong>getPaginatedCollection</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setOffsetByPageNumber">
+        <div class="location">at line 142</div>
+        <code>            public            
+    <strong>setOffsetByPageNumber</strong>($page_number)</code>
     </h3>
     <div class="details">
         <p>
@@ -446,7 +589,7 @@
                     <table>
                     <tr>
                 <td></td>
-                <td>$option</td>
+                <td>$page_number</td>
                 <td>
 </td>
             </tr>
@@ -458,56 +601,10 @@
                     </div>
     </div>
 
-                <h3 id="method_setMessage">
-        <div class="location">at line 189</div>
+                <h3 id="method_exists">
+        <div class="location">at line 149</div>
         <code>            public            
-    <strong>setMessage</strong>($text = null, $foreground = null, $background = null, $option = null)</code>
-    </h3>
-    <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$text</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$foreground</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$background</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$option</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_newLine">
-        <div class="location">at line 194</div>
-        <code>            public            
-    <strong>newLine</strong>()</code>
+    <strong>exists</strong>()</code>
     </h3>
     <div class="details">
         <p>
@@ -521,10 +618,10 @@
                     </div>
     </div>
 
-                <h3 id="method_message">
-        <div class="location">at line 203</div>
+                <h3 id="method_current">
+        <div class="location">at line 181</div>
         <code>            public            
-    <strong>message</strong>($text = null, $foreground = null, $background = null, $option = null)</code>
+    <strong>current</strong>()</code>
     </h3>
     <div class="details">
         <p>
@@ -532,45 +629,16 @@
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$text</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$foreground</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$background</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$option</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_prompt">
-        <div class="location">at line 208</div>
+                <h3 id="method_key">
+        <div class="location">at line 186</div>
         <code>            public            
-    <strong>prompt</strong>($text = null, $default = null)</code>
+    <strong>key</strong>()</code>
     </h3>
     <div class="details">
         <p>
@@ -578,33 +646,16 @@
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$text</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$default</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_buildTaggedString">
-        <div class="location">at line 221</div>
+                <h3 id="method_next">
+        <div class="location">at line 191</div>
         <code>            public            
-    <strong>buildTaggedString</strong>($str, $type = null)</code>
+    <strong>next</strong>()</code>
     </h3>
     <div class="details">
         <p>
@@ -612,33 +663,16 @@
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$str</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$type</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_parse">
-        <div class="location">at line 226</div>
+                <h3 id="method_rewind">
+        <div class="location">at line 196</div>
         <code>            public            
-    <strong>parse</strong>($message)</code>
+    <strong>rewind</strong>()</code>
     </h3>
     <div class="details">
         <p>
@@ -646,27 +680,16 @@
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$message</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_spacedStr">
-        <div class="location">at line 251</div>
+                <h3 id="method_valid">
+        <div class="location">at line 202</div>
         <code>            public            
-    <strong>spacedStr</strong>($str, $type = null, $newLines = false)</code>
+    <strong>valid</strong>()</code>
     </h3>
     <div class="details">
         <p>
@@ -674,39 +697,16 @@
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$str</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$type</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$newLines</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_format">
-        <div class="location">at line 266</div>
+                <h3 id="method_isFirst">
+        <div class="location">at line 207</div>
         <code>            public            
-    <strong>format</strong>($text = null, $foreground = null, $background = null, $option = null)</code>
+    <strong>isFirst</strong>()</code>
     </h3>
     <div class="details">
         <p>
@@ -714,45 +714,16 @@
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$text</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$foreground</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$background</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$option</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_fetch">
-        <div class="location">at line 300</div>
+                <h3 id="method_isLast">
+        <div class="location">at line 212</div>
         <code>            public            
-    <strong>fetch</strong>($display = true, $exit = false, $last_nl = true)</code>
+    <strong>isLast</strong>()</code>
     </h3>
     <div class="details">
         <p>
@@ -760,29 +731,40 @@
         <p>
 </p>
         <div class="tags">
-                            <h4>Parameters</h4>
+            
+            
+            
+                    </div>
+    </div>
 
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$display</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$exit</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$last_nl</td>
-                <td>
-</td>
-            </tr>
-            </table>
+                <h3 id="method_isCurrent">
+        <div class="location">at line 217</div>
+        <code>            public            
+    <strong>isCurrent</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
 
+                <h3 id="method_getPageNumber">
+        <div class="location">at line 222</div>
+        <code>            public            
+    <strong>getPageNumber</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
             
             

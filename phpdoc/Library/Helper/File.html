@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Library\Helper\File | </title>
+        <title>Library\Helper\File | Library</title>
                     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
                             </head>
         <body id="class">
@@ -17,7 +17,7 @@
             
         </ul>
 
-        <div id="title"></div>
+        <div id="title">Library</div>
 
             <div class="type">Class</div>
     <h1><a href="../../Library/Helper.html">Library\Helper</a>\File</h1>
@@ -47,6 +47,7 @@
                 </td>
                 <td>$REPLACEMENT_FILENAMES_CHARS</td>
                 <td class="last">List of characters replaced by a space in a file name to build a human readable string</td>
+                <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_FILESIZE_ORDERED_UNITS">
@@ -54,6 +55,7 @@
                 </td>
                 <td>$FILESIZE_ORDERED_UNITS</td>
                 <td class="last">List of units to build the size field, ordered by 1024 operator on original size</td>
+                <td></td>
             </tr>
             </table>
 
@@ -282,7 +284,7 @@
     </div>
 
                 <h3 id="method_getHumanReadableFilename">
-        <div class="location">at line 115</div>
+        <div class="location">at line 116</div>
         <code>        static    public            string
     <strong>getHumanReadableFilename</strong>(string $file_name = &#039;&#039;)</code>
     </h3>
@@ -317,7 +319,7 @@ and a set of commonly used separator characters in file or directories names.</p
     </div>
 
                 <h3 id="method_getTransformedFilesize">
-        <div class="location">at line 140</div>
+        <div class="location">at line 141</div>
         <code>        static    public            int
     <strong>getTransformedFilesize</strong>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)</code>
     </h3>
@@ -363,7 +365,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_touch">
-        <div class="location">at line 167</div>
+        <div class="location">at line 168</div>
         <code>        static    public            bool
     <strong>touch</strong>(string $file_path, array $logs = array())</code>
     </h3>
@@ -405,7 +407,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_remove">
-        <div class="location">at line 191</div>
+        <div class="location">at line 192</div>
         <code>        static    public            bool
     <strong>remove</strong>(string $file_path, array $logs = array())</code>
     </h3>
@@ -447,7 +449,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_copy">
-        <div class="location">at line 215</div>
+        <div class="location">at line 216</div>
         <code>        static    public            bool
     <strong>copy</strong>(string $file_path, string $target_path, bool $force = false, array $logs = array())</code>
     </h3>
