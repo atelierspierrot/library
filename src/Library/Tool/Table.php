@@ -17,6 +17,9 @@ TODO
 $this->line_index
 $this->cell_index
 $this->column_index
+
+PAD by columns
+
 */
 
 /**
@@ -86,6 +89,11 @@ class Table
      * Using this flag, the `getTableIterator` method returns an iterator on table columns
      */
     const ITERATE_ON_COLUMNS    = 2;
+
+    /**
+     * @var string Mask used as the default footer ; parsed with `columns number , lines number , cell size`
+     */
+    public static $default_foot_mask = 'Table of %d columns and %d lines - cell length of %d chars.';
 
     /**
      * Table title
@@ -936,8 +944,7 @@ class Table
         if ($this->column_size===0 && $this->line_size===0 && $this->cell_size===0) {
             $this->_parseTableSizes();
         }
-        return sprintf('Table of %d columns and %d lines - cell length of %d chars.',
-            $this->getColumnSize(), $this->getLineSize(), $this->getCellSize());
+        return sprintf(self::$default_foot_mask, $this->getColumnSize(), $this->getLineSize(), $this->getCellSize());
     }
 
 // --------------------
