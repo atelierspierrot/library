@@ -237,6 +237,37 @@ class File
         return false;
     }
 
+    /**
+     * Write a content in a file
+     *
+     * @param   string  $file_path
+     * @param   string  $content
+     * @param   string  $type
+     * @param   bool    $force
+     * @param   array   $logs
+     * @return  bool
+     */
+    public static function write($file_path, $content, $type = 'a', $force = false, array &$logs = array())
+    {
+        if (!file_exists($file_path)) {
+            if (true===$force) {
+                self::touch($file_path, $logs);
+            } else {
+                $logs[] = sprintf('File path "%s" to copy was not found.', $file_path);
+                return false;
+            }
+        }
+        if (is_writable($file_path)) {
+            $h = fopen($file_path, $type);
+            if (false !== fwrite($h, $content)) {
+                fclose($h);
+                return true;
+            }
+        }
+        $logs[] = sprintf('Can not write in file "%s".', $file_path);
+        return false;
+    }
+
 }
 
 // Endfile
