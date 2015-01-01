@@ -1,61 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Index | Library</title>
-                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-                            </head>
-        <body id="overview">
-            <div class="header">
-        <ul>
-            <li><a href="classes.html">Classes</a></li>
-                            <li><a href="namespaces.html">Namespaces</a></li>
-                        <li><a href="interfaces.html">Interfaces</a></li>
-            <li><a href="traits.html">Traits</a></li>
-            <li><a href="doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Index | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/sami.css">
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/typeahead.min.js"></script>
+        <script src="sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Index</div>
+    <body id="doc-index" data-name="" data-root-path="">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
 
-                        <a href="#letterA">A</a>
-                                <a href="#letterB">B</a>
-                                <a href="#letterC">C</a>
-                                <a href="#letterD">D</a>
-                                <a href="#letterE">E</a>
-                                <a href="#letterF">F</a>
-                                <a href="#letterG">G</a>
-                                <a href="#letterH">H</a>
-                                <a href="#letterI">I</a>
-                                <a href="#letterJ">J</a>
-                                K
-                                <a href="#letterL">L</a>
-                                <a href="#letterM">M</a>
-                                <a href="#letterN">N</a>
-                                <a href="#letterO">O</a>
-                                <a href="#letterP">P</a>
-                                Q
-                                <a href="#letterR">R</a>
-                                <a href="#letterS">S</a>
-                                <a href="#letterT">T</a>
-                                <a href="#letterU">U</a>
-                                <a href="#letterV">V</a>
-                                <a href="#letterW">W</a>
-                                <a href="#letterX">X</a>
-                                Y
-                                Z
-                </div>
-        <div class="content">
-                <h2 id="letterA">A</h2>
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="classes.html">Classes</a></li>
+                                            <li><a href="namespaces.html">Namespaces</a></li>
+                                        <li><a href="interfaces.html">Interfaces</a></li>
+                    <li><a href="traits.html">Traits</a></li>
+                    <li><a href="doc-index.html">Index</a></li>
+                    <li><a href="search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Index</h1>
+    </div>
+
+    <ul class="pagination">
+                                    <li><a href="#letterA">A</a></li>
+                                                <li><a href="#letterB">B</a></li>
+                                                <li><a href="#letterC">C</a></li>
+                                                <li><a href="#letterD">D</a></li>
+                                                <li><a href="#letterE">E</a></li>
+                                                <li><a href="#letterF">F</a></li>
+                                                <li><a href="#letterG">G</a></li>
+                                                <li><a href="#letterH">H</a></li>
+                                                <li><a href="#letterI">I</a></li>
+                                                <li><a href="#letterJ">J</a></li>
+                                                <li class="disabled"><a href="#letterK">K</a></li>
+                                                <li><a href="#letterL">L</a></li>
+                                                <li><a href="#letterM">M</a></li>
+                                                <li><a href="#letterN">N</a></li>
+                                                <li><a href="#letterO">O</a></li>
+                                                <li><a href="#letterP">P</a></li>
+                                                <li class="disabled"><a href="#letterQ">Q</a></li>
+                                                <li><a href="#letterR">R</a></li>
+                                                <li><a href="#letterS">S</a></li>
+                                                <li><a href="#letterT">T</a></li>
+                                                <li><a href="#letterU">U</a></li>
+                                                <li><a href="#letterV">V</a></li>
+                                                <li><a href="#letterW">W</a></li>
+                                                <li><a href="#letterX">X</a></li>
+                                                <li class="disabled"><a href="#letterY">Y</a></li>
+                                                <li class="disabled"><a href="#letterZ">Z</a></li>
+                        </ul>
+
+    <h2 id="letterA">A</h2>
         <dl id="index"><dt><a href="Library/AbstractReporterAdapter.html"><abbr title="Library\AbstractReporterAdapter">AbstractReporterAdapter</abbr></a> &mdash; <em>Class in namespace <a href="Library.html">Library</a></em></dt>
                     <dd>Reporter Adapters interface</dd><dt><a href="Library/Command.html#method_addCache"><abbr title="Library\Command">Command</abbr>::addCache</a>() &mdash; <em>Method in class <a href="Library/Command.html"><abbr title="Library\Command">Command</abbr></a></em></dt>
                     <dd>
 </dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a> &mdash; <em>Class in namespace <a href="Library/CommandLine.html">Library\CommandLine</a></em></dt>
                     <dd>Basic command line controller</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_addDoneMethod"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::addDoneMethod</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
-                    <dd>Adding a method in the collection of done methods</dd><dt><a href="Library/CommandLine/CommandLineControllerInterface.html#method_addDoneMethod"><abbr title="Library\CommandLine\CommandLineControllerInterface">CommandLineControllerInterface</abbr>::addDoneMethod</a>() &mdash; <em>Method in class <a href="Library/CommandLine/CommandLineControllerInterface.html"><abbr title="Library\CommandLine\CommandLineControllerInterface">CommandLineControllerInterface</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="Library/CommandLine/CommandLineControllerInterface.html#method_addDoneMethod"><abbr title="Library\CommandLine\CommandLineControllerInterface">CommandLineControllerInterface</abbr>::addDoneMethod</a>() &mdash; <em>Method in class <a href="Library/CommandLine/CommandLineControllerInterface.html"><abbr title="Library\CommandLine\CommandLineControllerInterface">CommandLineControllerInterface</abbr></a></em></dt>
                     <dd>Adding a method in the collection of done methods</dd><dt><a href="Library/CommandLine/Formater.html#method_addOption"><abbr title="Library\CommandLine\Formater">Formater</abbr>::addOption</a>() &mdash; <em>Method in class <a href="Library/CommandLine/Formater.html"><abbr title="Library\CommandLine\Formater">Formater</abbr></a></em></dt>
                     <dd>
 </dd><dt><a href="Library/Converter/AbstractConverter.html"><abbr title="Library\Converter\AbstractConverter">AbstractConverter</abbr></a> &mdash; <em>Class in namespace <a href="Library/Converter.html">Library\Converter</a></em></dt>
@@ -133,7 +177,7 @@
                     <dd>Create a directory if necessary</dd><dt><a href="Library/Helper/Directory.html#method_chmod"><abbr title="Library\Helper\Directory">Directory</abbr>::chmod</a>() &mdash; <em>Method in class <a href="Library/Helper/Directory.html"><abbr title="Library\Helper\Directory">Directory</abbr></a></em></dt>
                     <dd>Change rights on a directory</dd><dt><a href="Library/Helper/File.html#method_copy"><abbr title="Library\Helper\File">File</abbr>::copy</a>() &mdash; <em>Method in class <a href="Library/Helper/File.html"><abbr title="Library\Helper\File">File</abbr></a></em></dt>
                     <dd>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></dd><dt><a href="Library/Helper/Text.html#method_cut"><abbr title="Library\Helper\Text">Text</abbr>::cut</a>() &mdash; <em>Method in class <a href="Library/Helper/Text.html"><abbr title="Library\Helper\Text">Text</abbr></a></em></dt>
-                    <dd>Truncate a string at a maximum length, adding it a suffix like '...'</dd><dt><a href="Library/HttpFundamental/ContentType.html"><abbr title="Library\HttpFundamental\ContentType">ContentType</abbr></a> &mdash; <em>Class in namespace <a href="Library/HttpFundamental.html">Library\HttpFundamental</a></em></dt>
+                    <dd>Truncate a string at a maximum length, adding it a suffix like '.</dd><dt><a href="Library/HttpFundamental/ContentType.html"><abbr title="Library\HttpFundamental\ContentType">ContentType</abbr></a> &mdash; <em>Class in namespace <a href="Library/HttpFundamental.html">Library\HttpFundamental</a></em></dt>
                     <dd>
 </dd><dt><a href="Library/HttpFundamental/ContentType.html#method_createFromContent"><abbr title="Library\HttpFundamental\ContentType">ContentType</abbr>::createFromContent</a>() &mdash; <em>Method in class <a href="Library/HttpFundamental/ContentType.html"><abbr title="Library\HttpFundamental\ContentType">ContentType</abbr></a></em></dt>
                     <dd>Create a new ContentType object extracting the type from a content string</dd><dt><a href="Library/HttpFundamental/ContentTypeInterface.html"><abbr title="Library\HttpFundamental\ContentTypeInterface">ContentTypeInterface</abbr></a> &mdash; <em>Class in namespace <a href="Library/HttpFundamental.html">Library\HttpFundamental</a></em></dt>
@@ -146,10 +190,10 @@
                     <dd>Clear a cookie</dd><dt><a href="Library/HttpFundamental/Request.html#method_create"><abbr title="Library\HttpFundamental\Request">Request</abbr>::create</a>() &mdash; <em>Method in class <a href="Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></em></dt>
                     <dd>Static constructor : defines the current URL and gets the routes</dd><dt><a href="Library/HttpFundamental/Request.html#method_cleanArgument"><abbr title="Library\HttpFundamental\Request">Request</abbr>::cleanArgument</a>() &mdash; <em>Method in class <a href="Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></em></dt>
                     <dd>Clean the value taken from request arguments or data</dd><dt><a href="Library/Session/FlashSession.html#method_commit"><abbr title="Library\Session\FlashSession">FlashSession</abbr>::commit</a>() &mdash; <em>Method in class <a href="Library/Session/FlashSession.html"><abbr title="Library\Session\FlashSession">FlashSession</abbr></a></em></dt>
-                    <dd>Save current session contents</dd><dt><a href="Library/Session/FlashSession.html#method_clearFlashes"><abbr title="Library\Session\FlashSession">FlashSession</abbr>::clearFlashes</a>() &mdash; <em>Method in class <a href="Library/Session/FlashSession.html"><abbr title="Library\Session\FlashSession">FlashSession</abbr></a></em></dt>
+                    <dd>Save current session</dd><dt><a href="Library/Session/FlashSession.html#method_clearFlashes"><abbr title="Library\Session\FlashSession">FlashSession</abbr>::clearFlashes</a>() &mdash; <em>Method in class <a href="Library/Session/FlashSession.html"><abbr title="Library\Session\FlashSession">FlashSession</abbr></a></em></dt>
                     <dd>Delete current session flash parameters</dd><dt><a href="Library/Session/Session.html#method_close"><abbr title="Library\Session\Session">Session</abbr>::close</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
                     <dd>Close the current session</dd><dt><a href="Library/Session/Session.html#method_commit"><abbr title="Library\Session\Session">Session</abbr>::commit</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
-                    <dd>Save current session contents</dd><dt><a href="Library/Session/Session.html#method_clear"><abbr title="Library\Session\Session">Session</abbr>::clear</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
+                    <dd>Save current session</dd><dt><a href="Library/Session/Session.html#method_clear"><abbr title="Library\Session\Session">Session</abbr>::clear</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
                     <dd>Destroy current session</dd><dt><a href="Library/Session/SessionInterface.html#method_close"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr>::close</a>() &mdash; <em>Method in class <a href="Library/Session/SessionInterface.html"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr></a></em></dt>
                     <dd>Close the current session</dd><dt><a href="Library/Session/SessionInterface.html#method_commit"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr>::commit</a>() &mdash; <em>Method in class <a href="Library/Session/SessionInterface.html"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr></a></em></dt>
                     <dd>Save current session contents</dd><dt><a href="Library/Session/SessionInterface.html#method_clear"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr>::clear</a>() &mdash; <em>Method in class <a href="Library/Session/SessionInterface.html"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr></a></em></dt>
@@ -186,7 +230,7 @@
                     <dd>Format and write an error message to STDOUT (or STDERR) and exits with status <code>$status</code></dd><dt>$<a href="Library/CommandLine/Stream.html#property_error"><abbr title="Library\CommandLine\Stream">Stream</abbr></a> &mdash; <em>Property in class <a href="Library/CommandLine/Stream.html"><abbr title="Library\CommandLine\Stream">Stream</abbr></a></em></dt>
                     <dd>STDERR stream for writing</dd><dt><a href="Library/CommandLine/Stream.html#method_error"><abbr title="Library\CommandLine\Stream">Stream</abbr>::error</a>() &mdash; <em>Method in class <a href="Library/CommandLine/Stream.html"><abbr title="Library\CommandLine\Stream">Stream</abbr></a></em></dt>
                     <dd>Write a message on <code>STDERR</code> and exit with an error status</dd><dt><a href="Library/Crypt.html#method_encrypt"><abbr title="Library\Crypt">Crypt</abbr>::encrypt</a>() &mdash; <em>Method in class <a href="Library/Crypt.html"><abbr title="Library\Crypt">Crypt</abbr></a></em></dt>
-                    <dd>Encryption function      $Key="what"     $MonTexte="Lorem ipsum."     $str_encrypt = encrypt($MonTexte,$Key);</dd><dt><a href="Library/Helper/Code.html#method_extendsClass"><abbr title="Library\Helper\Code">Code</abbr>::extendsClass</a>() &mdash; <em>Method in class <a href="Library/Helper/Code.html"><abbr title="Library\Helper\Code">Code</abbr></a></em></dt>
+                    <dd>Encryption function</dd><dt><a href="Library/Helper/Code.html#method_extendsClass"><abbr title="Library\Helper\Code">Code</abbr>::extendsClass</a>() &mdash; <em>Method in class <a href="Library/Helper/Code.html"><abbr title="Library\Helper\Code">Code</abbr></a></em></dt>
                     <dd>Check if a class extends a certain class</dd><dt><a href="Library/Helper/Directory.html#method_ensureExists"><abbr title="Library\Helper\Directory">Directory</abbr>::ensureExists</a>() &mdash; <em>Method in class <a href="Library/Helper/Directory.html"><abbr title="Library\Helper\Directory">Directory</abbr></a></em></dt>
                     <dd>Build a directory with its whole hierarchy if necessary</dd><dt><a href="Library/HttpFundamental/Cookie.html#method_exists"><abbr title="Library\HttpFundamental\Cookie">Cookie</abbr>::exists</a>() &mdash; <em>Method in class <a href="Library/HttpFundamental/Cookie.html"><abbr title="Library\HttpFundamental\Cookie">Cookie</abbr></a></em></dt>
                     <dd>Test if a cookie exists</dd><dt><a href="Library/Tool/MorseCode.html#method_encode"><abbr title="Library\Tool\MorseCode">MorseCode</abbr>::encode</a>() &mdash; <em>Method in class <a href="Library/Tool/MorseCode.html"><abbr title="Library\Tool\MorseCode">MorseCode</abbr></a></em></dt>
@@ -234,7 +278,8 @@
                     <dd>
 </dd><dt><a href="Library/Command.html#method_getCommandPath"><abbr title="Library\Command">Command</abbr>::getCommandPath</a>() &mdash; <em>Method in class <a href="Library/Command.html"><abbr title="Library\Command">Command</abbr></a></em></dt>
                     <dd>Get the system path of a command</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_getDoneMethods"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::getDoneMethods</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
-                    <dd>Get the collection of done methods</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_getScript"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::getScript</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
+                    <dd>
+</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_getScript"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::getScript</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
                     <dd>Get the current command line script called</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_getParameters"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::getParameters</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
                     <dd>Get the parameters collection</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_getPrompt"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::getPrompt</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
                     <dd>Get last user input</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_getVersionString"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::getVersionString</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
@@ -587,7 +632,7 @@
                     <dd>Adapter new line sign</dd><dt><a href="Library/CommandLine/Formater.html#method_newLine"><abbr title="Library\CommandLine\Formater">Formater</abbr>::newLine</a>() &mdash; <em>Method in class <a href="Library/CommandLine/Formater.html"><abbr title="Library\CommandLine\Formater">Formater</abbr></a></em></dt>
                     <dd>
 </dd><dt><a href="Library/Helper/Code.html#method_namespaceExists"><abbr title="Library\Helper\Code">Code</abbr>::namespaceExists</a>() &mdash; <em>Method in class <a href="Library/Helper/Code.html"><abbr title="Library\Helper\Code">Code</abbr></a></em></dt>
-                    <dd>Test if a namespace can be found in declared classes or via Composer autoloader if so  This method will search concerned namespace in PHP declared classes namespaces and, if found, in a Composer namespaces mapping usually stored in <code>vendor/composer/autoload_namespaces.php</code>, searching for a directory that should contains the nameapace following the  <a href="https://github.com/php-fig/fig-standards">FIG standards</a>.</dd><dt><a href="Library/Tool/Pagination.html#method_next"><abbr title="Library\Tool\Pagination">Pagination</abbr>::next</a>() &mdash; <em>Method in class <a href="Library/Tool/Pagination.html"><abbr title="Library\Tool\Pagination">Pagination</abbr></a></em></dt>
+                    <dd>Test if a namespace can be found in declared classes or via Composer autoloader if so</dd><dt><a href="Library/Tool/Pagination.html#method_next"><abbr title="Library\Tool\Pagination">Pagination</abbr>::next</a>() &mdash; <em>Method in class <a href="Library/Tool/Pagination.html"><abbr title="Library\Tool\Pagination">Pagination</abbr></a></em></dt>
                     <dd>
 </dd>        </dl><h2 id="letterO">O</h2>
         <dl id="index"><dt><a href="Library/Helper/Code.html#method_organizeArguments"><abbr title="Library\Helper\Code">Code</abbr>::organizeArguments</a>() &mdash; <em>Method in class <a href="Library/Helper/Code.html"><abbr title="Library\Helper\Code">Code</abbr></a></em></dt>
@@ -640,7 +685,8 @@
 </dd><dt><a href="Library/Command.html#method_run"><abbr title="Library\Command">Command</abbr>::run</a>() &mdash; <em>Method in class <a href="Library/Command.html"><abbr title="Library\Command">Command</abbr></a></em></dt>
                     <dd>Run a command on a Linux/UNIX system reading it from cache if so</dd><dt><a href="Library/Command.html#method_runCommand"><abbr title="Library\Command">Command</abbr>::runCommand</a>() &mdash; <em>Method in class <a href="Library/Command.html"><abbr title="Library\Command">Command</abbr></a></em></dt>
                     <dd>Run a command on a Linux/UNIX system</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_runHelpCommand"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::runHelpCommand</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
-                    <dd>List of all options and features of the command line tool ; for some commands, a specific help can be available, running <var>--command --help</var> Some command examples are purposed running <var>--console --help</var></dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_runVerboseCommand"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::runVerboseCommand</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
+                    <dd>List of all options and features of the command line tool ; for some commands, a specific help can be available, running <var>--command --help</var>
+Some command examples are purposed running <var>--console --help</var></dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_runVerboseCommand"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::runVerboseCommand</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
                     <dd>Run the command line in <bold>verbose</bold> mode, writing some information on screen (default is <option>OFF</option>)</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_runQuietCommand"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::runQuietCommand</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
                     <dd>Run the command line in <bold>quiet</bold> mode, trying to not write anything on screen (default is <option>OFF</option>)</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_runDebugCommand"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::runDebugCommand</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
                     <dd>Run the command line in <bold>debug</bold> mode, writing some scripts information during runtime (default is <option>OFF</option>)</dd><dt><a href="Library/CommandLine/AbstractCommandLineController.html#method_runForceCommand"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr>::runForceCommand</a>() &mdash; <em>Method in class <a href="Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></em></dt>
@@ -656,8 +702,8 @@
                     <dd>Returns a relative path between two filesystem realpaths</dd><dt><a href="Library/Helper/Regex.html"><abbr title="Library\Helper\Regex">Regex</abbr></a> &mdash; <em>Class in namespace <a href="Library/Helper.html">Library\Helper</a></em></dt>
                     <dd>Regex helper</dd><dt><a href="Library/Helper/Request.html"><abbr title="Library\Helper\Request">Request</abbr></a> &mdash; <em>Class in namespace <a href="Library/Helper.html">Library\Helper</a></em></dt>
                     <dd>Request helper</dd><dt><a href="Library/Helper/Url.html#method_resolvePath"><abbr title="Library\Helper\Url">Url</abbr>::resolvePath</a>() &mdash; <em>Method in class <a href="Library/Helper/Url.html"><abbr title="Library\Helper\Url">Url</abbr></a></em></dt>
-                    <dd>Returns the URL with paths cleaned (<code>./</code> and <code>../</code> are resolved)</dd><dt><a href="Library/Helper/Url.html#method_resolveHttp"><abbr title="Library\Helper\Url">Url</abbr>::resolveHttp</a>() &mdash; <em>Method in class <a href="Library/Helper/Url.html"><abbr title="Library\Helper\Url">Url</abbr></a></em></dt>
-                    <dd>Returns an URL with leading 'http://' if it was absent  Inspired by SPIP <a href="http://spip.net">http://spip.net</a></dd><dt><a href="Library/HttpFundamental/Cookie.html#method_read"><abbr title="Library\HttpFundamental\Cookie">Cookie</abbr>::read</a>() &mdash; <em>Method in class <a href="Library/HttpFundamental/Cookie.html"><abbr title="Library\HttpFundamental\Cookie">Cookie</abbr></a></em></dt>
+                    <dd>Returns the URL with paths cleaned (<code>./</code> and `.</dd><dt><a href="Library/Helper/Url.html#method_resolveHttp"><abbr title="Library\Helper\Url">Url</abbr>::resolveHttp</a>() &mdash; <em>Method in class <a href="Library/Helper/Url.html"><abbr title="Library\Helper\Url">Url</abbr></a></em></dt>
+                    <dd>Returns an URL with leading 'http://' if it was absent</dd><dt><a href="Library/HttpFundamental/Cookie.html#method_read"><abbr title="Library\HttpFundamental\Cookie">Cookie</abbr>::read</a>() &mdash; <em>Method in class <a href="Library/HttpFundamental/Cookie.html"><abbr title="Library\HttpFundamental\Cookie">Cookie</abbr></a></em></dt>
                     <dd>Get a cookie value</dd><dt><a href="Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a> &mdash; <em>Class in namespace <a href="Library/HttpFundamental.html">Library\HttpFundamental</a></em></dt>
                     <dd>The global request class</dd><dt><a href="Library/HttpFundamental/Response.html"><abbr title="Library\HttpFundamental\Response">Response</abbr></a> &mdash; <em>Class in namespace <a href="Library/HttpFundamental.html">Library\HttpFundamental</a></em></dt>
                     <dd>The global response class</dd><dt><a href="Library/HttpFundamental/Response.html#method_renderHeaders"><abbr title="Library\HttpFundamental\Response">Response</abbr>::renderHeaders</a>() &mdash; <em>Method in class <a href="Library/HttpFundamental/Response.html"><abbr title="Library\HttpFundamental\Response">Response</abbr></a></em></dt>
@@ -675,8 +721,8 @@
                     <dd>The global router class</dd><dt><a href="Library/Router.html#method_routeExists"><abbr title="Library\Router">Router</abbr>::routeExists</a>() &mdash; <em>Method in class <a href="Library/Router.html"><abbr title="Library\Router">Router</abbr></a></em></dt>
                     <dd>Check if a route exists</dd><dt><a href="Library/Router.html#method_redirect"><abbr title="Library\Router">Router</abbr>::redirect</a>() &mdash; <em>Method in class <a href="Library/Router.html"><abbr title="Library\Router">Router</abbr></a></em></dt>
                     <dd>Make a redirection to a new route (HTTP redirect)</dd><dt><a href="Library/Session/FlashSession.html#method_read"><abbr title="Library\Session\FlashSession">FlashSession</abbr>::read</a>() &mdash; <em>Method in class <a href="Library/Session/FlashSession.html"><abbr title="Library\Session\FlashSession">FlashSession</abbr></a></em></dt>
-                    <dd>Read current session contents</dd><dt><a href="Library/Session/Session.html#method_read"><abbr title="Library\Session\Session">Session</abbr>::read</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
-                    <dd>Read current session contents</dd><dt><a href="Library/Session/Session.html#method_regenerateId"><abbr title="Library\Session\Session">Session</abbr>::regenerateId</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
+                    <dd>Start the current session if so</dd><dt><a href="Library/Session/Session.html#method_read"><abbr title="Library\Session\Session">Session</abbr>::read</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
+                    <dd>Read the current session contents</dd><dt><a href="Library/Session/Session.html#method_regenerateId"><abbr title="Library\Session\Session">Session</abbr>::regenerateId</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
                     <dd>Regenrate current session ID</dd><dt><a href="Library/Session/Session.html#method_remove"><abbr title="Library\Session\Session">Session</abbr>::remove</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
                     <dd>Delete a session parameter</dd><dt><a href="Library/Session/SessionInterface.html#method_read"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr>::read</a>() &mdash; <em>Method in class <a href="Library/Session/SessionInterface.html"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr></a></em></dt>
                     <dd>Read current session contents</dd><dt><a href="Library/Session/SessionInterface.html#method_regenerateId"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr>::regenerateId</a>() &mdash; <em>Method in class <a href="Library/Session/SessionInterface.html"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr></a></em></dt>
@@ -812,7 +858,7 @@
                     <dd>Set a collection of masks to parse and match a route URL</dd><dt><a href="Library/Session/FlashSession.html#method_setFlash"><abbr title="Library\Session\FlashSession">FlashSession</abbr>::setFlash</a>() &mdash; <em>Method in class <a href="Library/Session/FlashSession.html"><abbr title="Library\Session\FlashSession">FlashSession</abbr></a></em></dt>
                     <dd>Set a current session flash parameter</dd><dt><a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a> &mdash; <em>Class in namespace <a href="Library/Session.html">Library\Session</a></em></dt>
                     <dd>Session manager class</dd><dt><a href="Library/Session/Session.html#method_start"><abbr title="Library\Session\Session">Session</abbr>::start</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
-                    <dd>Start the current session and load it</dd><dt><a href="Library/Session/Session.html#method_set"><abbr title="Library\Session\Session">Session</abbr>::set</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
+                    <dd>Start the current session and read it</dd><dt><a href="Library/Session/Session.html#method_set"><abbr title="Library\Session\Session">Session</abbr>::set</a>() &mdash; <em>Method in class <a href="Library/Session/Session.html"><abbr title="Library\Session\Session">Session</abbr></a></em></dt>
                     <dd>Set current session parameter</dd><dt><a href="Library/Session/SessionInterface.html"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr></a> &mdash; <em>Class in namespace <a href="Library/Session.html">Library\Session</a></em></dt>
                     <dd>
 </dd><dt><a href="Library/Session/SessionInterface.html#method_start"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr>::start</a>() &mdash; <em>Method in class <a href="Library/Session/SessionInterface.html"><abbr title="Library\Session\SessionInterface">SessionInterface</abbr></a></em></dt>
@@ -972,7 +1018,7 @@
                     <dd>Magic unsetter</dd><dt><a href="Library/Object/RegistryInvokable.html#method___construct"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></em></dt>
                     <dd>Object constructor</dd><dt><a href="Library/Object/RegistryInvokable.html#method___call"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr>::__call</a>() &mdash; <em>Method in class <a href="Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></em></dt>
                     <dd>Magic handler when calling a non-existing method on an object</dd><dt><a href="Library/Object/RegistryInvokable.html#method___callStatic"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr>::__callStatic</a>() &mdash; <em>Method in class <a href="Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></em></dt>
-                    <dd>Magic handler when calling a non-eixsting method statically on an object</dd><dt><a href="Library/Object/RegistryInvokable.html#method___get"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr>::__get</a>() &mdash; <em>Method in class <a href="Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></em></dt>
+                    <dd>Avoiding magic static handler</dd><dt><a href="Library/Object/RegistryInvokable.html#method___get"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr>::__get</a>() &mdash; <em>Method in class <a href="Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></em></dt>
                     <dd>Magic getter</dd><dt><a href="Library/Object/RegistryInvokable.html#method___set"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr>::__set</a>() &mdash; <em>Method in class <a href="Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></em></dt>
                     <dd>Magic setter</dd><dt><a href="Library/Object/RegistryInvokable.html#method___isset"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr>::__isset</a>() &mdash; <em>Method in class <a href="Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></em></dt>
                     <dd>Magic checker</dd><dt><a href="Library/Object/RegistryInvokable.html#method___unset"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr>::__unset</a>() &mdash; <em>Method in class <a href="Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></em></dt>
@@ -987,9 +1033,13 @@
 </dd><dt><a href="Library/Tool/Table.html#method___construct"><abbr title="Library\Tool\Table">Table</abbr>::__construct</a>() &mdash; <em>Method in class <a href="Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></em></dt>
                     <dd>Table construction</dd><dt><a href="Library/Tool/Table.html#method___toString"><abbr title="Library\Tool\Table">Table</abbr>::__toString</a>() &mdash; <em>Method in class <a href="Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></em></dt>
                     <dd>Rendering of the table</dd><dt><a href="Library/Tool/Table.html#method__resetSizes"><abbr title="Library\Tool\Table">Table</abbr>::_resetSizes</a>() &mdash; <em>Method in class <a href="Library/Tool/Table.html"><abbr title="Library\Tool\Table">Table</abbr></a></em></dt>
-                    <dd>Reset the table sizes</dd>        </dl>        </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                    <dd>Reset the table sizes</dd>        </dl>            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

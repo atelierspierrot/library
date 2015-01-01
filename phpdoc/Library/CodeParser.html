@@ -1,40 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\CodeParser | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../classes.html">Classes</a></li>
-                            <li><a href="../namespaces.html">Namespaces</a></li>
-                        <li><a href="../interfaces.html">Interfaces</a></li>
-            <li><a href="../traits.html">Traits</a></li>
-            <li><a href="../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\CodeParser | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../Library.html">Library</a>\CodeParser</h1>
+    <body id="class" data-name="class:Library_CodeParser" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../Library.html">Library</a></li>
+    
+                <li>CodeParser</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>CodeParser</h1>
+    </div>
+
+    <p>    class
     <strong>CodeParser</strong></p>
 
             <div class="description">
-            <p>Source code parser</p>
-            <p>
-</p>
-        </div>
+            <p>Source code parser</p>                    </div>
+    
     
             <h2>Constants</h2>
 
-            <table>
+            <table class="table table-condensed">
                     <tr>
                 <td>PARSE_CLASS</td>
                 <td class="last">
@@ -63,10 +109,10 @@
     
             <h2>Properties</h2>
 
-            <table>
+            <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_reflection">
-                                                            
+                                                                                
                 </td>
                 <td>$reflection</td>
                 <td class="last">
@@ -75,7 +121,7 @@
             </tr>
                     <tr>
                 <td class="type" id="property_builtInMethods">
-                                                            
+                                                                                
                 </td>
                 <td>$builtInMethods</td>
                 <td class="last">
@@ -87,101 +133,95 @@
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(string $object_name = null, int $object_type = self::PARSE_CLASS)
-                    <p>Construct a code parser object</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Construct a code parser object</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_set_objectName">set_objectName</a>($object_name = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_get_objectName">get_objectName</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_set_objectType">set_objectType</a>($object_type = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_get_objectType">get_objectType</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_get_shortDescription">get_shortDescription</a>($object_name = null, $object_type = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_get_longDescription">get_longDescription</a>($object_name = null, $object_type = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method___construct">
-        <div class="location">at line 53</div>
-        <code>            public            
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at line 66</div>
+        <code>                    
     <strong>__construct</strong>(string $object_name = null, int $object_type = self::PARSE_CLASS)</code>
     </h3>
     <div class="details">
-        <p>Construct a code parser object</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Construct a code parser object</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$object_name</td>
@@ -200,20 +240,18 @@
                     </div>
     </div>
 
-                <h3 id="method_set_objectName">
-        <div class="location">at line 63</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_set_objectName">
+        <div class="location">at line 76</div>
+        <code>                    
     <strong>set_objectName</strong>($object_name = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$object_name</td>
@@ -228,37 +266,33 @@
                     </div>
     </div>
 
-                <h3 id="method_get_objectName">
-        <div class="location">at line 68</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get_objectName">
+        <div class="location">at line 81</div>
+        <code>                    
     <strong>get_objectName</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_set_objectType">
-        <div class="location">at line 73</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_set_objectType">
+        <div class="location">at line 86</div>
+        <code>                    
     <strong>set_objectType</strong>($object_type = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$object_type</td>
@@ -273,37 +307,33 @@
                     </div>
     </div>
 
-                <h3 id="method_get_objectType">
-        <div class="location">at line 78</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get_objectType">
+        <div class="location">at line 91</div>
+        <code>                    
     <strong>get_objectType</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_get_shortDescription">
-        <div class="location">at line 83</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get_shortDescription">
+        <div class="location">at line 96</div>
+        <code>                    
     <strong>get_shortDescription</strong>($object_name = null, $object_type = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$object_name</td>
@@ -324,20 +354,18 @@
                     </div>
     </div>
 
-                <h3 id="method_get_longDescription">
-        <div class="location">at line 91</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_get_longDescription">
+        <div class="location">at line 104</div>
+        <code>                    
     <strong>get_longDescription</strong>($object_name = null, $object_type = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$object_name</td>
@@ -358,10 +386,17 @@
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

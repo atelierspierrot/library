@@ -1,183 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\Helper\Url | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\Helper\Url | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../Library/Helper.html">Library\Helper</a>\Url</h1>
+    <body id="class" data-name="class:Library_Helper_Url" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Library.html">Library</a></li>
+                                        <li><a href="../../Library/Helper.html">Helper</a></li>
+    
+                <li>Url</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Url</h1>
+    </div>
+
+    <p>    class
     <strong>Url</strong></p>
 
             <div class="description">
-            <p>URL common methods</p>
-            <p>For convenience, the best practice is to use:</p>
+            <p>URL common methods</p>            <p>For convenience, the best practice is to use:</p>
 
 <pre><code>use Library\Helper\Url as UrlHelper;
 </code></pre>
-</p>
-        </div>
+</p>        </div>
+    
     
     
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getRequestUrl">getRequestUrl</a>(bool $entities = false, bool $base = false, bool $no_file = false, bool $no_rewrite = false)
-                    <p>Get the current browser/server URL</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get the current browser/server URL</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getHttpProtocol">getHttpProtocol</a>()
-                    <p>Get the current 'http' or 'https' protocol</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get the current 'http' or 'https' protocol</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;array
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_parse">parse</a>(string $url)
-                    <p>Parse an URL and returns its composition as an array, with the URI query if so</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Parse an URL and returns its composition as an array, with the URI query if so</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_resolvePath">resolvePath</a>(string $url, boolean $realpath = false)
-                    <p>Returns the URL with paths cleaned (<code>./</code> and <code>../</code> are resolved)</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns the URL with paths cleaned (<code>./</code> and `.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_resolveHttp">resolveHttp</a>(string $url)
-                    <p>Returns an URL with leading 'http://' if it was absent  Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns an URL with leading 'http://' if it was absent</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getAbsoluteUrl">getAbsoluteUrl</a>(string $url)
-                    <p>Returns if possible an absolute URL in the current system</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Returns if possible an absolute URL in the current system</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_url">url</a>(<abbr title="Library\Helper\string/array/null">string/array/null</abbr> $param = null, <abbr title="Library\Helper\string/null">string/null</abbr> $value = null, <abbr title="Library\Helper\string/null">string/null</abbr> $url = null)
-                    <p>Global URL builder</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Global URL builder</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;<abbr title="Library\Helper\string/array">string/array</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getParameter">getParameter</a>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $param = false, <abbr title="Library\Helper\string/null">string/null</abbr> $url = false)
-                    <p>Get the value of an URL parameter</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get the value of an URL parameter</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;<abbr title="Library\Helper\string/array">string/array</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setParameter">setParameter</a>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $var = &#039;&#039;, <abbr title="Library\Helper\string/false">string/false</abbr> $val = false, <abbr title="Library\Helper\string/false">string/false</abbr> $url = false, bool $rebuild = true)
-                    <p>Set the value of an URL parameter</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Set the value of an URL parameter</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_build">build</a>(array $url_components = null, <abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr> $not_toput = null)
-                    <p>Rebuild a full URL string from an array of elements</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Rebuild a full URL string from an array of elements</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;bool
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_isUrl">isUrl</a>(string $url = null, array $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), <abbr title="Library\Helper\bool/string">bool/string</abbr> $localhost = false)
-                    <p>Validate an URL</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Validate an URL</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;bool
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_isEmail">isEmail</a>(string $email = null)
-                    <p>Validate an email address</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p>Validate an email address</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_getRequestUrl">
-        <div class="location">at line 34</div>
-        <code>        static    public            string
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_getRequestUrl">
+        <div class="location">at line 47</div>
+        <code>        static            string
     <strong>getRequestUrl</strong>(bool $entities = false, bool $base = false, bool $no_file = false, bool $no_rewrite = false)</code>
     </h3>
     <div class="details">
-        <p>Get the current browser/server URL</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the current browser/server URL</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>bool</td>
                 <td>$entities</td>
@@ -203,7 +240,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -216,20 +253,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getHttpProtocol">
-        <div class="location">at line 75</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getHttpProtocol">
+        <div class="location">at line 88</div>
+        <code>        static            string
     <strong>getHttpProtocol</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the current 'http' or 'https' protocol</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the current 'http' or 'https' protocol</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The current protocol</td>
@@ -241,19 +279,20 @@
                     </div>
     </div>
 
-                <h3 id="method_parse">
-        <div class="location">at line 89</div>
-        <code>        static    public            array
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_parse">
+        <div class="location">at line 102</div>
+        <code>        static            array
     <strong>parse</strong>(string $url)</code>
     </h3>
     <div class="details">
-        <p>Parse an URL and returns its composition as an array, with the URI query if so</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Parse an URL and returns its composition as an array, with the URI query if so</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$url</td>
@@ -264,7 +303,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>array</td>
             <td>An array of the URL components</td>
@@ -276,18 +315,22 @@
                     </div>
     </div>
 
-                <h3 id="method_resolvePath">
-        <div class="location">at line 108</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_resolvePath">
+        <div class="location">at line 121</div>
+        <code>        static            string
     <strong>resolvePath</strong>(string $url, boolean $realpath = false)</code>
     </h3>
     <div class="details">
-        <p>Returns the URL with paths cleaned (<code>./</code> and <code>../</code> are resolved)</p>
-        <p>Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns the URL with paths cleaned (<code>./</code> and `.</p>                    <p>./` are resolved)</p>
+
+<p>Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$url</td>
@@ -303,7 +346,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The resolved path, or real path if so</td>
@@ -315,19 +358,20 @@
                     </div>
     </div>
 
-                <h3 id="method_resolveHttp">
-        <div class="location">at line 131</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_resolveHttp">
+        <div class="location">at line 144</div>
+        <code>        static            string
     <strong>resolveHttp</strong>(string $url)</code>
     </h3>
     <div class="details">
-        <p>Returns an URL with leading 'http://' if it was absent  Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns an URL with leading 'http://' if it was absent</p>                    <p>Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$url</td>
@@ -338,7 +382,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The resolved URL</td>
@@ -350,19 +394,20 @@
                     </div>
     </div>
 
-                <h3 id="method_getAbsoluteUrl">
-        <div class="location">at line 144</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAbsoluteUrl">
+        <div class="location">at line 157</div>
+        <code>        static            string
     <strong>getAbsoluteUrl</strong>(string $url)</code>
     </h3>
     <div class="details">
-        <p>Returns if possible an absolute URL in the current system</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns if possible an absolute URL in the current system</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$url</td>
@@ -373,7 +418,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The resolved URL</td>
@@ -385,19 +430,20 @@
                     </div>
     </div>
 
-                <h3 id="method_url">
-        <div class="location">at line 161</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_url">
+        <div class="location">at line 174</div>
+        <code>        static            string
     <strong>url</strong>(<abbr title="Library\Helper\string/array/null">string/array/null</abbr> $param = null, <abbr title="Library\Helper\string/null">string/null</abbr> $value = null, <abbr title="Library\Helper\string/null">string/null</abbr> $url = null)</code>
     </h3>
     <div class="details">
-        <p>Global URL builder</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Global URL builder</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td><abbr title="Library\Helper\string/array/null">string/array/null</abbr></td>
                 <td>$param</td>
@@ -418,7 +464,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The final rebuilt URL</td>
@@ -430,19 +476,20 @@
                     </div>
     </div>
 
-                <h3 id="method_getParameter">
-        <div class="location">at line 192</div>
-        <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getParameter">
+        <div class="location">at line 205</div>
+        <code>        static            <abbr title="Library\Helper\string/array">string/array</abbr>
     <strong>getParameter</strong>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $param = false, <abbr title="Library\Helper\string/null">string/null</abbr> $url = false)</code>
     </h3>
     <div class="details">
-        <p>Get the value of an URL parameter</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the value of an URL parameter</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td><abbr title="Library\Helper\string/bool">string/bool</abbr></td>
                 <td>$param</td>
@@ -458,7 +505,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\Helper\string/array">string/array</abbr></td>
             <td>The parameter value or the global array of parameters</td>
@@ -470,19 +517,20 @@
                     </div>
     </div>
 
-                <h3 id="method_setParameter">
-        <div class="location">at line 221</div>
-        <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setParameter">
+        <div class="location">at line 234</div>
+        <code>        static            <abbr title="Library\Helper\string/array">string/array</abbr>
     <strong>setParameter</strong>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $var = &#039;&#039;, <abbr title="Library\Helper\string/false">string/false</abbr> $val = false, <abbr title="Library\Helper\string/false">string/false</abbr> $url = false, bool $rebuild = true)</code>
     </h3>
     <div class="details">
-        <p>Set the value of an URL parameter</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the value of an URL parameter</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td><abbr title="Library\Helper\string/bool">string/bool</abbr></td>
                 <td>$var</td>
@@ -508,7 +556,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\Helper\string/array">string/array</abbr></td>
             <td>The final URL</td>
@@ -520,23 +568,25 @@
                     </div>
     </div>
 
-                <h3 id="method_build">
-        <div class="location">at line 241</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_build">
+        <div class="location">at line 254</div>
+        <code>        static            string
     <strong>build</strong>(array $url_components = null, <abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr> $not_toput = null)</code>
     </h3>
     <div class="details">
-        <p>Rebuild a full URL string from an array of elements</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Rebuild a full URL string from an array of elements</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$url_components</td>
-                <td>The array of the URL components:: <code>scheme</code>, <code>user</code>, <code>pass</code>, <code>host</code>, <code>port</code>, <code>path</code>, <code>params</code>, <code>hash</code></td>
+                <td>The array of the URL components:: <code>scheme</code>, <code>user</code>,
+                 <code>pass</code>, <code>host</code>, <code>port</code>, <code>path</code>, <code>params</code>, <code>hash</code></td>
             </tr>
                     <tr>
                 <td><abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr></td>
@@ -548,7 +598,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The final URL as a string</td>
@@ -560,19 +610,20 @@
                     </div>
     </div>
 
-                <h3 id="method_isUrl">
-        <div class="location">at line 272</div>
-        <code>        static    public            bool
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isUrl">
+        <div class="location">at line 285</div>
+        <code>        static            bool
     <strong>isUrl</strong>(string $url = null, array $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), <abbr title="Library\Helper\bool/string">bool/string</abbr> $localhost = false)</code>
     </h3>
     <div class="details">
-        <p>Validate an URL</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Validate an URL</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$url</td>
@@ -593,7 +644,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>bool</td>
             <td>Returns <code>true</code> if this is a URL in one of the specified protocols</td>
@@ -605,19 +656,20 @@
                     </div>
     </div>
 
-                <h3 id="method_isEmail">
-        <div class="location">at line 288</div>
-        <code>        static    public            bool
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isEmail">
+        <div class="location">at line 301</div>
+        <code>        static            bool
     <strong>isEmail</strong>(string $email = null)</code>
     </h3>
     <div class="details">
-        <p>Validate an email address</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Validate an email address</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$email</td>
@@ -628,7 +680,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>bool</td>
             <td>Returns <code>true</code> if this is an email</td>
@@ -640,10 +692,17 @@
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

@@ -1,35 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\CommandLine\AbstractCommandLineController | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\CommandLine\AbstractCommandLineController | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../Library/CommandLine.html">Library\CommandLine</a>\AbstractCommandLineController</h1>
+    <body id="class" data-name="class:Library_CommandLine_AbstractCommandLineController" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>abstract     class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Library.html">Library</a></li>
+                                        <li><a href="../../Library/CommandLine.html">CommandLine</a></li>
+    
+                <li>AbstractCommandLineController</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>AbstractCommandLineController</h1>
+    </div>
+
+    <p>abstract     class
     <strong>AbstractCommandLineController</strong>        implements
         <a href="../../Library/CommandLine/CommandLineControllerInterface.html"><abbr title="Library\CommandLine\CommandLineControllerInterface">CommandLineControllerInterface</abbr></a></p>
 
             <div class="description">
-            <p>Basic command line controller</p>
-            <p>Any command line controller must extend this abstract class.</p>
+            <p>Basic command line controller</p>            <p>Any command line controller must extend this abstract class.</p>
 
 <p>It defines some basic command line options that you must not overwrite in your child class:</p>
 
@@ -42,16 +90,16 @@
 <li>"i | interactive" : increase interactivity of the execution,</li>
 <li>"version" : get some version information about running environment.</li>
 </ul>
-</p>
-        </div>
+</p>        </div>
+    
     
     
             <h2>Properties</h2>
 
-            <table>
+            <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property__name">
-                    static                                        string
+                    static                                                            string
                 </td>
                 <td>$_name</td>
                 <td class="last">This must be over-written in any child class</td>
@@ -59,7 +107,7 @@
             </tr>
                     <tr>
                 <td class="type" id="property__version">
-                    static                                        string
+                    static                                                            string
                 </td>
                 <td>$_version</td>
                 <td class="last">This must be over-written in any child class</td>
@@ -70,490 +118,445 @@
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>(array $options = array())
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method___toString">__toString</a>()
-                    <p>Magic distribution when printing object</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Magic distribution when printing object</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_distribute">distribute</a>()
-                    <p>Distribution of the work</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Distribution of the work</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setDebug">setDebug</a>(bool $dbg = true)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setVerbose">setVerbose</a>(bool $vbr = true)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setForce">setForce</a>(bool $frc = true)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setInteractive">setInteractive</a>(bool $frc = true)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setQuiet">setQuiet</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_addDoneMethod">addDoneMethod</a>(string $_cls_meth)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     array
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getDoneMethods">getDoneMethods</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setScript">setScript</a>(string $script_name)
-                    <p>Set the current command line script called</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Set the current command line script called</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getScript">getScript</a>()
-                    <p>Get the current command line script called</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get the current command line script called</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setParameters">setParameters</a>(array $params)
-                    <p>Set the command line parameters</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Set the command line parameters</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     array
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getParameters">getParameters</a>()
-                    <p>Get the parameters collection</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get the parameters collection</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_runHelpCommand">runHelpCommand</a>($opt = null)
-                    <p>List of all options and features of the command line tool ; for some commands, a specific help can be available, running <var>--command --help</var> Some command examples are purposed running <var>--console --help</var></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>List of all options and features of the command line tool ; for some commands, a specific help can be available, running <var>--command --help</var>
+Some command examples are purposed running <var>--console --help</var></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_runVerboseCommand">runVerboseCommand</a>()
-                    <p>Run the command line in <bold>verbose</bold> mode, writing some information on screen (default is <option>OFF</option>)</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Run the command line in <bold>verbose</bold> mode, writing some information on screen (default is <option>OFF</option>)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_runQuietCommand">runQuietCommand</a>()
-                    <p>Run the command line in <bold>quiet</bold> mode, trying to not write anything on screen (default is <option>OFF</option>)</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Run the command line in <bold>quiet</bold> mode, trying to not write anything on screen (default is <option>OFF</option>)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_runDebugCommand">runDebugCommand</a>()
-                    <p>Run the command line in <bold>debug</bold> mode, writing some scripts information during runtime (default is <option>OFF</option>)</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Run the command line in <bold>debug</bold> mode, writing some scripts information during runtime (default is <option>OFF</option>)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_runForceCommand">runForceCommand</a>()
-                    <p>Run the command line in <bold>forced</bold> mode ; any choice will be set on default value if so</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Run the command line in <bold>forced</bold> mode ; any choice will be set on default value if so</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_runInteractiveCommand">runInteractiveCommand</a>()
-                    <p>Run the command line in <bold>interactive</bold> mode ; any choice will be prompted if possible</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Run the command line in <bold>interactive</bold> mode ; any choice will be prompted if possible</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_runVersionCommand">runVersionCommand</a>()
-                    <p>Get versions of system environment</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get versions of system environment</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_write">write</a>(null $str = null, bool $new_line = true)
-                    <p>Format and write a string to STDOUT</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Format and write a string to STDOUT</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_error">error</a>(null $str = null, int $status = 1, bool $new_line = true)
-                    <p>Format and write an error message to STDOUT (or STDERR) and exits with status <code>$status</code></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Format and write an error message to STDOUT (or STDERR) and exits with status <code>$status</code></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_parseAndWrite">parseAndWrite</a>(string $str, null $type = null, bool $spaced = false)
-                    <p>Parse, format and write a message to STDOUT</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Parse, format and write a message to STDOUT</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeError">writeError</a>(string $str)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeThinError">writeThinError</a>(string $str)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeInfo">writeInfo</a>(string $str)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeComment">writeComment</a>(string $str)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeHighlight">writeHighlight</a>(string $str)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeBreak">writeBreak</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeStop">writeStop</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_verboseWrite">verboseWrite</a>(null $str = null, bool $new_line = true)
-                    <p>Write a string only in verbose mode</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Write a string only in verbose mode</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <abbr title="Library\CommandLine\$this">$this</abbr>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_debugWrite">debugWrite</a>(null $str = null, bool $new_line = true)
-                    <p>Write a string only in debug mode</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Write a string only in debug mode</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_prompt">prompt</a>(string|null $str = null, mixed|null $default = null)
-                    <p>Prompt user input</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Prompt user input</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getPrompt">getPrompt</a>()
-                    <p>Get last user input</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get last user input</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeIntro">writeIntro</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getVersionString">getVersionString</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeNothingToDo">writeNothingToDo</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_runArgumentHelp">runArgumentHelp</a>($arg = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_usage">usage</a>($opt = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getopt">getopt</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getOptionMethod">getOptionMethod</a>($arg = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getOptionDescription">getOptionDescription</a>($arg = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getOptionHelp">getOptionHelp</a>($arg = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method___construct">
-        <div class="location">at line 165</div>
-        <code>            public            
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at line 178</div>
+        <code>                    
     <strong>__construct</strong>(array $options = array())</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$options</td>
@@ -568,20 +571,21 @@
                     </div>
     </div>
 
-                <h3 id="method___toString">
-        <div class="location">at line 209</div>
-        <code>            public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___toString">
+        <div class="location">at line 222</div>
+        <code>                    string
     <strong>__toString</strong>()</code>
     </h3>
     <div class="details">
-        <p>Magic distribution when printing object</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic distribution when printing object</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -594,36 +598,35 @@
                     </div>
     </div>
 
-                <h3 id="method_distribute">
-        <div class="location">at line 218</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_distribute">
+        <div class="location">at line 231</div>
+        <code>                    
     <strong>distribute</strong>()</code>
     </h3>
     <div class="details">
-        <p>Distribution of the work</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Distribution of the work</p>                                </div>
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_setDebug">
-        <div class="location">at line 238</div>
-        <code>            public            <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setDebug">
+        <div class="location">at line 251</div>
+        <code>                    <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
     <strong>setDebug</strong>(bool $dbg = true)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>bool</td>
                 <td>$dbg</td>
@@ -635,7 +638,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></td>
             <td>
@@ -648,20 +651,18 @@
                     </div>
     </div>
 
-                <h3 id="method_setVerbose">
-        <div class="location">at line 249</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setVerbose">
+        <div class="location">at line 262</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>setVerbose</strong>(bool $vbr = true)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>bool</td>
                 <td>$vbr</td>
@@ -673,7 +674,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -686,20 +687,18 @@
                     </div>
     </div>
 
-                <h3 id="method_setForce">
-        <div class="location">at line 259</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setForce">
+        <div class="location">at line 272</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>setForce</strong>(bool $frc = true)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>bool</td>
                 <td>$frc</td>
@@ -711,7 +710,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -724,20 +723,18 @@
                     </div>
     </div>
 
-                <h3 id="method_setInteractive">
-        <div class="location">at line 269</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setInteractive">
+        <div class="location">at line 282</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>setInteractive</strong>(bool $frc = true)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>bool</td>
                 <td>$frc</td>
@@ -749,7 +746,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -762,21 +759,19 @@
                     </div>
     </div>
 
-                <h3 id="method_setQuiet">
-        <div class="location">at line 280</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setQuiet">
+        <div class="location">at line 293</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>setQuiet</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -788,7 +783,7 @@
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>self::setVerbose()</td>
                 <td></td>
@@ -802,20 +797,18 @@
                     </div>
     </div>
 
-                <h3 id="method_addDoneMethod">
-        <div class="location">at line 291</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addDoneMethod">
+        <div class="location">at line 304</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>addDoneMethod</strong>(string $_cls_meth)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$_cls_meth</td>
@@ -827,7 +820,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -840,21 +833,19 @@
                     </div>
     </div>
 
-                <h3 id="method_getDoneMethods">
-        <div class="location">at line 300</div>
-        <code>            public            array
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getDoneMethods">
+        <div class="location">at line 313</div>
+        <code>                    array
     <strong>getDoneMethods</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>array</td>
             <td>
@@ -867,19 +858,20 @@
                     </div>
     </div>
 
-                <h3 id="method_setScript">
-        <div class="location">at line 311</div>
-        <code>            public            <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setScript">
+        <div class="location">at line 324</div>
+        <code>                    <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
     <strong>setScript</strong>(string $script_name)</code>
     </h3>
     <div class="details">
-        <p>Set the current command line script called</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the current command line script called</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$script_name</td>
@@ -890,7 +882,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></td>
             <td>
@@ -903,20 +895,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getScript">
-        <div class="location">at line 322</div>
-        <code>            public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getScript">
+        <div class="location">at line 335</div>
+        <code>                    string
     <strong>getScript</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the current command line script called</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the current command line script called</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -929,19 +922,20 @@
                     </div>
     </div>
 
-                <h3 id="method_setParameters">
-        <div class="location">at line 333</div>
-        <code>            public            <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setParameters">
+        <div class="location">at line 346</div>
+        <code>                    <a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a>
     <strong>setParameters</strong>(array $params)</code>
     </h3>
     <div class="details">
-        <p>Set the command line parameters</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the command line parameters</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$params</td>
@@ -952,7 +946,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="../../Library/CommandLine/AbstractCommandLineController.html"><abbr title="Library\CommandLine\AbstractCommandLineController">AbstractCommandLineController</abbr></a></td>
             <td>
@@ -965,20 +959,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getParameters">
-        <div class="location">at line 344</div>
-        <code>            public            array
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getParameters">
+        <div class="location">at line 357</div>
+        <code>                    array
     <strong>getParameters</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the parameters collection</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the parameters collection</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>array</td>
             <td>
@@ -991,19 +986,21 @@
                     </div>
     </div>
 
-                <h3 id="method_runHelpCommand">
-        <div class="location">at line 358</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_runHelpCommand">
+        <div class="location">at line 371</div>
+        <code>                    
     <strong>runHelpCommand</strong>($opt = null)</code>
     </h3>
     <div class="details">
-        <p>List of all options and features of the command line tool ; for some commands, a specific help can be available, running <var>--command --help</var> Some command examples are purposed running <var>--console --help</var></p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>List of all options and features of the command line tool ; for some commands, a specific help can be available, running <var>--command --help</var>
+Some command examples are purposed running <var>--console --help</var></p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$opt</td>
@@ -1018,115 +1015,122 @@
                     </div>
     </div>
 
-                <h3 id="method_runVerboseCommand">
-        <div class="location">at line 381</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_runVerboseCommand">
+        <div class="location">at line 394</div>
+        <code>                    
     <strong>runVerboseCommand</strong>()</code>
     </h3>
     <div class="details">
-        <p>Run the command line in <bold>verbose</bold> mode, writing some information on screen (default is <option>OFF</option>)</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Run the command line in <bold>verbose</bold> mode, writing some information on screen (default is <option>OFF</option>)</p>                                </div>
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_runQuietCommand">
-        <div class="location">at line 389</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_runQuietCommand">
+        <div class="location">at line 402</div>
+        <code>                    
     <strong>runQuietCommand</strong>()</code>
     </h3>
     <div class="details">
-        <p>Run the command line in <bold>quiet</bold> mode, trying to not write anything on screen (default is <option>OFF</option>)</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Run the command line in <bold>quiet</bold> mode, trying to not write anything on screen (default is <option>OFF</option>)</p>                                </div>
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_runDebugCommand">
-        <div class="location">at line 397</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_runDebugCommand">
+        <div class="location">at line 410</div>
+        <code>                    
     <strong>runDebugCommand</strong>()</code>
     </h3>
     <div class="details">
-        <p>Run the command line in <bold>debug</bold> mode, writing some scripts information during runtime (default is <option>OFF</option>)</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Run the command line in <bold>debug</bold> mode, writing some scripts information during runtime (default is <option>OFF</option>)</p>                                </div>
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_runForceCommand">
-        <div class="location">at line 405</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_runForceCommand">
+        <div class="location">at line 418</div>
+        <code>                    
     <strong>runForceCommand</strong>()</code>
     </h3>
     <div class="details">
-        <p>Run the command line in <bold>forced</bold> mode ; any choice will be set on default value if so</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Run the command line in <bold>forced</bold> mode ; any choice will be set on default value if so</p>                                </div>
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_runInteractiveCommand">
-        <div class="location">at line 413</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_runInteractiveCommand">
+        <div class="location">at line 426</div>
+        <code>                    
     <strong>runInteractiveCommand</strong>()</code>
     </h3>
     <div class="details">
-        <p>Run the command line in <bold>interactive</bold> mode ; any choice will be prompted if possible</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Run the command line in <bold>interactive</bold> mode ; any choice will be prompted if possible</p>                                </div>
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_runVersionCommand">
-        <div class="location">at line 421</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_runVersionCommand">
+        <div class="location">at line 434</div>
+        <code>                    
     <strong>runVersionCommand</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get versions of system environment</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get versions of system environment</p>                                </div>
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_write">
-        <div class="location">at line 450</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_write">
+        <div class="location">at line 463</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>write</strong>(null $str = null, bool $new_line = true)</code>
     </h3>
     <div class="details">
-        <p>Format and write a string to STDOUT</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Format and write a string to STDOUT</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>null</td>
                 <td>$str</td>
@@ -1144,7 +1148,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1157,19 +1161,20 @@
                     </div>
     </div>
 
-                <h3 id="method_error">
-        <div class="location">at line 464</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_error">
+        <div class="location">at line 477</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>error</strong>(null $str = null, int $status = 1, bool $new_line = true)</code>
     </h3>
     <div class="details">
-        <p>Format and write an error message to STDOUT (or STDERR) and exits with status <code>$status</code></p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Format and write an error message to STDOUT (or STDERR) and exits with status <code>$status</code></p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>null</td>
                 <td>$str</td>
@@ -1193,7 +1198,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1206,19 +1211,20 @@
                     </div>
     </div>
 
-                <h3 id="method_parseAndWrite">
-        <div class="location">at line 478</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_parseAndWrite">
+        <div class="location">at line 491</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>parseAndWrite</strong>(string $str, null $type = null, bool $spaced = false)</code>
     </h3>
     <div class="details">
-        <p>Parse, format and write a message to STDOUT</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Parse, format and write a message to STDOUT</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -1242,7 +1248,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1255,20 +1261,18 @@
                     </div>
     </div>
 
-                <h3 id="method_writeError">
-        <div class="location">at line 493</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeError">
+        <div class="location">at line 506</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>writeError</strong>(string $str)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -1280,7 +1284,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1293,20 +1297,18 @@
                     </div>
     </div>
 
-                <h3 id="method_writeThinError">
-        <div class="location">at line 504</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeThinError">
+        <div class="location">at line 517</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>writeThinError</strong>(string $str)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -1318,7 +1320,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1331,20 +1333,18 @@
                     </div>
     </div>
 
-                <h3 id="method_writeInfo">
-        <div class="location">at line 516</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeInfo">
+        <div class="location">at line 529</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>writeInfo</strong>(string $str)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -1356,7 +1356,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1369,20 +1369,18 @@
                     </div>
     </div>
 
-                <h3 id="method_writeComment">
-        <div class="location">at line 526</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeComment">
+        <div class="location">at line 539</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>writeComment</strong>(string $str)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -1394,7 +1392,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1407,20 +1405,18 @@
                     </div>
     </div>
 
-                <h3 id="method_writeHighlight">
-        <div class="location">at line 537</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeHighlight">
+        <div class="location">at line 550</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>writeHighlight</strong>(string $str)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -1432,7 +1428,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1445,21 +1441,19 @@
                     </div>
     </div>
 
-                <h3 id="method_writeBreak">
-        <div class="location">at line 546</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeBreak">
+        <div class="location">at line 559</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>writeBreak</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1472,21 +1466,19 @@
                     </div>
     </div>
 
-                <h3 id="method_writeStop">
-        <div class="location">at line 555</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeStop">
+        <div class="location">at line 568</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>writeStop</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1499,19 +1491,20 @@
                     </div>
     </div>
 
-                <h3 id="method_verboseWrite">
-        <div class="location">at line 575</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_verboseWrite">
+        <div class="location">at line 588</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>verboseWrite</strong>(null $str = null, bool $new_line = true)</code>
     </h3>
     <div class="details">
-        <p>Write a string only in verbose mode</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Write a string only in verbose mode</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>null</td>
                 <td>$str</td>
@@ -1529,7 +1522,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1542,19 +1535,20 @@
                     </div>
     </div>
 
-                <h3 id="method_debugWrite">
-        <div class="location">at line 588</div>
-        <code>            public            <abbr title="Library\CommandLine\$this">$this</abbr>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_debugWrite">
+        <div class="location">at line 601</div>
+        <code>                    <abbr title="Library\CommandLine\$this">$this</abbr>
     <strong>debugWrite</strong>(null $str = null, bool $new_line = true)</code>
     </h3>
     <div class="details">
-        <p>Write a string only in debug mode</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Write a string only in debug mode</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>null</td>
                 <td>$str</td>
@@ -1572,7 +1566,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><abbr title="Library\CommandLine\$this">$this</abbr></td>
             <td>
@@ -1585,19 +1579,20 @@
                     </div>
     </div>
 
-                <h3 id="method_prompt">
-        <div class="location">at line 601</div>
-        <code>            public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_prompt">
+        <div class="location">at line 614</div>
+        <code>                    string
     <strong>prompt</strong>(string|null $str = null, mixed|null $default = null)</code>
     </h3>
     <div class="details">
-        <p>Prompt user input</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Prompt user input</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string|null</td>
                 <td>$str</td>
@@ -1615,7 +1610,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -1628,20 +1623,21 @@
                     </div>
     </div>
 
-                <h3 id="method_getPrompt">
-        <div class="location">at line 614</div>
-        <code>            public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPrompt">
+        <div class="location">at line 627</div>
+        <code>                    string
     <strong>getPrompt</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get last user input</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get last user input</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>
@@ -1654,71 +1650,63 @@
                     </div>
     </div>
 
-                <h3 id="method_writeIntro">
-        <div class="location">at line 631</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeIntro">
+        <div class="location">at line 644</div>
+        <code>                    
     <strong>writeIntro</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_getVersionString">
-        <div class="location">at line 641</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVersionString">
+        <div class="location">at line 654</div>
+        <code>                    
     <strong>getVersionString</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_writeNothingToDo">
-        <div class="location">at line 654</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeNothingToDo">
+        <div class="location">at line 667</div>
+        <code>                    
     <strong>writeNothingToDo</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_runArgumentHelp">
-        <div class="location">at line 661</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_runArgumentHelp">
+        <div class="location">at line 674</div>
+        <code>                    
     <strong>runArgumentHelp</strong>($arg = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$arg</td>
@@ -1733,20 +1721,18 @@
                     </div>
     </div>
 
-                <h3 id="method_usage">
-        <div class="location">at line 674</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_usage">
+        <div class="location">at line 687</div>
+        <code>                    
     <strong>usage</strong>($opt = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$opt</td>
@@ -1761,37 +1747,33 @@
                     </div>
     </div>
 
-                <h3 id="method_getopt">
-        <div class="location">at line 778</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getopt">
+        <div class="location">at line 791</div>
+        <code>                    
     <strong>getopt</strong>()</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method_getOptionMethod">
-        <div class="location">at line 785</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getOptionMethod">
+        <div class="location">at line 798</div>
+        <code>                    
     <strong>getOptionMethod</strong>($arg = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$arg</td>
@@ -1806,20 +1788,18 @@
                     </div>
     </div>
 
-                <h3 id="method_getOptionDescription">
-        <div class="location">at line 792</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getOptionDescription">
+        <div class="location">at line 805</div>
+        <code>                    
     <strong>getOptionDescription</strong>($arg = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$arg</td>
@@ -1834,20 +1814,18 @@
                     </div>
     </div>
 
-                <h3 id="method_getOptionHelp">
-        <div class="location">at line 797</div>
-        <code>            public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getOptionHelp">
+        <div class="location">at line 810</div>
+        <code>                    
     <strong>getOptionHelp</strong>($arg = null)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$arg</td>
@@ -1862,10 +1840,17 @@
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

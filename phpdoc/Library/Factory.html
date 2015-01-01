@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\Factory | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../classes.html">Classes</a></li>
-                            <li><a href="../namespaces.html">Namespaces</a></li>
-                        <li><a href="../interfaces.html">Interfaces</a></li>
-            <li><a href="../traits.html">Traits</a></li>
-            <li><a href="../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\Factory | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../Library.html">Library</a>\Factory</h1>
+    <body id="class" data-name="class:Library_Factory" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../Library.html">Library</a></li>
+    
+                <li>Factory</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Factory</h1>
+    </div>
+
+    <p>    class
     <strong>Factory</strong>        extends <abbr title="Patterns\Abstracts\AbstractStaticCreator">AbstractStaticCreator</abbr>        implements
         <a href="../Library/FactoryInterface.html"><abbr title="Library\FactoryInterface">FactoryInterface</abbr></a></p>
 
             <div class="description">
-            <p>Factory will try to create an object following user rules and passing it arguments</p>
-            <p><h2>Usage</h2>
+            <p>Factory will try to create an object following user rules and passing it arguments</p>            <p><h2>Usage</h2>
 
 <pre><code>$factory = \Library\Factory::create()
     // all methods are optional
@@ -82,81 +129,78 @@ method declaration without working about their order.</p>
 <p>In the case of a specific <code>$call_method</code> (not the classic <code>__construct</code>), the builder will
 try to first construct the object except if the call method is static. If it is not static,
 any existing constructor will be first called without parameters and then the defined
-call method passing it the parameters.</p>
-        </div>
+call method passing it the parameters.</p>        </div>
+    
     
     
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     void
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_init">init</a>(array $options = null)
-                    <p>Initialize the factory with an array of options</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Initialize the factory with an array of options</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method___call">__call</a>(string $name, array $arguments)
-                    <p>Magic method to allow usage of <code>$factory-&gt;propertyInCamelCase()</code> for each class property</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Magic method to allow usage of <code>$factory-&gt;propertyInCamelCase()</code> for each class property</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a>
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setOptions">setOptions</a>(array $options)
-                    <p>Set the object options like <code>property =&gt; value</code></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Set the object options like <code>property =&gt; value</code></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     object
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_build">build</a>(string $name, array $parameters = null, int $flag = self::ERROR_ON_FAILURE, array $logs = array())
-                    <p>Build the object instance following current factory settings</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Build the object instance following current factory settings</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     null|string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_findBuilder">findBuilder</a>(string $name, int $flag = self::ERROR_ON_FAILURE, array $logs = array())
-                    <p>Find the object builder class following current factory settings</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p>Find the object builder class following current factory settings</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_init">
-        <div class="location">at line 188</div>
-        <code>            public            void
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_init">
+        <div class="location">at line 201</div>
+        <code>                    void
     <strong>init</strong>(array $options = null)</code>
     </h3>
     <div class="details">
-        <p>Initialize the factory with an array of options</p>
-        <p>The options must be defined like <code>property =&gt; value</code></p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Initialize the factory with an array of options</p>                    <p>The options must be defined like <code>property =&gt; value</code></p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$options</td>
@@ -168,7 +212,7 @@ call method passing it the parameters.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>void</td>
             <td>
@@ -181,19 +225,20 @@ call method passing it the parameters.</p>
                     </div>
     </div>
 
-                <h3 id="method___call">
-        <div class="location">at line 202</div>
-        <code>            public            <a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___call">
+        <div class="location">at line 215</div>
+        <code>                    <a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a>
     <strong>__call</strong>(string $name, array $arguments)</code>
     </h3>
     <div class="details">
-        <p>Magic method to allow usage of <code>$factory-&gt;propertyInCamelCase()</code> for each class property</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic method to allow usage of <code>$factory-&gt;propertyInCamelCase()</code> for each class property</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -211,7 +256,7 @@ call method passing it the parameters.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a></td>
             <td>
@@ -224,19 +269,20 @@ call method passing it the parameters.</p>
                     </div>
     </div>
 
-                <h3 id="method_setOptions">
-        <div class="location">at line 222</div>
-        <code>            public            <a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a>
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setOptions">
+        <div class="location">at line 235</div>
+        <code>                    <a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a>
     <strong>setOptions</strong>(array $options)</code>
     </h3>
     <div class="details">
-        <p>Set the object options like <code>property =&gt; value</code></p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the object options like <code>property =&gt; value</code></p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$options</td>
@@ -248,7 +294,7 @@ call method passing it the parameters.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td><a href="../Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a></td>
             <td>
@@ -261,19 +307,21 @@ call method passing it the parameters.</p>
                     </div>
     </div>
 
-                <h3 id="method_build">
-        <div class="location">at line 247</div>
-        <code>            public            object
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_build">
+        <div class="location">at line 260</div>
+        <code>                    object
     <strong>build</strong>(string $name, array $parameters = null, int $flag = self::ERROR_ON_FAILURE, array $logs = array())</code>
     </h3>
     <div class="details">
-        <p>Build the object instance following current factory settings</p>
-        <p>Errors are thrown by default but can be "gracefully" skipped using the flag <code>GRACEFULLY_FAILURE</code>.
-In all cases, error messages are loaded in final parameter <code>$logs</code> passed by reference.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build the object instance following current factory settings</p>                    <p>Errors are thrown by default but can be "gracefully" skipped using the flag <code>GRACEFULLY_FAILURE</code>.
+In all cases, error messages are loaded in final parameter <code>$logs</code> passed by reference.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -301,7 +349,7 @@ In all cases, error messages are loaded in final parameter <code>$logs</code> pa
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>object</td>
             <td>
@@ -312,7 +360,7 @@ In all cases, error messages are loaded in final parameter <code>$logs</code> pa
             
                             <h4>Exceptions</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
                 <td>if the class is not found</td>
@@ -331,19 +379,21 @@ In all cases, error messages are loaded in final parameter <code>$logs</code> pa
                     </div>
     </div>
 
-                <h3 id="method_findBuilder">
-        <div class="location">at line 336</div>
-        <code>            public            null|string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_findBuilder">
+        <div class="location">at line 349</div>
+        <code>                    null|string
     <strong>findBuilder</strong>(string $name, int $flag = self::ERROR_ON_FAILURE, array $logs = array())</code>
     </h3>
     <div class="details">
-        <p>Find the object builder class following current factory settings</p>
-        <p>Errors are thrown by default but can be "gracefully" skipped using the flag <code>GRACEFULLY_FAILURE</code>.
-In all cases, error messages are loaded in final parameter <code>$logs</code> passed by reference.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Find the object builder class following current factory settings</p>                    <p>Errors are thrown by default but can be "gracefully" skipped using the flag <code>GRACEFULLY_FAILURE</code>.
+In all cases, error messages are loaded in final parameter <code>$logs</code> passed by reference.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -365,7 +415,7 @@ In all cases, error messages are loaded in final parameter <code>$logs</code> pa
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>null|string</td>
             <td>
@@ -376,7 +426,7 @@ In all cases, error messages are loaded in final parameter <code>$logs</code> pa
             
                             <h4>Exceptions</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
                 <td>if the class is not found</td>
@@ -395,10 +445,17 @@ In all cases, error messages are loaded in final parameter <code>$logs</code> pa
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

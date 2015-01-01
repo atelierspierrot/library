@@ -1,135 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\Helper\Html | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\Helper\Html | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../Library/Helper.html">Library\Helper</a>\Html</h1>
+    <body id="class" data-name="class:Library_Helper_Html" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Library.html">Library</a></li>
+                                        <li><a href="../../Library/Helper.html">Helper</a></li>
+    
+                <li>Html</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Html</h1>
+    </div>
+
+    <p>    class
     <strong>Html</strong></p>
 
             <div class="description">
-            <p>HTML language helper</p>
-            <p>As for all helpers, all methods are statics.</p>
+            <p>HTML language helper</p>            <p>As for all helpers, all methods are statics.</p>
 
 <p>For convenience, the best practice is to use:</p>
 
 <pre><code>use Library\Helper\Html as HtmlHelper;
 </code></pre>
-</p>
-        </div>
+</p>        </div>
+    
     
     
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;bool
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_hasId">hasId</a>(string $reference)
-                    <p>Verify if a reference is already defined in the DOM IDs register</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Verify if a reference is already defined in the DOM IDs register</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getId">getId</a>(string $reference = null, string|bool $base_id = null)
-                    <p>Get a DOM unique ID</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get a DOM unique ID</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getNewId">getNewId</a>(string $reference = null, string|bool $base_id = null)
-                    <p>Create and get a new DOM unique ID</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Create and get a new DOM unique ID</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_setHtmlTagClosure">setHtmlTagClosure</a>(string $closure)
-                    <p>Set the HTML tags closure (<code>/&gt;</code> by default)</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Set the HTML tags closure (<code>/&gt;</code> by default)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_writeHtmlTag">writeHtmlTag</a>(string $tag_name, string $content = &#039;&#039;, array $attrs = array(), bool $intag_close = false)
-                    <p>Build an HTML string for a specific tag with attributes</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Build an HTML string for a specific tag with attributes</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_parseAttributes">parseAttributes</a>(array $attrs = array())
-                    <p>Build an attributes HTML string from an array like <code>variable =&gt; value</code> pairs</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Build an attributes HTML string from an array like <code>variable =&gt; value</code> pairs</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     static&nbsp;string
-                </td>
-                <td class="last">
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_javascriptProtect">javascriptProtect</a>(string $str = &#039;&#039;, bool $protect_quotes = false)
-                    <p>Build an HTML string to use in javascripts attributes or functions</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p>Build an HTML string to use in javascripts attributes or functions</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_hasId">
-        <div class="location">at line 41</div>
-        <code>        static    public            bool
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_hasId">
+        <div class="location">at line 54</div>
+        <code>        static            bool
     <strong>hasId</strong>(string $reference)</code>
     </h3>
     <div class="details">
-        <p>Verify if a reference is already defined in the DOM IDs register</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Verify if a reference is already defined in the DOM IDs register</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$reference</td>
@@ -140,7 +182,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>bool</td>
             <td>True if the reference exists in the register, false otherwise</td>
@@ -152,19 +194,20 @@
                     </div>
     </div>
 
-                <h3 id="method_getId">
-        <div class="location">at line 53</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getId">
+        <div class="location">at line 66</div>
+        <code>        static            string
     <strong>getId</strong>(string $reference = null, string|bool $base_id = null)</code>
     </h3>
     <div class="details">
-        <p>Get a DOM unique ID</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get a DOM unique ID</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$reference</td>
@@ -180,7 +223,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The unique ID created or the existing one for the reference if so</td>
@@ -192,19 +235,20 @@
                     </div>
     </div>
 
-                <h3 id="method_getNewId">
-        <div class="location">at line 71</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getNewId">
+        <div class="location">at line 84</div>
+        <code>        static            string
     <strong>getNewId</strong>(string $reference = null, string|bool $base_id = null)</code>
     </h3>
     <div class="details">
-        <p>Create and get a new DOM unique ID</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Create and get a new DOM unique ID</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$reference</td>
@@ -220,7 +264,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The unique ID created</td>
@@ -232,19 +276,20 @@
                     </div>
     </div>
 
-                <h3 id="method_setHtmlTagClosure">
-        <div class="location">at line 105</div>
-        <code>        static    public            
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setHtmlTagClosure">
+        <div class="location">at line 118</div>
+        <code>        static            
     <strong>setHtmlTagClosure</strong>(string $closure)</code>
     </h3>
     <div class="details">
-        <p>Set the HTML tags closure (<code>/&gt;</code> by default)</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the HTML tags closure (<code>/&gt;</code> by default)</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$closure</td>
@@ -258,19 +303,20 @@
                     </div>
     </div>
 
-                <h3 id="method_writeHtmlTag">
-        <div class="location">at line 119</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeHtmlTag">
+        <div class="location">at line 132</div>
+        <code>        static            string
     <strong>writeHtmlTag</strong>(string $tag_name, string $content = &#039;&#039;, array $attrs = array(), bool $intag_close = false)</code>
     </h3>
     <div class="details">
-        <p>Build an HTML string for a specific tag with attributes</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build an HTML string for a specific tag with attributes</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$tag_name</td>
@@ -296,7 +342,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The HTML string for the tag</td>
@@ -308,19 +354,20 @@
                     </div>
     </div>
 
-                <h3 id="method_parseAttributes">
-        <div class="location">at line 136</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_parseAttributes">
+        <div class="location">at line 149</div>
+        <code>        static            string
     <strong>parseAttributes</strong>(array $attrs = array())</code>
     </h3>
     <div class="details">
-        <p>Build an attributes HTML string from an array like <code>variable =&gt; value</code> pairs</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build an attributes HTML string from an array like <code>variable =&gt; value</code> pairs</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$attrs</td>
@@ -331,7 +378,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The attributes string ready for HTML insertion</td>
@@ -343,19 +390,20 @@
                     </div>
     </div>
 
-                <h3 id="method_javascriptProtect">
-        <div class="location">at line 152</div>
-        <code>        static    public            string
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_javascriptProtect">
+        <div class="location">at line 165</div>
+        <code>        static            string
     <strong>javascriptProtect</strong>(string $str = &#039;&#039;, bool $protect_quotes = false)</code>
     </h3>
     <div class="details">
-        <p>Build an HTML string to use in javascripts attributes or functions</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build an HTML string to use in javascripts attributes or functions</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$str</td>
@@ -371,7 +419,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
             <td>string</td>
             <td>The HTML string ready for javascript insertion</td>
@@ -383,10 +431,17 @@
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>
