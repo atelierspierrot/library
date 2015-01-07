@@ -295,8 +295,10 @@ class Response
     public function download($file = null, $type = null, $file_name = null) 
     {
         if (!empty($file) && @file_exists($file)) {
-            if (is_null($file_name)) 
-              $file_name = end( explode('/', $file) );
+            if (is_null($file_name)) {
+                $file_name_parts = explode('/', $file);
+                $file_name = end( $file_name_parts );
+            }
             $this->addHeader('Content-disposition', 'attachment; filename='.$file_name);
             $this->addHeader('Content-Type', 'application/force-download');
             $this->addHeader('Content-Transfer-Encoding', $type);
