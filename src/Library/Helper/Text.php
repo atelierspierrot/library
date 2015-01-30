@@ -65,6 +65,18 @@ class Text
         return $stringcut;
     }
 
+    public static function wrap($str, $line_length = 75, $separator = PHP_EOL)
+    {
+        $parts = explode("\n", $str);
+        $lines = array();
+        if ($parts && count($parts)>0) {
+            foreach ($parts as $part) {
+                $lines[] = wordwrap($part, $line_length);
+            }
+        }
+        return implode($separator, $lines);
+    }
+
     /**
      * Strip all special characters in a string
      *
