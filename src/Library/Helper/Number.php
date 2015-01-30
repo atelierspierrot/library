@@ -70,9 +70,13 @@ class Number
         if (
             ($val<=1) ||
             ($val>2 && ($val%2)===0)
-        ) return false;
+        ) {
+            return false;
+        }
         for ($i=2;$i<$val;$i++) {
-            if (($val%$i)===0) return false;
+            if (($val%$i)===0) {
+                return false;
+            }
         }
         return true;
     }
@@ -103,9 +107,13 @@ class Number
      */
     public static function getFibonacciItem($val)
     {
-        if ($val==0) return 0;
-        elseif ($val==1) return 1;
-        elseif ($val>1) return (self::getFibonacciItem($val-1) + self::getFibonacciItem($val-2));
+        if ($val==0) {
+            return 0;
+        } elseif ($val==1) {
+            return 1;
+        } elseif ($val>1) {
+            return (self::getFibonacciItem($val-1) + self::getFibonacciItem($val-2));
+        }
         return null;
     }
 
@@ -146,7 +154,7 @@ class Number
     public static function isLuhn($val)
     {
         $_num = substr($val, 0, strlen($val)-1);
-        return (intval($val) == intval($_num.self::getLuhnKey($_num)));
+        return (bool) (intval($val) == intval($_num.self::getLuhnKey($_num)));
     }
 
     /**
@@ -192,10 +200,10 @@ class Number
      * A sequence of n > 0 integers where the absolute values of the
      * differences between successive elements take on all possible values 1 through n - 1.
      *
-     * @param array $a
+     * @param array $items
      * @return bool
      */
-    public static function isJollyJumperSeries(array $a)
+    public static function isJollyJumperSeries(array $items)
     {
         if (count($items)==1) {
             return true;

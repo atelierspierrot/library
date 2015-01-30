@@ -44,10 +44,10 @@ class ConditionalComment
      * @static array
      */
     public static $condition_shortcuts = array(
-        '<=' => 'lte',
-        '>=' => 'gte',
-        '<' => 'lt',
-        '>' => 'gt',
+        '<='    => 'lte',
+        '>='    => 'gte',
+        '<'     => 'lt',
+        '>'     => 'gt',
     );
 
     /**
@@ -55,9 +55,9 @@ class ConditionalComment
      * @static array
      */
     public static $operator_shortcuts = array(
-        'OR'=> '|',
-        'AND'=> '&',
-        'NOT'=> '!',
+        'OR'    => '|',
+        'AND'   => '&',
+        'NOT'   => '!',
     );
 
     /**
@@ -87,7 +87,9 @@ class ConditionalComment
      */
     public static function buildCondition($content, $condition = 'if IE', $operator = 'OR', $global = false)
     {
-        if (empty($condition)) return $content;
+        if (empty($condition)) {
+            return $content;
+        }
         $condition_str = '';
         if (is_array($condition)) {
             $count=0;
@@ -117,7 +119,9 @@ class ConditionalComment
      */
     public static function writeCondition($content, $condition = null, $global = false)
     {
-        if (empty($condition)) return $content;
+        if (empty($condition)) {
+            return $content;
+        }
         return '<!--[' . $condition . ']>'
             . ($global ? '<!-->' : '')
             . ' ' . $content . ' '

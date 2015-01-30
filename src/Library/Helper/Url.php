@@ -102,7 +102,9 @@ class Url
      */
     public static function parse($url)
     {
-        if (!strlen($url)) return;
+        if (!strlen($url)) {
+            return;
+        }
         $_urls = array_merge( @parse_url($url), array('params'=>array()) );
         if (isset($_urls['query'])) {
             parse_str($_urls['query'], $_urls['params']);
@@ -129,9 +131,10 @@ class Url
             $url = str_replace($regs[0], '/', $url);
         }
         $url = '/'.preg_replace(',^/,S', '', $url);
-        if ($realpath && $ok = @realpath($url) )
+        if ($realpath && $ok = @realpath($url) ) {
             return $ok;
-        return $url;        
+        }
+        return $url;
     }
 
     /**
@@ -145,7 +148,9 @@ class Url
     public static function resolveHttp($url)
     {
         $url = preg_replace(',^feed://,i', 'http://', $url);
-        if (!preg_match(',^[a-z]+://,i', $url)) $url = 'http://'.$url;
+        if (!preg_match(',^[a-z]+://,i', $url)) {
+            $url = 'http://'.$url;
+        }
         return $url;
     }
 
@@ -157,10 +162,12 @@ class Url
      */
     public static function getAbsoluteUrl($url)
     {
-        if (self::isUrl($url)) return $url;
-        $url = self::resolvePath($url);
-        $current_url = self::getRequestUrl(true, true);
-        $curr = substr($current_url, 0, strrpos($current_url, '/') );
+        if (self::isUrl($url)) {
+            return $url;
+        }
+        $url            = self::resolvePath($url);
+        $current_url    = self::getRequestUrl(true, true);
+        $curr           = substr($current_url, 0, strrpos($current_url, '/') );
         return $curr.$url;
     }
 
@@ -205,8 +212,9 @@ class Url
      */
     public static function getParameter($param = false, $url = false)
     {
-        if (!$url || !strlen($url))
+        if (!$url || !strlen($url)) {
             $url = self::getRequestUrl();
+        }
 
         $parsed_url = self::parse($url);
         $params = (isset($parsed_url['params']) && count($parsed_url['params'])) 
@@ -240,7 +248,9 @@ class Url
             $url = self::parse($_url);
         }
         $url['params'][$var] = $val;
-        if ($rebuild) return self::build($url);
+        if ($rebuild) {
+            return self::build($url);
+        }
         return $url;
     }
 
@@ -254,7 +264,9 @@ class Url
      */
     public static function build(array $url_components = null, $not_toput = null)
     {
-        if (!is_array($url_components)) return;
+        if (!is_array($url_components)) {
+            return;
+        }
 
         $_ntp = $not_toput ? (is_array($not_toput) ? $not_toput : array($not_toput)) : array();
 
@@ -276,7 +288,7 @@ class Url
     }
 
     /**
-     * Validate an URL
+     * Validate an URL (without a hash content)
      *
      * @param   string      $url The string to validate
      * @param   array       $protocols Table of Internet protocols to verify (by default : 'http', 'https', 'ftp')
@@ -285,12 +297,18 @@ class Url
      */
     public static function isUrl($url = null, $protocols = array('http','https','ftp'), $localhost = false)
     { 
-        if (is_null($url) || !$url || !is_string($url)) return false;
-        if ($localhost) {
-            if (!is_string($localhost)) $localhost = 'localhost';
-            if (substr_count($url, $localhost)) return true;
+        if (is_null($url) || !$url || !is_string($url)) {
+            return false;
         }
-        return (bool) preg_match("/^[".join('|', $protocols)."]+[:\/\/]+[A-Za-z0-9\-_]+(\\.)?+[A-Za-z0-9\.\/%&=\?\-_]+$/i", $url); 
+        if ($localhost) {
+            if (!is_string($localhost)) {
+                $localhost = 'localhost';
+            }
+            if (substr_count($url, $localhost)) {
+                return true;
+            }
+        }
+        return (bool) (preg_match("/^[".join('|', $protocols)."]+[:\/\/]+[A-Za-z0-9\-_]+(\\.)?+[A-Za-z0-9\.\/%&=\?\-_]+$/i", $url) > 0);
     }
     
     /**
@@ -301,8 +319,10 @@ class Url
      */
     public static function isEmail($email = null)
     {
-        if (is_null($email) || !$email || !is_string($email)) return false;
-        return (bool) preg_match('/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/', $email);
+        if (is_null($email) || !$email || !is_string($email)) {
+            return false;
+        }
+        return (bool) (preg_match('/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/', $email) > 0);
     }
 
 }

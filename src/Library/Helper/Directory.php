@@ -40,12 +40,12 @@ class Directory
     /**
      * @var int
      */
-    const DEFAULT_UNIX_CHMOD_DIRECTORIES = 755;
+    const DEFAULT_UNIX_CHMOD_DIRECTORIES    = 755;
 
     /**
      * @var int
      */
-    const DEFAULT_UNIX_CHMOD_FILES = 644;
+    const DEFAULT_UNIX_CHMOD_FILES          = 644;
 
     /**
      * Get a dirname with one and only trailing slash
@@ -55,7 +55,9 @@ class Directory
      */
     public static function slashDirname($dirname = null)
     {
-        if (is_null($dirname) || empty($dirname)) return '';
+        if (is_null($dirname) || empty($dirname)) {
+            return '';
+        }
         return rtrim($dirname, '/ '.DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
     }
 
@@ -67,9 +69,11 @@ class Directory
      */
     public static function isGitClone($path = null)
     {
-        if (is_null($path) || empty($path)) return false;
+        if (is_null($path) || empty($path)) {
+            return false;
+        }
         $dir_path = self::slashDirname($path).'.git';
-        return file_exists($dir_path) && is_dir($dir_path);
+        return (bool) (file_exists($dir_path) && is_dir($dir_path));
     }
 
     /**
@@ -80,8 +84,10 @@ class Directory
      */
     public static function isDotPath($path = null)
     {
-        if (is_null($path) || empty($path)) return false;
-        return '.'===substr(basename($path), 0, 1);
+        if (is_null($path) || empty($path)) {
+            return false;
+        }
+        return (bool) ('.' === substr(basename($path), 0, 1));
     }
 
 // ------------------------
@@ -98,7 +104,9 @@ class Directory
      */
     public static function ensureExists($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
     {
-        if (file_exists($path) && is_dir($path)) return true;
+        if (file_exists($path) && is_dir($path)) {
+            return true;
+        }
         return self::create($path, $mode, $recursive);
     }
 
@@ -177,11 +185,11 @@ class Directory
                     return false;
                 }
                 if ($item->isDir()) {
-                    if (false===$ok = self::remove($_path, $logs)) {
+                    if (false===($ok = self::remove($_path, $logs))) {
                         $logs[$_path] = sprintf('Can not remove diretory "%s".', $_path);
                     }
                 } else {
-                    if (false===$ok = File::remove($_path, $logs)) {
+                    if (false===($ok = File::remove($_path, $logs))) {
                         $logs[$_path] = sprintf('Can not unlink file "%s".', $_path);
                     }
                 }
@@ -210,7 +218,7 @@ class Directory
     ){
         $ok = false;
         if (file_exists($path) && is_dir($path)) {
-            if (true!==$ok = chmod($path, Filesystem::getOctal($mode))) {
+            if (true!==($ok = chmod($path, Filesystem::getOctal($mode)))) {
                 $logs[] = sprintf('Can not change mode on directory "%s" (trying to set them on "%d").', $path, $mode);
             }
             if ($ok && true===$recursive) {
@@ -223,7 +231,7 @@ class Directory
                         continue;
                     }
                     if ($item->isDir()) {
-                        if (true!==$ok = chmod($item, Filesystem::getOctal($mode))) {
+                        if (true!==($ok = chmod($item, Filesystem::getOctal($mode)))) {
                             $logs[] = sprintf('Can not change mode on sub-directory "%s" (trying to set them on "%d").', $item, $mode);
                         }
                     } elseif ($item->isFile() && !$item->isLink()) {
