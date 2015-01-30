@@ -78,7 +78,7 @@ class Code
         }
         if (class_exists($class_name)) {
             $interfaces = class_implements($class_name);
-            return in_array($interface_name, $interfaces) || in_array(trim($interface_name, '\\'), $interfaces);
+            return (bool) in_array($interface_name, $interfaces) || in_array(trim($interface_name, '\\'), $interfaces);
         }
         return false;
     }
@@ -97,7 +97,7 @@ class Code
             $class_name = get_class($class_name);
         }
         if (class_exists($class_name)) {
-            return is_subclass_of($class_name, $mother_name);
+            return (bool) is_subclass_of($class_name, $mother_name);
         }
         return false;
     }
@@ -113,7 +113,7 @@ class Code
     public static function isClassInstance($object, $class_name)
     {
         if (class_exists($class_name) && is_object($object)) {
-            return ($object instanceof $class_name);
+            return (bool) ($object instanceof $class_name);
         }
         return false;
     }
@@ -121,12 +121,12 @@ class Code
     /**
      * @var string
      */
-    const NAMESPACE_SEPARATOR = '\\';
+    const NAMESPACE_SEPARATOR                   = '\\';
 
     /**
      * @var string
      */
-    const COMPOSER_AUTOLOADER_CLASSNAME = '\Composer\Autoload\ClassLoader';
+    const COMPOSER_AUTOLOADER_CLASSNAME         = '\Composer\Autoload\ClassLoader';
 
     /**
      * @var string
@@ -244,7 +244,9 @@ class Code
      */
     public static function organizeArguments($method_name = null, $arguments = null, $class_name = null, &$logs = array())
     {
-        if (empty($method_name)) return;
+        if (empty($method_name)) {
+            return;
+        }
         $args_passed = $arguments;
         $args_def = array();
         if (!empty($args_passed)) {

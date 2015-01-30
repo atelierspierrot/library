@@ -44,7 +44,7 @@ class Request
      */
     public static function isCli() 
     {
-        return (php_sapi_name() == 'cli');
+        return (bool) (php_sapi_name() == 'cli');
     }
 
     /**
@@ -54,7 +54,7 @@ class Request
      */
     public static function isAjax()
     {
-        return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+        return (bool) (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
             (strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'));
     }
     

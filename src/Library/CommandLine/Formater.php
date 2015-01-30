@@ -40,75 +40,102 @@ class Formater
     var $messages           = array();
 
     /**
-     * Tabulation and new line aliases
+     * Tabulation alias
      */
     static $tab             = '    ';
+
+    /**
+     * New line alias
+     */
     static $nl              = PHP_EOL;
 
+    /**
+     * @var bool
+     */
     private $fetched        = false;
+
+    /**
+     * @var null|string
+     */
     private $user_response  = null;
-    protected $foreground_color;
-    protected $background_color;
+
+    /**
+     * @var array
+     */
     protected $text_options = array();
+
+    /**
+     * @var bool
+     */
     protected $autospaced   = false;
+
+    /**
+     * @var string
+     */
+    protected $foreground_color;
+
+    /**
+     * @var string
+     */
+    protected $background_color;
 
     /**
      * The display options
      */
     protected $options = array(
-        'info_options'=>array(
-            'foreground'=>'white',
-            'background'=>'blue',
+        'info_options' => array(
+            'foreground'    => 'white',
+            'background'    => 'blue',
         ),
-        'comment_options'=>array(
-            'foreground'=>'black',
-            'background'=>'yellow',
+        'comment_options' => array(
+            'foreground'    => 'black',
+            'background'    => 'yellow',
         ),
-        'ok_options'=>array(
-            'background'=>'blue',
-            'text_options'=>'bold',
+        'ok_options' => array(
+            'background'    => 'blue',
+            'text_options'  => 'bold',
         ),
-        'error_options'=>array(
-            'foreground'=>'white',
-            'background'=>'red',
-            'text_options'=>'bold',
+        'error_options' => array(
+            'foreground'    => 'white',
+            'background'    => 'red',
+            'text_options'  => 'bold',
         ),
-        'error_str_options'=>array(
-            'foreground'=>'red',
-            'text_options'=>'bold',
+        'error_str_options' => array(
+            'foreground'    => 'red',
+            'text_options'  => 'bold',
         ),
-        'highlight_options'=>array(
-            'background'=>'yellow',
-            'autospaced'=>false
+        'highlight_options' => array(
+            'background'    => 'yellow',
+            'autospaced'    => false
         ),
-        'prompt_options'=>array(
-            'foreground'=>'cyan',
-            'text_options'=>'bold',
-            'autospaced'=>false
+        'prompt_options' => array(
+            'foreground'    => 'cyan',
+            'text_options'  => 'bold',
+            'autospaced'    => false
         ),
-        'prompt_default_options'=>array(
-            'foreground'=>'yellow',
-            'text_options'=>'bold',
-            'autospaced'=>false
+        'prompt_default_options' => array(
+            'foreground'    => 'yellow',
+            'text_options'  => 'bold',
+            'autospaced'    => false
         ),
-        'bold_options'=>array(
-            'text_options'=>'bold',
-            'autospaced'=>false
+        'bold_options' => array(
+            'text_options'  => 'bold',
+            'autospaced'    => false
         ),
-        'list_title_options'=>array(
-            'foreground'=>'green',
-            'text_options'=>'bold',
-            'autospaced'=>false
+        'list_title_options' => array(
+            'foreground'    => 'green',
+            'text_options'  => 'bold',
+            'autospaced'    => false
         ),
-        'option_options'=>array(
-            'foreground'=>'cyan',
-            'text_options'=>'bold',
-            'autospaced'=>false
+        'option_options' => array(
+            'foreground'    => 'cyan',
+            'text_options'  => 'bold',
+            'autospaced'    => false
         ),
-        'var_options'=>array(
-            'foreground'=>'yellow',
-            'text_options'=>'bold',
-            'autospaced'=>false
+        'var_options' => array(
+            'foreground'    => 'yellow',
+            'text_options'  => 'bold',
+            'autospaced'    => false
         ),
         'foreground_colors' => array(
             'black'     => 30,

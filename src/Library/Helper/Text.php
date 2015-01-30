@@ -47,7 +47,9 @@ class Text
      */
     public static function cut($string = '', $length = 120, $end_str = ' ...')
     {
-        if (empty($string)) return '';
+        if (empty($string)) {
+            return '';
+        }
         if (strlen($string) >= $length) {
             $stringint = substr($string, 0, $length);
             $last_space = strrpos($stringint, " ");
