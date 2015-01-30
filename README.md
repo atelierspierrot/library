@@ -1,6 +1,7 @@
 PHP Library
 ===========
 
+[![Build Status](https://travis-ci.org/atelierspierrot/library.svg?branch=master)](https://travis-ci.org/atelierspierrot/library)
 The PHP library package of Les Ateliers Pierrot
 
 
