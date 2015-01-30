@@ -1,83 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="robots" content="index, follow, all" />
-    <title>Library\Object\RegistryInvokable | Library</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Object\RegistryInvokable | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../traits.html">Traits</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
 
-            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
-    
-    
-    </head>
+        <div id="title">Library</div>
 
-    <body id="class" data-name="class:Library_Object_RegistryInvokable" data-root-path="../../">
-            <div id="content">
-        <div id="left-column">
-                <div id="control-panel">
-                <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
-            <input name="search"
-                   class="typeahead form-control"
-                   type="search"
-                   placeholder="Search">
-        </form>
+            <div class="type">Class</div>
+    <h1><a href="../../Library/Object.html">Library\Object</a>\RegistryInvokable</h1>
     </div>
-
-                <div id="api-tree"></div>
-
-        </div>
-        <div id="right-column">
-                <nav id="site-nav" class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../../index.html">Library</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-elements">
-                <ul class="nav navbar-nav">
-                    <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
-                    <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-                        <div class="namespace-breadcrumbs">
-            <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
-                                                            <li><a href="../../Library.html">Library</a></li>
-                                        <li><a href="../../Library/Object.html">Object</a></li>
-    
-                <li>RegistryInvokable</li>
-            </ol>
-        </div>
-                <div id="page-content">
-                
-    <div class="page-header">
-        <h1>RegistryInvokable</h1>
-    </div>
-
-    <p>    class
+        <div class="content">
+                <p>    class
     <strong>RegistryInvokable</strong>        implements
         <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a></p>
 
             <div class="description">
-            <p>Magic handling of properties access</p>            <p><h2>Presentation</h2>
+            <p>Magic handling of properties access</p>
+            <p><h2>Presentation</h2>
 
 <p>This model will store any property dynamically set in the <code>$_data</code> registry:</p>
 
@@ -117,12 +69,12 @@ to override these methods in your child class if necessary, without worrying abo
 
 <h2>Rules</h2>
 
-<p>All setter methods returns the object itself for chainability.</p>        </div>
-    
+<p>All setter methods returns the object itself for chainability.</p>
+        </div>
     
             <h2>Constants</h2>
 
-            <table class="table table-condensed">
+            <table>
                     <tr>
                 <td>PUBLIC_PROPERTIES</td>
                 <td class="last">
@@ -153,125 +105,135 @@ to override these methods in your child class if necessary, without worrying abo
     
             <h2>Methods</h2>
 
-            <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-2 type">
+            <table>
+                    <tr>
+                <td class="type">
                     
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method___construct">__construct</a>(array $data = null, int $flag = self::PROTECTED_PROPERTIES)
-                                            <p>Object constructor</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Object constructor</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setFlag">setFlag</a>(int $flag)
-                                            <p>Set the object flag for registry properties visibility</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Set the object flag for registry properties visibility</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     int
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getFlag">getFlag</a>()
-                                            <p>Get the object flag for registry properties visibility</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Get the object flag for registry properties visibility</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     mixed
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method___call">__call</a>(string $name, array $arguments)
-                                            <p>Magic handler when calling a non-existing method on an object</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Magic handler when calling a non-existing method on an object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method___callStatic">__callStatic</a>(string $name, array $arguments)
-                                            <p>Avoiding magic static handler</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Avoiding magic static handler</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     mixed
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method___get">__get</a>(string $name)
-                                            <p>Magic getter</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Magic getter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method___set">__set</a>(string $name, mixed $value)
-                                            <p>Magic setter</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Magic setter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method___isset">__isset</a>(string $name)
-                                            <p>Magic checker</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Magic checker</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method___unset">__unset</a>(string $name)
-                                            <p>Magic unsetter</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Magic unsetter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     mixed
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getData">getData</a>(string $name = null, mixed $default = null)
-                                            <p>Global getter</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Global getter</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     mixed
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setData">setData</a>($value, $arg2 = null)
-                                            <p>Global setter</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-            </div>
+                    <p>Global setter</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
 
 
         <h2>Details</h2>
 
-            <div id="method-details">
-                    <div class="method-item">
-                    <h3 id="method___construct">
-        <div class="location">at line 114</div>
-        <code>                    
+                        <h3 id="method___construct">
+        <div class="location">at line 115</div>
+        <code>            public            
     <strong>__construct</strong>(array $data = null, int $flag = self::PROTECTED_PROPERTIES)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Object constructor</p>                                </div>
-                <div class="tags">
+        <p>Object constructor</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>array</td>
                 <td>$data</td>
@@ -290,20 +252,19 @@ to override these methods in your child class if necessary, without worrying abo
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setFlag">
-        <div class="location">at line 129</div>
-        <code>                    <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+                <h3 id="method_setFlag">
+        <div class="location">at line 130</div>
+        <code>            public            <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
     <strong>setFlag</strong>(int $flag)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Set the object flag for registry properties visibility</p>                                </div>
-                <div class="tags">
+        <p>Set the object flag for registry properties visibility</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>int</td>
                 <td>$flag</td>
@@ -314,7 +275,7 @@ to override these methods in your child class if necessary, without worrying abo
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
             <td>
@@ -327,21 +288,20 @@ to override these methods in your child class if necessary, without worrying abo
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getFlag">
-        <div class="location">at line 140</div>
-        <code>                    int
+                <h3 id="method_getFlag">
+        <div class="location">at line 141</div>
+        <code>            public            int
     <strong>getFlag</strong>()</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Get the object flag for registry properties visibility</p>                                </div>
-                <div class="tags">
+        <p>Get the object flag for registry properties visibility</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>int</td>
             <td>The object flag value</td>
@@ -353,22 +313,20 @@ to override these methods in your child class if necessary, without worrying abo
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___call">
-        <div class="location">at line 161</div>
-        <code>                    mixed
+                <h3 id="method___call">
+        <div class="location">at line 162</div>
+        <code>            public            mixed
     <strong>__call</strong>(string $name, array $arguments)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Magic handler when calling a non-existing method on an object</p>                    <p>Magic method handling <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code>.</p>
+        <p>Magic handler when calling a non-existing method on an object</p>
+        <p>Magic method handling <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code>.</p>
 
-<p>Warning: the <code>reset</code> function here is the same as <code>unset</code> (not a real resetting to the original value).</p>            </div>
-                <div class="tags">
+<p>Warning: the <code>reset</code> function here is the same as <code>unset</code> (not a real resetting to the original value).</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -384,7 +342,7 @@ to override these methods in your child class if necessary, without worrying abo
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed</td>
             <td>This will return the result of a magic method, or nothing if nothing can be done</td>
@@ -395,7 +353,7 @@ to override these methods in your child class if necessary, without worrying abo
             
                             <h4>See also</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -417,20 +375,19 @@ to override these methods in your child class if necessary, without worrying abo
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___callStatic">
-        <div class="location">at line 200</div>
-        <code>        static            null
+                <h3 id="method___callStatic">
+        <div class="location">at line 201</div>
+        <code>        static    public            null
     <strong>__callStatic</strong>(string $name, array $arguments)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Avoiding magic static handler</p>                                </div>
-                <div class="tags">
+        <p>Avoiding magic static handler</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -446,7 +403,7 @@ to override these methods in your child class if necessary, without worrying abo
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>null</td>
             <td>Must return the result of a magic method, or nothing if nothing can be done</td>
@@ -458,22 +415,20 @@ to override these methods in your child class if necessary, without worrying abo
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___get">
-        <div class="location">at line 220</div>
-        <code>                    mixed
+                <h3 id="method___get">
+        <div class="location">at line 221</div>
+        <code>            public            mixed
     <strong>__get</strong>(string $name)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Magic getter</p>                    <p>Magic method called when <code>getProp(arg, default)</code> or <code>$this-&gt;prop</code> are invoked. If the object
+        <p>Magic getter</p>
+        <p>Magic method called when <code>getProp(arg, default)</code> or <code>$this-&gt;prop</code> are invoked. If the object
 flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; if the flag is set on
-<code>self::UNAUTHORIZED_PROPERTIES</code>, an exception is thrown.</p>            </div>
-                <div class="tags">
+<code>self::UNAUTHORIZED_PROPERTIES</code>, an exception is thrown.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -484,7 +439,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed</td>
             <td>This will return the result of a magic method, or nothing if nothing can be done</td>
@@ -494,18 +449,17 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>Exceptions</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
-                <td><a href="../../Library/Object/InvokableAccessException.html"><abbr title="Library\Object\InvokableAccessException">InvokableAccessException</abbr></a></td>
-                <td>Throws an <code>InvokableAccessException</code> if direct access to properties is avoid by the
-             <code>self::UNAUTHORIZED_PROPERTIES</code> flag</td>
+                <td><abbr title="InvokableAccessException">InvokableAccessException</abbr></td>
+                <td>Throws an <code>InvokableAccessException</code> if direct access to properties is avoid by the <code>self::UNAUTHORIZED_PROPERTIES</code> flag</td>
             </tr>
             </table>
 
             
                             <h4>See also</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -519,20 +473,18 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___set">
-        <div class="location">at line 243</div>
-        <code>                    <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+                <h3 id="method___set">
+        <div class="location">at line 244</div>
+        <code>            public            <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
     <strong>__set</strong>(string $name, mixed $value)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Magic setter</p>                    <p>Magic method called when <code>setProp(arg, value)</code> or <code>$this-&gt;arg = value</code> are invoked.</p>            </div>
-                <div class="tags">
+        <p>Magic setter</p>
+        <p>Magic method called when <code>setProp(arg, value)</code> or <code>$this-&gt;arg = value</code> are invoked.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -548,7 +500,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
             <td>Returns <code>$this</code> for method chaining</td>
@@ -559,7 +511,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>See also</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -573,20 +525,18 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___isset">
-        <div class="location">at line 260</div>
-        <code>                    bool
+                <h3 id="method___isset">
+        <div class="location">at line 261</div>
+        <code>            public            bool
     <strong>__isset</strong>(string $name)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Magic checker</p>                    <p>Magic method called when <code>issetProp()</code>, <code>isset($this-&gt;prop)</code> or <code>empty($this-&gt;prop)</code> are invoked.</p>            </div>
-                <div class="tags">
+        <p>Magic checker</p>
+        <p>Magic method called when <code>issetProp()</code>, <code>isset($this-&gt;prop)</code> or <code>empty($this-&gt;prop)</code> are invoked.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -597,7 +547,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>This will return <code>true</code> if the property exists, <code>false</code> otherwise</td>
@@ -608,7 +558,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>See also</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -622,20 +572,18 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___unset">
-        <div class="location">at line 276</div>
-        <code>                    <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
+                <h3 id="method___unset">
+        <div class="location">at line 277</div>
+        <code>            public            <a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a>
     <strong>__unset</strong>(string $name)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Magic unsetter</p>                    <p>Magic method called when <code>unsetProp()</code> or <code>unset($this-&gt;prop)</code> are invoked.</p>            </div>
-                <div class="tags">
+        <p>Magic unsetter</p>
+        <p>Magic method called when <code>unsetProp()</code> or <code>unset($this-&gt;prop)</code> are invoked.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -646,7 +594,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/Object/RegistryInvokable.html"><abbr title="Library\Object\RegistryInvokable">RegistryInvokable</abbr></a></td>
             <td>Returns <code>$this</code> for method chaining</td>
@@ -657,7 +605,7 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>See also</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -671,20 +619,18 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getData">
-        <div class="location">at line 292</div>
-        <code>                    mixed
+                <h3 id="method_getData">
+        <div class="location">at line 293</div>
+        <code>            public            mixed
     <strong>getData</strong>(string $name = null, mixed $default = null)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Global getter</p>                    <p>Get the value of a registry property or the whole registry array.</p>            </div>
-                <div class="tags">
+        <p>Global getter</p>
+        <p>Get the value of a registry property or the whole registry array.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -700,11 +646,10 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed</td>
-            <td>The value of the property if so, the default value if the property doesn't exist, or
-             the flobal data array without a property name</td>
+            <td>The value of the property if so, the default value if the property doesn't exist, or the flobal data array without a property name</td>
         </tr>
     </table>
 
@@ -713,20 +658,18 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setData">
-        <div class="location">at line 313</div>
-        <code>                    mixed
+                <h3 id="method_setData">
+        <div class="location">at line 314</div>
+        <code>            public            mixed
     <strong>setData</strong>($value, $arg2 = null)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Global setter</p>                    <p>Set the value of a registry property or the whole registry array.</p>            </div>
-                <div class="tags">
+        <p>Global setter</p>
+        <p>Set the value of a registry property or the whole registry array.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td></td>
                 <td>$value</td>
@@ -744,18 +687,17 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed</td>
-            <td>The value of the property if so, the default value if the property doesn't exist, or
-             the flobal data array without a property name</td>
+            <td>The value of the property if so, the default value if the property doesn't exist, or the flobal data array without a property name</td>
         </tr>
     </table>
 
             
                             <h4>Exceptions</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td><abbr title="InvalidArgumentExcpetion">InvalidArgumentExcpetion</abbr></td>
                 <td>Throws an InvalidArgumentExcpetion if <code>$name</code> is null and <code>$value</code> is not an array</td>
@@ -766,17 +708,10 @@ flag is set on <code>self::PROTECTED_PROPERTIES</code>, this will return null ; 
                     </div>
     </div>
 
-            </div>
-            </div>
-
     
             </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
     </div>
     </body>
-
 </html>

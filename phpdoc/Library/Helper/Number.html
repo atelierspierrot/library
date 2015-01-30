@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Helper\Number | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../traits.html">Traits</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Library/Helper.html">Library\Helper</a>\Number</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>Number</strong></p>
+
+            <div class="description">
+            <p>Number helper</p>
+            <p>As for all helpers, all methods are statics.</p>
+
+<p>For convenience, the best practice is to use:</p>
+
+<pre><code>use Library\Helper\Number as NumberHelper;
+</code></pre>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isOdd">isOdd</a>(int $val)
+                    <p>Test if an integer is an "odd number"</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isEven">isEven</a>(int $val)
+                    <p>Test if an integer is an "even number"</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isPrime">isPrime</a>(int $val)
+                    <p>Test if an integer is a "prime number"</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isPrimordial">isPrimordial</a>(int $val)
+                    <p>Test if an integer is a "primordial number"</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;int
+                </td>
+                <td class="last">
+                    <a href="#method_getFibonacciItem">getFibonacciItem</a>(int $val)
+                    <p>Get the <code>$val</code> element of the Fibonacci suite</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;int
+                </td>
+                <td class="last">
+                    <a href="#method_getLuhnKey">getLuhnKey</a>(int $val)
+                    <p>Luhn formula</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isLuhn">isLuhn</a>(int $val)
+                    <p>Check id last number in a suite is a Luhn key</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;int
+                </td>
+                <td class="last">
+                    <a href="#method_getSumOfDigits">getSumOfDigits</a>(<abbr title="Library\Helper\$a">$a</abbr> $a)
+                    <p>Calculate the sum of the digits of a number (its absolute entire value)</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isSelfDescribing">isSelfDescribing</a>(<abbr title="Library\Helper\$a">$a</abbr> $a)
+                    <p>Test if a number is "self-describing":</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isJollyJumperSeries">isJollyJumperSeries</a>(array $items)
+                    <p>Test if a series of numbers is a "Jolly Jumper":</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_isOdd">
+        <div class="location">at line 46</div>
+        <code>        static    public            bool
+    <strong>isOdd</strong>(int $val)</code>
+    </h3>
+    <div class="details">
+        <p>Test if an integer is an "odd number"</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$val</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isEven">
+        <div class="location">at line 57</div>
+        <code>        static    public            bool
+    <strong>isEven</strong>(int $val)</code>
+    </h3>
+    <div class="details">
+        <p>Test if an integer is an "even number"</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$val</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPrime">
+        <div class="location">at line 68</div>
+        <code>        static    public            bool
+    <strong>isPrime</strong>(int $val)</code>
+    </h3>
+    <div class="details">
+        <p>Test if an integer is a "prime number"</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$val</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isPrimordial">
+        <div class="location">at line 90</div>
+        <code>        static    public            bool
+    <strong>isPrimordial</strong>(int $val)</code>
+    </h3>
+    <div class="details">
+        <p>Test if an integer is a "primordial number"</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$val</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFibonacciItem">
+        <div class="location">at line 108</div>
+        <code>        static    public            int
+    <strong>getFibonacciItem</strong>(int $val)</code>
+    </h3>
+    <div class="details">
+        <p>Get the <code>$val</code> element of the Fibonacci suite</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$val</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLuhnKey">
+        <div class="location">at line 126</div>
+        <code>        static    public            int
+    <strong>getLuhnKey</strong>(int $val)</code>
+    </h3>
+    <div class="details">
+        <p>Luhn formula</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$val</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isLuhn">
+        <div class="location">at line 154</div>
+        <code>        static    public            bool
+    <strong>isLuhn</strong>(int $val)</code>
+    </h3>
+    <div class="details">
+        <p>Check id last number in a suite is a Luhn key</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$val</td>
+                <td>The number to check INCLUDING Luhn's key at last</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSumOfDigits">
+        <div class="location">at line 166</div>
+        <code>        static    public            int
+    <strong>getSumOfDigits</strong>(<abbr title="Library\Helper\$a">$a</abbr> $a)</code>
+    </h3>
+    <div class="details">
+        <p>Calculate the sum of the digits of a number (its absolute entire value)</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Library\Helper\$a">$a</abbr></td>
+                <td>$a</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isSelfDescribing">
+        <div class="location">at line 185</div>
+        <code>        static    public            bool
+    <strong>isSelfDescribing</strong>(<abbr title="Library\Helper\$a">$a</abbr> $a)</code>
+    </h3>
+    <div class="details">
+        <p>Test if a number is "self-describing":</p>
+        <p>assuming digit positions are labeled 0 to N-1,
+the digit in each position is equal to the number of times that digit appears in the number</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Library\Helper\$a">$a</abbr></td>
+                <td>$a</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isJollyJumperSeries">
+        <div class="location">at line 206</div>
+        <code>        static    public            bool
+    <strong>isJollyJumperSeries</strong>(array $items)</code>
+    </h3>
+    <div class="details">
+        <p>Test if a series of numbers is a "Jolly Jumper":</p>
+        <p>A sequence of n > 0 integers where the absolute values of the
+differences between successive elements take on all possible values 1 through n - 1.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$items</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

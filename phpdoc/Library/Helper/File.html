@@ -1,216 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="robots" content="index, follow, all" />
-    <title>Library\Helper\File | Library</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Helper\File | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../traits.html">Traits</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
 
-            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
-    
-    
-    </head>
+        <div id="title">Library</div>
 
-    <body id="class" data-name="class:Library_Helper_File" data-root-path="../../">
-            <div id="content">
-        <div id="left-column">
-                <div id="control-panel">
-                <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
-            <input name="search"
-                   class="typeahead form-control"
-                   type="search"
-                   placeholder="Search">
-        </form>
+            <div class="type">Class</div>
+    <h1><a href="../../Library/Helper.html">Library\Helper</a>\File</h1>
     </div>
-
-                <div id="api-tree"></div>
-
-        </div>
-        <div id="right-column">
-                <nav id="site-nav" class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../../index.html">Library</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-elements">
-                <ul class="nav navbar-nav">
-                    <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
-                    <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-                        <div class="namespace-breadcrumbs">
-            <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
-                                                            <li><a href="../../Library.html">Library</a></li>
-                                        <li><a href="../../Library/Helper.html">Helper</a></li>
-    
-                <li>File</li>
-            </ol>
-        </div>
-                <div id="page-content">
-                
-    <div class="page-header">
-        <h1>File</h1>
-    </div>
-
-    <p>    class
+        <div class="content">
+                <p>    class
     <strong>File</strong></p>
 
             <div class="description">
-            <p>File helper</p>            <p>As for all helpers, all methods are statics.</p>
+            <p>File helper</p>
+            <p>As for all helpers, all methods are statics.</p>
 
 <p>For convenience, the best practice is to use:</p>
 
 <pre><code>use Library\Helper\File as FileHelper;
 </code></pre>
-</p>        </div>
-    
+</p>
+        </div>
     
     
             <h2>Properties</h2>
 
-            <table class="table table-condensed">
+            <table>
                     <tr>
                 <td class="type" id="property_REPLACEMENT_FILENAMES_CHARS">
-                    static                                                            
+                    static                                        
                 </td>
                 <td>$REPLACEMENT_FILENAMES_CHARS</td>
                 <td class="last">List of characters replaced by a space in a file name to build a human readable string</td>
-                <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_FILESIZE_ORDERED_UNITS">
-                    static                                                            
+                    static                                        
                 </td>
                 <td>$FILESIZE_ORDERED_UNITS</td>
                 <td class="last">List of units to build the size field, ordered by 1024 operator on original size</td>
-                <td></td>
             </tr>
             </table>
 
     
             <h2>Methods</h2>
 
-            <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-2 type">
+            <table>
+                    <tr>
+                <td class="type">
                     static&nbsp;string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getUniqFilename">getUniqFilename</a>(string $filename = &#039;&#039;, string $dir = null, boolean $force_file = true, string $extension = &#039;txt&#039;)
-                                            <p>Returns a filename or directory that does not exist in the destination</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Returns a filename or directory that does not exist in the destination</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_formatFilename">formatFilename</a>(string $filename = &#039;&#039;, boolean $lowercase = false, string $delimiter = &#039;-&#039;)
-                                            <p>Formatting file names</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Formatting file names</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;null|string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getExtension">getExtension</a>(string $file_name = &#039;&#039;, bool $dot = false)
-                                            <p>Returns the extension of a file name</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Returns the extension of a file name</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getHumanReadableFilename">getHumanReadableFilename</a>(string $file_name = &#039;&#039;)
-                                            <p>Render a human readable string from a file name</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Render a human readable string from a file name</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;int
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getTransformedFilesize">getTransformedFilesize</a>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)
-                                            <p>Returns a formatted file size in bytes or derived unit</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Returns a formatted file size in bytes or derived unit</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_touch">touch</a>(string $file_path, array $logs = array())
-                                            <p>Create an empty file or touch an existing file</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Create an empty file or touch an existing file</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_remove">remove</a>(string $file_path, array $logs = array())
-                                            <p>Remove a file if it exists</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Remove a file if it exists</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_copy">copy</a>(string $file_path, string $target_path, bool $force = false, array $logs = array())
-                                            <p>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_write">write</a>(string $file_path, string $content, string $type = &#039;a&#039;, bool $force = false, array $logs = array())
-                                            <p>Write a content in a file</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-            </div>
+                    <p>Write a content in a file</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
 
 
         <h2>Details</h2>
 
-            <div id="method-details">
-                    <div class="method-item">
-                    <h3 id="method_getUniqFilename">
-        <div class="location">at line 50</div>
-        <code>        static            string
+                        <h3 id="method_getUniqFilename">
+        <div class="location">at line 51</div>
+        <code>        static    public            string
     <strong>getUniqFilename</strong>(string $filename = &#039;&#039;, string $dir = null, boolean $force_file = true, string $extension = &#039;txt&#039;)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Returns a filename or directory that does not exist in the destination</p>                                </div>
-                <div class="tags">
+        <p>Returns a filename or directory that does not exist in the destination</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$filename</td>
@@ -236,7 +194,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string</td>
             <td>The filename or directory, with a possible addition to be sure that it does not exist in the destination directory</td>
@@ -248,20 +206,19 @@
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_formatFilename">
-        <div class="location">at line 79</div>
-        <code>        static            string
+                <h3 id="method_formatFilename">
+        <div class="location">at line 81</div>
+        <code>        static    public            string
     <strong>formatFilename</strong>(string $filename = &#039;&#039;, boolean $lowercase = false, string $delimiter = &#039;-&#039;)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Formatting file names</p>                                </div>
-                <div class="tags">
+        <p>Formatting file names</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$filename</td>
@@ -282,7 +239,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string</td>
             <td>A filename valid on (almost) all systems</td>
@@ -294,20 +251,18 @@
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getExtension">
-        <div class="location">at line 109</div>
-        <code>        static            null|string
+                <h3 id="method_getExtension">
+        <div class="location">at line 119</div>
+        <code>        static    public            null|string
     <strong>getExtension</strong>(string $file_name = &#039;&#039;, bool $dot = false)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Returns the extension of a file name</p>                    <p>It basically returns everything after last dot. No validation is done.</p>            </div>
-                <div class="tags">
+        <p>Returns the extension of a file name</p>
+        <p>It basically returns everything after last dot. No validation is done.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$file_name</td>
@@ -324,7 +279,7 @@
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>null|string</td>
             <td>The extension if found, <code>null</code> otherwise</td>
@@ -336,21 +291,19 @@
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getHumanReadableFilename">
-        <div class="location">at line 129</div>
-        <code>        static            string
+                <h3 id="method_getHumanReadableFilename">
+        <div class="location">at line 139</div>
+        <code>        static    public            string
     <strong>getHumanReadableFilename</strong>(string $file_name = &#039;&#039;)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Render a human readable string from a file name</p>                    <p>The original file name is rebuilt striping the extension
-and a set of commonly used separator characters in file or directories names.</p>            </div>
-                <div class="tags">
+        <p>Render a human readable string from a file name</p>
+        <p>The original file name is rebuilt striping the extension
+and a set of commonly used separator characters in file or directories names.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$file_name</td>
@@ -361,7 +314,7 @@ and a set of commonly used separator characters in file or directories names.</p
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string</td>
             <td>The resulting human readable file name</td>
@@ -373,21 +326,19 @@ and a set of commonly used separator characters in file or directories names.</p
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getTransformedFilesize">
-        <div class="location">at line 154</div>
-        <code>        static            int
+                <h3 id="method_getTransformedFilesize">
+        <div class="location">at line 164</div>
+        <code>        static    public            int
     <strong>getTransformedFilesize</strong>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Returns a formatted file size in bytes or derived unit</p>                    <p>This will return the size received transforming it to be readable, with the appropriate
-unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
-                <div class="tags">
+        <p>Returns a formatted file size in bytes or derived unit</p>
+        <p>This will return the size received transforming it to be readable, with the appropriate
+unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>float</td>
                 <td>$size</td>
@@ -408,7 +359,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>int</td>
             <td>
@@ -421,20 +372,19 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_touch">
-        <div class="location">at line 181</div>
-        <code>        static            bool
+                <h3 id="method_touch">
+        <div class="location">at line 191</div>
+        <code>        static    public            bool
     <strong>touch</strong>(string $file_path, array $logs = array())</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Create an empty file or touch an existing file</p>                                </div>
-                <div class="tags">
+        <p>Create an empty file or touch an existing file</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$file_path</td>
@@ -451,7 +401,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -464,20 +414,19 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_remove">
-        <div class="location">at line 205</div>
-        <code>        static            bool
+                <h3 id="method_remove">
+        <div class="location">at line 215</div>
+        <code>        static    public            bool
     <strong>remove</strong>(string $file_path, array $logs = array())</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Remove a file if it exists</p>                                </div>
-                <div class="tags">
+        <p>Remove a file if it exists</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$file_path</td>
@@ -494,7 +443,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -507,20 +456,19 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_copy">
-        <div class="location">at line 229</div>
-        <code>        static            bool
+                <h3 id="method_copy">
+        <div class="location">at line 239</div>
+        <code>        static    public            bool
     <strong>copy</strong>(string $file_path, string $target_path, bool $force = false, array $logs = array())</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></p>                                </div>
-                <div class="tags">
+        <p>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$file_path</td>
@@ -549,7 +497,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -562,20 +510,19 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_write">
-        <div class="location">at line 263</div>
-        <code>        static            bool
+                <h3 id="method_write">
+        <div class="location">at line 273</div>
+        <code>        static    public            bool
     <strong>write</strong>(string $file_path, string $content, string $type = &#039;a&#039;, bool $force = false, array $logs = array())</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Write a content in a file</p>                                </div>
-                <div class="tags">
+        <p>Write a content in a file</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$file_path</td>
@@ -611,7 +558,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -624,17 +571,10 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>            </div>
                     </div>
     </div>
 
-            </div>
-            </div>
-
     
             </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
     </div>
     </body>
-
 </html>

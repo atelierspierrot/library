@@ -1,186 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="robots" content="index, follow, all" />
-    <title>Library | Library</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library | Library</title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="overview">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                            <li><a href="namespaces.html">Namespaces</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
 
-            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="css/sami.css">
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/typeahead.min.js"></script>
-        <script src="sami.js"></script>
-    
-    
-    </head>
+        <div id="title">Library</div>
 
-    <body id="namespace" data-name="namespace:Library" data-root-path="">
-            <div id="content">
-        <div id="left-column">
-                <div id="control-panel">
-                <form id="search-form" action="search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
-            <input name="search"
-                   class="typeahead form-control"
-                   type="search"
-                   placeholder="Search">
-        </form>
+            <div class="type">Namespace</div>
+    <h1>Library</h1>
     </div>
-
-                <div id="api-tree"></div>
-
-        </div>
-        <div id="right-column">
-                <nav id="site-nav" class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Library</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-elements">
-                <ul class="nav navbar-nav">
-                    <li><a href="classes.html">Classes</a></li>
-                                            <li><a href="namespaces.html">Namespaces</a></li>
-                                        <li><a href="interfaces.html">Interfaces</a></li>
-                    <li><a href="traits.html">Traits</a></li>
-                    <li><a href="doc-index.html">Index</a></li>
-                    <li><a href="search.html">Search</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-                <div class="namespace-breadcrumbs">
-        <ol class="breadcrumb">
-            <li><span class="label label-default">Namespace</span></li>
-                                                        <li><a href="Library.html">Library</a></li>
-    
-        </ol>
-    </div>
-            <div id="page-content">
-                
-    <div class="page-header">
-        <h1>Library</h1>
-    </div>
-
-            <h2>Namespaces</h2>
-        <div class="namespace-list">
-            <a href="Library/CommandLine.html">Library\CommandLine</a><a href="Library/Converter.html">Library\Converter</a><a href="Library/Helper.html">Library\Helper</a><a href="Library/HttpFundamental.html">Library\HttpFundamental</a><a href="Library/Object.html">Library\Object</a><a href="Library/ReporterAdapter.html">Library\ReporterAdapter</a><a href="Library/Session.html">Library\Session</a><a href="Library/StaticConfiguration.html">Library\StaticConfiguration</a><a href="Library/Tool.html">Library\Tool</a>        </div>
-    
-            <h2>Classes</h2>
-        <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/AbstractReporterAdapter.html"><abbr title="Library\AbstractReporterAdapter">Library\AbstractReporterAdapter</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Reporter Adapters interface
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/CodeParser.html"><abbr title="Library\CodeParser">Library\CodeParser</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Source code parser
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/Command.html"><abbr title="Library\Command">Library\Command</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Largely inspired from <a href="http://github.com/kbjr/Git.php">http://github.com/kbjr/Git.php</a>
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/CommandNotFoundException.html"><abbr title="Library\CommandNotFoundException">Library\CommandNotFoundException</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    
-
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/Crypt.html"><abbr title="Library\Crypt">Library\Crypt</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Simple crypter
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/Factory.html"><abbr title="Library\Factory">Library\Factory</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Factory will try to create an object following user rules and passing it arguments
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/FileRotator.html"><abbr title="Library\FileRotator">Library\FileRotator</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Rotate system for files
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/Logger.html"><abbr title="Library\Logger">Library\Logger</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    Write some log infos in log files
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/Reporter.html"><abbr title="Library\Reporter">Library\Reporter</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    
-
-                </div>
-            </div>
-                    <div class="row">
-                <div class="col-md-6">
-                                            <a href="Library/Router.html"><abbr title="Library\Router">Library\Router</abbr></a>
-                                    </div>
-                <div class="col-md-6">
-                    The global router class
-                </div>
-            </div>
-            </div>
+        <div class="content">
+                        <table>
+                            <tr>
+                    <td><a href="Library/AbstractReporterAdapter.html"><abbr title="Library\AbstractReporterAdapter">AbstractReporterAdapter</abbr></a></td>
+                    <td class="last">Reporter Adapters interface</td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/CodeParser.html"><abbr title="Library\CodeParser">CodeParser</abbr></a></td>
+                    <td class="last">Source code parser</td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/Command.html"><abbr title="Library\Command">Command</abbr></a></td>
+                    <td class="last">Largely inspired from <a href="http://github.com/kbjr/Git.php">http://github.com/kbjr/Git.php</a></td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/CommandNotFoundException.html"><abbr title="Library\CommandNotFoundException">CommandNotFoundException</abbr></a></td>
+                    <td class="last">
+</td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/Crypt.html"><abbr title="Library\Crypt">Crypt</abbr></a></td>
+                    <td class="last">Simple crypter</td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/Factory.html"><abbr title="Library\Factory">Factory</abbr></a></td>
+                    <td class="last">Factory will try to create an object following user rules and passing it arguments</td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/FileRotator.html"><abbr title="Library\FileRotator">FileRotator</abbr></a></td>
+                    <td class="last">Rotate system for files</td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/Logger.html"><abbr title="Library\Logger">Logger</abbr></a></td>
+                    <td class="last">Write some log infos in log files</td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/Reporter.html"><abbr title="Library\Reporter">Reporter</abbr></a></td>
+                    <td class="last">
+</td>
+                </tr>
+                            <tr>
+                    <td><a href="Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
+                    <td class="last">The global router class</td>
+                </tr>
+                    </table>
     
             <h2>Interfaces</h2>
-        <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-6">
-                                            <em><a href="Library/FactoryInterface.html"><abbr title="Library\FactoryInterface">Library\FactoryInterface</abbr></a></em>
-                                    </div>
-                <div class="col-md-6">
-                    
-
-                </div>
-            </div>
-            </div>
-    
+        <table>
+                            <tr>
+                    <td><a href="Library/FactoryInterface.html"><abbr title="Library\FactoryInterface">FactoryInterface</abbr></a></td>
+                    <td class="last">
+</td>
+                </tr>
+                    </table>
     
             </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
     </div>
     </body>
-
 </html>

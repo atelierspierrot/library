@@ -1,88 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="robots" content="index, follow, all" />
-    <title>Library\HttpFundamental\Request | Library</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\HttpFundamental\Request | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../traits.html">Traits</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
 
-            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
-    
-    
-    </head>
+        <div id="title">Library</div>
 
-    <body id="class" data-name="class:Library_HttpFundamental_Request" data-root-path="../../">
-            <div id="content">
-        <div id="left-column">
-                <div id="control-panel">
-                <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
-            <input name="search"
-                   class="typeahead form-control"
-                   type="search"
-                   placeholder="Search">
-        </form>
+            <div class="type">Class</div>
+    <h1><a href="../../Library/HttpFundamental.html">Library\HttpFundamental</a>\Request</h1>
     </div>
-
-                <div id="api-tree"></div>
-
-        </div>
-        <div id="right-column">
-                <nav id="site-nav" class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../../index.html">Library</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-elements">
-                <ul class="nav navbar-nav">
-                    <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
-                    <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-                        <div class="namespace-breadcrumbs">
-            <ol class="breadcrumb">
-                <li><span class="label label-default">class</span></li>
-                                                            <li><a href="../../Library.html">Library</a></li>
-                                        <li><a href="../../Library/HttpFundamental.html">HttpFundamental</a></li>
-    
-                <li>Request</li>
-            </ol>
-        </div>
-                <div id="page-content">
-                
-    <div class="page-header">
-        <h1>Request</h1>
-    </div>
-
-    <p>    class
+        <div class="content">
+                <p>    class
     <strong>Request</strong>        implements
         <abbr title="Patterns\Interfaces\RequestInterface">RequestInterface</abbr></p>
 
             <div class="description">
-            <p>The global request class</p>                    </div>
-    
+            <p>The global request class</p>
+            <p>
+</p>
+        </div>
     
             <h2>Constants</h2>
 
-            <table class="table table-condensed">
+            <table>
                     <tr>
                 <td>NO_REWRITE</td>
                 <td class="last">
@@ -94,8 +47,7 @@
                     <tr>
                 <td>REWRITE_SEGMENTS_QUERY</td>
                 <td class="last">
-                    <p><em>Allow a query string written as "[script.php]/var/val/var2/val2"
-Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
+                    <p><em>Allow a query string written as "[script.php]/var/val/var2/val2" Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     <p>
 </p>
                 </td>
@@ -106,481 +58,526 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
     
             <h2>Methods</h2>
 
-            <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-2 type">
+            <table>
+                    <tr>
+                <td class="type">
                     static&nbsp;<a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_create">create</a>(string $url = null, int $flag = self::NO_REWRITE, string $protocol = &#039;http&#039;, string $method = &#039;get&#039;, array $headers = null, array $arguments = null, array $data = null, array $session = null, array $files = null, array $cookies = null)
-                                            <p>Static constructor : defines the current URL and gets the routes</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Static constructor : defines the current URL and gets the routes</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method___construct">__construct</a>(string $url = null, int $flag = self::NO_REWRITE)
-                                            <p>Constructor : defines the request URL and the object rewrite flag</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Constructor : defines the request URL and the object rewrite flag</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_guessFromCurrent">guessFromCurrent</a>()
-                                            <p>Populate the request object with current HTTP request values</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Populate the request object with current HTTP request values</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setFlag">setFlag</a>(int $flag)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     int
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getFlag">getFlag</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setUrl">setUrl</a>(string $url)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getUrl">getUrl</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setProtocol">setProtocol</a>(string $protocol)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getProtocol">getProtocol</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setMethod">setMethod</a>(string $method)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getMethod">getMethod</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setHeaders">setHeaders</a>(array $headers = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     array|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getHeaders">getHeaders</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getHeader">getHeader</a>(string $name)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setArguments">setArguments</a>(string|array $arguments = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     array|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getArguments">getArguments</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getArgument">getArgument</a>(string $param = null, mixed $default = false, bool $clean = true, int $clean_flags = ENT_QUOTES, string $clean_encoding = &#039;UTF-8&#039;)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setData">setData</a>(array|string $data = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getData">getData</a>(string $param = null, mixed $default = false, bool $clean = true, int $clean_flags = ENT_QUOTES, string $clean_encoding = &#039;UTF-8&#039;)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setFiles">setFiles</a>(array $files = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     array|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getFiles">getFiles</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     array|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getFile">getFile</a>(string $param, string $index = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setSession">setSession</a>(array $session = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     array|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getSession">getSession</a>(string $param = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setCookies">setCookies</a>(array $cookies = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     array|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getCookies">getCookies</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     array|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getCookie">getCookie</a>(string $param)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setAuthentication">setAuthentication</a>(array $authentication = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setAuthenticationType">setAuthenticationType</a>(string $type)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setAuthenticationUser">setAuthenticationUser</a>(string $user)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_setAuthenticationPassword">setAuthenticationPassword</a>(string $pw)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     array|string|null
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getAuthentication">getAuthentication</a>(string $param = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_buildUrl">buildUrl</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_isAjax">isAjax</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_isCli">isCli</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_isGet">isGet</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_isPost">isPost</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     bool
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_isPut">isPut</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getGet">getGet</a>(string $varname, mixed $default = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getPost">getPost</a>(string $varname, mixed $default = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getGetOrPost">getGetOrPost</a>(string $varname, mixed $default = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getPostOrGet">getPostOrGet</a>(string $varname, mixed $default = null)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_cleanArgument">cleanArgument</a>(string $arg_value, int $flags = ENT_QUOTES, string $encoding = &#039;UTF-8&#039;)
-                                            <p>Clean the value taken from request arguments or data</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Clean the value taken from request arguments or data</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getEnvironment">getEnvironment</a>(string $varname)
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;string
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getClientIp">getClientIp</a>()
-                                            <p class="no-description">No description</p>
-                                    </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getallheaders">getallheaders</a>()
-                                            <p>Emulation of internal <code>getallheaders()</code> function as it doesn't exist each time</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-            </div>
+                    <p>Emulation of internal <code>getallheaders()</code> function as it doesn't exist each time</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
 
 
         <h2>Details</h2>
 
-            <div id="method-details">
-                    <div class="method-item">
-                    <h3 id="method_create">
-        <div class="location">at line 128</div>
-        <code>        static            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                        <h3 id="method_create">
+        <div class="location">at line 129</div>
+        <code>        static    public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>create</strong>(string $url = null, int $flag = self::NO_REWRITE, string $protocol = &#039;http&#039;, string $method = &#039;get&#039;, array $headers = null, array $arguments = null, array $data = null, array $session = null, array $files = null, array $cookies = null)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Static constructor : defines the current URL and gets the routes</p>                                </div>
-                <div class="tags">
+        <p>Static constructor : defines the current URL and gets the routes</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$url</td>
@@ -646,7 +643,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -659,20 +656,19 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method___construct">
-        <div class="location">at line 157</div>
-        <code>                    
+                <h3 id="method___construct">
+        <div class="location">at line 158</div>
+        <code>            public            
     <strong>__construct</strong>(string $url = null, int $flag = self::NO_REWRITE)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Constructor : defines the request URL and the object rewrite flag</p>                                </div>
-                <div class="tags">
+        <p>Constructor : defines the request URL and the object rewrite flag</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$url</td>
@@ -692,21 +688,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_guessFromCurrent">
-        <div class="location">at line 170</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_guessFromCurrent">
+        <div class="location">at line 171</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>guessFromCurrent</strong>()</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Populate the request object with current HTTP request values</p>                                </div>
-                <div class="tags">
+        <p>Populate the request object with current HTTP request values</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -718,7 +713,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>See also</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>\Library\Helper\Url::getRequestUrl()</td>
                 <td></td>
@@ -728,18 +723,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setFlag">
-        <div class="location">at line 197</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setFlag">
+        <div class="location">at line 198</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setFlag</strong>(int $flag)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>int</td>
                 <td>$flag</td>
@@ -750,7 +747,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -763,19 +760,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getFlag">
-        <div class="location">at line 206</div>
-        <code>                    int
+                <h3 id="method_getFlag">
+        <div class="location">at line 207</div>
+        <code>            public            int
     <strong>getFlag</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>int</td>
             <td>
@@ -788,18 +787,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setUrl">
-        <div class="location">at line 215</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setUrl">
+        <div class="location">at line 216</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setUrl</strong>(string $url)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$url</td>
@@ -811,7 +812,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -824,19 +825,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getUrl">
-        <div class="location">at line 224</div>
-        <code>                    string|null
+                <h3 id="method_getUrl">
+        <div class="location">at line 225</div>
+        <code>            public            string|null
     <strong>getUrl</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string|null</td>
             <td>
@@ -849,18 +852,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setProtocol">
-        <div class="location">at line 233</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setProtocol">
+        <div class="location">at line 234</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setProtocol</strong>(string $protocol)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$protocol</td>
@@ -872,7 +877,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -885,19 +890,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getProtocol">
-        <div class="location">at line 242</div>
-        <code>                    string|null
+                <h3 id="method_getProtocol">
+        <div class="location">at line 243</div>
+        <code>            public            string|null
     <strong>getProtocol</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string|null</td>
             <td>
@@ -910,18 +917,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setMethod">
-        <div class="location">at line 251</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setMethod">
+        <div class="location">at line 252</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setMethod</strong>(string $method)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$method</td>
@@ -933,7 +942,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -946,19 +955,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getMethod">
-        <div class="location">at line 260</div>
-        <code>                    string|null
+                <h3 id="method_getMethod">
+        <div class="location">at line 261</div>
+        <code>            public            string|null
     <strong>getMethod</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string|null</td>
             <td>
@@ -971,18 +982,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setHeaders">
-        <div class="location">at line 269</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setHeaders">
+        <div class="location">at line 270</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setHeaders</strong>(array $headers = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>array</td>
                 <td>$headers</td>
@@ -994,7 +1007,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1007,19 +1020,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getHeaders">
-        <div class="location">at line 278</div>
-        <code>                    array|null
+                <h3 id="method_getHeaders">
+        <div class="location">at line 279</div>
+        <code>            public            array|null
     <strong>getHeaders</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array|null</td>
             <td>
@@ -1032,18 +1047,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getHeader">
-        <div class="location">at line 287</div>
-        <code>                    string|null
+                <h3 id="method_getHeader">
+        <div class="location">at line 288</div>
+        <code>            public            string|null
     <strong>getHeader</strong>(string $name)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$name</td>
@@ -1055,7 +1072,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string|null</td>
             <td>
@@ -1068,18 +1085,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setArguments">
-        <div class="location">at line 296</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setArguments">
+        <div class="location">at line 297</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setArguments</strong>(string|array $arguments = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string|array</td>
                 <td>$arguments</td>
@@ -1091,7 +1110,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1104,19 +1123,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getArguments">
-        <div class="location">at line 307</div>
-        <code>                    array|null
+                <h3 id="method_getArguments">
+        <div class="location">at line 308</div>
+        <code>            public            array|null
     <strong>getArguments</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array|null</td>
             <td>
@@ -1129,18 +1150,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getArgument">
-        <div class="location">at line 320</div>
-        <code>                    string
+                <h3 id="method_getArgument">
+        <div class="location">at line 321</div>
+        <code>            public            string
     <strong>getArgument</strong>(string $param = null, mixed $default = false, bool $clean = true, int $clean_flags = ENT_QUOTES, string $clean_encoding = &#039;UTF-8&#039;)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$param</td>
@@ -1171,7 +1194,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string</td>
             <td>The value retrieved, $default otherwise</td>
@@ -1183,18 +1206,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setData">
-        <div class="location">at line 333</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setData">
+        <div class="location">at line 334</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setData</strong>(array|string $data = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>array|string</td>
                 <td>$data</td>
@@ -1206,7 +1231,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1219,18 +1244,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getData">
-        <div class="location">at line 348</div>
-        <code>                    string
+                <h3 id="method_getData">
+        <div class="location">at line 349</div>
+        <code>            public            string
     <strong>getData</strong>(string $param = null, mixed $default = false, bool $clean = true, int $clean_flags = ENT_QUOTES, string $clean_encoding = &#039;UTF-8&#039;)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$param</td>
@@ -1261,7 +1288,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string</td>
             <td>The value retrieved, $default otherwise</td>
@@ -1273,18 +1300,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setFiles">
-        <div class="location">at line 365</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setFiles">
+        <div class="location">at line 366</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setFiles</strong>(array $files = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>array</td>
                 <td>$files</td>
@@ -1296,7 +1325,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1309,19 +1338,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getFiles">
-        <div class="location">at line 374</div>
-        <code>                    array|null
+                <h3 id="method_getFiles">
+        <div class="location">at line 375</div>
+        <code>            public            array|null
     <strong>getFiles</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array|null</td>
             <td>
@@ -1334,18 +1365,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getFile">
-        <div class="location">at line 384</div>
-        <code>                    array|null
+                <h3 id="method_getFile">
+        <div class="location">at line 385</div>
+        <code>            public            array|null
     <strong>getFile</strong>(string $param, string $index = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$param</td>
@@ -1363,7 +1396,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array|null</td>
             <td>
@@ -1376,18 +1409,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setSession">
-        <div class="location">at line 400</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setSession">
+        <div class="location">at line 401</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setSession</strong>(array $session = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>array</td>
                 <td>$session</td>
@@ -1399,7 +1434,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1412,18 +1447,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getSession">
-        <div class="location">at line 410</div>
-        <code>                    array|null
+                <h3 id="method_getSession">
+        <div class="location">at line 411</div>
+        <code>            public            array|null
     <strong>getSession</strong>(string $param = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$param</td>
@@ -1435,7 +1472,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array|null</td>
             <td>
@@ -1448,18 +1485,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setCookies">
-        <div class="location">at line 423</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setCookies">
+        <div class="location">at line 424</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setCookies</strong>(array $cookies = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>array</td>
                 <td>$cookies</td>
@@ -1471,7 +1510,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1484,19 +1523,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getCookies">
-        <div class="location">at line 432</div>
-        <code>                    array|null
+                <h3 id="method_getCookies">
+        <div class="location">at line 433</div>
+        <code>            public            array|null
     <strong>getCookies</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array|null</td>
             <td>
@@ -1509,18 +1550,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getCookie">
-        <div class="location">at line 441</div>
-        <code>                    array|null
+                <h3 id="method_getCookie">
+        <div class="location">at line 442</div>
+        <code>            public            array|null
     <strong>getCookie</strong>(string $param)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$param</td>
@@ -1532,7 +1575,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array|null</td>
             <td>
@@ -1545,18 +1588,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setAuthentication">
-        <div class="location">at line 450</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setAuthentication">
+        <div class="location">at line 451</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setAuthentication</strong>(array $authentication = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>array</td>
                 <td>$authentication</td>
@@ -1568,7 +1613,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1581,18 +1626,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setAuthenticationType">
-        <div class="location">at line 460</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setAuthenticationType">
+        <div class="location">at line 461</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setAuthenticationType</strong>(string $type)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$type</td>
@@ -1604,7 +1651,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1617,18 +1664,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setAuthenticationUser">
-        <div class="location">at line 470</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setAuthenticationUser">
+        <div class="location">at line 471</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setAuthenticationUser</strong>(string $user)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$user</td>
@@ -1640,7 +1689,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1653,18 +1702,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_setAuthenticationPassword">
-        <div class="location">at line 480</div>
-        <code>                    <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
+                <h3 id="method_setAuthenticationPassword">
+        <div class="location">at line 481</div>
+        <code>            public            <a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a>
     <strong>setAuthenticationPassword</strong>(string $pw)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$pw</td>
@@ -1676,7 +1727,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td><a href="../../Library/HttpFundamental/Request.html"><abbr title="Library\HttpFundamental\Request">Request</abbr></a></td>
             <td>
@@ -1689,18 +1740,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getAuthentication">
-        <div class="location">at line 490</div>
-        <code>                    array|string|null
+                <h3 id="method_getAuthentication">
+        <div class="location">at line 491</div>
+        <code>            public            array|string|null
     <strong>getAuthentication</strong>(string $param = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$param</td>
@@ -1712,7 +1765,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array|string|null</td>
             <td>
@@ -1725,19 +1778,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_buildUrl">
-        <div class="location">at line 506</div>
-        <code>                    string
+                <h3 id="method_buildUrl">
+        <div class="location">at line 507</div>
+        <code>            public            string
     <strong>buildUrl</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string</td>
             <td>
@@ -1750,19 +1805,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_isAjax">
-        <div class="location">at line 543</div>
-        <code>        static            bool
+                <h3 id="method_isAjax">
+        <div class="location">at line 544</div>
+        <code>        static    public            bool
     <strong>isAjax</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -1775,19 +1832,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_isCli">
-        <div class="location">at line 552</div>
-        <code>                    bool
+                <h3 id="method_isCli">
+        <div class="location">at line 553</div>
+        <code>            public            bool
     <strong>isCli</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -1800,19 +1859,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_isGet">
-        <div class="location">at line 560</div>
-        <code>                    bool
+                <h3 id="method_isGet">
+        <div class="location">at line 561</div>
+        <code>            public            bool
     <strong>isGet</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -1825,19 +1886,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_isPost">
-        <div class="location">at line 568</div>
-        <code>                    bool
+                <h3 id="method_isPost">
+        <div class="location">at line 569</div>
+        <code>            public            bool
     <strong>isPost</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -1850,19 +1913,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_isPut">
-        <div class="location">at line 576</div>
-        <code>                    bool
+                <h3 id="method_isPut">
+        <div class="location">at line 577</div>
+        <code>            public            bool
     <strong>isPut</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>bool</td>
             <td>
@@ -1875,18 +1940,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getGet">
-        <div class="location">at line 586</div>
-        <code>                    mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+                <h3 id="method_getGet">
+        <div class="location">at line 587</div>
+        <code>            public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
     <strong>getGet</strong>(string $varname, mixed $default = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$varname</td>
@@ -1904,7 +1971,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
@@ -1917,18 +1984,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getPost">
-        <div class="location">at line 596</div>
-        <code>                    mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+                <h3 id="method_getPost">
+        <div class="location">at line 597</div>
+        <code>            public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
     <strong>getPost</strong>(string $varname, mixed $default = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$varname</td>
@@ -1946,7 +2015,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
@@ -1959,18 +2028,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getGetOrPost">
-        <div class="location">at line 606</div>
-        <code>                    mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+                <h3 id="method_getGetOrPost">
+        <div class="location">at line 607</div>
+        <code>            public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
     <strong>getGetOrPost</strong>(string $varname, mixed $default = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$varname</td>
@@ -1988,7 +2059,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
@@ -2001,18 +2072,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getPostOrGet">
-        <div class="location">at line 620</div>
-        <code>                    mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+                <h3 id="method_getPostOrGet">
+        <div class="location">at line 621</div>
+        <code>            public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
     <strong>getPostOrGet</strong>(string $varname, mixed $default = null)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$varname</td>
@@ -2030,7 +2103,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
@@ -2043,20 +2116,19 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_cleanArgument">
-        <div class="location">at line 681</div>
-        <code>        static            string
+                <h3 id="method_cleanArgument">
+        <div class="location">at line 682</div>
+        <code>        static    public            string
     <strong>cleanArgument</strong>(string $arg_value, int $flags = ENT_QUOTES, string $encoding = &#039;UTF-8&#039;)</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Clean the value taken from request arguments or data</p>                                </div>
-                <div class="tags">
+        <p>Clean the value taken from request arguments or data</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$arg_value</td>
@@ -2077,7 +2149,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string</td>
             <td>The cleaned value</td>
@@ -2089,18 +2161,20 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getEnvironment">
-        <div class="location">at line 698</div>
-        <code>        static            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
+                <h3 id="method_getEnvironment">
+        <div class="location">at line 699</div>
+        <code>        static    public            mixed|<abbr title="Library\HttpFundamental\false">false</abbr>
     <strong>getEnvironment</strong>(string $varname)</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table class="table table-condensed">
+                    <table>
                     <tr>
                 <td>string</td>
                 <td>$varname</td>
@@ -2112,7 +2186,7 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>mixed|<abbr title="Library\HttpFundamental\false">false</abbr></td>
             <td>
@@ -2125,19 +2199,21 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getClientIp">
-        <div class="location">at line 706</div>
-        <code>        static            string
+                <h3 id="method_getClientIp">
+        <div class="location">at line 707</div>
+        <code>        static    public            string
     <strong>getClientIp</strong>()</code>
     </h3>
     <div class="details">
-                <div class="tags">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>string</td>
             <td>
@@ -2150,34 +2226,26 @@ Allow to cumulate as "[script.php]/var/val?var2=val2"</em></p>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getallheaders">
-        <div class="location">at line 721</div>
-        <code>        static            
+                <h3 id="method_getallheaders">
+        <div class="location">at line 722</div>
+        <code>        static    public            
     <strong>getallheaders</strong>()</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Emulation of internal <code>getallheaders()</code> function as it doesn't exist each time</p>                                </div>
-                <div class="tags">
+        <p>Emulation of internal <code>getallheaders()</code> function as it doesn't exist each time</p>
+        <p>
+</p>
+        <div class="tags">
             
             
             
                     </div>
     </div>
 
-            </div>
-            </div>
-
     
             </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
     </div>
     </body>
-
 </html>

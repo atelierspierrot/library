@@ -1,129 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="robots" content="index, follow, all" />
-    <title>Library\StaticConfiguration\ConfiguratorInterface | Library</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\StaticConfiguration\ConfiguratorInterface | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../traits.html">Traits</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
 
-            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
-        <script src="../../js/jquery-1.11.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/typeahead.min.js"></script>
-        <script src="../../sami.js"></script>
-    
-    
-    </head>
+        <div id="title">Library</div>
 
-    <body id="class" data-name="class:Library_StaticConfiguration_ConfiguratorInterface" data-root-path="../../">
-            <div id="content">
-        <div id="left-column">
-                <div id="control-panel">
-                <form id="search-form" action="../../search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
-            <input name="search"
-                   class="typeahead form-control"
-                   type="search"
-                   placeholder="Search">
-        </form>
+            <div class="type">Interface</div>
+    <h1><a href="../../Library/StaticConfiguration.html">Library\StaticConfiguration</a>\ConfiguratorInterface</h1>
     </div>
-
-                <div id="api-tree"></div>
-
-        </div>
-        <div id="right-column">
-                <nav id="site-nav" class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../../index.html">Library</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-elements">
-                <ul class="nav navbar-nav">
-                    <li><a href="../../classes.html">Classes</a></li>
-                                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                                        <li><a href="../../interfaces.html">Interfaces</a></li>
-                    <li><a href="../../traits.html">Traits</a></li>
-                    <li><a href="../../doc-index.html">Index</a></li>
-                    <li><a href="../../search.html">Search</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-                        <div class="namespace-breadcrumbs">
-            <ol class="breadcrumb">
-                <li><span class="label label-default">interface</span></li>
-                                                            <li><a href="../../Library.html">Library</a></li>
-                                        <li><a href="../../Library/StaticConfiguration.html">StaticConfiguration</a></li>
-    
-                <li>ConfiguratorInterface</li>
-            </ol>
-        </div>
-                <div id="page-content">
-                
-    <div class="page-header">
-        <h1>ConfiguratorInterface</h1>
-    </div>
-
-    <p>    interface
+        <div class="content">
+                <p>    interface
     <strong>ConfiguratorInterface</strong></p>
 
             <div class="description">
-            <p>Config class interface to use with \Library\StaticConfiguration\Config</p>                    </div>
-    
+            <p>Config class interface to use with \Library\StaticConfiguration\Config</p>
+            <p>
+</p>
+        </div>
     
     
     
             <h2>Methods</h2>
 
-            <div class="container-fluid underlined">
-                    <div class="row">
-                <div class="col-md-2 type">
+            <table>
+                    <tr>
+                <td class="type">
                     static&nbsp;array
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getDefaults">getDefaults</a>()
-                                            <p>Get the default configuration values</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
+                    <p>Get the default configuration values</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     static&nbsp;array
-                </div>
-                <div class="col-md-8 type">
+                </td>
+                <td class="last">
                     <a href="#method_getRequired">getRequired</a>()
-                                            <p>Get the required configuration entries</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-            </div>
+                    <p>Get the required configuration entries</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
 
 
         <h2>Details</h2>
 
-            <div id="method-details">
-                    <div class="method-item">
-                    <h3 id="method_getDefaults">
-        <div class="location">at line 42</div>
-        <code>        static            array
+                        <h3 id="method_getDefaults">
+        <div class="location">at line 43</div>
+        <code>        static    public            array
     <strong>getDefaults</strong>()</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Get the default configuration values</p>                    <p>This must define at least the requires entries defined below.
+        <p>Get the default configuration values</p>
+        <p>This must define at least the requires entries defined below.
 During the configuration object lifecycle, no other entry than these defaults
-could be define.</p>            </div>
-                <div class="tags">
+could be define.</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array</td>
             <td>
@@ -136,21 +89,20 @@ could be define.</p>            </div>
                     </div>
     </div>
 
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getRequired">
-        <div class="location">at line 49</div>
-        <code>        static            array
+                <h3 id="method_getRequired">
+        <div class="location">at line 50</div>
+        <code>        static    public            array
     <strong>getRequired</strong>()</code>
     </h3>
     <div class="details">
-                    <div class="method-description">
-                                    <p>Get the required configuration entries</p>                                </div>
-                <div class="tags">
+        <p>Get the required configuration entries</p>
+        <p>
+</p>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table class="table table-condensed">
+                    <table>
         <tr>
             <td>array</td>
             <td>
@@ -163,17 +115,10 @@ could be define.</p>            </div>
                     </div>
     </div>
 
-            </div>
-            </div>
-
     
             </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
     </div>
     </body>
-
 </html>
