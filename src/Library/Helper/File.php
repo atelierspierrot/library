@@ -56,8 +56,9 @@ class File
             $filename = uniqid();
             if ($force_file) $filename .= '.'.$extension;
         }
-        if (is_null($dir)) 
+        if (is_null($dir)) {
             $dir = defined('_DIR_TMP') ? _DIR_TMP : '/tmp';
+        }
         $dir = Directory::slashDirname($dir);
         $_ext = self::getExtension($filename, true);
         $_fname = str_replace($_ext, '', $filename);
@@ -79,21 +80,29 @@ class File
      */
     public static function formatFilename($filename = '', $lowercase = false, $delimiter = '-')
     {
-        if (empty($filename)) return '';
+        if (empty($filename)) {
+            return '';
+        }
 
         $_ext = self::getExtension($filename, true);
-        if ($_ext) $filename = str_replace($_ext, '', $filename);
+        if ($_ext) {
+            $filename = str_replace($_ext, '', $filename);
+        }
 
         $string = TextHelper::stripSpecialChars($filename);
 
-        if ($lowercase) $string = strtolower($string);
+        if ($lowercase) {
+            $string = strtolower($string);
+        }
 
         $string = str_replace(" ",$delimiter,$string);
         $string = preg_replace('#\-+#',$delimiter,$string);
         $string = preg_replace('#([-]+)#',$delimiter,$string);
         $string = trim($string,$delimiter);
 
-        if ($_ext) $string .= $_ext;
+        if ($_ext) {
+            $string .= $_ext;
+        }
 
         return $string;
     }
@@ -110,7 +119,7 @@ class File
     public static function getExtension($file_name = '', $dot = false)
     {
         $exploded_file_name = explode('.', $file_name);
-        return strpos($file_name, '.') ? ($dot ? '.' : '').end($exploded_file_name) : null;
+        return (strpos($file_name, '.') ? ($dot ? '.' : '').end($exploded_file_name) : null);
     }
 
     /**

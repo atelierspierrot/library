@@ -54,7 +54,7 @@ class Html
      */
     public static function hasId($reference)
     {
-        return isset(self::$dom_id_register[$reference]);
+        return (bool) (isset(self::$dom_id_register[$reference]));
     }
 
     /**

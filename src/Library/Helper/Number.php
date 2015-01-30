@@ -70,9 +70,13 @@ class Number
         if (
             ($val<=1) ||
             ($val>2 && ($val%2)===0)
-        ) return false;
+        ) {
+            return false;
+        }
         for ($i=2;$i<$val;$i++) {
-            if (($val%$i)===0) return false;
+            if (($val%$i)===0) {
+                return false;
+            }
         }
         return true;
     }
@@ -103,9 +107,13 @@ class Number
      */
     public static function getFibonacciItem($val)
     {
-        if ($val==0) return 0;
-        elseif ($val==1) return 1;
-        elseif ($val>1) return (self::getFibonacciItem($val-1) + self::getFibonacciItem($val-2));
+        if ($val==0) {
+            return 0;
+        } elseif ($val==1) {
+            return 1;
+        } elseif ($val>1) {
+            return (self::getFibonacciItem($val-1) + self::getFibonacciItem($val-2));
+        }
         return null;
     }
 
@@ -146,7 +154,7 @@ class Number
     public static function isLuhn($val)
     {
         $_num = substr($val, 0, strlen($val)-1);
-        return (intval($val) == intval($_num.self::getLuhnKey($_num)));
+        return (bool) (intval($val) == intval($_num.self::getLuhnKey($_num)));
     }
 
     /**
@@ -192,10 +200,10 @@ class Number
      * A sequence of n > 0 integers where the absolute values of the
      * differences between successive elements take on all possible values 1 through n - 1.
      *
-     * @param array $a
+     * @param array $items
      * @return bool
      */
-    public static function isJollyJumperSeries(array $a)
+    public static function isJollyJumperSeries(array $items)
     {
         if (count($items)==1) {
             return true;
@@ -215,51 +223,6 @@ class Number
         return $isjj;
     }
 
-    public static $romans_numbers = array(
-        1,5,10,50,100,500,1000
-    );
-
-    public static $romans_letters = array(
-        'I','V','X','L','C','D','M'
-    );
-
-    /**
-     * Get the roman notation of a number inferior to 5000
-     *
-     * @param $a
-     * @return string
-     */
-    public static function getRomanNumeralsNotation($a)
-    {
-        if ($a>4999) return null;
-        $ctt = '';
-        $counter = 1;
-        for ($i=(strlen($a)-1); $i>=0; $i--) {
-            $tmp_ctt = '';
-            $char = $a{$i};
-            if ($char>0 && $char<4) {
-                $index = array_search($counter, self::$romans_numbers);
-                $tmp_ctt .= str_pad(self::$romans_letters[$index], $char, self::$romans_letters[$index]);
-            } elseif (3<$char && $char<9) {
-                $index = array_search($counter, self::$romans_numbers);
-                if ($char==4) {
-                    $tmp_ctt .= self::$romans_letters[$index];
-                }
-                $tmp_ctt .= self::$romans_letters[$index+1];
-                if ($char>5) {
-                    $tmp_ctt .= str_pad(self::$romans_letters[$index], ($char-5), self::$romans_letters[$index]);
-                }
-            } elseif ($char==9) {
-                $index = array_search($counter, self::$romans_numbers);
-                $tmp_ctt .= self::$romans_letters[$index].self::$romans_letters[$index+2];
-            }
-            $counter = $counter*10;
-            $ctt = $tmp_ctt.$ctt;
-        }
-        return $ctt;
-    }
-
->>>>>>> origin/master
 }
 
 // Endfile

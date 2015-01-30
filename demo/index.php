@@ -274,9 +274,9 @@ echo '=> '.var_export(Library\Helper\File::formatFilename($str),1);
     <pre class="code" data-language="php">
 <?php
 $logs = array();
-$dir = __DIR__.'/tmp_tmp';
+$dir = __DIR__.'/tmp/tmp_tmp';
 echo '$logs = array();'."\n";
-echo '$dir = __DIR__."/tmp_tmp";'."\n";
+echo '$dir = __DIR__."/tmp/tmp_tmp";'."\n";
 
 \Library\Helper\Directory::ensureExists($dir);
 \Library\Helper\File::touch($dir.'/test1');

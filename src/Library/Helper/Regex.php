@@ -49,9 +49,9 @@ class Regex
     public static function getPattern($string = '', $delimiter = '#', $options = 'i', $strict = false)
     {
         $replacements = array(
-            '.'=>'\\.',
-            '*'=>'.*',
-            $delimiter=>'\\'.$delimiter
+            '.'         => '\\.',
+            '*'         => '.*',
+            $delimiter  => '\\'.$delimiter
         );
         return $delimiter.'^'
             .($strict ? '' : '.*')

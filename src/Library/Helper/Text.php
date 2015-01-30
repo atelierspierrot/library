@@ -47,7 +47,9 @@ class Text
      */
     public static function cut($string = '', $length = 120, $end_str = ' ...')
     {
-        if (empty($string)) return '';
+        if (empty($string)) {
+            return '';
+        }
         if (strlen($string) >= $length) {
             $stringint = substr($string, 0, $length);
             $last_space = strrpos($stringint, " ");
@@ -63,19 +65,34 @@ class Text
         return $stringcut;
     }
 
+    public static function wrap($str, $line_length = 75, $separator = PHP_EOL)
+    {
+        $parts = explode("\n", $str);
+        $lines = array();
+        if ($parts && count($parts)>0) {
+            foreach ($parts as $part) {
+                $lines[] = wordwrap($part, $line_length);
+            }
+        }
+        return implode($separator, $lines);
+    }
+
     /**
      * Strip all special characters in a string
      *
-     * @param   string $string The string to format
+     * @param   string  $string     The string to format
+     * @param   string  $authorized Some authorized characters
      * @return  string
      */
-    public static function stripSpecialChars($string = '')
+    public static function stripSpecialChars($string = '', $authorized = '')
     {
         $search = explode(',',
             "À,Á,Â,Ã,Ä,Å,à,á,â,ã,ä,å,Æ,Ç,æ,ç,Ñ,ñ,Ĵ,ĵ,Œ,œ,È,É,Ê,Ë,è,é,ê,ë,Ì,Í,Î,Ï,ì,í,î,ï,Ò,Ó,Ô,Õ,Ö,Ø,ò,ó,ô,õ,ö,ø,Ù,Ú,Û,Ü,ù,ú,û,ü,ů,Ů,ũ,Ũ,Ý,ý,ÿ,Ÿ");
-        $replace = explode(',', 
+        $replace = explode(',',
             "A,A,A,A,A,A,a,a,a,a,a,a,AE,C,ae,c,N,n,J,j,OE,oe,E,E,E,E,e,e,e,e,I,I,I,I,i,i,i,i,O,O,O,O,O,O,o,o,o,o,o,o,U,U,U,U,u,u,u,u,u,U,u,U,Y,y,y,Y");
-        return str_replace($search, $replace, $string);
+        $return = str_replace($search, $replace, $string);
+        $return = preg_replace('/[^[a-zA-Z0-9'.preg_quote($authorized).']/', '', $return);
+        return $return;
 /*
         $search = array(
             '@[éèêëÊË]@i','@[àâäÂÄ]@i','@[îïÎÏ]@i','@[ûùüÛÜ]@i','@[ôöÔÖ]@i','@[ç]@i','@[^a-zA-Z0-9]@'

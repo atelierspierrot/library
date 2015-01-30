@@ -96,8 +96,12 @@ class Html2Text
     public static function convert($content, $allowed_tags = null, $line_width = null)
     {
         $_this = new Html2Text;
-        if (!empty($allowed_tags)) self::setAllowedTags($allowed_tags);
-        if (!empty($line_width)) self::setLineWidth($line_width);
+        if (!empty($allowed_tags)) {
+            $_this->setAllowedTags($allowed_tags);
+        }
+        if (!empty($line_width)) {
+            $_this->setLineWidth($line_width);
+        }
 
         $text = trim(stripslashes($content));
 

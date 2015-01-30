@@ -24,10 +24,6 @@
 namespace Library\CommandLine;
 
 use \Library\CodeParser;
-use \Library\CommandLine\Helper;
-use \Library\CommandLine\Formater;
-use \Library\CommandLine\Stream;
-use \Library\CommandLine\CommandLineControllerInterface;
 
 /**
  * Basic command line controller
@@ -121,26 +117,26 @@ abstract class AbstractCommandLineController
      */
     protected $basic_options = array(
         'argv_options'=>array(
-            'h'=>'help',
-            'v'=>'verbose',
-            'x'=>'debug',
-            'q'=>'quiet',
-            'f'=>'force',
-            'i'=>'interactive',
+            'h' => 'help',
+            'v' => 'verbose',
+            'x' => 'debug',
+            'q' => 'quiet',
+            'f' => 'force',
+            'i' => 'interactive',
         ),
         'argv_long_options'=>array(
-            'help'=>'help',
-            'verbose'=>'verbose',
-            'debug'=>'debug',
-            'quiet'=>'quiet',
-            'force'=>'force',
-            'interactive'=>'interactive',
+            'help'      => 'help',
+            'verbose'   => 'verbose',
+            'debug'     => 'debug',
+            'quiet'     => 'quiet',
+            'force'     => 'force',
+            'interactive'=> 'interactive',
         ),
         'commands'=>array(
-            'version'=>'version',
+            'version' => 'version',
         ),
         'aliases'=>array(
-            'vers'=>'version',
+            'vers' => 'version',
         ),
     );
 
@@ -159,17 +155,17 @@ abstract class AbstractCommandLineController
      * @var array
      */
     protected $options = array(
-        'title'=>'',
-        'title_options'=>array(
-            'foreground'=>'cyan',
-            'background'=>'blue',
-            'text_options'=>'bold',
-            'autospaced'=>false
+        'title'             => '',
+        'title_options'     => array(
+            'foreground'        => 'cyan',
+            'background'        => 'blue',
+            'text_options'      => 'bold',
+            'autospaced'        => false
         ),
-        'argv_options'=>array(),
-        'argv_long_options'=>array(),
-        'commands'=>array(),
-        'aliases'=>array(),
+        'argv_options'      => array(),
+        'argv_long_options' => array(),
+        'commands'          => array(),
+        'aliases'           => array(),
     );
 
 // ------------------------------------
