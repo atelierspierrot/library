@@ -223,50 +223,6 @@ class Number
         return $isjj;
     }
 
-    public static $romans_numbers = array(
-        1,5,10,50,100,500,1000
-    );
-
-    public static $romans_letters = array(
-        'I','V','X','L','C','D','M'
-    );
-
-    /**
-     * Get the roman notation of a number inferior to 5000
-     *
-     * @param $a
-     * @return string
-     */
-    public static function getRomanNumeralsNotation($a)
-    {
-        if ($a>4999) return null;
-        $ctt = '';
-        $counter = 1;
-        for ($i=(strlen($a)-1); $i>=0; $i--) {
-            $tmp_ctt = '';
-            $char = $a{$i};
-            if ($char>0 && $char<4) {
-                $index = array_search($counter, self::$romans_numbers);
-                $tmp_ctt .= str_pad(self::$romans_letters[$index], $char, self::$romans_letters[$index]);
-            } elseif (3<$char && $char<9) {
-                $index = array_search($counter, self::$romans_numbers);
-                if ($char==4) {
-                    $tmp_ctt .= self::$romans_letters[$index];
-                }
-                $tmp_ctt .= self::$romans_letters[$index+1];
-                if ($char>5) {
-                    $tmp_ctt .= str_pad(self::$romans_letters[$index], ($char-5), self::$romans_letters[$index]);
-                }
-            } elseif ($char==9) {
-                $index = array_search($counter, self::$romans_numbers);
-                $tmp_ctt .= self::$romans_letters[$index].self::$romans_letters[$index+2];
-            }
-            $counter = $counter*10;
-            $ctt = $tmp_ctt.$ctt;
-        }
-        return $ctt;
-    }
-
 }
 
 // Endfile
