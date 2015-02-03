@@ -468,9 +468,9 @@ for ($i=0; $i<50; $i++) {
 }
 
 /*
-echo "echo Library\Helper\Number::isPrimordial(i)\n";
+echo "echo Library\Helper\Number::isPalindromic(i)\n";
 for ($i=0; $i<30; $i++) {
-    echo "i=$i : ".(Library\Helper\Number::isPrimordial($i) ? "PRIMORDIAL" : "-")."\n";
+    echo "i=$i : ".(Library\Helper\Number::isPalindromic($i) ? "PALINDROME" : "-")."\n";
 }
 */
 
