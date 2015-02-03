@@ -258,6 +258,7 @@ class Code
             if (!is_array($args_passed)) {
                 $tmp_index = -1;
                 foreach ($method_reflect->getParameters() as $_param) {
+                    $arg_pos = $_param->getPosition();
                     if (!$_param->isDefaultValueAvailable() && $tmp_index===-1) {
                         $tmp_index = $_param->getPosition();
                     } elseif (!$_param->isDefaultValueAvailable() && $tmp_index!==-1) {
