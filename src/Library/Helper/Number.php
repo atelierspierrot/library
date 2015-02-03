@@ -43,8 +43,11 @@ class Number
      * @param   int     $val
      * @return  bool
      */
-    public static function isOdd($val)
+    public static function isOdd($val = null)
     {
+        if (is_null($val)) {
+            return null;
+        }
         return (bool) !($val % 2 == 0);
     }
 
@@ -54,8 +57,11 @@ class Number
      * @param   int     $val
      * @return  bool
      */
-    public static function isEven($val)
+    public static function isEven($val = null)
     {
+        if (is_null($val)) {
+            return null;
+        }
         return (bool) ($val % 2 == 0);
     }
 
@@ -65,8 +71,11 @@ class Number
      * @param   int $val
      * @return  bool
      */
-    public static function isPrime($val)
+    public static function isPrime($val = null)
     {
+        if (is_null($val)) {
+            return null;
+        }
         if (
             ($val<=1) ||
             ($val>2 && ($val%2)===0)
@@ -82,31 +91,16 @@ class Number
     }
 
     /**
-     * Test if an integer is a "primordial number"
-     *
-     * @param   int $val
-     * @return  bool
-     */
-    public static function isPrimordial($val)
-    {
-        $r = 0;
-        $t = $val;
-        while ($t>0) {
-            $d = $t%10;
-            $t = $t/10;
-            $r = ($r*10)+$d;
-        }
-        return (bool) ($r==$val);
-    }
-
-    /**
      * Get the `$val` element of the Fibonacci suite
      *
      * @param   int $val
      * @return  int
      */
-    public static function getFibonacciItem($val)
+    public static function getFibonacciItem($val = null)
     {
+        if (is_null($val)) {
+            return null;
+        }
         if ($val==0) {
             return 0;
         } elseif ($val==1) {
@@ -118,13 +112,19 @@ class Number
     }
 
     /**
-     * Luhn formula
-     * 
+     * Luhn formula: get the Luhn digit of an integer
+     *
+     * 7992739871 => 3
+     *
+     * @see <http://en.wikipedia.org/wiki/Luhn_algorithm>
      * @param   int     $val
      * @return  int
      */
-    public static function getLuhnKey($val)
+    public static function getLuhnKey($val = null)
     {
+        if (is_null($val)) {
+            return null;
+        }
         $val = $val.'0';
         $length = strlen($val);
         $checksum = 0;
@@ -139,20 +139,23 @@ class Number
             $checksum += $digit;
         }
         $luhn_key = 10 - ( $checksum % 10 );
-        if($luhn_key == 10) {
+        if ($luhn_key == 10) {
             $luhn_key = 0;
         }
         return $luhn_key;
     }
 
     /**
-     * Check id last number in a suite is a Luhn key
+     * Check that the last number in a suite is its Luhn key
      *
      * @param   int     $val    The number to check INCLUDING Luhn's key at last
      * @return  bool
      */
-    public static function isLuhn($val)
+    public static function isLuhn($val = null)
     {
+        if (is_null($val)) {
+            return null;
+        }
         $_num = substr($val, 0, strlen($val)-1);
         return (bool) (intval($val) == intval($_num.self::getLuhnKey($_num)));
     }
@@ -160,12 +163,15 @@ class Number
     /**
      * Calculate the sum of the digits of a number (its absolute entire value)
      *
-     * @param $a
+     * @param $val
      * @return int
      */
-    public static function getSumOfDigits($a)
+    public static function getSumOfDigits($val = null)
     {
-        $nbs = str_split(pow(abs($a), 0));
+        if (is_null($val)) {
+            return null;
+        }
+        $nbs = str_split(pow(abs($val), 1));
         $result = 0;
         foreach ($nbs as $nb) {
             $result += (int) $nb;
@@ -179,15 +185,23 @@ class Number
      * assuming digit positions are labeled 0 to N-1,
      * the digit in each position is equal to the number of times that digit appears in the number
      *
-     * @param $a
+     * 2020 => true
+     * 22 => false
+     * 1210 => true
+     *
+     * @param $val
      * @return bool
      */
-    public static function isSelfDescribing($a)
+    public static function isSelfDescribing($val = null)
     {
-        for ($i=0; $i<strlen($a); $i++) {
-            $val = $a{$i};
-            $occ = substr_count($a, $i);
-            if ($val != $occ) {
+        if (is_null($val)) {
+            return null;
+        }
+        $val = (string) $val;
+        for ($i=0; $i<strlen($val); $i++) {
+            $_val   = $val{$i};
+            $occ    = substr_count($val, $i);
+            if ($_val != $occ) {
                 return false;
             }
         }
@@ -203,8 +217,11 @@ class Number
      * @param array $items
      * @return bool
      */
-    public static function isJollyJumperSeries(array $items)
+    public static function isJollyJumperSeries(array $items = array())
     {
+        if (empty($items)) {
+            return null;
+        }
         if (count($items)==1) {
             return true;
         }
@@ -222,6 +239,27 @@ class Number
         }
         return $isjj;
     }
+
+    /**
+     * Test if an integer is a "palindromic number"
+     *
+     * @param   int $val
+     * @return  bool
+    public static function isPalindromic($val = null)
+    {
+    if (is_null($val)) {
+    return null;
+    }
+    $r = 0;
+    $t = $val;
+    while ($t>0) {
+    $d = $t%10;
+    $t = $t/10;
+    $r = ($r*10) + $d;
+    }
+    return (bool) ($r==$val);
+    }
+     */
 
 }
 

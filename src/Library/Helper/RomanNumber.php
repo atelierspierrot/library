@@ -58,8 +58,11 @@ class RomanNumber
      * @param $roman
      * @return bool
      */
-    public static function isRomanNumber($roman)
+    public static function isRomanNumber($roman = null)
     {
+        if (is_null($roman)) {
+            return false;
+        }
         return (bool) (preg_match(self::$roman_regex, $roman) > 0);
     }
 
@@ -69,8 +72,11 @@ class RomanNumber
      * @param $str
      * @return bool|int
      */
-    public static function romanToInt($str)
+    public static function romanToInt($str = null)
     {
+        if (is_null($str)) {
+            return null;
+        }
         if ($str==self::$romans_letters[0]) {
             return 0;
         }
@@ -98,8 +104,11 @@ class RomanNumber
      * @param $a
      * @return string
      */
-    public static function intToRoman($a)
+    public static function intToRoman($a = null)
     {
+        if (is_null($a)) {
+            return null;
+        }
         if ($a>4999) {
             return null;
         }
