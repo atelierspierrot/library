@@ -50,4 +50,29 @@ abstract class TestCase
         }
     }
 
+    public static $base_tmp_dir;
+    public static $tmp_dir;
+    public static $tmp_file;
+    public static $tmp_file_2;
+
+    /**
+     * Prepare file paths
+     */
+    public static function prepareTempDir()
+    {
+//        self::$base_tmp_dir = sys_get_temp_dir();
+        self::$base_tmp_dir = realpath(__DIR__.'/../temp');
+        self::$tmp_dir = self::$base_tmp_dir.'/'.uniqid();
+        self::$tmp_file = self::$tmp_dir.'/'.uniqid().'.txt';
+        self::$tmp_file_2 = self::$tmp_dir.'/'.uniqid().'-2.txt';
+    }
+
+    /**
+     * Cleanup test files
+     */
+    public static function cleanTempDir()
+    {
+        @exec('rm -rf '.self::$tmp_dir);
+    }
+
 }
