@@ -68,7 +68,7 @@ class TextHelperTest
     public function testSlugify()
     {
         $this->checkNoArg('slugify');
-        $str = 'Lorem é ipsum à amet §!* lorem';
+        $str = 'Lorem é ipsum à amet [§!*] lorem';
         $str_a = 'lorem-e-ipsum-a-amet-lorem';
         $this->assertEquals($str_a, \Library\Helper\Text::slugify($str));
     }
