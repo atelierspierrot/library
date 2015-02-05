@@ -102,8 +102,11 @@ class Directory
      * @param   bool    $recursive
      * @return  bool
      */
-    public static function ensureExists($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
+    public static function ensureExists($path = null, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
     {
+        if (is_null($path)) {
+            return null;
+        }
         if (file_exists($path) && is_dir($path)) {
             return true;
         }
@@ -118,8 +121,11 @@ class Directory
      * @param   bool    $recursive
      * @return  bool
      */
-    public static function create($path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
+    public static function create($path = null, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, $recursive = true)
     {
+        if (is_null($path)) {
+            return null;
+        }
         return mkdir($path, Filesystem::getOctal($mode), $recursive);
     }
 
@@ -130,8 +136,11 @@ class Directory
      * @param   array   $logs   Logs registry passed by reference
      * @return  bool
      */
-    public static function remove($path, array &$logs = array())
+    public static function remove($path = null, array &$logs = array())
     {
+        if (is_null($path)) {
+            return null;
+        }
         if (file_exists($path) && is_dir($path)) {
             if (!is_dir($path) || is_link($path)) {
                 if (array_key_exists($path, $logs)) {
@@ -169,8 +178,11 @@ class Directory
      * @param   array   $logs   Logs registry passed by reference
      * @return  bool
      */
-    public static function purge($path, array &$logs = array())
+    public static function purge($path = null, array &$logs = array())
     {
+        if (is_null($path)) {
+            return null;
+        }
         if (file_exists($path) && is_dir($path)) {
             $iterator = new \RecursiveIteratorIterator(
                 new \RecursiveDirectoryIterator($path), 
@@ -213,9 +225,12 @@ class Directory
      * @return  bool
      */
     public static function chmod(
-        $path, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES,
+        $path = null, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES,
         $recursive = true, $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array &$logs = array()
     ){
+        if (is_null($path)) {
+            return null;
+        }
         $ok = false;
         if (file_exists($path) && is_dir($path)) {
             if (true!==($ok = chmod($path, Filesystem::getOctal($mode)))) {
@@ -235,7 +250,7 @@ class Directory
                             $logs[] = sprintf('Can not change mode on sub-directory "%s" (trying to set them on "%d").', $item, $mode);
                         }
                     } elseif ($item->isFile() && !$item->isLink()) {
-                        if (true!==$ok = chmod($item, Filesystem::getOctal($file_mode))) {
+                        if (true!==($ok = chmod($item, Filesystem::getOctal($file_mode)))) {
                             $logs[] = sprintf('Can not change mode on file "%s" (trying to set them on "%d").', $item, $file_mode);
                         }
                     }
