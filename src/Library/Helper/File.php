@@ -50,6 +50,9 @@ class File
      */
     public static function getUniqFilename($filename = '', $dir = null, $force_file = true, $extension = 'txt')
     {
+        if (empty($filename)) {
+            return '';
+        }
         $extension = trim($extension, '.');
 
         if (empty($filename)){
@@ -89,8 +92,7 @@ class File
             $filename = str_replace($_ext, '', $filename);
         }
 
-        $string = TextHelper::stripSpecialChars($filename);
-
+        $string = $filename;
         if ($lowercase) {
             $string = strtolower($string);
         }
@@ -99,6 +101,8 @@ class File
         $string = preg_replace('#\-+#',$delimiter,$string);
         $string = preg_replace('#([-]+)#',$delimiter,$string);
         $string = trim($string,$delimiter);
+
+        $string = TextHelper::stripSpecialChars($string, $delimiter.'.');
 
         if ($_ext) {
             $string .= $_ext;
@@ -112,14 +116,17 @@ class File
      *
      * It basically returns everything after last dot. No validation is done.
      *
-     * @param   string  $file_name  The file_name to work on
+     * @param   string  $filename  The file_name to work on
      * @param   bool    $dot
      * @return  null|string     The extension if found, `null` otherwise
      */
-    public static function getExtension($file_name = '', $dot = false)
+    public static function getExtension($filename = '', $dot = false)
     {
-        $exploded_file_name = explode('.', $file_name);
-        return (strpos($file_name, '.') ? ($dot ? '.' : '').end($exploded_file_name) : null);
+        if (empty($filename)) {
+            return '';
+        }
+        $exploded_file_name = explode('.', $filename);
+        return (strpos($filename, '.') ? ($dot ? '.' : '').end($exploded_file_name) : null);
     }
 
     /**
@@ -133,16 +140,19 @@ class File
      * The original file name is rebuilt striping the extension
      * and a set of commonly used separator characters in file or directories names.
      *
-     * @param   string  $file_name  The file_name to work on
+     * @param   string  $filename  The file_name to work on
      * @return  string  The resulting human readable file name
      */
-    public static function getHumanReadableFilename($file_name = '')
+    public static function getHumanReadableFilename($filename = '')
     {
-        $ext = self::getExtension($file_name);
-        if (!empty($ext)) {
-            $file_name = str_replace('.'.$ext, '', $file_name);
+        if (empty($filename)) {
+            return '';
         }
-        return ucfirst( str_replace(self::$REPLACEMENT_FILENAMES_CHARS, ' ', $file_name) );
+        $ext = self::getExtension($filename);
+        if (!empty($ext)) {
+            $filename = str_replace('.'.$ext, '', $filename);
+        }
+        return ucfirst( str_replace(self::$REPLACEMENT_FILENAMES_CHARS, ' ', $filename) );
     }
 
     /**
@@ -156,13 +166,16 @@ class File
      * This will return the size received transforming it to be readable, with the appropriate
      * unit chosen in `self::$FILESIZE_ORDERED_UNITS`.
      *
-     * @param   float   $size           Refer to the size (in standard format given by the `stat()` function)
-     * @param   int     $round          The number of decimal places (default is 3)
-     * @param   string  $dec_delimiter  The decimal separator (default is a comma)
+     * @param   float|int   $size           Refer to the size (in standard format given by the `stat()` function)
+     * @param   int         $round          The number of decimal places (default is 3)
+     * @param   string      $dec_delimiter  The decimal separator (default is a comma)
      * @return  int
      */
     public static function getTransformedFilesize($size = 0, $round = 3, $dec_delimiter = ',')
     {
+        if (empty($size)) {
+            return 0;
+        }
         $count=0;
         while($size >= 1024 && $count < (count(self::$FILESIZE_ORDERED_UNITS)-1)) {
             $count++;
@@ -188,8 +201,11 @@ class File
      * @param   array   $logs   Logs registry passed by reference
      * @return  bool
      */
-    public static function touch($file_path, array &$logs = array())
+    public static function touch($file_path = null, array &$logs = array())
     {
+        if (is_null($file_path)) {
+            return null;
+        }
         if (!file_exists($file_path)) {
             $target_dir = dirname($file_path);
             $ok = !file_exists($target_dir) ? Directory::create($target_dir) : true;
@@ -212,8 +228,11 @@ class File
      * @param   array   $logs       Logs registry passed by reference
      * @return  bool
      */
-    public static function remove($file_path, array &$logs = array())
+    public static function remove($file_path = null, array &$logs = array())
     {
+        if (is_null($file_path)) {
+            return null;
+        }
         if (file_exists($file_path)) {
             if (unlink($file_path)) {
                 clearstatcache();
@@ -236,8 +255,11 @@ class File
      * @param   array   $logs   Logs registry passed by reference
      * @return  bool
      */
-    public static function copy($file_path, $target_path, $force = false, array &$logs = array())
+    public static function copy($file_path = null, $target_path = null, $force = false, array &$logs = array())
     {
+        if (is_null($file_path) || is_null($target_path)) {
+            return null;
+        }
         if (!file_exists($file_path)) {
             $logs[] = sprintf('File path "%s" to copy was not found.', $file_path);
             return false;
@@ -270,8 +292,11 @@ class File
      * @param   array   $logs
      * @return  bool
      */
-    public static function write($file_path, $content, $type = 'a', $force = false, array &$logs = array())
+    public static function write($file_path = null, $content, $type = 'a', $force = false, array &$logs = array())
     {
+        if (is_null($file_path)) {
+            return null;
+        }
         if (!file_exists($file_path)) {
             if (true===$force) {
                 self::touch($file_path, $logs);
