@@ -1,0 +1,7 @@
+
+## v1.1.8 to v1.1.9
+
+- the HTTP status codes of the `\Library\HttpFundamental\Response` object
+are now defined in the `\Patterns\Commons\HttpStatus` of the Patterns package
+
+- updating required Patterns package to version 1.0.9 or higher

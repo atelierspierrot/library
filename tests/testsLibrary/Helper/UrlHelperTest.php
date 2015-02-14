@@ -29,8 +29,24 @@ class UrlHelperTest
     extends TestCase
 {
 
+    /**
+     * Test if method `\Library\Helper\Url::$meth()` with no argument returns `null` with no error
+     *
+     * @param $meth
+     * @param $default
+     */
+    public function checkNoArg($meth, $default = null)
+    {
+        $this->checkHelperMethodNoArg('\Library\Helper\Url', $meth, $default);
+    }
+
+    /**
+     * @covers ../../../src/Library/Helper/Url::isUrl()
+     */
     public function testIsUrl()
     {
+        $this->checkNoArg('isUrl');
+
         // simple domain name: must be ok
         $url = 'http://www.google.com/';
         $this->assertTrue(
@@ -103,8 +119,13 @@ class UrlHelperTest
 
     }
 
+    /**
+     * @covers ../../../src/Library/Helper/Url::isEmail()
+     */
     public function testIsEmail()
     {
+        $this->checkNoArg('isEmail');
+
         // simple email: must be ok
         $url = 'name@domain.com';
         $this->assertTrue(
@@ -154,6 +175,35 @@ class UrlHelperTest
             sprintf('isEmail fails for "%s"!', $url)
         );
 
+    }
+
+    /**
+     * @covers ../../../src/Library/Helper/Url::getParameter()
+     */
+    public function testParams()
+    {
+        $this->checkNoArg('getParameter');
+        $url = 'http://domain.com/index.php?param=A&param1=test1&param2=test2';
+        $this->assertEquals('test1', \Library\Helper\Url::getParameter('param1', $url));
+        $url_t = str_replace('test2', 'azerty', $url);
+        $this->assertEquals($url_t, \Library\Helper\Url::setParameter('param2', 'azerty', $url));
+    }
+
+    /**
+     * @covers ../../../src/Library/Helper/Url::resolveHttp()
+     * @covers ../../../src/Library/Helper/Url::resolvePath()
+     */
+    public function testResolvers()
+    {
+        $this->checkNoArg('resolveHttp');
+        $url = 'domain.com/index.php?param=A&param1=test1&param2=test2';
+        $this->assertEquals('http://'.$url, \Library\Helper\Url::resolveHttp($url));
+        $this->assertEquals('http://'.$url, \Library\Helper\Url::resolveHttp('http://'.$url));
+
+        $this->checkNoArg('resolvePath');
+        $path       = 'my/path/../to/./a/file';
+        $realpath   = 'my/to/a/file';
+        $this->assertEquals($realpath, \Library\Helper\Url::resolvePath($path));
     }
 
 }

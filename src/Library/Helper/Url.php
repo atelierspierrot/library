@@ -103,7 +103,7 @@ class Url
     public static function parse($url)
     {
         if (!strlen($url)) {
-            return;
+            return null;
         }
         $_urls = array_merge( @parse_url($url), array('params'=>array()) );
         if (isset($_urls['query'])) {
@@ -121,16 +121,19 @@ class Url
      * @param boolean $realpath Returns the real path of the path (default is `false`)
      * @return string The resolved path, or real path if so
      */
-    public static function resolvePath($url, $realpath = false)
+    public static function resolvePath($url = null, $realpath = false)
     {
+        if (is_null($url)) {
+            return '';
+        }
         while (
             preg_match(',/\.?/,', $url, $regs)      # supprime // et /./
-            || preg_match(',/[^/]*/\.\./,S', $url, $regs)   # supprime /toto/../
+            || preg_match(',/?[^/]*/\.\./,S', $url, $regs)   # supprime /toto/../
             || preg_match(',^/\.\./,S', $url, $regs)        # supprime les /../ du haut
         ) {
             $url = str_replace($regs[0], '/', $url);
         }
-        $url = '/'.preg_replace(',^/,S', '', $url);
+        $url = preg_replace(',^/,S', '', $url);
         if ($realpath && $ok = @realpath($url) ) {
             return $ok;
         }
@@ -145,8 +148,11 @@ class Url
      * @param string $url The URL to resolve
      * @return string The resolved URL
      */
-    public static function resolveHttp($url)
+    public static function resolveHttp($url = null)
     {
+        if (is_null($url)) {
+            return '';
+        }
         $url = preg_replace(',^feed://,i', 'http://', $url);
         if (!preg_match(',^[a-z]+://,i', $url)) {
             $url = 'http://'.$url;
@@ -160,12 +166,15 @@ class Url
      * @param string $url The URL to resolve
      * @return string The resolved URL
      */
-    public static function getAbsoluteUrl($url)
+    public static function getAbsoluteUrl($url = null)
     {
+        if (is_null($url)) {
+            return '';
+        }
         if (self::isUrl($url)) {
             return $url;
         }
-        $url            = self::resolvePath($url);
+        $url            = '/'.self::resolvePath($url);
         $current_url    = self::getRequestUrl(true, true);
         $curr           = substr($current_url, 0, strrpos($current_url, '/') );
         return $curr.$url;
@@ -181,8 +190,12 @@ class Url
      */
     public static function url($param = null, $value = null, $url = null)
     {
-        if (is_null($url) OR !strlen($url)) 
+        if (is_null($param)) {
+            return '';
+        }
+        if (is_null($url) || !strlen($url)) {
             $url = self::getRequestUrl();
+        }
 
         if (!is_null($param)) {
             if (is_array($param) && is_null($value)) {
@@ -212,6 +225,9 @@ class Url
      */
     public static function getParameter($param = false, $url = false)
     {
+        if (empty($param)) {
+            return null;
+        }
         if (!$url || !strlen($url)) {
             $url = self::getRequestUrl();
         }
@@ -265,7 +281,7 @@ class Url
     public static function build(array $url_components = null, $not_toput = null)
     {
         if (!is_array($url_components)) {
-            return;
+            return null;
         }
 
         $_ntp = $not_toput ? (is_array($not_toput) ? $not_toput : array($not_toput)) : array();

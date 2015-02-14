@@ -65,8 +65,17 @@ class Text
         return $stringcut;
     }
 
-    public static function wrap($str, $line_length = 75, $separator = PHP_EOL)
+    /**
+     * @param $str
+     * @param int $line_length
+     * @param string $separator
+     * @return string
+     */
+    public static function wrap($str = '', $line_length = 75, $separator = PHP_EOL)
     {
+        if (empty($str)) {
+            return '';
+        }
         $parts = explode("\n", $str);
         $lines = array();
         if ($parts && count($parts)>0) {
@@ -79,6 +88,9 @@ class Text
 
     /**
      * Strip all special characters in a string
+     *
+     * This will replace all accentuated letters by their non-accentuated
+     * equivalent and delete all other special characters (including space by default).
      *
      * @param   string  $string     The string to format
      * @param   string  $authorized Some authorized characters
@@ -142,6 +154,9 @@ class Text
      */
     public static function toCamelCase($name = '', $replace = '_', $capitalize_first_char = true)
     {
+        if (empty($name)) {
+            return '';
+        }
         if ($capitalize_first_char) {
             $name[0] = strtoupper($name[0]);
         }
@@ -159,6 +174,9 @@ class Text
      */
     public static function fromCamelCase($name = '', $replace = '_', $lowerize_first_char = true)
     {
+        if (empty($name)) {
+            return '';
+        }
         if ($lowerize_first_char) {
             $name[0] = strtolower($name[0]);
         }

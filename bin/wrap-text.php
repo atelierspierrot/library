@@ -7,6 +7,7 @@ error_reporting(E_ALL & ~E_STRICT);
 if (empty($argv) || count($argv)<2) {
     echo <<<EOT
 usage: wrap-text.php <input-file> [output-file = input-file] [wrap-length = 75]
+
 EOT;
     exit(1);
 }

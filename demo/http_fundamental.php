@@ -223,6 +223,15 @@ echo '// '.$custom_request->buildUrl()."\n";
 
 <h3 id="response">Library\HttpFundamental\Response</h3>
 
+    <pre class="code" data-language="php">
+<?php
+$response = new \Library\HttpFundamental\Response();
+
+var_export($response);
+?>
+    </pre>
+
+
 <p>TODO : documentation ...</p>
 
         </article>

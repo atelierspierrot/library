@@ -29,15 +29,51 @@ class RomanNumberHelperTest
     extends TestCase
 {
 
+    // test for 2015 : MMXV
+    public $int = 2015;
+    public $str = 'MMXV';
+
+    /**
+     * Test if method `\Library\Helper\RomanNumber::$meth()` with no argument returns `null` with no error
+     *
+     * @param $meth
+     * @param $default
+     */
+    public function checkNoArg($meth, $default = null)
+    {
+        $this->checkHelperMethodNoArg('\Library\Helper\RomanNumber', $meth, $default);
+    }
+
+    /**
+     * @covers ../../../src/Library/Helper/RomanNumber::isRomanNumber()
+     */
     public function testOne()
     {
-        // test for 2015 : MMXV
-        $int = 2015;
-        $str = 'MMXV';
-        $this->assertTrue(\Library\Helper\RomanNumber::isRomanNumber($str));
-        $this->assertFalse(\Library\Helper\RomanNumber::isRomanNumber($str.'k'));
-        $this->assertEquals($int, \Library\Helper\RomanNumber::romanToInt($str));
-        $this->assertEquals($str, \Library\Helper\RomanNumber::intToRoman($int));
+        $this->checkNoArg('isRomanNumber');
+        $this->assertTrue(\Library\Helper\RomanNumber::isRomanNumber($this->str));
+        $this->assertFalse(\Library\Helper\RomanNumber::isRomanNumber($this->str.'k'));
+    }
+
+    /**
+     * @covers ../../../src/Library/Helper/RomanNumber::romanToInt()
+     */
+    public function testTwo()
+    {
+        $this->checkNoArg('romanToInt');
+        $this->assertEquals($this->int, \Library\Helper\RomanNumber::romanToInt($this->str));
+        $this->assertNotEquals($this->int, \Library\Helper\RomanNumber::romanToInt($this->str.'L'));
+        $this->assertNotEquals($this->int+1, \Library\Helper\RomanNumber::romanToInt($this->str));
+    }
+
+    /**
+     * @covers ../../../src/Library/Helper/RomanNumber::intToRoman()
+     */
+    public function testThree()
+    {
+        $this->checkNoArg('intToRoman');
+        $this->assertEquals($this->str, \Library\Helper\RomanNumber::intToRoman($this->int));
+        $this->assertNotEquals($this->str, \Library\Helper\RomanNumber::intToRoman($this->int+1));
+        $this->assertNotEquals($this->str.'K', \Library\Helper\RomanNumber::intToRoman($this->int));
     }
 
 }
