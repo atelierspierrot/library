@@ -47,7 +47,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_isOdd">isOdd</a>(int $val)
+                    <a href="#method_isOdd">isOdd</a>(int $val = null)
                     <p>Test if an integer is an "odd number"</p>
                 </td>
                 <td></td>
@@ -57,7 +57,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_isEven">isEven</a>(int $val)
+                    <a href="#method_isEven">isEven</a>(int $val = null)
                     <p>Test if an integer is an "even number"</p>
                 </td>
                 <td></td>
@@ -67,18 +67,8 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_isPrime">isPrime</a>(int $val)
+                    <a href="#method_isPrime">isPrime</a>(int $val = null)
                     <p>Test if an integer is a "prime number"</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isPrimordial">isPrimordial</a>(int $val)
-                    <p>Test if an integer is a "primordial number"</p>
                 </td>
                 <td></td>
             </tr>
@@ -87,7 +77,7 @@
                     static&nbsp;int
                 </td>
                 <td class="last">
-                    <a href="#method_getFibonacciItem">getFibonacciItem</a>(int $val)
+                    <a href="#method_getFibonacciItem">getFibonacciItem</a>(int $val = null)
                     <p>Get the <code>$val</code> element of the Fibonacci suite</p>
                 </td>
                 <td></td>
@@ -97,8 +87,8 @@
                     static&nbsp;int
                 </td>
                 <td class="last">
-                    <a href="#method_getLuhnKey">getLuhnKey</a>(int $val)
-                    <p>Luhn formula</p>
+                    <a href="#method_getLuhnKey">getLuhnKey</a>(int $val = null)
+                    <p>Luhn formula: get the Luhn digit of an integer</p>
                 </td>
                 <td></td>
             </tr>
@@ -107,8 +97,8 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_isLuhn">isLuhn</a>(int $val)
-                    <p>Check id last number in a suite is a Luhn key</p>
+                    <a href="#method_isLuhn">isLuhn</a>(int $val = null)
+                    <p>Check that the last number in a suite is its Luhn key</p>
                 </td>
                 <td></td>
             </tr>
@@ -117,7 +107,7 @@
                     static&nbsp;int
                 </td>
                 <td class="last">
-                    <a href="#method_getSumOfDigits">getSumOfDigits</a>(<abbr title="Library\Helper\$a">$a</abbr> $a)
+                    <a href="#method_getSumOfDigits">getSumOfDigits</a>(<abbr title="Library\Helper\$val">$val</abbr> $val = null)
                     <p>Calculate the sum of the digits of a number (its absolute entire value)</p>
                 </td>
                 <td></td>
@@ -127,7 +117,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_isSelfDescribing">isSelfDescribing</a>(<abbr title="Library\Helper\$a">$a</abbr> $a)
+                    <a href="#method_isSelfDescribing">isSelfDescribing</a>(<abbr title="Library\Helper\$val">$val</abbr> $val = null)
                     <p>Test if a number is "self-describing":</p>
                 </td>
                 <td></td>
@@ -137,7 +127,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_isJollyJumperSeries">isJollyJumperSeries</a>(array $items)
+                    <a href="#method_isJollyJumperSeries">isJollyJumperSeries</a>(array $items = array())
                     <p>Test if a series of numbers is a "Jolly Jumper":</p>
                 </td>
                 <td></td>
@@ -150,7 +140,7 @@
                         <h3 id="method_isOdd">
         <div class="location">at line 46</div>
         <code>        static    public            bool
-    <strong>isOdd</strong>(int $val)</code>
+    <strong>isOdd</strong>(int $val = null)</code>
     </h3>
     <div class="details">
         <p>Test if an integer is an "odd number"</p>
@@ -185,9 +175,9 @@
     </div>
 
                 <h3 id="method_isEven">
-        <div class="location">at line 57</div>
+        <div class="location">at line 60</div>
         <code>        static    public            bool
-    <strong>isEven</strong>(int $val)</code>
+    <strong>isEven</strong>(int $val = null)</code>
     </h3>
     <div class="details">
         <p>Test if an integer is an "even number"</p>
@@ -222,9 +212,9 @@
     </div>
 
                 <h3 id="method_isPrime">
-        <div class="location">at line 68</div>
+        <div class="location">at line 74</div>
         <code>        static    public            bool
-    <strong>isPrime</strong>(int $val)</code>
+    <strong>isPrime</strong>(int $val = null)</code>
     </h3>
     <div class="details">
         <p>Test if an integer is a "prime number"</p>
@@ -258,47 +248,10 @@
                     </div>
     </div>
 
-                <h3 id="method_isPrimordial">
-        <div class="location">at line 90</div>
-        <code>        static    public            bool
-    <strong>isPrimordial</strong>(int $val)</code>
-    </h3>
-    <div class="details">
-        <p>Test if an integer is a "primordial number"</p>
-        <p>
-</p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td>int</td>
-                <td>$val</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table>
-        <tr>
-            <td>bool</td>
-            <td>
-</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
                 <h3 id="method_getFibonacciItem">
-        <div class="location">at line 108</div>
+        <div class="location">at line 99</div>
         <code>        static    public            int
-    <strong>getFibonacciItem</strong>(int $val)</code>
+    <strong>getFibonacciItem</strong>(int $val = null)</code>
     </h3>
     <div class="details">
         <p>Get the <code>$val</code> element of the Fibonacci suite</p>
@@ -333,14 +286,13 @@
     </div>
 
                 <h3 id="method_getLuhnKey">
-        <div class="location">at line 126</div>
+        <div class="location">at line 123</div>
         <code>        static    public            int
-    <strong>getLuhnKey</strong>(int $val)</code>
+    <strong>getLuhnKey</strong>(int $val = null)</code>
     </h3>
     <div class="details">
-        <p>Luhn formula</p>
-        <p>
-</p>
+        <p>Luhn formula: get the Luhn digit of an integer</p>
+        <p>7992739871 => 3</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -366,16 +318,25 @@
 
             
             
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>&lt;http://en.wikipedia.org/wiki/Luhn_algorithm&gt;</td>
+                <td></td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 
                 <h3 id="method_isLuhn">
         <div class="location">at line 154</div>
         <code>        static    public            bool
-    <strong>isLuhn</strong>(int $val)</code>
+    <strong>isLuhn</strong>(int $val = null)</code>
     </h3>
     <div class="details">
-        <p>Check id last number in a suite is a Luhn key</p>
+        <p>Check that the last number in a suite is its Luhn key</p>
         <p>
 </p>
         <div class="tags">
@@ -406,9 +367,9 @@
     </div>
 
                 <h3 id="method_getSumOfDigits">
-        <div class="location">at line 166</div>
+        <div class="location">at line 169</div>
         <code>        static    public            int
-    <strong>getSumOfDigits</strong>(<abbr title="Library\Helper\$a">$a</abbr> $a)</code>
+    <strong>getSumOfDigits</strong>(<abbr title="Library\Helper\$val">$val</abbr> $val = null)</code>
     </h3>
     <div class="details">
         <p>Calculate the sum of the digits of a number (its absolute entire value)</p>
@@ -419,8 +380,8 @@
 
                     <table>
                     <tr>
-                <td><abbr title="Library\Helper\$a">$a</abbr></td>
-                <td>$a</td>
+                <td><abbr title="Library\Helper\$val">$val</abbr></td>
+                <td>$val</td>
                 <td>
 </td>
             </tr>
@@ -443,21 +404,25 @@
     </div>
 
                 <h3 id="method_isSelfDescribing">
-        <div class="location">at line 185</div>
+        <div class="location">at line 195</div>
         <code>        static    public            bool
-    <strong>isSelfDescribing</strong>(<abbr title="Library\Helper\$a">$a</abbr> $a)</code>
+    <strong>isSelfDescribing</strong>(<abbr title="Library\Helper\$val">$val</abbr> $val = null)</code>
     </h3>
     <div class="details">
         <p>Test if a number is "self-describing":</p>
         <p>assuming digit positions are labeled 0 to N-1,
 the digit in each position is equal to the number of times that digit appears in the number</p>
+
+<p>2020 => true
+22 => false
+1210 => true</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
                     <table>
                     <tr>
-                <td><abbr title="Library\Helper\$a">$a</abbr></td>
-                <td>$a</td>
+                <td><abbr title="Library\Helper\$val">$val</abbr></td>
+                <td>$val</td>
                 <td>
 </td>
             </tr>
@@ -480,9 +445,9 @@ the digit in each position is equal to the number of times that digit appears in
     </div>
 
                 <h3 id="method_isJollyJumperSeries">
-        <div class="location">at line 206</div>
+        <div class="location">at line 220</div>
         <code>        static    public            bool
-    <strong>isJollyJumperSeries</strong>(array $items)</code>
+    <strong>isJollyJumperSeries</strong>(array $items = array())</code>
     </h3>
     <div class="details">
         <p>Test if a series of numbers is a "Jolly Jumper":</p>

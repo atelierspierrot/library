@@ -54,10 +54,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    static&nbsp;
+                    static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_wrap">wrap</a>($str, $line_length = 75, $separator = PHP_EOL)
+                    <a href="#method_wrap">wrap</a>(<abbr title="Library\Helper\$str">$str</abbr> $str = &#039;&#039;, int $line_length = 75, string $separator = PHP_EOL)
                     <p>
 </p>
                 </td>
@@ -165,9 +165,9 @@
     </div>
 
                 <h3 id="method_wrap">
-        <div class="location">at line 68</div>
-        <code>        static    public            
-    <strong>wrap</strong>($str, $line_length = 75, $separator = PHP_EOL)</code>
+        <div class="location">at line 74</div>
+        <code>        static    public            string
+    <strong>wrap</strong>(<abbr title="Library\Helper\$str">$str</abbr> $str = &#039;&#039;, int $line_length = 75, string $separator = PHP_EOL)</code>
     </h3>
     <div class="details">
         <p>
@@ -179,19 +179,19 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\Helper\$str">$str</abbr></td>
                 <td>$str</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$line_length</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$separator</td>
                 <td>
 </td>
@@ -199,20 +199,30 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_stripSpecialChars">
-        <div class="location">at line 87</div>
+        <div class="location">at line 99</div>
         <code>        static    public            string
     <strong>stripSpecialChars</strong>(string $string = &#039;&#039;, string $authorized = &#039;&#039;)</code>
     </h3>
     <div class="details">
         <p>Strip all special characters in a string</p>
-        <p>
-</p>
+        <p>This will replace all accentuated letters by their non-accentuated
+equivalent and delete all other special characters (including space by default).</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -246,7 +256,7 @@
     </div>
 
                 <h3 id="method_slugify">
-        <div class="location">at line 114</div>
+        <div class="location">at line 126</div>
         <code>        static    public            string
     <strong>slugify</strong>(string $string = &#039;&#039;)</code>
     </h3>
@@ -281,7 +291,7 @@
     </div>
 
                 <h3 id="method_getHumanReadable">
-        <div class="location">at line 130</div>
+        <div class="location">at line 142</div>
         <code>        static    public            string
     <strong>getHumanReadable</strong>(string $string = &#039;&#039;)</code>
     </h3>
@@ -316,7 +326,7 @@
     </div>
 
                 <h3 id="method_toCamelCase">
-        <div class="location">at line 143</div>
+        <div class="location">at line 155</div>
         <code>        static    public            string
     <strong>toCamelCase</strong>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $capitalize_first_char = true)</code>
     </h3>
@@ -361,7 +371,7 @@
     </div>
 
                 <h3 id="method_fromCamelCase">
-        <div class="location">at line 160</div>
+        <div class="location">at line 175</div>
         <code>        static    public            string
     <strong>fromCamelCase</strong>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $lowerize_first_char = true)</code>
     </h3>

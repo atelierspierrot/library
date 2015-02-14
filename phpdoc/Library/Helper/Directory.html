@@ -100,7 +100,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_ensureExists">ensureExists</a>(string $path, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)
+                    <a href="#method_ensureExists">ensureExists</a>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)
                     <p>Build a directory with its whole hierarchy if necessary</p>
                 </td>
                 <td></td>
@@ -110,7 +110,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_create">create</a>(string $path, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)
+                    <a href="#method_create">create</a>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)
                     <p>Create a directory if necessary</p>
                 </td>
                 <td></td>
@@ -120,7 +120,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_remove">remove</a>(string $path, array $logs = array())
+                    <a href="#method_remove">remove</a>(string $path = null, array $logs = array())
                     <p>Remove a directory with its whole contents</p>
                 </td>
                 <td></td>
@@ -130,7 +130,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_purge">purge</a>(string $path, array $logs = array())
+                    <a href="#method_purge">purge</a>(string $path = null, array $logs = array())
                     <p>Remove a directory contents but not the directory itself</p>
                 </td>
                 <td></td>
@@ -140,7 +140,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_chmod">chmod</a>(string $path, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true, int $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array $logs = array())
+                    <a href="#method_chmod">chmod</a>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true, int $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array $logs = array())
                     <p>Change rights on a directory</p>
                 </td>
                 <td></td>
@@ -264,7 +264,7 @@
                 <h3 id="method_ensureExists">
         <div class="location">at line 105</div>
         <code>        static    public            bool
-    <strong>ensureExists</strong>(string $path, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)</code>
+    <strong>ensureExists</strong>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)</code>
     </h3>
     <div class="details">
         <p>Build a directory with its whole hierarchy if necessary</p>
@@ -311,9 +311,9 @@
     </div>
 
                 <h3 id="method_create">
-        <div class="location">at line 121</div>
+        <div class="location">at line 124</div>
         <code>        static    public            bool
-    <strong>create</strong>(string $path, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)</code>
+    <strong>create</strong>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)</code>
     </h3>
     <div class="details">
         <p>Create a directory if necessary</p>
@@ -360,9 +360,9 @@
     </div>
 
                 <h3 id="method_remove">
-        <div class="location">at line 133</div>
+        <div class="location">at line 139</div>
         <code>        static    public            bool
-    <strong>remove</strong>(string $path, array $logs = array())</code>
+    <strong>remove</strong>(string $path = null, array $logs = array())</code>
     </h3>
     <div class="details">
         <p>Remove a directory with its whole contents</p>
@@ -402,9 +402,9 @@
     </div>
 
                 <h3 id="method_purge">
-        <div class="location">at line 172</div>
+        <div class="location">at line 181</div>
         <code>        static    public            bool
-    <strong>purge</strong>(string $path, array $logs = array())</code>
+    <strong>purge</strong>(string $path = null, array $logs = array())</code>
     </h3>
     <div class="details">
         <p>Remove a directory contents but not the directory itself</p>
@@ -444,9 +444,9 @@
     </div>
 
                 <h3 id="method_chmod">
-        <div class="location">at line 215</div>
+        <div class="location">at line 227</div>
         <code>        static    public            bool
-    <strong>chmod</strong>(string $path, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true, int $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array $logs = array())</code>
+    <strong>chmod</strong>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true, int $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array $logs = array())</code>
     </h3>
     <div class="details">
         <p>Change rights on a directory</p>

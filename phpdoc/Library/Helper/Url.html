@@ -75,7 +75,7 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_resolvePath">resolvePath</a>(string $url, boolean $realpath = false)
+                    <a href="#method_resolvePath">resolvePath</a>(string $url = null, boolean $realpath = false)
                     <p>Returns the URL with paths cleaned (<code>./</code> and <code>../</code> are resolved)</p>
                 </td>
                 <td></td>
@@ -85,7 +85,7 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_resolveHttp">resolveHttp</a>(string $url)
+                    <a href="#method_resolveHttp">resolveHttp</a>(string $url = null)
                     <p>Returns an URL with leading 'http://' if it was absent  Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>
                 </td>
                 <td></td>
@@ -95,7 +95,7 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_getAbsoluteUrl">getAbsoluteUrl</a>(string $url)
+                    <a href="#method_getAbsoluteUrl">getAbsoluteUrl</a>(string $url = null)
                     <p>Returns if possible an absolute URL in the current system</p>
                 </td>
                 <td></td>
@@ -279,7 +279,7 @@
                 <h3 id="method_resolvePath">
         <div class="location">at line 124</div>
         <code>        static    public            string
-    <strong>resolvePath</strong>(string $url, boolean $realpath = false)</code>
+    <strong>resolvePath</strong>(string $url = null, boolean $realpath = false)</code>
     </h3>
     <div class="details">
         <p>Returns the URL with paths cleaned (<code>./</code> and <code>../</code> are resolved)</p>
@@ -316,9 +316,9 @@
     </div>
 
                 <h3 id="method_resolveHttp">
-        <div class="location">at line 148</div>
+        <div class="location">at line 151</div>
         <code>        static    public            string
-    <strong>resolveHttp</strong>(string $url)</code>
+    <strong>resolveHttp</strong>(string $url = null)</code>
     </h3>
     <div class="details">
         <p>Returns an URL with leading 'http://' if it was absent  Inspired by SPIP <a href="http://spip.net">http://spip.net</a></p>
@@ -351,9 +351,9 @@
     </div>
 
                 <h3 id="method_getAbsoluteUrl">
-        <div class="location">at line 163</div>
+        <div class="location">at line 169</div>
         <code>        static    public            string
-    <strong>getAbsoluteUrl</strong>(string $url)</code>
+    <strong>getAbsoluteUrl</strong>(string $url = null)</code>
     </h3>
     <div class="details">
         <p>Returns if possible an absolute URL in the current system</p>
@@ -386,7 +386,7 @@
     </div>
 
                 <h3 id="method_url">
-        <div class="location">at line 182</div>
+        <div class="location">at line 191</div>
         <code>        static    public            string
     <strong>url</strong>(<abbr title="Library\Helper\string/array/null">string/array/null</abbr> $param = null, <abbr title="Library\Helper\string/null">string/null</abbr> $value = null, <abbr title="Library\Helper\string/null">string/null</abbr> $url = null)</code>
     </h3>
@@ -431,7 +431,7 @@
     </div>
 
                 <h3 id="method_getParameter">
-        <div class="location">at line 213</div>
+        <div class="location">at line 226</div>
         <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
     <strong>getParameter</strong>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $param = false, <abbr title="Library\Helper\string/null">string/null</abbr> $url = false)</code>
     </h3>
@@ -471,7 +471,7 @@
     </div>
 
                 <h3 id="method_setParameter">
-        <div class="location">at line 243</div>
+        <div class="location">at line 259</div>
         <code>        static    public            <abbr title="Library\Helper\string/array">string/array</abbr>
     <strong>setParameter</strong>(<abbr title="Library\Helper\string/bool">string/bool</abbr> $var = &#039;&#039;, <abbr title="Library\Helper\string/false">string/false</abbr> $val = false, <abbr title="Library\Helper\string/false">string/false</abbr> $url = false, bool $rebuild = true)</code>
     </h3>
@@ -521,7 +521,7 @@
     </div>
 
                 <h3 id="method_build">
-        <div class="location">at line 265</div>
+        <div class="location">at line 281</div>
         <code>        static    public            string
     <strong>build</strong>(array $url_components = null, <abbr title="Library\Helper\string/array/boolean">string/array/boolean</abbr> $not_toput = null)</code>
     </h3>
@@ -561,7 +561,7 @@
     </div>
 
                 <h3 id="method_isUrl">
-        <div class="location">at line 298</div>
+        <div class="location">at line 314</div>
         <code>        static    public            bool
     <strong>isUrl</strong>(string $url = null, array $protocols = array(&#039;http&#039;, &#039;https&#039;, &#039;ftp&#039;), <abbr title="Library\Helper\bool/string">bool/string</abbr> $localhost = false)</code>
     </h3>
@@ -606,7 +606,7 @@
     </div>
 
                 <h3 id="method_isEmail">
-        <div class="location">at line 320</div>
+        <div class="location">at line 336</div>
         <code>        static    public            bool
     <strong>isEmail</strong>(string $email = null)</code>
     </h3>

@@ -86,7 +86,7 @@
                     static&nbsp;null|string
                 </td>
                 <td class="last">
-                    <a href="#method_getExtension">getExtension</a>(string $file_name = &#039;&#039;, bool $dot = false)
+                    <a href="#method_getExtension">getExtension</a>(string $filename = &#039;&#039;, bool $dot = false)
                     <p>Returns the extension of a file name</p>
                 </td>
                 <td></td>
@@ -96,7 +96,7 @@
                     static&nbsp;string
                 </td>
                 <td class="last">
-                    <a href="#method_getHumanReadableFilename">getHumanReadableFilename</a>(string $file_name = &#039;&#039;)
+                    <a href="#method_getHumanReadableFilename">getHumanReadableFilename</a>(string $filename = &#039;&#039;)
                     <p>Render a human readable string from a file name</p>
                 </td>
                 <td></td>
@@ -106,7 +106,7 @@
                     static&nbsp;int
                 </td>
                 <td class="last">
-                    <a href="#method_getTransformedFilesize">getTransformedFilesize</a>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)
+                    <a href="#method_getTransformedFilesize">getTransformedFilesize</a>(float|int $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)
                     <p>Returns a formatted file size in bytes or derived unit</p>
                 </td>
                 <td></td>
@@ -116,7 +116,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_touch">touch</a>(string $file_path, array $logs = array())
+                    <a href="#method_touch">touch</a>(string $file_path = null, array $logs = array())
                     <p>Create an empty file or touch an existing file</p>
                 </td>
                 <td></td>
@@ -126,7 +126,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_remove">remove</a>(string $file_path, array $logs = array())
+                    <a href="#method_remove">remove</a>(string $file_path = null, array $logs = array())
                     <p>Remove a file if it exists</p>
                 </td>
                 <td></td>
@@ -136,7 +136,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_copy">copy</a>(string $file_path, string $target_path, bool $force = false, array $logs = array())
+                    <a href="#method_copy">copy</a>(string $file_path = null, string $target_path = null, bool $force = false, array $logs = array())
                     <p>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></p>
                 </td>
                 <td></td>
@@ -146,7 +146,7 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
-                    <a href="#method_write">write</a>(string $file_path, string $content, string $type = &#039;a&#039;, bool $force = false, array $logs = array())
+                    <a href="#method_write">write</a>(string $file_path = null, string $content, string $type = &#039;a&#039;, bool $force = false, array $logs = array())
                     <p>Write a content in a file</p>
                 </td>
                 <td></td>
@@ -207,7 +207,7 @@
     </div>
 
                 <h3 id="method_formatFilename">
-        <div class="location">at line 81</div>
+        <div class="location">at line 84</div>
         <code>        static    public            string
     <strong>formatFilename</strong>(string $filename = &#039;&#039;, boolean $lowercase = false, string $delimiter = &#039;-&#039;)</code>
     </h3>
@@ -252,9 +252,9 @@
     </div>
 
                 <h3 id="method_getExtension">
-        <div class="location">at line 119</div>
+        <div class="location">at line 123</div>
         <code>        static    public            null|string
-    <strong>getExtension</strong>(string $file_name = &#039;&#039;, bool $dot = false)</code>
+    <strong>getExtension</strong>(string $filename = &#039;&#039;, bool $dot = false)</code>
     </h3>
     <div class="details">
         <p>Returns the extension of a file name</p>
@@ -265,7 +265,7 @@
                     <table>
                     <tr>
                 <td>string</td>
-                <td>$file_name</td>
+                <td>$filename</td>
                 <td>The file_name to work on</td>
             </tr>
                     <tr>
@@ -292,9 +292,9 @@
     </div>
 
                 <h3 id="method_getHumanReadableFilename">
-        <div class="location">at line 139</div>
+        <div class="location">at line 146</div>
         <code>        static    public            string
-    <strong>getHumanReadableFilename</strong>(string $file_name = &#039;&#039;)</code>
+    <strong>getHumanReadableFilename</strong>(string $filename = &#039;&#039;)</code>
     </h3>
     <div class="details">
         <p>Render a human readable string from a file name</p>
@@ -306,7 +306,7 @@ and a set of commonly used separator characters in file or directories names.</p
                     <table>
                     <tr>
                 <td>string</td>
-                <td>$file_name</td>
+                <td>$filename</td>
                 <td>The file_name to work on</td>
             </tr>
             </table>
@@ -327,9 +327,9 @@ and a set of commonly used separator characters in file or directories names.</p
     </div>
 
                 <h3 id="method_getTransformedFilesize">
-        <div class="location">at line 164</div>
+        <div class="location">at line 174</div>
         <code>        static    public            int
-    <strong>getTransformedFilesize</strong>(float $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)</code>
+    <strong>getTransformedFilesize</strong>(float|int $size, int $round = 3, string $dec_delimiter = &#039;,&#039;)</code>
     </h3>
     <div class="details">
         <p>Returns a formatted file size in bytes or derived unit</p>
@@ -340,7 +340,7 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
 
                     <table>
                     <tr>
-                <td>float</td>
+                <td>float|int</td>
                 <td>$size</td>
                 <td>Refer to the size (in standard format given by the <code>stat()</code> function)</td>
             </tr>
@@ -373,9 +373,9 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_touch">
-        <div class="location">at line 191</div>
+        <div class="location">at line 204</div>
         <code>        static    public            bool
-    <strong>touch</strong>(string $file_path, array $logs = array())</code>
+    <strong>touch</strong>(string $file_path = null, array $logs = array())</code>
     </h3>
     <div class="details">
         <p>Create an empty file or touch an existing file</p>
@@ -415,9 +415,9 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_remove">
-        <div class="location">at line 215</div>
+        <div class="location">at line 231</div>
         <code>        static    public            bool
-    <strong>remove</strong>(string $file_path, array $logs = array())</code>
+    <strong>remove</strong>(string $file_path = null, array $logs = array())</code>
     </h3>
     <div class="details">
         <p>Remove a file if it exists</p>
@@ -457,9 +457,9 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_copy">
-        <div class="location">at line 239</div>
+        <div class="location">at line 258</div>
         <code>        static    public            bool
-    <strong>copy</strong>(string $file_path, string $target_path, bool $force = false, array $logs = array())</code>
+    <strong>copy</strong>(string $file_path = null, string $target_path = null, bool $force = false, array $logs = array())</code>
     </h3>
     <div class="details">
         <p>Copy file <code>$file_path</code> if it exists to <code>$target_path</code></p>
@@ -511,9 +511,9 @@ unit chosen in <code>self::$FILESIZE_ORDERED_UNITS</code>.</p>
     </div>
 
                 <h3 id="method_write">
-        <div class="location">at line 273</div>
+        <div class="location">at line 295</div>
         <code>        static    public            bool
-    <strong>write</strong>(string $file_path, string $content, string $type = &#039;a&#039;, bool $force = false, array $logs = array())</code>
+    <strong>write</strong>(string $file_path = null, string $content, string $type = &#039;a&#039;, bool $force = false, array $logs = array())</code>
     </h3>
     <div class="details">
         <p>Write a content in a file</p>

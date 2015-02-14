@@ -24,63 +24,15 @@
     </div>
         <div class="content">
                 <p>    class
-    <strong>Response</strong></p>
+    <strong>Response</strong>        extends <abbr title="Patterns\Abstracts\AbstractResponse">AbstractResponse</abbr>        implements
+        <abbr title="Patterns\Interfaces\ResponseInterface">ResponseInterface</abbr></p>
 
             <div class="description">
-            <p>The global response class</p>
-            <p>This is the global response of the application</p>
+            <p>The global HTTP response class</p>
+            <p>
+</p>
         </div>
     
-            <h2>Constants</h2>
-
-            <table>
-                    <tr>
-                <td>STATUS_OK</td>
-                <td class="last">
-                    <p><em>
-</em></p>
-                    <p>
-</p>
-                </td>
-            </tr>
-                    <tr>
-                <td>STATUS_BAD_REQUEST</td>
-                <td class="last">
-                    <p><em>
-</em></p>
-                    <p>
-</p>
-                </td>
-            </tr>
-                    <tr>
-                <td>STATUS_NOT_FOUND</td>
-                <td class="last">
-                    <p><em>
-</em></p>
-                    <p>
-</p>
-                </td>
-            </tr>
-                    <tr>
-                <td>STATUS_UNPROCESSABLE_ENTITY</td>
-                <td class="last">
-                    <p><em>
-</em></p>
-                    <p>
-</p>
-                </td>
-            </tr>
-                    <tr>
-                <td>STATUS_ERROR</td>
-                <td class="last">
-                    <p><em>
-</em></p>
-                    <p>
-</p>
-                </td>
-            </tr>
-            </table>
-
     
     
             <h2>Methods</h2>
@@ -91,14 +43,14 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method___construct">__construct</a>($content = null, $charset = null)
+                    <a href="#method___construct">__construct</a>(string|null $content = null, string|null $charset = null)
                     <p>Constructor : defines the current URL and gets the routes</p>
                 </td>
                 <td></td>
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    string
                 </td>
                 <td class="last">
                     <a href="#method___toString">__toString</a>()
@@ -109,10 +61,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    <abbr title="Library\HttpFundamental\$this">$this</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_setProtocol">setProtocol</a>($value)
+                    <a href="#method_setProtocol">setProtocol</a>(<abbr title="Library\HttpFundamental\$value">$value</abbr> $value)
                     <p>
 </p>
                 </td>
@@ -120,7 +72,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    string
                 </td>
                 <td class="last">
                     <a href="#method_getProtocol">getProtocol</a>()
@@ -131,10 +83,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    <abbr title="Library\HttpFundamental\$this">$this</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_setHeaders">setHeaders</a>(array $headers)
+                    <a href="#method_setStatus">setStatus</a>(<abbr title="Library\HttpFundamental\$flag">$flag</abbr> $flag)
                     <p>
 </p>
                 </td>
@@ -142,51 +94,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_addHeader">addHeader</a>($header, $value)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_getHeader">getHeader</a>($header, $default = null)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_getHeaders">getHeaders</a>()
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_setStatus">setStatus</a>($flag)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
+                    mixed
                 </td>
                 <td class="last">
                     <a href="#method_getStatus">getStatus</a>()
@@ -197,10 +105,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    <abbr title="Library\HttpFundamental\$this">$this</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_setCharset">setCharset</a>($string)
+                    <a href="#method_setCharset">setCharset</a>(<abbr title="Library\HttpFundamental\$string">$string</abbr> $string)
                     <p>
 </p>
                 </td>
@@ -208,7 +116,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    string
                 </td>
                 <td class="last">
                     <a href="#method_getCharset">getCharset</a>()
@@ -219,10 +127,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    <abbr title="Library\HttpFundamental\$this">$this</abbr>
                 </td>
                 <td class="last">
-                    <a href="#method_addContent">addContent</a>($name, $content)
+                    <a href="#method_addContent">addContent</a>(string $name, mixed $content)
                     <p>
 </p>
                 </td>
@@ -230,7 +138,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    <abbr title="Library\HttpFundamental\$this">$this</abbr>
                 </td>
                 <td class="last">
                     <a href="#method_setContents">setContents</a>(array $contents)
@@ -241,10 +149,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    null
                 </td>
                 <td class="last">
-                    <a href="#method_getContent">getContent</a>($name, $default = null)
+                    <a href="#method_getContent">getContent</a>(<abbr title="Library\HttpFundamental\$name">$name</abbr> $name, null $default = null)
                     <p>
 </p>
                 </td>
@@ -252,7 +160,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    array
                 </td>
                 <td class="last">
                     <a href="#method_getContents">getContents</a>()
@@ -263,7 +171,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    string
                 </td>
                 <td class="last">
                     <a href="#method_getContentsAsString">getContentsAsString</a>()
@@ -328,10 +236,10 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    mixed
                 </td>
                 <td class="last">
-                    <a href="#method_send">send</a>($return_string = false)
+                    <a href="#method_send">send</a>(null $content = null, null $type = null, bool $return_string = false)
                     <p>Send the response to the device</p>
                 </td>
                 <td></td>
@@ -341,7 +249,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_download">download</a>($file = null, $type = null, $file_name = null)
+                    <a href="#method_download">download</a>(null $file = null, null $type = null, null $file_name = null)
                     <p>Force client to download a file</p>
                 </td>
                 <td></td>
@@ -351,7 +259,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_flush">flush</a>($file_content = null, $type = null)
+                    <a href="#method_flush">flush</a>(null $file_content = null, null $type = null)
                     <p>Flush (display) a file content</p>
                 </td>
                 <td></td>
@@ -361,7 +269,7 @@
                     
                 </td>
                 <td class="last">
-                    <a href="#method_redirect">redirect</a>($url, $permanent = false)
+                    <a href="#method_redirect">redirect</a>(string $url, bool $permanent = false)
                     <p>
 </p>
                 </td>
@@ -373,9 +281,9 @@
         <h2>Details</h2>
 
                         <h3 id="method___construct">
-        <div class="location">at line 79</div>
+        <div class="location">at line 88</div>
         <code>            public            
-    <strong>__construct</strong>($content = null, $charset = null)</code>
+    <strong>__construct</strong>(string|null $content = null, string|null $charset = null)</code>
     </h3>
     <div class="details">
         <p>Constructor : defines the current URL and gets the routes</p>
@@ -386,13 +294,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string|null</td>
                 <td>$content</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string|null</td>
                 <td>$charset</td>
                 <td>
 </td>
@@ -406,8 +314,8 @@
     </div>
 
                 <h3 id="method___toString">
-        <div class="location">at line 88</div>
-        <code>            public            
+        <div class="location">at line 103</div>
+        <code>            public            string
     <strong>__toString</strong>()</code>
     </h3>
     <div class="details">
@@ -417,15 +325,25 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_setProtocol">
-        <div class="location">at line 99</div>
-        <code>            public            
-    <strong>setProtocol</strong>($value)</code>
+        <div class="location">at line 116</div>
+        <code>            public            <abbr title="Library\HttpFundamental\$this">$this</abbr>
+    <strong>setProtocol</strong>(<abbr title="Library\HttpFundamental\$value">$value</abbr> $value)</code>
     </h3>
     <div class="details">
         <p>
@@ -437,7 +355,7 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\HttpFundamental\$value">$value</abbr></td>
                 <td>$value</td>
                 <td>
 </td>
@@ -445,14 +363,24 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_getProtocol">
-        <div class="location">at line 107</div>
-        <code>            public            
+        <div class="location">at line 125</div>
+        <code>            public            string
     <strong>getProtocol</strong>()</code>
     </h3>
     <div class="details">
@@ -462,128 +390,25 @@
 </p>
         <div class="tags">
             
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_setHeaders">
-        <div class="location">at line 114</div>
-        <code>            public            
-    <strong>setHeaders</strong>(array $headers)</code>
-    </h3>
-    <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
-                            <h4>Parameters</h4>
+                            <h4>Return Value</h4>
 
                     <table>
-                    <tr>
-                <td>array</td>
-                <td>$headers</td>
-                <td>
+        <tr>
+            <td>string</td>
+            <td>
 </td>
-            </tr>
-            </table>
+        </tr>
+    </table>
 
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_addHeader">
-        <div class="location">at line 122</div>
-        <code>            public            
-    <strong>addHeader</strong>($header, $value)</code>
-    </h3>
-    <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$header</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$value</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_getHeader">
-        <div class="location">at line 130</div>
-        <code>            public            
-    <strong>getHeader</strong>($header, $default = null)</code>
-    </h3>
-    <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td></td>
-                <td>$header</td>
-                <td>
-</td>
-            </tr>
-                    <tr>
-                <td></td>
-                <td>$default</td>
-                <td>
-</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_getHeaders">
-        <div class="location">at line 139</div>
-        <code>            public            
-    <strong>getHeaders</strong>()</code>
-    </h3>
-    <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
-            
             
             
                     </div>
     </div>
 
                 <h3 id="method_setStatus">
-        <div class="location">at line 146</div>
-        <code>            public            
-    <strong>setStatus</strong>($flag)</code>
+        <div class="location">at line 134</div>
+        <code>            public            <abbr title="Library\HttpFundamental\$this">$this</abbr>
+    <strong>setStatus</strong>(<abbr title="Library\HttpFundamental\$flag">$flag</abbr> $flag)</code>
     </h3>
     <div class="details">
         <p>
@@ -595,7 +420,7 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\HttpFundamental\$flag">$flag</abbr></td>
                 <td>$flag</td>
                 <td>
 </td>
@@ -603,14 +428,24 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_getStatus">
-        <div class="location">at line 154</div>
-        <code>            public            
+        <div class="location">at line 143</div>
+        <code>            public            mixed
     <strong>getStatus</strong>()</code>
     </h3>
     <div class="details">
@@ -620,15 +455,25 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_setCharset">
-        <div class="location">at line 161</div>
-        <code>            public            
-    <strong>setCharset</strong>($string)</code>
+        <div class="location">at line 152</div>
+        <code>            public            <abbr title="Library\HttpFundamental\$this">$this</abbr>
+    <strong>setCharset</strong>(<abbr title="Library\HttpFundamental\$string">$string</abbr> $string)</code>
     </h3>
     <div class="details">
         <p>
@@ -640,7 +485,7 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\HttpFundamental\$string">$string</abbr></td>
                 <td>$string</td>
                 <td>
 </td>
@@ -648,14 +493,24 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_getCharset">
-        <div class="location">at line 169</div>
-        <code>            public            
+        <div class="location">at line 161</div>
+        <code>            public            string
     <strong>getCharset</strong>()</code>
     </h3>
     <div class="details">
@@ -665,15 +520,25 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_addContent">
-        <div class="location">at line 176</div>
-        <code>            public            
-    <strong>addContent</strong>($name, $content)</code>
+        <div class="location">at line 171</div>
+        <code>            public            <abbr title="Library\HttpFundamental\$this">$this</abbr>
+    <strong>addContent</strong>(string $name, mixed $content)</code>
     </h3>
     <div class="details">
         <p>
@@ -685,13 +550,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$name</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>mixed</td>
                 <td>$content</td>
                 <td>
 </td>
@@ -699,14 +564,24 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_setContents">
-        <div class="location">at line 188</div>
-        <code>            public            
+        <div class="location">at line 185</div>
+        <code>            public            <abbr title="Library\HttpFundamental\$this">$this</abbr>
     <strong>setContents</strong>(array $contents)</code>
     </h3>
     <div class="details">
@@ -727,6 +602,16 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\HttpFundamental\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
@@ -734,8 +619,8 @@
 
                 <h3 id="method_getContent">
         <div class="location">at line 196</div>
-        <code>            public            
-    <strong>getContent</strong>($name, $default = null)</code>
+        <code>            public            null
+    <strong>getContent</strong>(<abbr title="Library\HttpFundamental\$name">$name</abbr> $name, null $default = null)</code>
     </h3>
     <div class="details">
         <p>
@@ -747,13 +632,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td><abbr title="Library\HttpFundamental\$name">$name</abbr></td>
                 <td>$name</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>null</td>
                 <td>$default</td>
                 <td>
 </td>
@@ -761,14 +646,24 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_getContents">
-        <div class="location">at line 203</div>
-        <code>            public            
+        <div class="location">at line 204</div>
+        <code>            public            array
     <strong>getContents</strong>()</code>
     </h3>
     <div class="details">
@@ -778,14 +673,24 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_getContentsAsString">
-        <div class="location">at line 210</div>
-        <code>            public            
+        <div class="location">at line 212</div>
+        <code>            public            string
     <strong>getContentsAsString</strong>()</code>
     </h3>
     <div class="details">
@@ -795,13 +700,23 @@
 </p>
         <div class="tags">
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_setContentType">
-        <div class="location">at line 223</div>
+        <div class="location">at line 225</div>
         <code>            public            <a href="../../Library/HttpFundamental/Response.html"><abbr title="Library\HttpFundamental\Response">Response</abbr></a>
     <strong>setContentType</strong>(string $type)</code>
     </h3>
@@ -839,7 +754,7 @@
     </div>
 
                 <h3 id="method_getContentType">
-        <div class="location">at line 232</div>
+        <div class="location">at line 234</div>
         <code>            public            object
     <strong>getContentType</strong>()</code>
     </h3>
@@ -866,7 +781,7 @@
     </div>
 
                 <h3 id="method_guessContentType">
-        <div class="location">at line 240</div>
+        <div class="location">at line 242</div>
         <code>            public            <a href="../../Library/HttpFundamental/Response.html"><abbr title="Library\HttpFundamental\Response">Response</abbr></a>
     <strong>guessContentType</strong>()</code>
     </h3>
@@ -893,7 +808,7 @@
     </div>
 
                 <h3 id="method_renderHeaders">
-        <div class="location">at line 252</div>
+        <div class="location">at line 255</div>
         <code>            public            void
     <strong>renderHeaders</strong>()</code>
     </h3>
@@ -920,7 +835,7 @@
     </div>
 
                 <h3 id="method_header">
-        <div class="location">at line 265</div>
+        <div class="location">at line 268</div>
         <code>        static    public            
     <strong>header</strong>(string $str)</code>
     </h3>
@@ -946,9 +861,9 @@
     </div>
 
                 <h3 id="method_send">
-        <div class="location">at line 273</div>
-        <code>            public            
-    <strong>send</strong>($return_string = false)</code>
+        <div class="location">at line 281</div>
+        <code>            public            mixed
+    <strong>send</strong>(null $content = null, null $type = null, bool $return_string = false)</code>
     </h3>
     <div class="details">
         <p>Send the response to the device</p>
@@ -959,7 +874,19 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>null</td>
+                <td>$content</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>null</td>
+                <td>$type</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
                 <td>$return_string</td>
                 <td>
 </td>
@@ -967,15 +894,25 @@
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_download">
-        <div class="location">at line 295</div>
+        <div class="location">at line 307</div>
         <code>            public            
-    <strong>download</strong>($file = null, $type = null, $file_name = null)</code>
+    <strong>download</strong>(null $file = null, null $type = null, null $file_name = null)</code>
     </h3>
     <div class="details">
         <p>Force client to download a file</p>
@@ -986,19 +923,19 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>null</td>
                 <td>$file</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>null</td>
                 <td>$type</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>null</td>
                 <td>$file_name</td>
                 <td>
 </td>
@@ -1012,9 +949,9 @@
     </div>
 
                 <h3 id="method_flush">
-        <div class="location">at line 319</div>
+        <div class="location">at line 334</div>
         <code>            public            
-    <strong>flush</strong>($file_content = null, $type = null)</code>
+    <strong>flush</strong>(null $file_content = null, null $type = null)</code>
     </h3>
     <div class="details">
         <p>Flush (display) a file content</p>
@@ -1025,13 +962,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>null</td>
                 <td>$file_content</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>null</td>
                 <td>$type</td>
                 <td>
 </td>
@@ -1045,9 +982,9 @@
     </div>
 
                 <h3 id="method_redirect">
-        <div class="location">at line 334</div>
+        <div class="location">at line 353</div>
         <code>            public            
-    <strong>redirect</strong>($url, $permanent = false)</code>
+    <strong>redirect</strong>(string $url, bool $permanent = false)</code>
     </h3>
     <div class="details">
         <p>
@@ -1059,13 +996,13 @@
 
                     <table>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$url</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td></td>
+                <td>bool</td>
                 <td>$permanent</td>
                 <td>
 </td>
