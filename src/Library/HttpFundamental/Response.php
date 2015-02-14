@@ -22,72 +22,87 @@
  */
 namespace Library\HttpFundamental;
 
-use \Library\Converter\Html2Text;
+use \Patterns\Abstracts\AbstractResponse;
 use \Patterns\Interfaces\ResponseInterface;
+use \Patterns\Commons\HttpStatus;
 
 /**
- * The global response class
- *
- * This is the global response of the application
+ * The global HTTP response class
  *
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
 class Response
+    extends AbstractResponse
+    implements ResponseInterface
 {
 
-    const STATUS_OK                     = '200 OK';
-    const STATUS_BAD_REQUEST            = '400 Bad Request';
-    const STATUS_NOT_FOUND              = '404 Not Found';
-    const STATUS_UNPROCESSABLE_ENTITY   = '422 Unprocessable Entity';
-    const STATUS_ERROR                  = '500 Internal Server Error';
-
+    /**
+     * @var string
+     */
     protected $protocol = 'HTTP/1.1';
 
+    /**
+     * @var string
+     */
     protected $status;
 
-    protected $headers = array();
+    /**
+     * @var array
+     */
+    protected $headers  = array();
 
     /**
-     * The response contents
+     * @var array The response contents
      */
     protected $contents = array();
 
     /**
-     * The response character set
+     * @var string The response character set
      */
-    protected $charset = 'utf-8';
+    protected $charset  = 'utf-8';
 
     /**
-     * @var object implementing the `\Library\HttpFundamental\ContentTypeInterface`
+     * @var \Library\HttpFundamental\ContentType
      */
     protected $content_type;
 
     /**
+     * @var array
+     * @TODO : use only objects of the \Library\HttpFundamental\ContentType namespace
      */
     static $content_types = array(
-        'html' => 'text/html',
-        'text' => 'text/plain',
-        'css' => 'text/css',
-        'xml' => 'application/xml',
-        'javascript' => 'application/x-javascript',
-        'json' => 'application/json',
+        'html'          => 'text/html',
+        'text'          => 'text/plain',
+        'css'           => 'text/css',
+        'xml'           => 'application/xml',
+        'javascript'    => 'application/x-javascript',
+        'json'          => 'application/json',
     );
 
     /**
      * Constructor : defines the current URL and gets the routes
+     *
+     * @param string|null $content
+     * @param string|null $charset
      */
     public function __construct($content = null, $charset = null)
     {
         if (!empty($content)) {
-            if (is_array($content)) $this->setContent($content);
-            else $this->addContent(null, $content);
+            if (is_array($content)) {
+                $this->setContents($content);
+            } else {
+                $this->addContent(null, $content);
+            }
         }
         if (!empty($charset)) $this->setCharset($charset);
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
-        return $this->send(true);
+        return $this->send(null, null, true);
     }
 
 // ----------------------
@@ -95,85 +110,65 @@ class Response
 // ----------------------
 
     /**
+     * @param $value
+     * @return $this
      */
-    public function setProtocol($value) 
+    public function setProtocol($value)
     {
         $this->protocol = $value;
         return $this;
     }
 
     /**
+     * @return string
      */
-    public function getProtocol() 
+    public function getProtocol()
     {
         return $this->protocol;
     }
 
     /**
+     * @param $flag
+     * @return $this
      */
-    public function setHeaders(array $headers) 
-    {
-        $this->headers = $headers;
-        return $this;
-    }
-
-    /**
-     */
-    public function addHeader($header, $value) 
-    {
-        $this->headers[$header] = $value;
-        return $this;
-    }
-
-    /**
-     */
-    public function getHeader($header, $default = null) 
-    {
-        return array_key_exists($header, $this->headers) ? $this->headers[$header] : (
-            array_key_exists(strtolower($header), $this->headers) ? $this->headers[strtolower($header)] : $default
-        );
-    }
-
-    /**
-     */
-    public function getHeaders() 
-    {
-        return $this->headers;
-    }
-
-    /**
-     */
-    public function setStatus($flag) 
+    public function setStatus($flag)
     {
         $this->status = $flag;
         return $this;
     }
 
     /**
+     * @return mixed
      */
-    public function getStatus() 
+    public function getStatus()
     {
         return $this->status;
     }
 
     /**
+     * @param $string
+     * @return $this
      */
-    public function setCharset($string) 
+    public function setCharset($string)
     {
         $this->charset = $string;
         return $this;
     }
 
     /**
+     * @return string
      */
-    public function getCharset() 
+    public function getCharset()
     {
         return $this->charset;
     }
 
     /**
+     * @param string $name
+     * @param mixed $content
+     * @return $this
      */
-    public function addContent($name, $content) 
+    public function addContent($name, $content)
     {
         if (is_null($name)) {
             array_push($this->contents, $content);
@@ -184,30 +179,37 @@ class Response
     }
 
     /**
+     * @param array $contents
+     * @return $this
      */
-    public function setContents(array $contents) 
+    public function setContents(array $contents)
     {
         $this->contents = array_merge($this->contents, $contents);
         return $this;
     }
 
     /**
+     * @param $name
+     * @param null $default
+     * @return null
      */
-    public function getContent($name, $default = null) 
+    public function getContent($name, $default = null)
     {
         return array_key_exists($name, $this->contents) ? $this->contents[$name] : $default;
     }
 
     /**
+     * @return array
      */
-    public function getContents() 
+    public function getContents()
     {
         return $this->contents;
     }
 
     /**
+     * @return string
      */
-    public function getContentsAsString() 
+    public function getContentsAsString()
     {
         $content = '';
         foreach ($this->contents as $key=>$ctt) {
@@ -240,6 +242,7 @@ class Response
     public function guessContentType() 
     {
         $this->content_type = ContentType::createFromContent($this->getContentsAsString());
+        return $this;
     }
 
 // ----------------------
@@ -269,8 +272,13 @@ class Response
 
     /**
      * Send the response to the device
+     *
+     * @param null $content
+     * @param null $type
+     * @param bool $return_string
+     * @return mixed
      */
-    public function send($return_string = false) 
+    public function send($content = null, $type = null, $return_string = false)
     {
         if (empty($this->content_type)) $this->guessContentType();
 
@@ -291,8 +299,12 @@ class Response
 
     /**
      * Force client to download a file
+     *
+     * @param null $file
+     * @param null $type
+     * @param null $file_name
      */
-    public function download($file = null, $type = null, $file_name = null) 
+    public function download($file = null, $type = null, $file_name = null)
     {
         if (!empty($file) && @file_exists($file)) {
             if (is_null($file_name)) {
@@ -315,8 +327,11 @@ class Response
 
     /**
      * Flush (display) a file content
+     *
+     * @param null $file_content
+     * @param null $type
      */
-    public function flush($file_content = null, $type = null) 
+    public function flush($file_content = null, $type = null)
     {
         if (!empty($file_content)) {
             if (empty($type)) {
@@ -331,12 +346,16 @@ class Response
         return;
     }
 
+    /**
+     * @param string $url
+     * @param bool $permanent
+     */
     public function redirect($url, $permanent = false)
     {
         if ($permanent) {
-            $this->addHeader('Status', '301 Moved Permanently');
+            $this->addHeader('Status', HttpStatus::MOVED_PERMANENTLY);
         } else {
-            $this->addHeader('Status', '302 Found');
+            $this->addHeader('Status', HttpStatus::MOVED_TEMPORARILY);
         }
         $this->addHeader('location', $url);
     }
