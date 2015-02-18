@@ -73,6 +73,19 @@ class Code
      */
     public static function impelementsInterface($class_name, $interface_name)
     {
+        trigger_error('DEPRECATED - Usage of the "impelementsInterface" method is deprecated and replaced by "implementsInterface"!', E_USER_WARNING);
+        return self::implementsInterface($class_name, $interface_name);
+    }
+
+    /**
+     * Check if a class implements a certain interface
+     *
+     * @param string|object $class_name The class name to test or a full object of this class
+     * @param string $interface_name The interface name to test
+     * @return bool
+     */
+    public static function implementsInterface($class_name, $interface_name)
+    {
         if (is_object($class_name)) {
             $class_name = get_class($class_name);
         }
@@ -298,6 +311,41 @@ class Code
             $logs['rest'] = $args_passed;
         }
         return $args_def;
+    }
+
+    /**
+     * @see <http://www.metashock.de/2013/05/dump-source-code-of-closure-in-php/>
+     * @param callable $c
+     * @return string
+     */
+    public static function dumpClosure(\Closure $c)
+    {
+        $str = 'function (';
+        $r = new \ReflectionFunction($c);
+        $params = array();
+        foreach($r->getParameters() as $p) {
+            $s = '';
+            if($p->isArray()) {
+                $s .= 'array ';
+            } else if($p->getClass()) {
+                $s .= $p->getClass()->name . ' ';
+            }
+            if($p->isPassedByReference()){
+                $s .= '&';
+            }
+            $s .= '$' . $p->name;
+            if($p->isOptional()) {
+                $s .= ' = ' . var_export($p->getDefaultValue(), TRUE);
+            }
+            $params []= $s;
+        }
+        $str .= implode(', ', $params);
+        $str .= '){' . PHP_EOL;
+        $lines = file($r->getFileName());
+        for($l = $r->getStartLine(); $l < $r->getEndLine(); $l++) {
+            $str .= $lines[$l];
+        }
+        return $str;
     }
 
 }
