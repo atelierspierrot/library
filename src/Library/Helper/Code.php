@@ -287,9 +287,24 @@ class Code
                 $args_passed = array( $tmp_index=>$args_passed );
             }
             foreach ($method_reflect->getParameters() as $_param) {
-                $arg_index = $_param->getName();
-                $arg_pos = $_param->getPosition();
-                $arg_val = null;
+                $arg_index  = $_param->getName();
+                $arg_pos    = $_param->getPosition();
+                $arg_class  = $_param->getClass();
+                $arg_val    = null;
+                if (!is_null($arg_class)) {
+                    $cls_name = $arg_class->getName();
+                    foreach ($args_passed as $ind=>$item) {
+                        if (is_object($item) && (
+                            ($item instanceof $cls_name) ||
+                            self::implementsInterface($item, $cls_name)
+                        )) {
+                            $arg_val = $item;
+                            $args_def[$arg_pos] = $arg_val;
+                            unset($args_passed[$ind]);
+                            continue;
+                        }
+                    }
+                }
                 if (isset($args_passed[$arg_index])) {
                      $arg_val = $args_passed[$arg_index];
                      unset($args_passed[$arg_index]);
