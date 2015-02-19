@@ -220,7 +220,7 @@ class Logger
         $replace = array();
         foreach ($context as $key => $val) {
             if ($key==='exception' && ($val instanceof \Exception)) {
-                $str_val = $val->getMessage();
+                $str_val = '['.get_class($val).'] '.$val->getMessage();
             } else {
                 try {
                     $str_val = (string) $val;
@@ -430,13 +430,37 @@ class Logger
      * Write an array on one line
      *
      * @param   array   $array
-     * @return  string  The formated string
+     * @return  string  The formatted string
      */
     public static function writeArray($array)
     {
-        if (empty($array)) $str = '';
-        else {
-            $str = serialize($array);
+        $data = array();
+        foreach ($array as $var=>$val) {
+            if (is_array($val) && !is_object($val)) {
+                $data[$var] = self::writeArray($val);
+            } else {
+                $data[$var] = self::writeArrayItem($val);
+            }
+        }
+        return serialize($data);
+    }
+
+    /**
+     * Safely transform an array item in string
+     *
+     * @param   array   $item
+     * @return  string  The formatted string
+     */
+    public static function writeArrayItem($item)
+    {
+        $str = '';
+        try {
+            $str .= serialize($item);
+        } catch (\Exception $e) {
+            if (is_object($item)) {
+                $str .= get_class($item).'#';
+            }
+            $str .= spl_object_hash($item);
         }
         return $str;
     }
