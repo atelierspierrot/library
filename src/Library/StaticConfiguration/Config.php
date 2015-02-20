@@ -65,7 +65,7 @@ class Config
             $class_name = self::getInternal('config-class');
             if (empty($class_name)) {
                 throw new \InvalidArgumentException(
-                    sprintf('Configurator class name is required to instanciante "%s"', __CLASS__)
+                    sprintf('Configurator class name is required to instantiate "%s"', __CLASS__)
                 );
             }
         }
@@ -122,8 +122,8 @@ class Config
             self::setRegistry($defaults);
         } else {
             throw new \Exception(
-                sprintf('Configuration class "%s" do not define all required values!', 
-                    $class_name)
+                sprintf('Configuration class "%s" does not define all required values!',
+                    get_class(self::$__configurator))
             );
         }
     }
