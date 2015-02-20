@@ -26,6 +26,7 @@ namespace Library;
 use \Psr\Log\LoggerInterface;
 use \Psr\Log\AbstractLogger;
 use \Psr\Log\LogLevel;
+use \Library\Tool\FileRotator;
 
 /**
  * Write some log infos in log files
@@ -63,19 +64,19 @@ class Logger
      * @var array
      */
     protected static $config = array(
-        'minimum_log_level' => 0,
-        'directory' => '',
-        'logfile_extension' => 'log',
-        'max_log' => 100,
-        'logfile' => 'history',
-        'error_logfile' => 'error',
-        'datetime_format' => 'Y-m-d H:i:s',
-        'duplicate_errors' => true,
-        'rotator'=>array(
-            'period_duration' => 86400,
-            'filename_mask' => '%s.@i@',
-            'date_format' => 'ymdHi',
-            'backup_time' => 10,
+        'minimum_log_level'     => 0,
+        'directory'             => '',
+        'logfile_extension'     => 'log',
+        'max_log'               => 100,
+        'logfile'               => 'history',
+        'error_logfile'         => 'error',
+        'datetime_format'       => 'Y-m-d H:i:s',
+        'duplicate_errors'      => true,
+        'rotator'               => array(
+            'period_duration'       => 86400,
+            'filename_mask'         => '%s.@i@',
+            'date_format'           => 'ymdHi',
+            'backup_time'           => 10,
         )
     );
 
@@ -291,7 +292,7 @@ class Logger
      * Get a rotator for a specific logfile
      *
      * @param   string  $filename   The name (full path) of the concerned logfile
-     * @return  \Library\FileRotator
+     * @return  \Library\Tool\FileRotator
      */
     protected function getRotator($filename)
     {
