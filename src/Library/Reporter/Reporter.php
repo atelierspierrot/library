@@ -21,9 +21,7 @@
  * <http://github.com/atelierspierrot/library>.
  */
 
-namespace Library;
-
-use \Library\AbstractReporterAdapter;
+namespace Library\Reporter;
 
 /**
  * @author  Piero Wbmstr <me@e-piwi.fr>
@@ -52,7 +50,7 @@ class Reporter
     protected $flag;
 
     /**
-     * @var \Library\ReprterAdapter\... The reporter adapter
+     * @var \Library\Reporter\Adapter\... The reporter adapter
      */
     protected $__adapter;
 
@@ -184,7 +182,7 @@ class Reporter
      */
     public function setAdapterType($type)
     {
-        $adapter_type = '\Library\ReporterAdapter\\'.ucfirst($type);
+        $adapter_type = '\Library\Reporter\Adapter\\'.ucfirst($type);
         if (class_exists($adapter_type)) {
             $this->setAdapter(new $adapter_type);
         } else {
@@ -208,11 +206,11 @@ class Reporter
     /**
      * Set the adapter
      *
-     * @param   \Library\AbstractReporterAdapter $adapter The instance of a ReporterAdapter
+     * @param   \Library\Reporter\AbstractAdapter $adapter The instance of a ReporterAdapter
      * @return  self
      * @throws  \LogicException
      */
-    public function setAdapter(AbstractReporterAdapter $adapter)
+    public function setAdapter(AbstractAdapter $adapter)
     {
         $cls = get_class($adapter);
         foreach(self::$default_masks as $_mask) {

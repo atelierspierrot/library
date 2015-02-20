@@ -21,16 +21,16 @@
  * <http://github.com/atelierspierrot/library>.
  */
 
-namespace Library\ReporterAdapter;
+namespace Library\Reporter\Adapter;
 
-use \Library\AbstractReporterAdapter;
+use \Library\Reporter\AbstractAdapter;
 use \Library\Tool\Table as TableTool;
 
 /**
  * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 class Html
-    extends AbstractReporterAdapter
+    extends AbstractAdapter
 {
 
 // ----------------------------------
@@ -81,7 +81,7 @@ class Html
     /**
      * Render a content with a specific tag mask
      *
-     * The `$tag_type` may be one of the `Library\Reporter::$default_tag_types` array.
+     * The `$tag_type` may be one of the `\Library\Reporter\Reporter::$default_tag_types` array.
      *
      * @param array|string $content The content string to use or an array of strings (for lists for instance)
      * @param string $tag_type The type of tag mask to use
