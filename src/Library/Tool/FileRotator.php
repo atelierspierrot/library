@@ -21,7 +21,7 @@
  * <http://github.com/atelierspierrot/library>.
  */
 
-namespace Library;
+namespace Library\Tool;
 
 /**
  * Rotate system for files
@@ -55,25 +55,32 @@ class FileRotator
      * @var array
      */
     protected static $config = array(
-        'max_filesize' => 1000,             // in octets
-        'period_duration' => 86400,         // in seconds (here 1 day)
-        'filename_mask' => '%s.@date@',     // mask used for rotation filenames
-        'filename_date_tag' => '@date@',    // will be replaced by current date formated with 'date_format' in 'filename_mask'
-        'filename_iterator_tag' => '@i@',   // will be replaced by rotation iterator in 'filename_mask'
-        'date_format' => 'ymd',             // date format used for the `filename_date_tag`
-        'backup_time' => 10,                // max number of backuped files
+        'max_filesize'          => 1000,        // in octets
+        'period_duration'       => 86400,       // in seconds (here 1 day)
+        'filename_mask'         => '%s.@date@', // mask used for rotation filenames
+        'filename_date_tag'     => '@date@',    // will be replaced by current date formatted with 'date_format' in 'filename_mask'
+        'filename_iterator_tag' => '@i@',       // will be replaced by rotation iterator in 'filename_mask'
+        'date_format'           => 'ymd',       // date format used for the `filename_date_tag`
+        'backup_time'           => 10,          // max number of backuped files
     );
 
-    const ROTATE_PERIODIC = 1;
-    const ROTATE_FILESIZE = 2;
+    /**
+     * Use this to make a rotation based on time
+     */
+    const ROTATE_PERIODIC       = 1;
 
     /**
-     * Creation of a new logger entry
+     * Use it to make a rotation base on file size
+     */
+    const ROTATE_FILESIZE       = 2;
+
+    /**
+     * Creation of a new file rotator
      *
-     * @param string $file_path Full path of concerned file
-     * @param int $flag One of the class `ROTATE_` constants
-     * @param array $user_options A set of one shot options
-     * @throws \InvalidArgumentException if no `$file_path` argument
+     * @param   string  $file_path      Full path of concerned file
+     * @param   int     $flag           One of the class `ROTATE_` constants
+     * @param   array   $user_options   A set of one shot options
+     * @throws  \InvalidArgumentException if no `$file_path` argument
      */
     public function __construct($file_path, $flag = self::ROTATE_PERIODIC, array $user_options = array())
     {
@@ -94,9 +101,9 @@ class FileRotator
     /**
      * Write a string in the file
      *
-     * @param string $content The content to add in the file
-     * @return bool
-     * @throws \RuntimeException if an error occurred trying to rotate or write in file
+     * @param   string $content The content to add in the file
+     * @return  bool
+     * @throws  \RuntimeException if an error occurred trying to rotate or write in file
      */
     public function write($content = '')
     {
@@ -125,8 +132,8 @@ class FileRotator
     /**
      * Rotate file if so
      *
-     * @param bool $force Force file rotation, even if `mustRotate()` is `false`
-     * @return bool
+     * @param   bool $force Force file rotation, even if `mustRotate()` is `false`
+     * @return  bool
      */
     public function rotate($force = false)
     {
@@ -156,7 +163,7 @@ class FileRotator
     }
 
     /**
-     * Is the current file needs to be rotated
+     * Does the current file need to be rotated
      *
      * @return bool
      */
@@ -179,9 +186,9 @@ class FileRotator
     /**
      * Get the name of a file to rotate
      *
-     * @param string $file_name
-     * @param int $rotation_index
-     * @return string
+     * @param   string  $file_name
+     * @param   int     $rotation_index
+     * @return  string
      */
     public function getFilename($file_name, $rotation_index = 0)
     {
