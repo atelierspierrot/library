@@ -713,8 +713,8 @@ echo '=> '.$uncrypted."\n";
 
     <pre class="code" data-language="php">
 <?php
-$reporter = new Library\Reporter;
-echo '$reporter = new Library\Reporter;'."\n";
+$reporter = new Library\Reporter\Reporter;
+echo '$reporter = new Library\Reporter\Reporter;'."\n";
 echo "\n";
 echo 'echo $reporter->render("my content");'."\n";
 echo '// => '.$reporter->render("my content")."\n";
