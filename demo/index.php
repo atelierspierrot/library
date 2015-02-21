@@ -687,22 +687,22 @@ echo '=> '.var_export($command->run($pwd),1);
 <?php
 echo '$str="what ever";'."\n";
 echo '$salt = "g(UmYZ[?25=%Fns8kK}&UrzRGPp?A-^gV}BP@!?c;f,Vl}X(Ob,pZ~=ABSXv_9yZ";'."\n";
-echo '$encryptor = new Library\Crypt($salt);'."\n";
+echo '$encryptor = new Library\Tool\Encrypt($salt);'."\n";
 
 $str="what ever";
 $salt = "g(UmYZ[?25=%Fns8kK}&UrzRGPp?A-^gV}BP@!?c;f,Vl}X(Ob,pZ~=ABSXv_9yZ";
-$encryptor = new Library\Crypt($salt);
+$encryptor = new Library\Tool\Encrypt($salt);
 
 echo "\n";
 echo '$crypted = $encryptor->crypt($str);'."\n";
 echo 'echo $crypted;'."\n";
-$crypted = $encryptor->crypt($str);
+$crypted = $encryptor->encrypt($str);
 echo '=> '.$crypted."\n";
 
 echo "\n";
 echo '$uncrypted = $encryptor->uncrypt($crypted);'."\n";
 echo 'echo $uncrypted;'."\n";
-$uncrypted = $encryptor->uncrypt($crypted);
+$uncrypted = $encryptor->decrypt($crypted);
 echo '=> '.$uncrypted."\n";
 ?>
     </pre>
