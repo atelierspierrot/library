@@ -26,6 +26,7 @@ namespace Library;
 use \Psr\Log\LoggerInterface;
 use \Psr\Log\AbstractLogger;
 use \Psr\Log\LogLevel;
+use \Library\Tool\FileRotator;
 
 /**
  * Write some log infos in log files
@@ -63,19 +64,19 @@ class Logger
      * @var array
      */
     protected static $config = array(
-        'minimum_log_level' => 0,
-        'directory' => '',
-        'logfile_extension' => 'log',
-        'max_log' => 100,
-        'logfile' => 'history',
-        'error_logfile' => 'error',
-        'datetime_format' => 'Y-m-d H:i:s',
-        'duplicate_errors' => true,
-        'rotator'=>array(
-            'period_duration' => 86400,
-            'filename_mask' => '%s.@i@',
-            'date_format' => 'ymdHi',
-            'backup_time' => 10,
+        'minimum_log_level'     => 0,
+        'directory'             => '',
+        'logfile_extension'     => 'log',
+        'max_log'               => 100,
+        'logfile'               => 'history',
+        'error_logfile'         => 'error',
+        'datetime_format'       => 'Y-m-d H:i:s',
+        'duplicate_errors'      => true,
+        'rotator'               => array(
+            'period_duration'       => 86400,
+            'filename_mask'         => '%s.@i@',
+            'date_format'           => 'ymdHi',
+            'backup_time'           => 10,
         )
     );
 
@@ -220,7 +221,7 @@ class Logger
         $replace = array();
         foreach ($context as $key => $val) {
             if ($key==='exception' && ($val instanceof \Exception)) {
-                $str_val = $val->getMessage();
+                $str_val = '['.get_class($val).'] '.$val->getMessage();
             } else {
                 try {
                     $str_val = (string) $val;
@@ -291,7 +292,7 @@ class Logger
      * Get a rotator for a specific logfile
      *
      * @param   string  $filename   The name (full path) of the concerned logfile
-     * @return  \Library\FileRotator
+     * @return  \Library\Tool\FileRotator
      */
     protected function getRotator($filename)
     {
@@ -430,13 +431,37 @@ class Logger
      * Write an array on one line
      *
      * @param   array   $array
-     * @return  string  The formated string
+     * @return  string  The formatted string
      */
     public static function writeArray($array)
     {
-        if (empty($array)) $str = '';
-        else {
-            $str = serialize($array);
+        $data = array();
+        foreach ($array as $var=>$val) {
+            if (is_array($val) && !is_object($val)) {
+                $data[$var] = self::writeArray($val);
+            } else {
+                $data[$var] = self::writeArrayItem($val);
+            }
+        }
+        return serialize($data);
+    }
+
+    /**
+     * Safely transform an array item in string
+     *
+     * @param   array   $item
+     * @return  string  The formatted string
+     */
+    public static function writeArrayItem($item)
+    {
+        $str = '';
+        try {
+            $str .= serialize($item);
+        } catch (\Exception $e) {
+            if (is_object($item)) {
+                $str .= get_class($item).'#';
+            }
+            $str .= spl_object_hash($item);
         }
         return $str;
     }

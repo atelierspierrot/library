@@ -22,7 +22,6 @@
  */
 namespace Library\HttpFundamental;
 
-use \Patterns\Abstracts\AbstractResponse;
 use \Patterns\Interfaces\ResponseInterface;
 use \Patterns\Commons\HttpStatus;
 
@@ -32,7 +31,6 @@ use \Patterns\Commons\HttpStatus;
  * @author      Piero Wbmstr <me@e-piwi.fr>
  */
 class Response
-    extends AbstractResponse
     implements ResponseInterface
 {
 
@@ -47,9 +45,9 @@ class Response
     protected $status;
 
     /**
-     * @var array
+     * @var array The response headers registry
      */
-    protected $headers  = array();
+    protected $headers = array();
 
     /**
      * @var array The response contents
@@ -245,6 +243,59 @@ class Response
         return $this;
     }
 
+// ------------------
+// Headers management
+// ------------------
+
+    /**
+     * @param   array   $params
+     * @return  self
+     */
+    public function setHeaders(array $params)
+    {
+        $this->headers = $params;
+        return $this;
+    }
+
+    /**
+     * @param   string  $name
+     * @param   string  $value
+     * @return  self
+     */
+    public function addHeader($name, $value = null)
+    {
+        $this->headers[$name] = $value;
+        return $this;
+    }
+
+    /**
+     * @return  array
+     */
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
+
+    /**
+     * @param   string  $name
+     * @return  string|null
+     */
+    public function getHeader($name)
+    {
+        return isset($this->headers[$name]) ? $this->headers[$name] : (
+        isset($this->headers[strtolower($name)]) ? $this->headers[strtolower($name)] : null
+        );
+    }
+
+    /**
+     * @param   string  $name
+     * @return  bool
+     */
+    public function hasHeader($name)
+    {
+        return (bool) (isset($this->headers[$name]) || isset($this->headers[strtolower($name)]));
+    }
+
 // ----------------------
 // Send
 // ----------------------
@@ -267,7 +318,9 @@ class Response
      */
     public static function header($str)
     {
-        if (!headers_sent()) header($str);
+        if (!headers_sent()) {
+            header($str);
+        }
     }
 
     /**

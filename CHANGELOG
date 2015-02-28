@@ -1,4 +1,11 @@
 
+
+- all Reporter objects are now in the `\Library\Reporter` namespace
+- move the FileRotator in the `\Library\Tool` namespace
+- rename the `\Library\Script` to `\Library\Tool\Encrypt` and delete internal aliases
+- new ServiceContainer object
+
+
 ## v1.1.8 to v1.1.9
 
 - the HTTP status codes of the `\Library\HttpFundamental\Response` object

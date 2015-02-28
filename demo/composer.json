@@ -1,0 +1,8 @@
+{
+    "name": "atelierspierrot/library-demo",
+    "description": "demonstration pages for the atelierspierrot/library package",
+    "minimum-stability": "dev",
+    "require": {
+        "atelierspierrot/demo-builder": "dev-master"
+    }
+}

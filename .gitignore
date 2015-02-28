@@ -52,10 +52,10 @@ vendor/*
 #phpdoc/*
 
 # for developments ...
-# this may be commented on the "wip" branch
-dev/*
-build/*
-src.*/*
+# this may be commented on the "dev" branch
+#dev/*
+#build/*
+#src.*/*
 
 ### Hack to allow keeping an empty directory
 !.gitkeep

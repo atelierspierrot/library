@@ -21,7 +21,7 @@
  * <http://github.com/atelierspierrot/library>.
  */
 
-namespace Library;
+namespace Library\Reporter;
 
 use \Library\Helper\Html as HtmlHelper;
 
@@ -30,14 +30,14 @@ use \Library\Helper\Html as HtmlHelper;
  *
  * All Reporter adapters must extend this abstract class and defines its abstract methods
  *
- * Each reporter MUST define all entries of the `Library\Reporter::$default_masks` array
+ * Each reporter MUST define all entries of the `\Library\Reporter\Reporter::$default_masks` array
  * as a class constant:
  *
  *      const mask_XXX = "<tag>%s</tag>";
  *
  * @author  Piero Wbmstr <me@e-piwi.fr>
  */
-abstract class AbstractReporterAdapter
+abstract class AbstractAdapter
 {
 
     /**
@@ -98,7 +98,7 @@ abstract class AbstractReporterAdapter
     /**
      * Render a content with a specific tag mask
      *
-     * The `$tag_type` may be one of the `Library\Reporter::$default_tag_types` array.
+     * The `$tag_type` may be one of the `\Library\Reporter\Reporter::$default_tag_types` array.
      *
      * @param string $content The content string to use
      * @param string $tag_type The type of tag mask to use
