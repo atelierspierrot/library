@@ -1,0 +1,32 @@
+{
+  "title":"Demo of the PHP 'Library' package",
+  "slogan":"The PHP library of Les Ateliers Pierrot.",
+  "intro":"These pages show and demonstrate the usage and functionality of the <a href=\"http://github.com/atelierspierrot/library\">atelierspierrot/library</a> PHP package you just downloaded.",
+  "page_title": "Demo - atelierspierrot/library",
+  "brand_title":"PHP Library",
+  "manual_url": "http://docs.ateliers-pierrot/library/",
+  "sources_url":"http://github.com/atelierspierrot/library",
+  "content_notice": "<a href=\"http://github.com/atelierspierrot/library\">atelierspierrot/library</a> package by <a href=\"https://github.com/atelierspierrot\">Les Ateliers Pierrot</a> under <a href=\"http://opensource.org/licenses/GPL-3.0\">GNU GPL v.3</a> license.",
+  "pages": {
+    "home": {
+      "page": "home.md.php",
+      "title": "Home of the demo",
+      "content": "Home"
+    },
+    "http_fundamental": {
+      "page": "http_fundamental.md.php",
+      "title": "HTTP fundamentals",
+      "content": "HTTP fundamentals"
+    },
+    "dev": {
+      "page": "dev.md.php",
+      "title": "Development tools",
+      "content": "Dev"
+    },
+    "api": {
+      "content":"API",
+      "title":"Library documentation",
+      "url":"http://docs.atelierspierrot.fr/library/"
+    }
+  }
+}
