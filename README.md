@@ -53,19 +53,23 @@ namespace directory using the [SplClassLoader](https://gist.github.com/jwage/221
 any other custom autoloader (if required, a copy of the `SplClassLoader` is proposed in
 the package):
 
-    require_once '.../src/SplClassLoader.php';
-    $patternsLoader = new SplClassLoader('Patterns', '/path/to/patterns/package/src');
-    $patternsLoader->register();
-    $libraryLoader = new SplClassLoader('Library', '/path/to/package/src');
-    $libraryLoader->register();
+```php
+require_once '.../src/SplClassLoader.php';
+$patternsLoader = new SplClassLoader('Patterns', '/path/to/patterns/package/src');
+$patternsLoader->register();
+$libraryLoader = new SplClassLoader('Library', '/path/to/package/src');
+$libraryLoader->register();
+```
 
 If you are a [Composer](http://getcomposer.org/) user, just add the package to your requirements
 in your `composer.json`:
 
-    "require": {
-        ...
-        "atelierspierrot/library": "dev-master"
-    }
+```json
+"require": {
+    "your-dependencies": "*",
+    "atelierspierrot/library": "dev-master"
+}
+```
 
 The namespaces will be automatically added to the project Composer autoloader.
 
@@ -115,4 +119,4 @@ The latest version of this documentation is available online at <http://docs.ate
 
 >    Les Ateliers Pierrot - Paris, France
 
->    <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
+>    <http://www.ateliers-pierrot.fr/> - <contact@ateliers-pierrot.fr>
