@@ -21,34 +21,26 @@
  * <http://github.com/atelierspierrot/library>.
  */
 
-namespace Library;
+namespace Library\ServiceContainer;
 
 use \ErrorException;
 use \Patterns\Commons\Collection;
 use \Patterns\Traits\SingletonTrait;
+use \Library\Helper\Code as CodeHelper;
 
 /**
  * A simple service container with constructors
+ *
+ * @requires PHP 5.4+
  */
 class ServiceContainer
+    implements ServiceContainerInterface
 {
 
     /**
      * This class inherits from \Patterns\Traits\SingletonTrait
      */
     use SingletonTrait;
-
-    /**
-     * Use this constant to NOT throw error when trying to get an unknown service
-     */
-    const FAIL_GRACEFULLY = 1;
-
-    /**
-     * Use this constant to throw error when trying to get an unknown service
-     *
-     * This is the default behavior.
-     */
-    const FAIL_WITH_ERROR = 2;
 
     /**
      * @var \Patterns\Commons\Collection
@@ -58,7 +50,7 @@ class ServiceContainer
     /**
      * @var \Patterns\Commons\Collection
      */
-    private $_services_constructors;
+    private $_services_providers;
 
     /**
      * @var \Patterns\Commons\Collection
@@ -74,28 +66,28 @@ class ServiceContainer
      * Initialize the service container system
      *
      * @param   array $initial_services
-     * @param   array $services_constructors
+     * @param   array $services_providers
      * @param   array $services_protected
      * @return  $this
      */
     public function init(
-        array $initial_services = array(),
-        array $services_constructors = array(),
-        array $services_protected = array()
+        array $initial_services     = array(),
+        array $services_providers   = array(),
+        array $services_protected   = array()
     ) {
         // object can only be initialized once
         if (!is_object($this->_services)) {
             $this->_services                = new Collection();
             $this->_services_protected      = new Collection();
-            $this->_services_constructors   = new Collection();
+            $this->_services_providers      = new Collection();
             if (!empty($initial_services)) {
                 foreach ($initial_services as $_name=>$_service) {
                     $this->setService($_name, $_service);
                 }
             }
-            if (!empty($services_constructors)) {
-                foreach ($services_constructors as $_name=>$_constructor) {
-                    $this->setConstructor($_name, $_constructor);
+            if (!empty($services_providers)) {
+                foreach ($services_providers as $_name=>$_provider) {
+                    $this->setProvider($_name, $_provider);
                 }
             }
             if (!empty($services_protected)) {
@@ -110,14 +102,18 @@ class ServiceContainer
     /**
      * Define a service constructor like `array( name , callback , protected )` or a closure
      *
-     * @param   string  $name
-     * @param   array   $constructor A service array constructor like `array( name , callback , protected )`
-     *          callable $constructor A callback as a closure that must return the service object: function ($name, $arguments) {}
+     * @param   string      $name
+     * @param   array       $provider A service array constructor like `array( name , callback , protected )`
+     *          callable    $provider A callback as a closure that must return the service object: function ($name, $arguments) {}
+     *          ServiceProviderInterface    $provider A `\Library\ServiceContainer\ServiceProviderInterface` instance
      * @return  $this
      */
-    public function setConstructor($name, $constructor)
+    public function setProvider($name, $provider)
     {
-        $this->_services_constructors->offsetSet($name, $constructor);
+        if (is_object($provider) && CodeHelper::implementsInterface($provider, 'Library\ServiceContainer\ServiceProviderInterface')) {
+            $provider->register($this);
+        }
+        $this->_services_providers->offsetSet($name, $provider);
         return $this;
     }
 
@@ -127,10 +123,10 @@ class ServiceContainer
      * @param   string  $name
      * @return  mixed
      */
-    public function getConstructor($name)
+    public function getProvider($name)
     {
-        return $this->hasConstructor($name) ?
-            $this->_services_constructors->offsetGet($name) : null;
+        return $this->hasProvider($name) ?
+            $this->_services_providers->offsetGet($name) : null;
     }
 
     /**
@@ -139,9 +135,9 @@ class ServiceContainer
      * @param   string  $name
      * @return  bool
      */
-    public function hasConstructor($name)
+    public function hasProvider($name)
     {
-        return (bool) $this->_services_constructors->offsetExists($name);
+        return (bool) $this->_services_providers->offsetExists($name);
     }
 
     /**
@@ -208,7 +204,7 @@ class ServiceContainer
     {
         if ($this->hasService($name)) {
             return $this->_services->offsetGet($name);
-        } elseif ($this->hasConstructor($name)) {
+        } elseif ($this->hasProvider($name)) {
             $this->_constructService($name, $arguments);
             if ($this->hasService($name)) {
                 return $this->_services->offsetGet($name);
@@ -244,6 +240,12 @@ class ServiceContainer
     {
         if ($this->hasService($name)) {
             if (!$this->isProtected($name)) {
+                if ($this->hasProvider($name)) {
+                    $data = $this->getProvider($name);
+                    if (is_object($data) && CodeHelper::implementsInterface($data, 'Library\ServiceContainer\ServiceProviderInterface')) {
+                        $data->terminate($this);
+                    }
+                }
                 $this->_services->offsetUnset($name);
             } else {
                 throw new ErrorException(
@@ -278,9 +280,12 @@ class ServiceContainer
      */
     protected function _constructService($name, array $arguments = array())
     {
-        if ($this->_services_constructors->offsetExists($name)) {
-            $data = $this->_services_constructors->offsetGet($name);
-            if (is_callable($data) || ($data instanceof \Closure)) {
+        if ($this->hasProvider($name)) {
+            $data = $this->getProvider($name);
+            if (is_object($data) && CodeHelper::implementsInterface($data, 'Library\ServiceContainer\ServiceProviderInterface')) {
+                $data->boot($this);
+                $this->setService($name, $data);
+            } elseif (is_callable($data) || ($data instanceof \Closure)) {
                 try {
                     $item = call_user_func_array(
                         $data, array($this, $name, $arguments)
