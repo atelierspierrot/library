@@ -690,10 +690,10 @@ class Request
      * @param   string  $encoding   The encoding used with htmlspecialchars() (default is UTF-8)
      * @return  string  The cleaned value
      */
-    public static function cleanArgument($arg_value, $flags = ENT_QUOTES, $encoding = 'UTF-8') 
+    public static function cleanArgument($arg_value, $flags = ENT_COMPAT, $encoding = 'UTF-8') 
     {
         if (is_string($arg_value)) {
-            $result = stripslashes( htmlentities($arg_value, $flags, $encoding) );
+            $result = stripslashes( htmlspecialchars($arg_value, ENT_COMPAT, $encoding) );
         } elseif (is_array($arg_value)) {
             $result = array();
             foreach($arg_value as $arg=>$value) {
