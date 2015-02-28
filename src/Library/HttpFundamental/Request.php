@@ -35,15 +35,13 @@ class Request
 {
 
     /**
-     * Classic URL with arguments as "[script.php]?var=val&var2=val2" pairs
-     * @var int
+     * @var int Classic URL with arguments as "[script.php]?var=val&var2=val2" pairs
      */
     const NO_REWRITE = 0;
 
     /**
-     * Allow a query string written as "[script.php]/var/val/var2/val2"
+     * @var int Allow a query string written as "[script.php]/var/val/var2/val2"
      * Allow to cumulate as "[script.php]/var/val?var2=val2"
-     * @var int
      */
     const REWRITE_SEGMENTS_QUERY = 1;
 
@@ -73,32 +71,27 @@ class Request
     protected $headers;
 
     /**
-     * The GET arguments
-     * @var array
+     * @var array The GET arguments
      */
     protected $arguments;
 
     /**
-     * The POST arguments
-     * @var array
+     * @var array The POST arguments
      */
     protected $data;
 
     /**
-     * The FILES arguments
-     * @var array
+     * @var array The FILES arguments
      */
     protected $files;
 
     /**
-     * The current user SESSION
-     * @var array
+     * @var array The current user SESSION
      */
     protected $session;
 
     /**
-     * The current COOKIES
-     * @var array
+     * @var array The current COOKIES
      */
     protected $cookies;
 
@@ -152,21 +145,24 @@ class Request
     /**
      * Constructor : defines the request URL and the object rewrite flag
      *
-     * @param string $url
-     * @param int $flag Must be one of the class `REWRITE` constants
+     * @param string    $url
+     * @param int       $flag   Must be one of the class `REWRITE` constants
      */
     public function __construct($url = null, $flag = self::NO_REWRITE)
     {
         $this->setFlag($flag);
-        if (is_null($url)) $this->guessFromCurrent();
-        else $this->setUrl($url);
+        if (is_null($url)) {
+            $this->guessFromCurrent();
+        } else {
+            $this->setUrl($url);
+        }
     }
 
     /**
      * Populate the request object with current HTTP request values
      *
-     * @return self
-     * @see \Library\Helper\Url::getRequestUrl()
+     * @return  $this
+     * @see     \Library\Helper\Url::getRequestUrl()
      */
     public function guessFromCurrent()
     {
@@ -192,8 +188,8 @@ class Request
 // -----------------------
 
     /**
-     * @param int $flag Must be one of the class `REWRITE` constants
-     * @return self
+     * @param   int   $flag     Must be one of the class `REWRITE` constants
+     * @return  $this
      */
     public function setFlag($flag)
     {
@@ -210,8 +206,8 @@ class Request
     }
 
     /**
-     * @param string $url
-     * @return self
+     * @param   string $url
+     * @return  $this
      */
     public function setUrl($url)
     {
@@ -228,8 +224,8 @@ class Request
     }
 
      /**
-     * @param string $protocol
-     * @return self
+     * @param   string $protocol
+     * @return  $this
      */
     public function setProtocol($protocol)
     {
@@ -246,8 +242,8 @@ class Request
     }
 
    /**
-     * @param string $method
-     * @return self
+     * @param   string $method
+     * @return  $this
      */
     public function setMethod($method)
     {
@@ -264,8 +260,8 @@ class Request
     }
 
     /**
-     * @param array $headers
-     * @return self
+     * @param   array $headers
+     * @return  $this
      */
     public function setHeaders(array $headers = null)
     {
@@ -282,8 +278,8 @@ class Request
     }
 
     /**
-     * @param string $name
-     * @return string|null
+     * @param   string $name
+     * @return  string|null
      */
     public function getHeader($name) 
     {
@@ -291,19 +287,26 @@ class Request
     }
 
     /**
-     * @param string|array $arguments
-     * @return self
+     * @param   string|array $arguments
+     * @return  $this
      */
     public function setArguments($arguments = null)
     {
-        if (is_string($arguments)) $this->_extractArguments($arguments);
-        if ($this->getFlag() & self::REWRITE_SEGMENTS_QUERY) $this->_extractSegments($arguments);
+        if (is_string($arguments)) {
+            $this->_extractArguments($arguments);
+        }
+        if ($this->getFlag() & self::REWRITE_SEGMENTS_QUERY) {
+            $this->_extractSegments($arguments);
+        }
         $this->arguments = $arguments;
         return $this;
     }
 
     /**
-     * @return array|null
+     * @param   bool    $clean          Clean the argument before return ? (default is true)
+     * @param   int     $clean_flags    The PHP flags used with `htmlspecialchars()` (default is ENT_COMPAT)
+     * @param   string  $clean_encoding The encoding used with `htmlspecialchars()` (default is UTF-8)
+     * @return  array|null
      */
     public function getArguments()
     {
@@ -311,14 +314,14 @@ class Request
     }
 
     /**
-     * @param   string  $param      The parameter name if so, or 'args' to get all parameters values
-     * @param   mixed   $default    The default value sent if the argument is not set
-     * @param   bool    $clean      Clean the argument before return ? (default is true)
-     * @param   int     $clean_flags    The PHP flags used with `htmlentities()` (default is ENT_QUOTES)
-     * @param   string  $clean_encoding The encoding used with `htmlentities()` (default is UTF-8)
+     * @param   string  $param          The parameter name if so, or 'args' to get all parameters values
+     * @param   mixed   $default        The default value sent if the argument is not set
+     * @param   bool    $clean          Clean the argument before return ? (default is true)
+     * @param   int     $clean_flags    The PHP flags used with `htmlspecialchars()` (default is ENT_COMPAT)
+     * @param   string  $clean_encoding The encoding used with `htmlspecialchars()` (default is UTF-8)
      * @return  string  The value retrieved, $default otherwise
      */
-    public function getArgument($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = 'UTF-8') 
+    public function getArgument($param = null, $default = false, $clean = true, $clean_flags = ENT_COMPAT, $clean_encoding = 'UTF-8') 
     {
         if (!empty($this->arguments) && array_key_exists($param, $this->arguments)) {
             return true===$clean ?
@@ -328,28 +331,31 @@ class Request
     }
 
     /**
-     * @param array|string $data
-     * @return self
+     * @param   array|string $data
+     * @return  $this
      */
     public function setData($data = null)
     {
-        if (is_string($data)) $this->_extractArguments($data);
+        if (is_string($data)) {
+            $this->_extractArguments($data);
+        }
         $this->data = $data;
         return $this;
     }
 
     /**
-     * @param   string  $param      The parameter name if so, or 'args' to get all parameters values
-     * @param   mixed   $default    The default value sent if the argument is not set
-     * @param   bool    $clean      Clean the argument before return ? (default is true)
-     * @param   int     $clean_flags    The PHP flags used with `htmlentities()` (default is ENT_QUOTES)
-     * @param   string  $clean_encoding The encoding used with `htmlentities()` (default is UTF-8)
+     * @param   string  $param          The parameter name if so, or 'args' to get all parameters values
+     * @param   mixed   $default        The default value sent if the argument is not set
+     * @param   bool    $clean          Clean the argument before return ? (default is true)
+     * @param   int     $clean_flags    The PHP flags used with `htmlspecialchars()` (default is ENT_COMPAT)
+     * @param   string  $clean_encoding The encoding used with `htmlspecialchars()` (default is UTF-8)
      * @return  string  The value retrieved, $default otherwise
      */
-    public function getData($param = null, $default = false, $clean = true, $clean_flags = ENT_QUOTES, $clean_encoding = 'UTF-8')
+    public function getData($param = null, $default = false, $clean = true, $clean_flags = ENT_COMPAT, $clean_encoding = 'UTF-8')
     {
         if (is_null($param)) {
-            return $this->data;
+            return true===$clean ?
+                $this->cleanArgument($this->data, $clean_flags, $clean_encoding) : $this->data;
         } else {
             if (!empty($this->data) && array_key_exists($param, $this->data)) {
                 return true===$clean ? 
@@ -360,8 +366,8 @@ class Request
     }
 
     /**
-     * @param array $files
-     * @return self
+     * @param   array $files
+     * @return  $this
      */
     public function setFiles(array $files = null)
     {
@@ -378,7 +384,7 @@ class Request
     }
 
     /**
-     * @param   string $param
+     * @param   string  $param
      * @param   string  $index
      * @return  array|null
      */
@@ -395,8 +401,8 @@ class Request
     }
 
     /**
-     * @param array $session
-     * @return self
+     * @param   array $session
+     * @return  $this
      */
     public function setSession(array $session = null)
     {
@@ -405,8 +411,8 @@ class Request
     }
 
     /**
-     * @param string $param
-     * @return array|null
+     * @param   string $param
+     * @return  array|null
      */
     public function getSession($param = null)
     {
@@ -418,8 +424,8 @@ class Request
     }
 
     /**
-     * @param array $cookies
-     * @return self
+     * @param   array $cookies
+     * @return  $this
      */
     public function setCookies(array $cookies = null)
     {
@@ -436,8 +442,8 @@ class Request
     }
 
     /**
-     * @param string $param
-     * @return array|null
+     * @param   string $param
+     * @return  array|null
      */
     public function getCookie($param)
     {
@@ -445,8 +451,8 @@ class Request
     }
 
     /**
-     * @param array $authentication
-     * @return self
+     * @param   array $authentication
+     * @return  $this
      */
     public function setAuthentication(array $authentication = null)
     {
@@ -455,8 +461,8 @@ class Request
     }
 
     /**
-     * @param string $type
-     * @return self
+     * @param   string $type
+     * @return  $this
      */
     public function setAuthenticationType($type)
     {
@@ -465,8 +471,8 @@ class Request
     }
 
     /**
-     * @param string $user
-     * @return self
+     * @param   string $user
+     * @return  $this
      */
     public function setAuthenticationUser($user)
     {
@@ -475,8 +481,8 @@ class Request
     }
 
     /**
-     * @param string $pw
-     * @return self
+     * @param   string $pw
+     * @return  $this
      */
     public function setAuthenticationPassword($pw)
     {
@@ -485,8 +491,8 @@ class Request
     }
 
     /**
-     * @param string $param
-     * @return array|string|null
+     * @param   string $param
+     * @return  array|string|null
      */
     public function getAuthentication($param = null)
     {
@@ -526,9 +532,13 @@ class Request
         }
 
         $user = $this->getAuthentication('user');
-        if (!empty($user)) $url['user'] = $user;
+        if (!empty($user)) {
+            $url['user'] = $user;
+        }
         $pwd = $this->getAuthentication('pwd');
-        if (!empty($pwd)) $url['pass'] = $pwd;
+        if (!empty($pwd)) {
+            $url['pass'] = $pwd;
+        }
 
         $built_url = UrlHelper::build($url);
         return $built_url;
@@ -580,9 +590,9 @@ class Request
     }
 
     /**
-     * @param string $varname
-     * @param mixed $default
-     * @return mixed|false
+     * @param   string  $varname
+     * @param   mixed   $default
+     * @return  mixed|false
      */
     public function getGet($varname, $default = null)
     {
@@ -590,9 +600,9 @@ class Request
     }
 
     /**
-     * @param string $varname
-     * @param mixed $default
-     * @return mixed|false
+     * @param   string  $varname
+     * @param   mixed   $default
+     * @return  mixed|false
      */
     public function getPost($varname, $default = null)
     {
@@ -600,9 +610,9 @@ class Request
     }
 
     /**
-     * @param string $varname
-     * @param mixed $default
-     * @return mixed|false
+     * @param   string  $varname
+     * @param   mixed   $default
+     * @return  mixed|false
      */
     public function getGetOrPost($varname, $default = null)
     {
@@ -614,9 +624,9 @@ class Request
     }
 
     /**
-     * @param string $varname
-     * @param mixed $default
-     * @return mixed|false
+     * @param   string  $varname
+     * @param   mixed   $default
+     * @return  mixed|false
      */
     public function getPostOrGet($varname, $default = null)
     {
@@ -674,10 +684,10 @@ class Request
     /**
      * Clean the value taken from request arguments or data
      *
-     * @param string    $arg_value The parameter name if so, or 'args' to get all parameters values
-     * @param int       $flags The PHP flags used with htmlentities() (default is ENT_QUOTES)
-     * @param string    $encoding The encoding used with htmlentities() (default is UTF-8)
-     * @return string The cleaned value
+     * @param   string  $arg_value  The parameter name if so, or 'args' to get all parameters values
+     * @param   int     $flags      The PHP flags used with htmlspecialchars() (default is ENT_COMPAT)
+     * @param   string  $encoding   The encoding used with htmlspecialchars() (default is UTF-8)
+     * @return  string  The cleaned value
      */
     public static function cleanArgument($arg_value, $flags = ENT_QUOTES, $encoding = 'UTF-8') 
     {
@@ -693,8 +703,8 @@ class Request
     }
 
     /**
-     * @param string $varname
-     * @return mixed|false
+     * @param   string  $varname
+     * @return  mixed|false
      */
     public static function getEnvironment($varname)
     {
@@ -717,7 +727,7 @@ class Request
     }
 
     /**
-     * Emulation of internal `getallheaders()` function as it doesn't exist each time
+     * Emulation of internal `getallheaders()` function as it does not exist each time
      */
     public static function getallheaders()
     {
