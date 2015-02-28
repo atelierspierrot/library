@@ -308,9 +308,10 @@ class Request
      * @param   string  $clean_encoding The encoding used with `htmlspecialchars()` (default is UTF-8)
      * @return  array|null
      */
-    public function getArguments()
+    public function getArguments($clean = true, $clean_flags = ENT_COMPAT, $clean_encoding = 'UTF-8')
     {
-        return $this->arguments;
+        return true===$clean ?
+            $this->cleanArgument($this->arguments, $clean_flags, $clean_encoding) : $this->arguments;
     }
 
     /**
