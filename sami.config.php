@@ -26,7 +26,7 @@ $options = array(
     'title'                => 'Library',
     'build_dir'            => __DIR__.'/phpdoc',
     'cache_dir'            => __DIR__.'/../tmp/cache/library',
-    'default_opened_level' => 2,
+    'default_opened_level' => 1,
 );
 
 return new Sami($iterator, $options);
