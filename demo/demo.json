@@ -13,11 +13,6 @@
       "title": "Home of the demo",
       "content": "Home"
     },
-    "http_fundamental": {
-      "page": "http_fundamental.md.php",
-      "title": "HTTP fundamentals",
-      "content": "HTTP fundamentals"
-    },
     "dev": {
       "page": "dev.md.php",
       "title": "Development tools",

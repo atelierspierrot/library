@@ -109,6 +109,16 @@
                     static&nbsp;bool
                 </td>
                 <td class="last">
+                    <a href="#method_implementsInterface">implementsInterface</a>(string|object $class_name, string $interface_name)
+                    <p>Check if a class implements a certain interface</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
                     <a href="#method_extendsClass">extendsClass</a>(string|object $class_name, string $mother_name)
                     <p>Check if a class extends a certain class</p>
                 </td>
@@ -151,6 +161,17 @@
                 <td class="last">
                     <a href="#method_organizeArguments">organizeArguments</a>(string $method_name = null, mixed $arguments = null, string $class_name = null, array $logs = array())
                     <p>Organize an array of arguments to pass to a function or class's method according to its declaration</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_dumpClosure">dumpClosure</a>(<abbr title="Library\Helper\Closure">Closure</abbr> $c)
+                    <p>
+</p>
                 </td>
                 <td></td>
             </tr>
@@ -288,8 +309,49 @@
                     </div>
     </div>
 
+                <h3 id="method_implementsInterface">
+        <div class="location">at line 87</div>
+        <code>        static    public            bool
+    <strong>implementsInterface</strong>(string|object $class_name, string $interface_name)</code>
+    </h3>
+    <div class="details">
+        <p>Check if a class implements a certain interface</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string|object</td>
+                <td>$class_name</td>
+                <td>The class name to test or a full object of this class</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$interface_name</td>
+                <td>The interface name to test</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
                 <h3 id="method_extendsClass">
-        <div class="location">at line 94</div>
+        <div class="location">at line 107</div>
         <code>        static    public            bool
     <strong>extendsClass</strong>(string|object $class_name, string $mother_name)</code>
     </h3>
@@ -330,7 +392,7 @@
     </div>
 
                 <h3 id="method_isClassInstance">
-        <div class="location">at line 113</div>
+        <div class="location">at line 126</div>
         <code>        static    public            bool
     <strong>isClassInstance</strong>(object $object, string $class_name)</code>
     </h3>
@@ -373,7 +435,7 @@
     </div>
 
                 <h3 id="method_namespaceExists">
-        <div class="location">at line 148</div>
+        <div class="location">at line 161</div>
         <code>        static    public            bool
     <strong>namespaceExists</strong>(string $namespace)</code>
     </h3>
@@ -410,7 +472,7 @@
     </div>
 
                 <h3 id="method_fetchArguments">
-        <div class="location">at line 213</div>
+        <div class="location">at line 226</div>
         <code>        static    public            mixed
     <strong>fetchArguments</strong>(string $method_name = null, mixed $arguments = null, string $class_name = null, array $logs = array())</code>
     </h3>
@@ -470,7 +532,7 @@
     </div>
 
                 <h3 id="method_organizeArguments">
-        <div class="location">at line 245</div>
+        <div class="location">at line 258</div>
         <code>        static    public            mixed
     <strong>organizeArguments</strong>(string $method_name = null, mixed $arguments = null, string $class_name = null, array $logs = array())</code>
     </h3>
@@ -519,6 +581,53 @@ no default value and define it on the <code>$arguments</code> value.</p>
 
             
             
+                    </div>
+    </div>
+
+                <h3 id="method_dumpClosure">
+        <div class="location">at line 336</div>
+        <code>        static    public            string
+    <strong>dumpClosure</strong>(<abbr title="Library\Helper\Closure">Closure</abbr> $c)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Library\Helper\Closure">Closure</abbr></td>
+                <td>$c</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>&lt;http://www.metashock.de/2013/05/dump-source-code-of-closure-in-php/&gt;</td>
+                <td></td>
+            </tr>
+            </table>
+
                     </div>
     </div>
 

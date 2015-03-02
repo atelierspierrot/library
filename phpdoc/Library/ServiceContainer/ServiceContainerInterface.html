@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\ServiceContainer\ServiceContainerInterface | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../traits.html">Traits</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Interface</div>
+    <h1><a href="../../Library/ServiceContainer.html">Library\ServiceContainer</a>\ServiceContainerInterface</h1>
+    </div>
+        <div class="content">
+                <p>    interface
+    <strong>ServiceContainerInterface</strong></p>
+
+            <div class="description">
+            <p>A simple service container interface</p>
+            <p>The "register" system will store a callback in the registry
+with a specific name to use when trying to get a service.
+The getter will throw an error by default if the service
+does not exist, except when using the <code>FAIL_GRACEFULLY</code> constant.
+Any service is overwritable by default but can be not using
+the <code>$protected = true</code> register argument.</p>
+        </div>
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>FAIL_GRACEFULLY</td>
+                <td class="last">
+                    <p><em>Use this constant to NOT throw error when trying to get an unknown service</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FAIL_WITH_ERROR</td>
+                <td class="last">
+                    <p><em>Use this constant to throw error when trying to get an unknown service</em></p>
+                    <p>This is the default behavior.</p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_setProvider">setProvider</a>(string $name, array $provider)
+                    <p>Define a service constructor like <code>array( name , callback , protected )</code> or a closure</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_setService">setService</a>(string $name, object|callable $callback, bool $protected = false)
+                    <p>Register a new service called <code>$name</code> declared as NOT protected by default</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getService">getService</a>(string $name, array $arguments = array(), int $failure = self::FAIL_WITH_ERROR)
+                    <p>Get a service called <code>$name</code> throwing an error by default if it does not exist yet and can not be created</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_hasService">hasService</a>(string $name)
+                    <p>Test if a service exists in the container</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_unsetService">unsetService</a>(string $name)
+                    <p>Unset a service if it is not protected</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_setProvider">
+        <div class="location">at line 61</div>
+        <code>            public            mixed
+    <strong>setProvider</strong>(string $name, array $provider)</code>
+    </h3>
+    <div class="details">
+        <p>Define a service constructor like <code>array( name , callback , protected )</code> or a closure</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$provider</td>
+                <td>A service array constructor like <code>array( name , callback , protected )</code> callable    $provider A callback as a closure that must return the service object: function ($name, $arguments) {} ServiceProviderInterface    $provider A <code>\Library\ServiceContainer\ServiceProviderInterface</code> instance</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setService">
+        <div class="location">at line 71</div>
+        <code>            public            mixed
+    <strong>setService</strong>(string $name, object|callable $callback, bool $protected = false)</code>
+    </h3>
+    <div class="details">
+        <p>Register a new service called <code>$name</code> declared as NOT protected by default</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>object|callable</td>
+                <td>$callback</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$protected</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getService">
+        <div class="location">at line 81</div>
+        <code>            public            mixed
+    <strong>getService</strong>(string $name, array $arguments = array(), int $failure = self::FAIL_WITH_ERROR)</code>
+    </h3>
+    <div class="details">
+        <p>Get a service called <code>$name</code> throwing an error by default if it does not exist yet and can not be created</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$failure</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasService">
+        <div class="location">at line 89</div>
+        <code>            public            mixed
+    <strong>hasService</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Test if a service exists in the container</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_unsetService">
+        <div class="location">at line 97</div>
+        <code>            public            mixed
+    <strong>unsetService</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Unset a service if it is not protected</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

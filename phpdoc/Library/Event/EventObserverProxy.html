@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\Event\EventObserverProxy | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../traits.html">Traits</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Library/Event.html">Library\Event</a>\EventObserverProxy</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EventObserverProxy</strong>        implements
+        <a href="../../Library/Event/ObserverInterface.html"><abbr title="Library\Event\ObserverInterface">ObserverInterface</abbr></a></p>
+
+            <div class="description">
+            <p>Class EventObserverProxy</p>
+            <p>This proxy class will try to always construct an object
+compliant with the <code>ObserverInterface</code>. It uses a simple
+<code>callback</code> property that can be:</p>
+
+<ul>
+<li>a "real" <code>ObserverInterface</code> object</li>
+<li>another object with a <code>handleEvent( EventInterface $event )</code> method</li>
+<li>an array like <code>array( class , method )</code> to call a specific method</li>
+<li>a closure to call when the event is fired</li>
+</ul>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(callable|null $callback = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\Event\$this">$this</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setCallback">setCallback</a>(callable|array $callback)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed|null
+                </td>
+                <td class="last">
+                    <a href="#method_handleEvent">handleEvent</a>(<a href="../../Library/Event/EventInterface.html"><abbr title="Library\Event\EventInterface">EventInterface</abbr></a> $event)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 51</div>
+        <code>            public            
+    <strong>__construct</strong>(callable|null $callback = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>callable|null</td>
+                <td>$callback</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setCallback">
+        <div class="location">at line 63</div>
+        <code>            public            <abbr title="Library\Event\$this">$this</abbr>
+    <strong>setCallback</strong>(callable|array $callback)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>callable|array</td>
+                <td>$callback</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\Event\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_handleEvent">
+        <div class="location">at line 88</div>
+        <code>            public            mixed|null
+    <strong>handleEvent</strong>(<a href="../../Library/Event/EventInterface.html"><abbr title="Library\Event\EventInterface">EventInterface</abbr></a> $event)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../Library/Event/EventInterface.html"><abbr title="Library\Event\EventInterface">EventInterface</abbr></a></td>
+                <td>$event</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

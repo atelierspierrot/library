@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Library\ServiceContainer\ServiceContainer | Library</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../traits.html">Traits</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">Library</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Library/ServiceContainer.html">Library\ServiceContainer</a>\ServiceContainer</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>ServiceContainer</strong>        implements
+        <a href="../../Library/ServiceContainer/ServiceContainerInterface.html"><abbr title="Library\ServiceContainer\ServiceContainerInterface">ServiceContainerInterface</abbr></a></p>
+
+            <div class="description">
+            <p>A simple service container with constructors</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\ServiceContainer\$this">$this</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_init">init</a>(array $initial_services = array(), array $services_providers = array(), array $services_protected = array())
+                    <p>Initialize the service container system</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\ServiceContainer\$this">$this</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setProvider">setProvider</a>(string $name, array $provider)
+                    <p>Define a service constructor like <code>array( name , callback , protected )</code> or a closure</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getProvider">getProvider</a>(string $name)
+                    <p>Get a service constructor if it exists</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_hasProvider">hasProvider</a>(string $name)
+                    <p>Test if a constructor exists for a service</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\ServiceContainer\$this">$this</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setProtected">setProtected</a>(string $name)
+                    <p>Define a service as protected</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_isProtected">isProtected</a>(string $name)
+                    <p>Test if a service is protected</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Library\ServiceContainer\$this">$this</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setService">setService</a>(string $name, object|callable $callback, bool $protected = false)
+                    <p>Register a new service called <code>$name</code> declared as NOT protected by default</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_getService">getService</a>(string $name, array $arguments = array(), int $failure = self::FAIL_WITH_ERROR)
+                    <p>Get a service called <code>$name</code> throwing an error by default if it does not exist yet and can not be created</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_hasService">hasService</a>(string $name)
+                    <p>Test if a service exists in the container</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_unsetService">unsetService</a>(string $name)
+                    <p>Unset a service if it is not protected</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_init">
+        <div class="location">at line 73</div>
+        <code>            public            <abbr title="Library\ServiceContainer\$this">$this</abbr>
+    <strong>init</strong>(array $initial_services = array(), array $services_providers = array(), array $services_protected = array())</code>
+    </h3>
+    <div class="details">
+        <p>Initialize the service container system</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$initial_services</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$services_providers</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$services_protected</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\ServiceContainer\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setProvider">
+        <div class="location">at line 111</div>
+        <code>            public            <abbr title="Library\ServiceContainer\$this">$this</abbr>
+    <strong>setProvider</strong>(string $name, array $provider)</code>
+    </h3>
+    <div class="details">
+        <p>Define a service constructor like <code>array( name , callback , protected )</code> or a closure</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$provider</td>
+                <td>A service array constructor like <code>array( name , callback , protected )</code> callable    $provider A callback as a closure that must return the service object: function ($name, $arguments) {} ServiceProviderInterface    $provider A <code>\Library\ServiceContainer\ServiceProviderInterface</code> instance</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\ServiceContainer\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getProvider">
+        <div class="location">at line 126</div>
+        <code>            public            mixed
+    <strong>getProvider</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Get a service constructor if it exists</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasProvider">
+        <div class="location">at line 138</div>
+        <code>            public            bool
+    <strong>hasProvider</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Test if a constructor exists for a service</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setProtected">
+        <div class="location">at line 149</div>
+        <code>            public            <abbr title="Library\ServiceContainer\$this">$this</abbr>
+    <strong>setProtected</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Define a service as protected</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\ServiceContainer\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isProtected">
+        <div class="location">at line 161</div>
+        <code>            public            bool
+    <strong>isProtected</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Test if a service is protected</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setService">
+        <div class="location">at line 178</div>
+        <code>            public            <abbr title="Library\ServiceContainer\$this">$this</abbr>
+    <strong>setService</strong>(string $name, object|callable $callback, bool $protected = false)</code>
+    </h3>
+    <div class="details">
+        <p>Register a new service called <code>$name</code> declared as NOT protected by default</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>object|callable</td>
+                <td>$callback</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$protected</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Library\ServiceContainer\$this">$this</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getService">
+        <div class="location">at line 203</div>
+        <code>            public            mixed
+    <strong>getService</strong>(string $name, array $arguments = array(), int $failure = self::FAIL_WITH_ERROR)</code>
+    </h3>
+    <div class="details">
+        <p>Get a service called <code>$name</code> throwing an error by default if it does not exist yet and can not be created</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$failure</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasService">
+        <div class="location">at line 227</div>
+        <code>            public            mixed
+    <strong>hasService</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Test if a service exists in the container</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_unsetService">
+        <div class="location">at line 239</div>
+        <code>            public            mixed
+    <strong>unsetService</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Unset a service if it is not protected</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
