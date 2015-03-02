@@ -4,7 +4,7 @@
     "description": "The PHP library package of Les Ateliers Pierrot.",
     "keywords": [ "library", "helpers" ],
     "homepage": "http://github.com/atelierspierrot/library",
-    "license": "GPL-3.0",
+    "license": "Apache-2.0",
     "authors": [{
         "name": "Les Ateliers Pierrot & contributors",
         "email": "contact@ateliers-pierrot.fr",

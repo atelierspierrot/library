@@ -6,7 +6,7 @@
   "brand_title":"PHP Library",
   "manual_url": "http://docs.ateliers-pierrot/library/",
   "sources_url":"http://github.com/atelierspierrot/library",
-  "content_notice": "<a href=\"http://github.com/atelierspierrot/library\">atelierspierrot/library</a> package by <a href=\"https://github.com/atelierspierrot\">Les Ateliers Pierrot</a> under <a href=\"http://opensource.org/licenses/GPL-3.0\">GNU GPL v.3</a> license.",
+  "content_notice": "<a href=\"http://github.com/atelierspierrot/library\">atelierspierrot/library</a> package by <a href=\"https://github.com/atelierspierrot\">Les Ateliers Pierrot</a> under <a href=\"http://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0</a> license.",
   "pages": {
     "home": {
       "page": "home.md.php",
