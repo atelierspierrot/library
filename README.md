@@ -76,11 +76,6 @@ The namespaces will be automatically added to the project Composer autoloader.
 
 ## Quick overview
 
-### HTTP Fundamental
-
-The `Library\HttpFundamental` namespace defines a set of classes to handle a classic HTTP
-request/response protocol.
-
 ### Helpers
 
 The `Library\Helper` namespace defines some classes commonly used following these rules:
