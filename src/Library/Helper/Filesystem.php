@@ -32,7 +32,7 @@ namespace Library\Helper;
  *
  *     use Library\Helper\Filesystem as FilesystemHelper;
  *
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Filesystem
 {

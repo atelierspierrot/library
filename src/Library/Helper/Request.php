@@ -32,7 +32,7 @@ namespace Library\Helper;
  *
  *     use Library\Helper\Request as RequestHelper;
  *
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Request
 {

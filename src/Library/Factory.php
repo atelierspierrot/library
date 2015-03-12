@@ -84,7 +84,7 @@ use \ReflectionClass;
  * any existing constructor will be first called without parameters and then the defined
  * call method passing it the parameters.
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Factory
     extends AbstractStaticCreator

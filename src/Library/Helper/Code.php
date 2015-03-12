@@ -35,7 +35,7 @@ use \Library\Helper\Directory as DirectoryHelper;
  *
  *     use Library\Helper\Code as CodeHelper;
  *
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Code
 {

@@ -26,7 +26,7 @@ namespace Library\Tool;
 /**
  * Rotate system for files
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class FileRotator
 {

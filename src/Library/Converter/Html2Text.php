@@ -28,6 +28,8 @@ namespace Library\Converter;
  *
  * Freely (but mostly) inspired by the work of Jon Abernathy <jon@chuggnutt.com>
  * and his "class.html2text.inc" (see <http://www.chuggnutt.com/html2text>).
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class Html2Text
     extends AbstractConverter

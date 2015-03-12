@@ -32,7 +32,7 @@ namespace Library\Helper;
  *
  *     use Library\Helper\Number as NumberHelper;
  *
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Number
 {

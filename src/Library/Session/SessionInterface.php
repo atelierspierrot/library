@@ -24,7 +24,7 @@
 namespace Library\Session;
 
 /**
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 interface SessionInterface
 {

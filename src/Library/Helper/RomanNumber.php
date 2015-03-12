@@ -32,8 +32,8 @@ namespace Library\Helper;
  *
  *     use Library\Helper\RomanNumber as RomanNumberHelper;
  *
- * @see         <http://en.wikipedia.org/wiki/Roman_numerals>
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @link    <http://en.wikipedia.org/wiki/Roman_numerals>
+ * @author  piwi <me@e-piwi.fr>
  */
 class RomanNumber
 {

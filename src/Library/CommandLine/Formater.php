@@ -24,7 +24,7 @@
 namespace Library\CommandLine;
 
 /**
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Formater
 {

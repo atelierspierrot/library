@@ -67,7 +67,7 @@ use \Library\Helper\Code as CodeHelper;
  *
  * All setter methods returns the object itself for chainability.
  *
- * @author      Pierre Cassat & contributors <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class RegistryInvokable
     implements InvokableInterface

@@ -26,7 +26,7 @@ namespace Library\Tool;
 /**
  * Simple encrypt/decrypt system
  *
- * @author      Pierre Cassat & contributors <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Encrypt
 {

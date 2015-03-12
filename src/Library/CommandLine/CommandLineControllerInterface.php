@@ -26,7 +26,7 @@ namespace Library\CommandLine;
 /**
  * CommandLine controller interface
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 interface CommandLineControllerInterface
 {

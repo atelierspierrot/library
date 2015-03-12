@@ -31,7 +31,7 @@ use \Patterns\Commons\Collection;
 /**
  * The global router class
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Router
     implements RouterInterface
