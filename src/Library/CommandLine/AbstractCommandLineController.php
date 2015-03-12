@@ -40,7 +40,7 @@ use \Library\CodeParser;
  * - "i | interactive" : increase interactivity of the execution,
  * - "version" : get some version information about running environment.
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractCommandLineController
     implements CommandLineControllerInterface

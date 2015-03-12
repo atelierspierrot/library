@@ -29,7 +29,7 @@ use \Library\CommandLine\Formater;
 use \Library\CommandLine\Stream;
 
 /**
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Helper
 {

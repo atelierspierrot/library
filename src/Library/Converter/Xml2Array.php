@@ -28,6 +28,8 @@ namespace Library\Converter;
  *
  * Freely (but mostly) inspired by the work of Adrien aka Gaarf & contributors
  * (see <http://gaarf.info/2009/08/13/xml-string-to-php-array/>).
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class Xml2Array
     extends AbstractConverter

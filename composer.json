@@ -11,8 +11,7 @@
         "homepage": "http://www.ateliers-pierrot.fr/"
     },{
         "name": "Pierre Cassat",
-        "email": "me@e-piwi.fr",
-        "homepage": "http://github.com/piwi"
+        "homepage": "http://e-piwi.fr/"
     }],
     "require": {
         "php": ">=5.4.0",
@@ -20,9 +19,9 @@
     },
     "require-dev": {
         "psr/log": "dev-master",
-        "sami/sami": "2.*",
-        "phpunit/phpunit": "3.7.*",
-        "phpmd/phpmd" : "1.4.*"
+        "sami/sami": "@stable",
+        "phpunit/phpunit": "@stable",
+        "phpmd/phpmd" : "@stable"
     },
     "autoload": { "psr-0": {  "Library": "src" } },
     "extra": {

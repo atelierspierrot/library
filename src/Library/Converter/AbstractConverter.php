@@ -24,6 +24,7 @@
 namespace Library\Converter;
 
 /**
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractConverter
 {

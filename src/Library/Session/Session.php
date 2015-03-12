@@ -28,7 +28,7 @@ use \Library\Session\SessionInterface;
 /**
  * Session manager class
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Session
     implements SessionInterface

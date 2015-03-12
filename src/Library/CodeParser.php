@@ -30,7 +30,7 @@ use \ReflectionFunction;
 /**
  * Source code parser
  *
- * @author      Pierre Cassat & contributors <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class CodeParser
 {

@@ -44,7 +44,7 @@ use \Library\Helper\Code as CodeHelper;
  *
  * To use static magic caller, your constructor must not require any argument.
  *
- * @author      Pierre Cassat & contributors <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractInvokable
     implements InvokableInterface

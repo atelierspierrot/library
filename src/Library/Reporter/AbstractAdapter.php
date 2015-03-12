@@ -35,7 +35,7 @@ use \Library\Helper\Html as HtmlHelper;
  *
  *      const mask_XXX = "<tag>%s</tag>";
  *
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 abstract class AbstractAdapter
 {

@@ -26,16 +26,6 @@ namespace Library\Tool;
 use \ArrayIterator;
 use \InvalidArgumentException;
 
-/*
-TODO
-$this->line_index
-$this->cell_index
-$this->column_index
-
-PAD by columns
-
-*/
-
 /**
  * Table helper tool
  *
@@ -79,7 +69,12 @@ PAD by columns
  *
  *     use Library\Tool\Table as TableTool;
  *
- * @author      Piero Wbmstr <me@e-piwi.fr>
+ * @TODO    $this->line_index
+ * @TODO    $this->cell_index
+ * @TODO    $this->column_index
+ * @TODO    PAD by columns
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class Table
 {

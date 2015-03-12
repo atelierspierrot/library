@@ -25,6 +25,9 @@ namespace Library;
 
 use \RuntimeException;
 
+/**
+ * @author  piwi <me@e-piwi.fr>
+ */
 class CommandNotFoundException
     extends RuntimeException
 {

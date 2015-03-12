@@ -27,6 +27,8 @@ use \Library\Helper\Text as TextHelper;
 
 /**
  * Array to INI format converter
+ *
+ * @author  piwi <me@e-piwi.fr>
  */
 class Array2INI
     extends AbstractConverter

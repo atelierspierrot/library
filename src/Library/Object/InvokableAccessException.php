@@ -26,7 +26,7 @@ namespace Library\Object;
 use \OutOfBoundsException;
 
 /**
- * @author      Pierre Cassat & contributors <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class InvokableAccessException
     extends OutOfBoundsException

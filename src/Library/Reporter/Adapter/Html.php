@@ -27,7 +27,7 @@ use \Library\Reporter\AbstractAdapter;
 use \Library\Tool\Table as TableTool;
 
 /**
- * @author  Piero Wbmstr <me@e-piwi.fr>
+ * @author  piwi <me@e-piwi.fr>
  */
 class Html
     extends AbstractAdapter
