@@ -2,7 +2,7 @@ PHP Library
 ===========
 
 [![Build Status](https://travis-ci.org/atelierspierrot/library.svg?branch=master)](https://travis-ci.org/atelierspierrot/library)
-[![documentation](http://img.ateliers-pierrot-static.fr/readthe-doc.png)](http://docs.ateliers-pierrot.fr/library/)
+[![documentation](http://img.ateliers-pierrot-static.fr/read-the-doc.svg)](http://docs.ateliers-pierrot.fr/library/)
 The PHP library package of Les Ateliers Pierrot
 
 
