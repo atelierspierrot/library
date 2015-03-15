@@ -12,6 +12,20 @@ go to <https://github.com/atelierspierrot/library/commit/COMMIT_HASH>.
 
     * 01f0059 - usage of '@stable' dev-deps (piwi)
 
+* v2.0.0-BETA (2015-03-02 - 5e9dee0)
+
+    * b85fd33 - update of the documentation (piwi)
+    * 5e06fb4 - the library is now under the Apache 2.0 license (piwi)
+    * 72682be - no more mention of the HttpFundamental in the README (piwi)
+    * afe7547 - remove the Library\Event namespace (piwi)
+    * b7fbb9d - remove the Library\ServiceContainer namespace (piwi)
+    * d8c1674 - remove the Library\HttpFundamental namespace (piwi)
+    * b187aea - review of the service-container (piwi)
+    * d21b9fd - replace 'htmlentities' by 'htmlspecialchars' when cleaning request arguments (piwi)
+    * 3679766 - clean arguments on getting (piwi)
+    * 53b74f6 - simple comments and code review of the Request object (piwi)
+    * bc6c704 - review of the service-container (piwi)
+
 * v1.1.10 (2015-02-19 - 4492add)
 
     *   all Reporter objects are now in the `\Library\Reporter` namespace
