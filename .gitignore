@@ -22,5 +22,5 @@ vendor/*
 #build/*
 #src.*/*
 
-### Hack to allow keeping an empty directory
+# Hack to allow keeping an empty directory
 !.gitkeep
