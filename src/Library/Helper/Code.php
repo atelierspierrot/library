@@ -23,6 +23,7 @@
 
 namespace Library\Helper;
 
+use \Library\Helper\Arrays as ArrayHelper;
 use \Library\Helper\Text as TextHelper;
 use \Library\Helper\Directory as DirectoryHelper;
 
@@ -62,6 +63,77 @@ class Code
     public static function getPropertyMethodName($name)
     {
         return TextHelper::toCamelCase($name);
+    }
+
+    /**
+     * Get all PHP ini settings
+     *
+     * @return array
+     */
+    public static function getIniSettings()
+    {
+        return ArrayHelper::ksort(ini_get_all());
+    }
+
+    /**
+     * Get PHP defined constants
+     *
+     * @param   string  $arg    Scope of defined constants to get
+     * @return  array
+     */
+    public static function getConstants($arg = 'user')
+    {
+        $csts = get_defined_constants(true);
+        return (!empty($arg) && !empty($csts) && isset($csts[$arg]) ? ArrayHelper::natcasesort($csts[$arg]) : array());
+    }
+
+    /**
+     * Get PHP defined functions
+     *
+     * @param   string  $arg    Scope of defined functions to get
+     * @return  array
+     */
+    public static function getFunctions($arg = 'user')
+    {
+        $f_list = array_reverse(get_defined_functions());
+        if (!empty($arg)) {
+            switch($arg) {
+                case 'user': $f_list = $f_list['user']; break;
+                case 'internal': unset($f_list['user']); break;
+                default: break;
+            }
+        }
+        return ArrayHelper::natcasesort($f_list);
+    }
+
+    /**
+     * Get PHP defined classes
+     *
+     * @return array
+     */
+    public static function getClasses()
+    {
+        return ArrayHelper::natcasesort(get_declared_classes());
+    }
+
+    /**
+     * Get PHP defined interfaces
+     *
+     * @return array
+     */
+    public static function getInterfaces()
+    {
+        return ArrayHelper::natcasesort(get_declared_interfaces());
+    }
+
+    /**
+     * Get PHP defined included PHP files
+     *
+     * @return array
+     */
+    public static function getIncludedFiles()
+    {
+        return ArrayHelper::natcasesort(get_included_files());
     }
 
     /**

@@ -23,6 +23,8 @@
 
 namespace Library\Helper;
 
+use \Library\Helper\Arrays as ArrayHelper;
+
 /**
  * Request helper
  *
@@ -73,6 +75,78 @@ class Request
             $ip = $_SERVER['REMOTE_ADDR'];
         }
         return $ip;
+    }
+
+    /**
+     * Get request headers parameters
+     *
+     * @return array
+     */
+    public static function getHeaders()
+    {
+        $headers = getallheaders();
+        return (!empty($headers) ? ArrayHelper::ksort($headers) : array());
+    }
+
+    /**
+     * Get cookies values
+     *
+     * @return array|null
+     */
+    public static function getCookies()
+    {
+        return (!empty($_COOKIE) ? ArrayHelper::ksort($_COOKIE) : array());
+    }
+
+    /**
+     * Get getted variables
+     *
+     * @return array
+     */
+    public static function getGet()
+    {
+        return (!empty($_GET) ? ArrayHelper::ksort($_GET) : array());
+    }
+
+    /**
+     * Get posted variables
+     *
+     * @return array
+     */
+    public static function getPost()
+    {
+        return (!empty($_POST) ? ArrayHelper::ksort($_POST) : array());
+    }
+
+    /**
+     * Get current user session values
+     *
+     * @return array
+     */
+    public static function getSession()
+    {
+        return (!empty($_SESSION) ? ArrayHelper::ksort($_SESSION) : array());
+    }
+
+    /**
+     * Get current command line parameters
+     *
+     * @return array
+     */
+    public static function getCliParameters()
+    {
+        global $argv;
+        return (!empty($argv) ? ArrayHelper::ksort($argv) : array());
+    }
+
+    /**
+     * Get current command line running user
+     *
+     * @return string
+     */
+    public static function getCurrentCliUser()
+    {
+        return exec('whoami');
     }
 
 }

@@ -205,4 +205,34 @@ class UrlHelperTest
         $this->assertEquals($realpath, \Library\Helper\Url::resolvePath($path));
     }
 
+    /**
+     * @covers ../../../src/Library/Helper/Url::isIpAddress()
+     */
+    public function testIsIpAddress()
+    {
+        $this->checkNoArg('isIpAddress', false);
+
+        $ip     = '123.165.187.230';
+        $ipl    = '127.0.0.1';
+        $ipf    = '123.765.987.2toto';
+        $ip_v6  = '2001:610:240:22::c100:68b';
+
+        $this->assertFalse(\Library\Helper\Url::isIpAddress($ipf));
+        $this->assertFalse(\Library\Helper\Url::isIpAddress($ipf, false, false));
+        $this->assertFalse(\Library\Helper\Url::isIpAddress($ipf, true, false));
+        $this->assertFalse(\Library\Helper\Url::isIpAddress($ipf, false, true));
+
+        $this->assertTrue(\Library\Helper\Url::isIpAddress($ipl));
+
+        $this->assertTrue(\Library\Helper\Url::isIpAddress($ip));
+        $this->assertTrue(\Library\Helper\Url::isIpAddress($ip, true, false));
+        $this->assertFalse(\Library\Helper\Url::isIpAddress($ip, false, true));
+        $this->assertFalse(\Library\Helper\Url::isIpAddress($ip, false, false));
+
+        $this->assertTrue(\Library\Helper\Url::isIpAddress($ip_v6));
+        $this->assertTrue(\Library\Helper\Url::isIpAddress($ip_v6, false, true));
+        $this->assertFalse(\Library\Helper\Url::isIpAddress($ip_v6, true, false));
+        $this->assertFalse(\Library\Helper\Url::isIpAddress($ip_v6, false, false));
+    }
+
 }

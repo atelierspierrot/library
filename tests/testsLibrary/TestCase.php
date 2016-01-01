@@ -41,9 +41,15 @@ abstract class TestCase
     public function checkHelperMethodNoArg($classname, $meth, $default = null)
     {
         try {
-            $this->assertEquals(
-                $default, call_user_func(array($classname, $meth))
-            );
+            if (!is_null($default)) {
+                $this->assertEquals(
+                    $default, call_user_func(array($classname, $meth))
+                );
+            } else {
+                $this->assertEmpty(
+                    call_user_func(array($classname, $meth))
+                );
+            }
         } catch (\Exception $e) {
             $this->fail("Failure of '$classname::$meth()' with no arg!");
         }

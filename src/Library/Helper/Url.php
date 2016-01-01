@@ -3,20 +3,20 @@
  * This file is part of the Library package.
  *
  * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * The source code of this package is available online at 
+ * The source code of this package is available online at
  * <http://github.com/atelierspierrot/library>.
  */
 
@@ -38,16 +38,16 @@ class Url
     /**
      * Get the current browser/server URL
      *
-     * @param bool $entities Protect '&' entities parsing them in '&amp;' ? (default is FALSE)
-     * @param bool $base Do you want just the base URL, without any URI (default is FALSE)
-     * @param bool $no_file Do you want just the base URL path, without the input file and any URI (default is FALSE)
-     * @param bool $no_rewrite Do you want the real file pointed by the URL in case of URL rewriting (default is FALSE)
-     * 
-     * @return string
+     * @param   bool $entities    Protect '&' entities parsing them in '&amp;' ? (default is FALSE)
+     * @param   bool $base        Do you want just the base URL, without any URI (default is FALSE)
+     * @param   bool $no_file     Do you want just the base URL path, without the input file and any URI (default is FALSE)
+     * @param   bool $no_rewrite  Do you want the real file pointed by the URL in case of URL rewriting (default is FALSE)
+     * @return  string
      */
     public static function getRequestUrl($entities = false, $base = false, $no_file = false, $no_rewrite = false)
     {
-        $protocol = self::getHttpProtocol();
+        $protocol   = self::getHttpProtocol();
+        $url        = '';
         if ($no_rewrite) {
             $url = $protocol.'://'.$_SERVER['HTTP_HOST'].$_SERVER['SCRIPT_NAME'];
             if (!empty($_SERVER['QUERY_STRING'])) {
@@ -80,7 +80,7 @@ class Url
         }
         return $url;
     }
-    
+
     /**
      * Get the current 'http' or 'https' protocol
      *
@@ -93,12 +93,12 @@ class Url
             || isset($_SERVER['HTTPS'])
         ) ? 'https' : 'http');
     }
-    
+
     /**
      * Parse an URL and returns its composition as an array, with the URI query if so
      *
-     * @param string $url The URL to parse (required)
-     * @return array An array of the URL components
+     * @param   string  $url The URL to parse (required)
+     * @return  array   An array of the URL components
      */
     public static function parse($url)
     {
@@ -109,17 +109,17 @@ class Url
         if (isset($_urls['query'])) {
             parse_str($_urls['query'], $_urls['params']);
         }
-        return $_urls;  
+        return $_urls;
     }
-    
+
     /**
      * Returns the URL with paths cleaned (`./` and `../` are resolved)
      *
      * Inspired by SPIP <http://spip.net>
      *
-     * @param string $url The URL to resolve
-     * @param boolean $realpath Returns the real path of the path (default is `false`)
-     * @return string The resolved path, or real path if so
+     * @param   string  $url        The URL to resolve
+     * @param   boolean $realpath   Returns the real path of the path (default is `false`)
+     * @return  string  The resolved path, or real path if so
      */
     public static function resolvePath($url = null, $realpath = false)
     {
@@ -133,7 +133,10 @@ class Url
         ) {
             $url = str_replace($regs[0], '/', $url);
         }
-        $url = preg_replace(',^/,S', '', $url);
+
+        // buggy ?
+//        $url = preg_replace(',^/,S', '', $url);
+
         if ($realpath && $ok = @realpath($url) ) {
             return $ok;
         }
@@ -142,11 +145,11 @@ class Url
 
     /**
      * Returns an URL with leading 'http://' if it was absent
-     * 
+     *
      * Inspired by SPIP <http://spip.net>
      *
-     * @param string $url The URL to resolve
-     * @return string The resolved URL
+     * @param   string $url The URL to resolve
+     * @return  string The resolved URL
      */
     public static function resolveHttp($url = null)
     {
@@ -163,8 +166,8 @@ class Url
     /**
      * Returns if possible an absolute URL in the current system
      *
-     * @param string $url The URL to resolve
-     * @return string The resolved URL
+     * @param   string $url The URL to resolve
+     * @return  string The resolved URL
      */
     public static function getAbsoluteUrl($url = null)
     {
@@ -183,10 +186,10 @@ class Url
     /**
      * Global URL builder
      *
-     * @param string/array/null $param A parameter to set, or an array like `param => value` to set in URL
-     * @param string/null $value The value of the `$param` argument (if it is a string)
-     * @param string/null $url The URL to work on (`self::getRequestUrl()` by default)
-     * @return string The final rebuilt URL
+     * @param   string|array|null   $param  A parameter to set, or an array like `param => value` to set in URL
+     * @param   string|null         $value  The value of the `$param` argument (if it is a string)
+     * @param   string|null         $url    The URL to work on (`self::getRequestUrl()` by default)
+     * @return  string              The final rebuilt URL
      */
     public static function url($param = null, $value = null, $url = null)
     {
@@ -219,9 +222,9 @@ class Url
     /**
      * Get the value of an URL parameter
      *
-     * @param   string/bool     $param  A parameter to get, or `false` to get the global parameters array
-     * @param   string/null     $url    The URL to work on (`self::getRequestUrl()` by default)
-     * @return  string/array    The parameter value or the global array of parameters
+     * @param   string|bool     $param  A parameter to get, or `false` to get the global parameters array
+     * @param   string|null     $url    The URL to work on (`self::getRequestUrl()` by default)
+     * @return  string|array    The parameter value or the global array of parameters
      */
     public static function getParameter($param = false, $url = false)
     {
@@ -233,7 +236,7 @@ class Url
         }
 
         $parsed_url = self::parse($url);
-        $params = (isset($parsed_url['params']) && count($parsed_url['params'])) 
+        $params = (isset($parsed_url['params']) && count($parsed_url['params']))
             ? $parsed_url['params'] : false;
 
         if ($param && strlen($param)) {
@@ -250,15 +253,14 @@ class Url
     /**
      * Set the value of an URL parameter
      *
-     * @param   string/bool     $var        A parameter to get, or `false` to get the global parameters array
-     * @param   string/false    $val        The value of the `$param` argument (if `null`, the argument is stripped)
-     * @param   string/false    $url        The URL to work on (`self::getRequestUrl()` by default)
+     * @param   string|bool     $var        A parameter to get, or `false` to get the global parameters array
+     * @param   string|false    $val        The value of the `$param` argument (if `null`, the argument is stripped)
+     * @param   string|false    $url        The URL to work on (`self::getRequestUrl()` by default)
      * @param   bool            $rebuild    Return a rebuilt URL (`true` by dfault - if `false`, the URL components array is returned)
-     * @return  string/array    The final URL
+     * @return  string|array    The final URL
      */
     public static function setParameter($var = '', $val = false, $url = false, $rebuild = true)
     {
-        $url_entree = $url;
         if (!$url || !is_array($url)) {
             $_url = $url ? $url : self::getRequestUrl();
             $url = self::parse($_url);
@@ -272,11 +274,11 @@ class Url
 
     /**
      * Rebuild a full URL string from an array of elements
-     * 
-     * @param array $url_components The array of the URL components:: `scheme`, `user`,
-     *                  `pass`, `host`, `port`, `path`, `params`, `hash`
-     * @param string/array/boolean $not_toput The name of an array of elements to not include
-     * @return string The final URL as a string
+     *
+     * @param   array   $url_components The array of the URL components:: `scheme`, `user`,
+     *                                      `pass`, `host`, `port`, `path`, `params`, `hash`
+     * @param   string|array|boolean    $not_toput  The name of an array of elements to not include
+     * @return  string  The final URL as a string
      */
     public static function build(array $url_components = null, $not_toput = null)
     {
@@ -286,19 +288,20 @@ class Url
 
         $_ntp = $not_toput ? (is_array($not_toput) ? $not_toput : array($not_toput)) : array();
 
-        if (isset($_urls['params']))
+        if (isset($_urls['params'])) {
             $_urls['params'] = array_filter($_urls['params']);
+        }
 
-        $n_url = 
-            ( (isset($url_components['scheme']) && !in_array('scheme', $_ntp)) ? $url_components['scheme'].'://' : 'http://')
-            .( (isset($url_components['user']) && !in_array('user', $_ntp)) ? $url_components['user'] : '')
-            .( (isset($url_components['pass']) && !in_array('pass', $_ntp)) ? ':'.$url_components['pass'] : '')
+        $n_url =
+            ( (isset($url_components['scheme']) && !in_array('scheme', $_ntp))  ? $url_components['scheme'].'://' : 'http://')
+            .( (isset($url_components['user'])  && !in_array('user', $_ntp))    ? $url_components['user'] : '')
+            .( (isset($url_components['pass'])  && !in_array('pass', $_ntp))    ? ':'.$url_components['pass'] : '')
             .( ((isset($url_components['user']) && !in_array('user', $_ntp)) || (isset($url_components['pass']) && !in_array('pass', $_ntp))) ? '@' : '')
-            .( (isset($url_components['host']) && !in_array('host', $_ntp)) ? $url_components['host'] : '')
-            .( (isset($url_components['port']) && !in_array('port', $_ntp)) ? ':'.$url_components['port'] : '')
-            .( (isset($url_components['path']) && !in_array('path', $_ntp)) ? $url_components['path'] : '')
-            .( (isset($url_components['params']) && !in_array('params', $_ntp)) ? '?'.http_build_query($url_components['params']) : '')
-            .( (isset($url_components['hash']) && !in_array('hash', $_ntp)) ? '#'.$url_components['hash'] : '');
+            .( (isset($url_components['host'])  && !in_array('host', $_ntp))    ? $url_components['host'] : '')
+            .( (isset($url_components['port'])  && !in_array('port', $_ntp))    ? ':'.$url_components['port'] : '')
+            .( (isset($url_components['path'])  && !in_array('path', $_ntp))    ? $url_components['path'] : '')
+            .( (isset($url_components['params'])&& !in_array('params', $_ntp))  ? '?'.http_build_query($url_components['params']) : '')
+            .( (isset($url_components['hash'])  && !in_array('hash', $_ntp))    ? '#'.$url_components['hash'] : '');
 
         return trim($n_url, '?&');
     }
@@ -312,7 +315,7 @@ class Url
      * @return  bool        Returns `true` if this is a URL in one of the specified protocols
      */
     public static function isUrl($url = null, $protocols = array('http','https','ftp'), $localhost = false)
-    { 
+    {
         if (is_null($url) || !$url || !is_string($url)) {
             return false;
         }
@@ -324,9 +327,10 @@ class Url
                 return true;
             }
         }
+//        return (bool) (filter_var($url, FILTER_VALIDATE_URL));
         return (bool) (preg_match("/^[".join('|', $protocols)."]+[:\/\/]+[A-Za-z0-9\-_]+(\\.)?+[A-Za-z0-9\.\/%&=\?\-_]+$/i", $url) > 0);
     }
-    
+
     /**
      * Validate an email address
      *
@@ -338,7 +342,31 @@ class Url
         if (is_null($email) || !$email || !is_string($email)) {
             return false;
         }
-        return (bool) (preg_match('/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/', $email) > 0);
+        return (bool) (filter_var($email, FILTER_VALIDATE_EMAIL));
+//        return (bool) (preg_match('/^[^0-9][A-z0-9_]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_]+)*[.][A-z]{2,4}$/', $email) > 0);
+    }
+
+    /**
+     * Validate an IP address
+     *
+     * @param   null|string $str    The string to validate
+     * @param   bool        $ipv4   Validate it is IP version 4 (`true` by default)
+     * @param   bool        $ipv6   Validate it is IP version 6 (`true` by default)
+     * @return  bool
+     */
+    public static function isIpAddress($str = null, $ipv4 = true, $ipv6 = true)
+    {
+        if (is_null($str) || !$str || !is_string($str)) {
+            return false;
+        }
+        if ($ipv4 && $ipv6) {
+            return (bool) (filter_var($str, FILTER_VALIDATE_IP));
+        } elseif ($ipv4) {
+            return (bool) (filter_var($str, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
+        } elseif ($ipv6) {
+            return (bool) (filter_var($str, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6));
+        }
+        return false;
     }
 
 }
