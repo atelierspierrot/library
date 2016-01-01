@@ -2,21 +2,21 @@
 /**
  * This file is part of the Library package.
  *
- * Copyright (c) 2013-2015 Pierre Cassat <me@e-piwi.fr> and contributors
- * 
+ * Copyleft (ↄ) 2013-2016 Pierre Cassat <me@e-piwi.fr> and contributors
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * The source code of this package is available online at 
+ * The source code of this package is available online at
  * <http://github.com/atelierspierrot/library>.
  */
 
@@ -35,7 +35,7 @@ use \ReflectionFunction;
 class CodeParser
 {
 
-    var $reflection; 
+    var $reflection;
     var $builtInMethods;
 
     protected $object_name;
@@ -118,7 +118,7 @@ class CodeParser
     {
         if (self::get_objectType() & self::PARSE_FUNC) {
             if (function_exists(self::get_objectName()))
-                $this->reflection = new ReflectionFunction( self::get_objectName() ); 
+                $this->reflection = new ReflectionFunction( self::get_objectName() );
             else
                 trigger_error( "[CodeParser] Function '".self::get_objectName()."' not found", E_USER_WARNING );
         }
@@ -127,7 +127,7 @@ class CodeParser
             if (strpos($_s, ':')) {
                 list($_class, $_method) = explode(':', $_s, 2);
                 if (class_exists($_class))
-                    $this->reflection = new ReflectionMethod( $_class, $_method ); 
+                    $this->reflection = new ReflectionMethod( $_class, $_method );
                 else
                     trigger_error( "[CodeParser] Class '".$_class."' not found", E_USER_WARNING );
             } else {
@@ -136,7 +136,7 @@ class CodeParser
         }
         elseif (self::get_objectType() & self::PARSE_CLASS) {
             if (class_exists(self::get_objectName()))
-                $this->reflection = new ReflectionClass( self::get_objectName() ); 
+                $this->reflection = new ReflectionClass( self::get_objectName() );
             else
                 trigger_error( "[CodeParser] Class '".self::get_objectName()."' not found", E_USER_WARNING );
         }
@@ -151,11 +151,11 @@ class CodeParser
     private function __getMethods($object)
     {
         $reflection = new ReflectionClass($object);
-        
+
         //get all methods
         $methods = $reflection->getMethods();
         $this->builtInMethods = array();
-        
+
         //get properties for each method
         if(!empty($methods))
         {
@@ -163,28 +163,28 @@ class CodeParser
                 if(!empty($method->name))
                 {
                     $methodProp = new ReflectionMethod($object, $method->name);
-                    
+
                     //saves all methods names found
                     $this->builtInMethods['all'][] = $method->name;
-                    
+
                     //saves all private methods names found
-                    if($methodProp->isPrivate()) 
+                    if($methodProp->isPrivate())
                     {
                         $this->builtInMethods['private'][] = $method->name;
                     }
-                    
-                    //saves all private methods names found                 
-                    if($methodProp->isPublic()) 
+
+                    //saves all private methods names found
+                    if($methodProp->isPublic())
                     {
                         $this->builtInMethods['public'][] = $method->name;
-                        
+
                         // gets info about the method and saves them. These info will be used for the xmlrpc server configuration.
                         // (only for public methods => avoids also all the public methods starting with '__')
                         if(!preg_match('/^__/', $method->name, $matches))
                         {
                             // -method name
                             $this->builtInMethods['functions'][$method->name]['function'] = $reflection->getName().'.'.$method->name;
-                            
+
                             // -method docstring
                             $this->builtInMethods['functions'][$method->name]['docstring'] = $this->__extractDocString($methodProp->getDocComment());
                         }
@@ -196,7 +196,7 @@ class CodeParser
         }
         return true;
     }
-    
+
     /**
      * Manipulates a DocString and returns a readable string
      *
@@ -218,7 +218,7 @@ class CodeParser
                 $_tmp[$_l] = $_row;
                 $_l++;
             }
-        }           
+        }
 
         if (!empty($lines)) {
             if (is_numeric($lines)) {
@@ -234,7 +234,6 @@ class CodeParser
 
         return trim(implode("\n",$_tmp));
     }
-    
+
 }
 
-// Endfile
