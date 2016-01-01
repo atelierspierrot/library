@@ -135,4 +135,3 @@ $test = new ConsoleController;
 $test->distribute();
 
 exit(PHP_EOL);
-// Endfile
