@@ -90,29 +90,37 @@ class Html
      */
     public function renderTag($content, $tag_type = 'default', array $args = array())
     {
-        switch($tag_type) {
+        switch ($tag_type) {
 
             // case of the tables ($content is an array of lines that are an array of cells)
             case 'table':
-                if (!is_array($content)) $content = array( $content );
+                if (!is_array($content)) {
+                    $content = array( $content );
+                }
                 // cleaning the contents
                 $correspondances = array(
                     'thead'=>'head', 'tbody'=>'body', 'tfoot'=>'foot'
                 );
-                foreach($correspondances as $var=>$val) {
+                foreach ($correspondances as $var=>$val) {
                     if (isset($content[$var])) {
                         $content[$val] = $content[$var];
                         unset($content[$var]);
                     }
                 }
-                if (!isset($content['body'])) $content = array( 'body'=>$content );
+                if (!isset($content['body'])) {
+                    $content = array( 'body'=>$content );
+                }
                 $this->_doTable($content, $args);
                 break;
 
             // case of the lists ($content is an array of items)
             case 'list': case 'unordered_list': case 'ordered_list':
-                if ('list'===$tag_type) $tag_type = 'unordered_list';
-                if (!is_array($content)) $content = array( $content );
+                if ('list'===$tag_type) {
+                    $tag_type = 'unordered_list';
+                }
+                if (!is_array($content)) {
+                    $content = array( $content );
+                }
                 $this->_doList($content, $args, $tag_type);
                 break;
 
@@ -127,7 +135,9 @@ class Html
 
             // case of the titles (if no argument, will render a h1)
             case 'title':
-                if (empty($args)) $args = array(1);
+                if (empty($args)) {
+                    $args = array(1);
+                }
                 break;
 
             default: break;
@@ -233,11 +243,11 @@ class Html
 
         // each line building
         $table_content = '';
-        foreach(self::$table_scopes as $scope) {
+        foreach (self::$table_scopes as $scope) {
             $scope_lines = '';
             if (isset($table_stacks[$scope]) && is_array($table_stacks[$scope]) && !empty($table_stacks[$scope])) {
                 $my_line = '';
-                foreach($table_stacks[$scope] as $line) {
+                foreach ($table_stacks[$scope] as $line) {
                     $this->_doTableLine($line, $args, $scope);
                     $my_line .= $line;
                 }
@@ -274,7 +284,7 @@ class Html
         $my_line = '';
         $cell_args = $this->_getArgsStackForTable($args, 'cell', $scope);
         $cell_tag = 'table_'.$scope.'_cell';
-        foreach($content as $cell) {
+        foreach ($content as $cell) {
             $my_line .= $this->_tagComposer($cell, $cell_tag, $cell_args);
         }
         $line_args = $this->_getArgsStackForTable($args, 'line', $scope);
@@ -303,7 +313,7 @@ class Html
                 $found_args = $this->_getArgsStack($args[$entry], $scope, array(), false);
             } else {
                 $scope_defined = false;
-                foreach(self::$table_scopes as $_scope) {
+                foreach (self::$table_scopes as $_scope) {
                     if (array_key_exists($_scope, $global_args)) {
                         $scope_defined = true;
                     }
@@ -327,6 +337,4 @@ class Html
     {
         $this->_getArgsStack($args, $entry);
     }
-
 }
-

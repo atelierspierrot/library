@@ -22,7 +22,7 @@
 
 
 namespace Library\Helper;
- 
+
 /**
  * File helper
  *
@@ -46,9 +46,9 @@ class Filesystem
      */
     public static function resolveRelatedPath($from, $to)
     {
-        $from_parts = array_filter( explode('/', $from) );
-        $to_parts = array_filter( explode('/', $to) );
-        foreach($from_parts as $i=>$path) {
+        $from_parts = array_filter(explode('/', $from));
+        $to_parts = array_filter(explode('/', $to));
+        foreach ($from_parts as $i=>$path) {
             if (in_array($path, $to_parts)) {
                 $from_parts[$i] = null;
                 $to_parts[$i] = null;
@@ -56,7 +56,7 @@ class Filesystem
         }
         $from_parts = array_filter($from_parts);
         $to_parts = array_filter($to_parts);
-        for($i=0; $i<count($from_parts); $i++) {
+        for ($i=0; $i<count($from_parts); $i++) {
             array_unshift($to_parts, '..');
         }
 /*
@@ -77,6 +77,4 @@ class Filesystem
     {
         return (decoct(octdec($int))===$int) ? $int : octdec($int);
     }
-
 }
-

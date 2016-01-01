@@ -128,7 +128,7 @@ class Number
         $val = $val.'0';
         $length = strlen($val);
         $checksum = 0;
-        for ($i=($length - 1); $i>=0; $i--) { 
+        for ($i=($length - 1); $i>=0; $i--) {
             $digit = $val[$i];
             if ((($length - $i) % 2) == 0) {
                 $digit = $digit * 2;
@@ -138,7 +138,7 @@ class Number
             }
             $checksum += $digit;
         }
-        $luhn_key = 10 - ( $checksum % 10 );
+        $luhn_key = 10 - ($checksum % 10);
         if ($luhn_key == 10) {
             $luhn_key = 0;
         }
@@ -233,7 +233,7 @@ class Number
         $limit = min(max($diffs)+1, count($items));
         $isjj = true;
         for ($i=1; $i<$limit; $i++) {
-            if (!in_array($i,$diffs)) {
+            if (!in_array($i, $diffs)) {
                 $isjj = false;
             }
         }
@@ -260,6 +260,4 @@ class Number
     return (bool) ($r==$val);
     }
      */
-
 }
-

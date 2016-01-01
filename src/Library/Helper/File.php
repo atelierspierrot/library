@@ -24,7 +24,7 @@
 namespace Library\Helper;
 
 use \Library\Helper\Text as TextHelper;
- 
+
 /**
  * File helper
  *
@@ -55,9 +55,11 @@ class File
         }
         $extension = trim($extension, '.');
 
-        if (empty($filename)){
+        if (empty($filename)) {
             $filename = uniqid();
-            if ($force_file) $filename .= '.'.$extension;
+            if ($force_file) {
+                $filename .= '.'.$extension;
+            }
         }
         if (is_null($dir)) {
             $dir = defined('_DIR_TMP') ? _DIR_TMP : '/tmp';
@@ -97,10 +99,10 @@ class File
             $string = strtolower($string);
         }
 
-        $string = str_replace(" ",$delimiter,$string);
-        $string = preg_replace('#\-+#',$delimiter,$string);
-        $string = preg_replace('#([-]+)#',$delimiter,$string);
-        $string = trim($string,$delimiter);
+        $string = str_replace(" ", $delimiter, $string);
+        $string = preg_replace('#\-+#', $delimiter, $string);
+        $string = preg_replace('#([-]+)#', $delimiter, $string);
+        $string = trim($string, $delimiter);
 
         $string = TextHelper::stripSpecialChars($string, $delimiter.'.');
 
@@ -152,7 +154,7 @@ class File
         if (!empty($ext)) {
             $filename = str_replace('.'.$ext, '', $filename);
         }
-        return ucfirst( str_replace(self::$REPLACEMENT_FILENAMES_CHARS, ' ', $filename) );
+        return ucfirst(str_replace(self::$REPLACEMENT_FILENAMES_CHARS, ' ', $filename));
     }
 
     /**
@@ -177,7 +179,7 @@ class File
             return 0;
         }
         $count=0;
-        while($size >= 1024 && $count < (count(self::$FILESIZE_ORDERED_UNITS)-1)) {
+        while ($size >= 1024 && $count < (count(self::$FILESIZE_ORDERED_UNITS)-1)) {
             $count++;
             $size /= 1024;
         }
@@ -187,7 +189,7 @@ class File
         } else {
             $number = $size;
         }
-        return str_replace('.',$dec_delimiter,$number).' '.self::$FILESIZE_ORDERED_UNITS[$count];
+        return str_replace('.', $dec_delimiter, $number).' '.self::$FILESIZE_ORDERED_UNITS[$count];
     }
 
 // --------------------
@@ -315,6 +317,4 @@ class File
         $logs[] = sprintf('Can not write in file "%s".', $file_path);
         return false;
     }
-
 }
-

@@ -103,7 +103,6 @@ class UrlHelperTest
             \Library\Helper\Url::isUrl($url, array('file')),
             sprintf('isUrl fails for "%s"!', $url)
         );
-
     }
 
     /**
@@ -161,7 +160,6 @@ class UrlHelperTest
             \Library\Helper\Url::isEmail($url),
             sprintf('isEmail fails for "%s"!', $url)
         );
-
     }
 
     /**
@@ -222,5 +220,4 @@ class UrlHelperTest
         $this->assertFalse(\Library\Helper\Url::isIpAddress($ip_v6, true, false));
         $this->assertFalse(\Library\Helper\Url::isIpAddress($ip_v6, false, false));
     }
-
 }

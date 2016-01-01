@@ -98,6 +98,4 @@ class Arrays
         natcasesort($array);
         return $array;
     }
-
 }
-

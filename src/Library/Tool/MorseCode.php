@@ -139,6 +139,4 @@ class MorseCode
     {
         return self::getString($str);
     }
-
 }
-

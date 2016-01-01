@@ -77,7 +77,6 @@ class Array2INI
         }
         return $output;
     }
-
 }
 /*
 require_once __DIR__."/../src/SplClassLoader.php";

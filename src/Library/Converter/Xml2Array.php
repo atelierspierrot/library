@@ -89,6 +89,4 @@ class Xml2Array
         }
         return $output;
     }
-
 }
-

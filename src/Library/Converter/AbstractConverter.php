@@ -36,6 +36,4 @@ abstract class AbstractConverter
      * @return mixed
      */
     abstract public static function convert($content);
-
 }
-

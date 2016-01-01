@@ -101,5 +101,4 @@ return true;
         $this->assertTrue(\Library\Helper\Directory::remove(self::$tmp_dir, $logs));
         $this->assertEmpty($logs);
     }
-
 }

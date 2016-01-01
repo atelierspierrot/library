@@ -68,8 +68,8 @@ class NumberHelperTest
     public function testIsJollyJumper()
     {
         $this->checkNoArg('isJollyJumperSeries');
-        $this->assertTrue(\Library\Helper\Number::isJollyJumperSeries(array(4,1,4,2,3)));
-        $this->assertFalse(\Library\Helper\Number::isJollyJumperSeries(array(19,22,24,21)));
+        $this->assertTrue(\Library\Helper\Number::isJollyJumperSeries(array(4, 1, 4, 2, 3)));
+        $this->assertFalse(\Library\Helper\Number::isJollyJumperSeries(array(19, 22, 24, 21)));
     }
 
     /**
@@ -130,5 +130,4 @@ class NumberHelperTest
     $this->assertFalse(\Library\Helper\Number::isPalindromic(200));
     }
      */
-
 }

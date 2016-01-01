@@ -50,7 +50,7 @@ class Code
      */
     public static function getPropertyName($name)
     {
-        return TextHelper::fromCamelCase( str_replace(' ', '_', $name) );
+        return TextHelper::fromCamelCase(str_replace(' ', '_', $name));
     }
 
     /**
@@ -97,7 +97,7 @@ class Code
     {
         $f_list = array_reverse(get_defined_functions());
         if (!empty($arg)) {
-            switch($arg) {
+            switch ($arg) {
                 case 'user': $f_list = $f_list['user']; break;
                 case 'internal': unset($f_list['user']); break;
                 default: break;
@@ -275,7 +275,6 @@ class Code
                                 return true;
                             }
                         }
-
                     }
                 }
             }
@@ -378,13 +377,13 @@ class Code
                     }
                 }
                 if (isset($args_passed[$arg_index])) {
-                     $arg_val = $args_passed[$arg_index];
-                     unset($args_passed[$arg_index]);
+                    $arg_val = $args_passed[$arg_index];
+                    unset($args_passed[$arg_index]);
                 } elseif (isset($args_passed[$arg_pos])) {
-                     $arg_val = $args_passed[$arg_pos];
-                     unset($args_passed[$arg_pos]);
+                    $arg_val = $args_passed[$arg_pos];
+                    unset($args_passed[$arg_pos]);
                 } elseif ($_param->isDefaultValueAvailable()) {
-                     $arg_val = $_param->getDefaultValue();
+                    $arg_val = $_param->getDefaultValue();
                 } else {
                     if (!isset($logs['miss'])) {
                         $logs['miss'] = array();
@@ -410,30 +409,28 @@ class Code
         $str = 'function (';
         $r = new \ReflectionFunction($c);
         $params = array();
-        foreach($r->getParameters() as $p) {
+        foreach ($r->getParameters() as $p) {
             $s = '';
-            if($p->isArray()) {
+            if ($p->isArray()) {
                 $s .= 'array ';
-            } else if($p->getClass()) {
+            } elseif ($p->getClass()) {
                 $s .= $p->getClass()->name . ' ';
             }
-            if($p->isPassedByReference()){
+            if ($p->isPassedByReference()) {
                 $s .= '&';
             }
             $s .= '$' . $p->name;
-            if($p->isOptional()) {
-                $s .= ' = ' . var_export($p->getDefaultValue(), TRUE);
+            if ($p->isOptional()) {
+                $s .= ' = ' . var_export($p->getDefaultValue(), true);
             }
             $params []= $s;
         }
         $str .= implode(', ', $params);
         $str .= '){' . PHP_EOL;
         $lines = file($r->getFileName());
-        for($l = $r->getStartLine(); $l < $r->getEndLine(); $l++) {
+        for ($l = $r->getStartLine(); $l < $r->getEndLine(); $l++) {
             $str .= $lines[$l];
         }
         return $str;
     }
-
 }
-

@@ -44,7 +44,7 @@ class Request
      *
      * @return bool TRUE if it is so ...
      */
-    public static function isCli() 
+    public static function isCli()
     {
         return (bool) (php_sapi_name() == 'cli');
     }
@@ -66,9 +66,9 @@ class Request
      * @return string The IP address if found
      */
     public static function getUserIp()
-    { 
+    {
         if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR']; 
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
         } elseif (isset($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
         } else {
@@ -148,6 +148,4 @@ class Request
     {
         return exec('whoami');
     }
-
 }
-

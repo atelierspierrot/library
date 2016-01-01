@@ -129,6 +129,4 @@ interface SessionInterface
      * @param string $param
      */
     public function remove($param);
-
 }
-

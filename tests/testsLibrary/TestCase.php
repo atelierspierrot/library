@@ -67,5 +67,4 @@ abstract class TestCase
     {
         @exec('rm -rf '.self::$tmp_dir);
     }
-
 }

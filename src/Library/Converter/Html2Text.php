@@ -124,12 +124,10 @@ class Html2Text
         // Wrap the text to a readable format
         // for PHP versions >= 4.0.2. Default line_width is 75
         // If line_width is 0 or less, don't wrap the text.
-        if ( $_this->line_width > 0 ) {
+        if ($_this->line_width > 0) {
             $text = wordwrap($text, $_this->line_width);
         }
 
         return $text;
     }
-
 }
-

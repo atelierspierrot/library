@@ -47,6 +47,4 @@ class InvokableAccessException
             $code, $previous
         );
     }
-
 }
-

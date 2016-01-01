@@ -89,7 +89,7 @@ class Url
     public static function getHttpProtocol()
     {
         return ((
-            (isset($_SERVER["SCRIPT_URI"]) && substr($_SERVER["SCRIPT_URI"],0,5) == 'https')
+            (isset($_SERVER["SCRIPT_URI"]) && substr($_SERVER["SCRIPT_URI"], 0, 5) == 'https')
             || isset($_SERVER['HTTPS'])
         ) ? 'https' : 'http');
     }
@@ -105,7 +105,7 @@ class Url
         if (!strlen($url)) {
             return null;
         }
-        $_urls = array_merge( @parse_url($url), array('params'=>array()) );
+        $_urls = array_merge(@parse_url($url), array('params'=>array()));
         if (isset($_urls['query'])) {
             parse_str($_urls['query'], $_urls['params']);
         }
@@ -137,7 +137,7 @@ class Url
         // buggy ?
 //        $url = preg_replace(',^/,S', '', $url);
 
-        if ($realpath && $ok = @realpath($url) ) {
+        if ($realpath && $ok = @realpath($url)) {
             return $ok;
         }
         return $url;
@@ -179,7 +179,7 @@ class Url
         }
         $url            = '/'.self::resolvePath($url);
         $current_url    = self::getRequestUrl(true, true);
-        $curr           = substr($current_url, 0, strrpos($current_url, '/') );
+        $curr           = substr($current_url, 0, strrpos($current_url, '/'));
         return $curr.$url;
     }
 
@@ -202,7 +202,7 @@ class Url
 
         if (!is_null($param)) {
             if (is_array($param) && is_null($value)) {
-                foreach($param as $param_p=>$value_p) {
+                foreach ($param as $param_p=>$value_p) {
                     $url = self::setParameter($param_p, $value_p, $url);
                 }
             } elseif (is_null($value)) {
@@ -241,8 +241,10 @@ class Url
 
         if ($param && strlen($param)) {
             if ($params) {
-                foreach($params as $p=>$v) {
-                    if ($p==$param) return $v;
+                foreach ($params as $p=>$v) {
+                    if ($p==$param) {
+                        return $v;
+                    }
                 }
             }
             return false;
@@ -293,15 +295,15 @@ class Url
         }
 
         $n_url =
-            ( (isset($url_components['scheme']) && !in_array('scheme', $_ntp))  ? $url_components['scheme'].'://' : 'http://')
-            .( (isset($url_components['user'])  && !in_array('user', $_ntp))    ? $url_components['user'] : '')
-            .( (isset($url_components['pass'])  && !in_array('pass', $_ntp))    ? ':'.$url_components['pass'] : '')
-            .( ((isset($url_components['user']) && !in_array('user', $_ntp)) || (isset($url_components['pass']) && !in_array('pass', $_ntp))) ? '@' : '')
-            .( (isset($url_components['host'])  && !in_array('host', $_ntp))    ? $url_components['host'] : '')
-            .( (isset($url_components['port'])  && !in_array('port', $_ntp))    ? ':'.$url_components['port'] : '')
-            .( (isset($url_components['path'])  && !in_array('path', $_ntp))    ? $url_components['path'] : '')
-            .( (isset($url_components['params'])&& !in_array('params', $_ntp))  ? '?'.http_build_query($url_components['params']) : '')
-            .( (isset($url_components['hash'])  && !in_array('hash', $_ntp))    ? '#'.$url_components['hash'] : '');
+            ((isset($url_components['scheme']) && !in_array('scheme', $_ntp))  ? $url_components['scheme'].'://' : 'http://')
+            .((isset($url_components['user'])  && !in_array('user', $_ntp))    ? $url_components['user'] : '')
+            .((isset($url_components['pass'])  && !in_array('pass', $_ntp))    ? ':'.$url_components['pass'] : '')
+            .(((isset($url_components['user']) && !in_array('user', $_ntp)) || (isset($url_components['pass']) && !in_array('pass', $_ntp))) ? '@' : '')
+            .((isset($url_components['host'])  && !in_array('host', $_ntp))    ? $url_components['host'] : '')
+            .((isset($url_components['port'])  && !in_array('port', $_ntp))    ? ':'.$url_components['port'] : '')
+            .((isset($url_components['path'])  && !in_array('path', $_ntp))    ? $url_components['path'] : '')
+            .((isset($url_components['params'])&& !in_array('params', $_ntp))  ? '?'.http_build_query($url_components['params']) : '')
+            .((isset($url_components['hash'])  && !in_array('hash', $_ntp))    ? '#'.$url_components['hash'] : '');
 
         return trim($n_url, '?&');
     }
@@ -314,7 +316,7 @@ class Url
      * @param   bool/string $localhost Is it locally (useful for validating 'http://localhost ...') (FALSE by default) - You can specify a string to check
      * @return  bool        Returns `true` if this is a URL in one of the specified protocols
      */
-    public static function isUrl($url = null, $protocols = array('http','https','ftp'), $localhost = false)
+    public static function isUrl($url = null, $protocols = array('http', 'https', 'ftp'), $localhost = false)
     {
         if (is_null($url) || !$url || !is_string($url)) {
             return false;
@@ -368,6 +370,4 @@ class Url
         }
         return false;
     }
-
 }
-

@@ -78,7 +78,9 @@ class Stream
      */
     public function __exit($str = null)
     {
-        if ($str) self::write( $str );
+        if ($str) {
+            self::write($str);
+        }
         exit;
     }
 
@@ -92,9 +94,11 @@ class Stream
      */
     public function error($str, $status = 1, $new_line = true)
     {
-        fwrite($this->error, $str.( true===$new_line ? PHP_EOL : '' ));
+        fwrite($this->error, $str.(true===$new_line ? PHP_EOL : ''));
         fflush($this->error);
-        if ($status>0) exit($status);
+        if ($status>0) {
+            exit($status);
+        }
     }
 
     /**
@@ -106,7 +110,7 @@ class Stream
      */
     public function write($str, $new_line = true)
     {
-        fwrite($this->stream, $str.( true===$new_line ? PHP_EOL : '' ));
+        fwrite($this->stream, $str.(true===$new_line ? PHP_EOL : ''));
         fflush($this->stream);
     }
 
@@ -118,8 +122,8 @@ class Stream
      */
     public function prompt($str)
     {
-        self::write( $str, false );
-        $this->user_response = trim( fgets( $this->input, 4096 ) );
+        self::write($str, false);
+        $this->user_response = trim(fgets($this->input, 4096));
     }
 
     /**
@@ -131,6 +135,4 @@ class Stream
     {
         return $this->user_response;
     }
-
 }
-

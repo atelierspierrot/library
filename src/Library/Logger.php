@@ -130,13 +130,15 @@ class Logger
      */
     public function log($level, $message, array $context = array(), $logname = null)
     {
-        self::init(array(),$logname);
+        self::init(array(), $logname);
         if (!$this->isKnownLevel($level)) {
             throw new \InvalidArgumentException(
                 sprintf('Unknown level "%s" for a log message!', $level)
             );
         }
-        if ($this->getLevelCode($level) < $this->minimum_log_level) return false;
+        if ($this->getLevelCode($level) < $this->minimum_log_level) {
+            return false;
+        }
         return self::addRecord($level, $message, $context);
     }
 
@@ -149,7 +151,9 @@ class Logger
     protected function init(array $user_options=array(), $logname = null)
     {
         $this->logname = $logname;
-        if (true===self::$isInited) return;
+        if (true===self::$isInited) {
+            return;
+        }
         foreach (self::$config as $_static=>$_value) {
             $this->$_static = $_value;
         }
@@ -173,14 +177,15 @@ class Logger
      */
     public function __set($var, $val)
     {
-        if (property_exists($this, $var))
+        if (property_exists($this, $var)) {
             $this->$var = $val;
-        elseif (isset(self::$config[$var]))
+        } elseif (isset(self::$config[$var])) {
             self::$config[$var] = $val;
-        else
+        } else {
             throw new \InvalidArgumentException(
                 sprintf('Trying to set an unknown variable "%s" in "%s" class!', $var, __CLASS__)
             );
+        }
     }
 
     /**
@@ -191,10 +196,12 @@ class Logger
      */
     public function __get($var)
     {
-        if (property_exists($this, $var))
+        if (property_exists($this, $var)) {
             return $this->$var;
-        if (isset(self::$config[$var]))
+        }
+        if (isset(self::$config[$var])) {
             return self::$config[$var];
+        }
         return null;
     }
 
@@ -225,7 +232,7 @@ class Logger
             } else {
                 try {
                     $str_val = (string) $val;
-                } catch(\Exception $e) {
+                } catch (\Exception $e) {
                     if (!$silent) {
                         throw new \RuntimeException(
                             sprintf(
@@ -282,8 +289,9 @@ class Logger
         $rotator = $this->getRotator($logfile);
         $return = $rotator->write($line);
 
-        if ($this->isErrorLevel($level) && true===$this->duplicate_errors)
+        if ($this->isErrorLevel($level) && true===$this->duplicate_errors) {
             self::write($line, 100);
+        }
 
         return $return;
     }
@@ -327,7 +335,9 @@ class Logger
      */
     protected function isErrorLevel($level)
     {
-        if (!is_numeric($level)) $level = $this->getLevelCode($level);
+        if (!is_numeric($level)) {
+            $level = $this->getLevelCode($level);
+        }
         return (bool) ($level>300);
     }
 
@@ -365,12 +375,14 @@ class Logger
         $prefix = $suffix = array();
 
         // first infos
-        $date = $record['datetime']->format( $this->datetime_format );
+        $date = $record['datetime']->format($this->datetime_format);
         $prefix[] = '['.$date.']';
-        if (!empty($record['ip']))
+        if (!empty($record['ip'])) {
             $prefix[] = '[ip '.$record['ip'].']';
-        if (!empty($record['pid']))
+        }
+        if (!empty($record['pid'])) {
             $prefix[] = '[pid '.$record['pid'].']';
+        }
         $prefix[] = $record['level_name'].' :';
 
         // last infos
@@ -406,7 +418,7 @@ class Logger
      */
     protected function getFileName($level = 100)
     {
-        return !empty($this->logname) ? $this->logname : ( $this->isErrorLevel($level) ? $this->error_logfile : $this->logfile );
+        return !empty($this->logname) ? $this->logname : ($this->isErrorLevel($level) ? $this->error_logfile : $this->logfile);
     }
 
 // -----------------
@@ -418,12 +430,13 @@ class Logger
      */
     public static function getUserIp()
     {
-        if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        elseif (isset($_SERVER['HTTP_CLIENT_IP']))
+        } elseif (isset($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
-        else
+        } else {
             $ip = $_SERVER['REMOTE_ADDR'];
+        }
         return $ip;
     }
 
@@ -465,6 +478,4 @@ class Logger
         }
         return $str;
     }
-
 }
-

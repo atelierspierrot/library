@@ -166,7 +166,7 @@ class RegistryInvokable
         // unset, isset, reset
         if (in_array(substr($name, 0, 5), array('isset', 'reset', 'unset'))) {
             $property = CodeHelper::getPropertyName(substr($name, 5));
-            switch(substr($name, 0, 5)) {
+            switch (substr($name, 0, 5)) {
                 case 'isset': $method = '__isset'; break;
                 case 'reset': $method = '__unset'; break;
                 case 'unset': $method = '__unset'; break;
@@ -177,14 +177,14 @@ class RegistryInvokable
         // get, set
         if (in_array(substr($name, 0, 3), array('set', 'get'))) {
             $property = CodeHelper::getPropertyName(substr($name, 3));
-            switch(substr($name, 0, 3)) {
+            switch (substr($name, 0, 3)) {
                 case 'get': $method = '__get'; break;
                 case 'set': $method = '__set'; break;
                 default: break;
             }
         }
 
-        if (!empty($method)) {        
+        if (!empty($method)) {
             array_unshift($arguments, $property);
             $this->__isCalled = true;
             $return = call_user_func_array(array($this, $method), $arguments);
@@ -289,7 +289,7 @@ class RegistryInvokable
      * @param mixed $default A default value to send if the property doesn't exist in the object
      * @return mixed The value of the property if so, the default value if the property doesn't exist, or
      *              the flobal data array without a property name
-     */    
+     */
     public function getData($name = null, $default = null)
     {
         if (!is_null($name)) {
@@ -310,7 +310,7 @@ class RegistryInvokable
      * @return mixed The value of the property if so, the default value if the property doesn't exist, or
      *              the flobal data array without a property name
      * @throws \InvalidArgumentExcpetion Throws an InvalidArgumentExcpetion if `$name` is null and `$value` is not an array
-     */    
+     */
     public function setData($value, $arg2 = null)
     {
         if (!is_null($arg2)) {
@@ -321,12 +321,10 @@ class RegistryInvokable
                     sprintf('First argument of method "%s()" must be an array to set the global object\'s data!', __METHOD__)
                 );
             }
-            foreach($value as $var=>$val) {
+            foreach ($value as $var=>$val) {
                 $this->__set($var, $val);
             }
         }
         return $this;
     }
-    
 }
-

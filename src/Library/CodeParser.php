@@ -35,8 +35,8 @@ use \ReflectionFunction;
 class CodeParser
 {
 
-    var $reflection;
-    var $builtInMethods;
+    public $reflection;
+    public $builtInMethods;
 
     protected $object_name;
     protected $object_type;
@@ -66,8 +66,8 @@ class CodeParser
      */
     public function __construct($object_name = null, $object_type = self::PARSE_CLASS)
     {
-        self::set_objectName( $object_name );
-        self::set_objectType( $object_type );
+        self::set_objectName($object_name);
+        self::set_objectType($object_type);
     }
 
 // -------------------------
@@ -76,7 +76,9 @@ class CodeParser
 
     public function set_objectName($object_name = null)
     {
-        if (!empty($object_name)) $this->object_name = $object_name;
+        if (!empty($object_name)) {
+            $this->object_name = $object_name;
+        }
     }
 
     public function get_objectName()
@@ -86,7 +88,9 @@ class CodeParser
 
     public function set_objectType($object_type = null)
     {
-        if (!empty($object_type)) $this->object_type = $object_type;
+        if (!empty($object_type)) {
+            $this->object_type = $object_type;
+        }
     }
 
     public function get_objectType()
@@ -96,18 +100,18 @@ class CodeParser
 
     public function get_shortDescription($object_name = null, $object_type = null)
     {
-        self::set_objectName( $object_name );
-        self::set_objectType( $object_type );
+        self::set_objectName($object_name);
+        self::set_objectType($object_type);
         self::__getReflection();
-        return self::__extractDocString( $this->reflection->getDocComment(), 1 );
+        return self::__extractDocString($this->reflection->getDocComment(), 1);
     }
 
     public function get_longDescription($object_name = null, $object_type = null)
     {
-        self::set_objectName( $object_name );
-        self::set_objectType( $object_type );
+        self::set_objectName($object_name);
+        self::set_objectType($object_type);
         self::__getReflection();
-        return self::__extractDocString( $this->reflection->getDocComment(), array(2) );
+        return self::__extractDocString($this->reflection->getDocComment(), array(2));
     }
 
 // -------------------------
@@ -117,28 +121,29 @@ class CodeParser
     private function __getReflection()
     {
         if (self::get_objectType() & self::PARSE_FUNC) {
-            if (function_exists(self::get_objectName()))
-                $this->reflection = new ReflectionFunction( self::get_objectName() );
-            else
-                trigger_error( "[CodeParser] Function '".self::get_objectName()."' not found", E_USER_WARNING );
-        }
-        elseif (self::get_objectType() & self::PARSE_METHOD) {
+            if (function_exists(self::get_objectName())) {
+                $this->reflection = new ReflectionFunction(self::get_objectName());
+            } else {
+                trigger_error("[CodeParser] Function '".self::get_objectName()."' not found", E_USER_WARNING);
+            }
+        } elseif (self::get_objectType() & self::PARSE_METHOD) {
             $_s = self::get_objectName();
             if (strpos($_s, ':')) {
                 list($_class, $_method) = explode(':', $_s, 2);
-                if (class_exists($_class))
-                    $this->reflection = new ReflectionMethod( $_class, $_method );
-                else
-                    trigger_error( "[CodeParser] Class '".$_class."' not found", E_USER_WARNING );
+                if (class_exists($_class)) {
+                    $this->reflection = new ReflectionMethod($_class, $_method);
+                } else {
+                    trigger_error("[CodeParser] Class '".$_class."' not found", E_USER_WARNING);
+                }
             } else {
-                trigger_error( "[CodeParser] Class and method not found in '".self::get_objectName()."'", E_USER_WARNING );
+                trigger_error("[CodeParser] Class and method not found in '".self::get_objectName()."'", E_USER_WARNING);
             }
-        }
-        elseif (self::get_objectType() & self::PARSE_CLASS) {
-            if (class_exists(self::get_objectName()))
-                $this->reflection = new ReflectionClass( self::get_objectName() );
-            else
-                trigger_error( "[CodeParser] Class '".self::get_objectName()."' not found", E_USER_WARNING );
+        } elseif (self::get_objectType() & self::PARSE_CLASS) {
+            if (class_exists(self::get_objectName())) {
+                $this->reflection = new ReflectionClass(self::get_objectName());
+            } else {
+                trigger_error("[CodeParser] Class '".self::get_objectName()."' not found", E_USER_WARNING);
+            }
         }
     }
 
@@ -157,31 +162,26 @@ class CodeParser
         $this->builtInMethods = array();
 
         //get properties for each method
-        if(!empty($methods))
-        {
+        if (!empty($methods)) {
             foreach ($methods as $method) {
-                if(!empty($method->name))
-                {
+                if (!empty($method->name)) {
                     $methodProp = new ReflectionMethod($object, $method->name);
 
                     //saves all methods names found
                     $this->builtInMethods['all'][] = $method->name;
 
                     //saves all private methods names found
-                    if($methodProp->isPrivate())
-                    {
+                    if ($methodProp->isPrivate()) {
                         $this->builtInMethods['private'][] = $method->name;
                     }
 
                     //saves all private methods names found
-                    if($methodProp->isPublic())
-                    {
+                    if ($methodProp->isPublic()) {
                         $this->builtInMethods['public'][] = $method->name;
 
                         // gets info about the method and saves them. These info will be used for the xmlrpc server configuration.
                         // (only for public methods => avoids also all the public methods starting with '__')
-                        if(!preg_match('/^__/', $method->name, $matches))
-                        {
+                        if (!preg_match('/^__/', $method->name, $matches)) {
                             // -method name
                             $this->builtInMethods['functions'][$method->name]['function'] = $reflection->getName().'.'.$method->name;
 
@@ -214,7 +214,7 @@ class CodeParser
         $_l=1;
         foreach ($split as $id => $row) {
             $_row = trim($row, "* /\n\t\r");
-            if (!empty($_row) AND $_row[0]!='@') {
+            if (!empty($_row) and $_row[0]!='@') {
                 $_tmp[$_l] = $_row;
                 $_l++;
             }
@@ -222,18 +222,19 @@ class CodeParser
 
         if (!empty($lines)) {
             if (is_numeric($lines)) {
-                if (!isset($_tmp[ $lines ])) return '';
+                if (!isset($_tmp[ $lines ])) {
+                    return '';
+                }
                 $_tmp = array( $_tmp[ $lines ] );
             } elseif (is_array($lines)) {
-                if (!empty($lines[1]))
-                    $_tmp = array_slice($_tmp, array_search( $_tmp[ $lines[0] ], $_tmp)-1, $lines[1]);
-                else
-                    $_tmp = array_slice($_tmp, array_search( $_tmp[ $lines[0] ], $_tmp)-1 );
+                if (!empty($lines[1])) {
+                    $_tmp = array_slice($_tmp, array_search($_tmp[ $lines[0] ], $_tmp)-1, $lines[1]);
+                } else {
+                    $_tmp = array_slice($_tmp, array_search($_tmp[ $lines[0] ], $_tmp)-1);
+                }
             }
         }
 
-        return trim(implode("\n",$_tmp));
+        return trim(implode("\n", $_tmp));
     }
-
 }
-

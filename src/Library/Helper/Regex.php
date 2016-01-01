@@ -59,6 +59,4 @@ class Regex
             .($strict ? '' : '.*')
             .'$'.$delimiter.$options;
     }
-
 }
-

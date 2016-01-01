@@ -100,7 +100,7 @@ abstract class AbstractInvokable
         // unset, isset, reset
         if (in_array(substr($name, 0, 5), array('isset', 'reset', 'unset'))) {
             $property = CodeHelper::getPropertyName(substr($name, 5));
-            switch(substr($name, 0, 5)) {
+            switch (substr($name, 0, 5)) {
                 case 'isset': $method = '_invokeIsset'; break;
                 case 'reset': $method = '_invokeReset'; break;
                 case 'unset': $method = '_invokeUnset'; break;
@@ -111,7 +111,7 @@ abstract class AbstractInvokable
         // get, set
         if (in_array(substr($name, 0, 3), array('set', 'get'))) {
             $property = CodeHelper::getPropertyName(substr($name, 3));
-            switch(substr($name, 0, 3)) {
+            switch (substr($name, 0, 3)) {
                 case 'get': $method = '_invokeGet'; break;
                 case 'set': $method = '_invokeSet'; break;
                 default: break;
@@ -157,7 +157,8 @@ abstract class AbstractInvokable
             try {
                 $object = new $classname;
                 $return = call_user_func_array(array($object, '__call'), array($name, $arguments));
-            } catch(\Exception $e) {}
+            } catch (\Exception $e) {
+            }
         }
         return $return;
     }
@@ -297,7 +298,7 @@ abstract class AbstractInvokable
                     $this->{$property} = $properties[$property];
                 }
             }
-        }        
+        }
         return $this;
     }
 
@@ -444,6 +445,4 @@ abstract class AbstractInvokable
         }
         return $property;
     }
-
 }
-

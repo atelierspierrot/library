@@ -322,7 +322,6 @@ class Factory
                     }
                 }
             }
-
         } else {
             $logs[] = $this->_getErrorMessage('No matching class found for factory build "%s"!', $name);
             if ($flag & self::ERROR_ON_FAILURE) {
@@ -419,7 +418,7 @@ class Factory
                 !$this->_classesImplements($_cls, $this->must_implement_or_extend) &&
                 !$this->_classesExtends($_cls, $this->must_implement_or_extend)
             ) {
-                $logs[] = $this->_getErrorMessage('Class "%s" doesn\'t implement or extend the following required interfaces or classes "%s"!', 
+                $logs[] = $this->_getErrorMessage('Class "%s" doesn\'t implement or extend the following required interfaces or classes "%s"!',
                             $_cls, implode('", "', $this->must_implement_or_extend));
                 if ($flag & self::ERROR_ON_FAILURE) {
                     throw new \RuntimeException(end($logs));
@@ -599,6 +598,4 @@ class Factory
         return (!empty($this->factory_name) ? '['.$this->factory_name.'] ' : '')
             .call_user_func_array('sprintf', func_get_args());
     }
-
 }
-

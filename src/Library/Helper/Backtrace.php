@@ -172,6 +172,4 @@ class Backtrace
     {
         return self::getTraceInfo(($index + 1), 'class');
     }
-
 }
-

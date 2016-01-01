@@ -44,7 +44,7 @@ class Html
     /**
      * The global DOM IDs register
      */
-    static $dom_id_register = array();
+    public static $dom_id_register = array();
 
     /**
      * Verify if a reference is already defined in the DOM IDs register
@@ -92,12 +92,12 @@ class Html
         }
         if (!is_null($base_id)) {
             $new_id = $base_id;
-            while(in_array($new_id, self::$dom_id_register)) {
+            while (in_array($new_id, self::$dom_id_register)) {
                 $new_id = $base_id.'_'.uniqid();
             }
         } else {
             $new_id = uniqid();
-            while(in_array($new_id, self::$dom_id_register)) {
+            while (in_array($new_id, self::$dom_id_register)) {
                 $new_id = uniqid();
             }
         }
@@ -109,7 +109,7 @@ class Html
 // HTML formatting
 // -------------------------
 
-    static $html_tag_closure = ' />';
+    public static $html_tag_closure = ' />';
 
     /**
      * Set the HTML tags closure (` />` by default)
@@ -132,7 +132,7 @@ class Html
      */
     public static function writeHtmlTag($tag_name, $content = '', $attrs = array(), $intag_close = false)
     {
-        $str = '<'.$tag_name.self::parseAttributes( $attrs );
+        $str = '<'.$tag_name.self::parseAttributes($attrs);
         if (empty($content) && true===$intag_close) {
             $str .= self::$html_tag_closure;
         } else {
@@ -150,7 +150,7 @@ class Html
     public static function parseAttributes(array $attrs = array())
     {
         $str = '';
-        foreach($attrs as $var=>$val) {
+        foreach ($attrs as $var=>$val) {
             $str .= ' '.$var.'="'.(is_array($val) ? join(' ', $val) : $val).'"';
         }
         return $str;
@@ -173,6 +173,4 @@ class Html
         }
         return $str;
     }
-
 }
-

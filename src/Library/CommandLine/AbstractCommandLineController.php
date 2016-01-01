@@ -182,14 +182,19 @@ abstract class AbstractCommandLineController
 //        $this->options = array_merge_recursive($this->basic_options, $this->options, $options);
 
         if (!empty($options)) {
-            foreach($options as $optn=>$optv) {
+            foreach ($options as $optn=>$optv) {
                 if (array_key_exists($optn, $this->options)) {
-                    if (is_array($this->options[$optn]) OR is_array($optv)) {
-                        if (!is_array($this->options[$optn])) $this->options[$optn] = array( $this->options[$optn] );
-                        if (!is_array($optv)) $optv = array( $optv );
+                    if (is_array($this->options[$optn]) or is_array($optv)) {
+                        if (!is_array($this->options[$optn])) {
+                            $this->options[$optn] = array( $this->options[$optn] );
+                        }
+                        if (!is_array($optv)) {
+                            $optv = array( $optv );
+                        }
                         $this->options[$optn] = array_merge($this->options[$optn], $optv);
-                    } else
+                    } else {
                         $this->options[$optn] = $optv;
+                    }
                 }
             }
         }
@@ -197,12 +202,12 @@ abstract class AbstractCommandLineController
         if (empty($argv)) {
             $argv = $_SERVER['argv'];
         }
-        $this->setScript( array_shift($argv) );
-        $this->setParameters( $argv );
+        $this->setScript(array_shift($argv));
+        $this->setParameters($argv);
 
         $this->formater = new Formater;
-        foreach($this->options as $_optn=>$_optv) {
-            $this->formater->addOption( $_optn, $_optv );
+        foreach ($this->options as $_optn=>$_optv) {
+            $this->formater->addOption($_optn, $_optv);
         }
         $this->formater->setAutospaced(true);
 
@@ -368,17 +373,21 @@ abstract class AbstractCommandLineController
     public function runHelpCommand($opt = null)
     {
         if (!empty($opt)) {
-            if (!is_array($opt)) $opt = array( $opt=>'' );
+            if (!is_array($opt)) {
+                $opt = array( $opt=>'' );
+            }
             $opt_keys = array_keys($opt);
             $ok=false;
             while ($ok===false) {
-                if (count($opt_keys)==0) break;
-                $current_option = array_shift( $opt_keys );
-                $ok = self::runArgumentHelp( $current_option );
+                if (count($opt_keys)==0) {
+                    break;
+                }
+                $current_option = array_shift($opt_keys);
+                $ok = self::runArgumentHelp($current_option);
             }
-            $this->debugWrite( '>> [help] displaying global help' );
+            $this->debugWrite('>> [help] displaying global help');
             $help_str = Helper::getHelpInfo($this->options, $this->formater, $this);
-            self::write( $this->formater->parse($help_str) );
+            self::write($this->formater->parse($help_str));
             self::writeStop();
         } else {
             self::usage();
@@ -459,7 +468,7 @@ abstract class AbstractCommandLineController
      */
     public function write($str = null, $new_line = true)
     {
-        $this->stream->write( $this->formater->message($str), $new_line );
+        $this->stream->write($this->formater->message($str), $new_line);
         return $this;
     }
 
@@ -473,7 +482,7 @@ abstract class AbstractCommandLineController
      */
     public function error($str = null, $status = 1, $new_line = true)
     {
-        $this->stream->error( $this->formater->message($str), $status, $new_line );
+        $this->stream->error($this->formater->message($str), $status, $new_line);
         return $this;
     }
 
@@ -487,12 +496,15 @@ abstract class AbstractCommandLineController
      */
     public function parseAndWrite($str, $type = null, $spaced = false)
     {
-        if ($this->verbose!==true) return self::write( $str );
-        if ($spaced!==false)
-            $str = $this->formater->spacedStr( $str, $type, true );
-        elseif (!is_null($type))
-            $str = $this->formater->buildTaggedString( $str, $type );
-        self::write( $this->formater->parse( $str ) );
+        if ($this->verbose!==true) {
+            return self::write($str);
+        }
+        if ($spaced!==false) {
+            $str = $this->formater->spacedStr($str, $type, true);
+        } elseif (!is_null($type)) {
+            $str = $this->formater->buildTaggedString($str, $type);
+        }
+        self::write($this->formater->parse($str));
         return $this;
     }
 
@@ -502,8 +514,10 @@ abstract class AbstractCommandLineController
      */
     public function writeError($str)
     {
-        if ($this->verbose===true) self::writeBreak();
-        self::parseAndWrite( $str, 'error', true );
+        if ($this->verbose===true) {
+            self::writeBreak();
+        }
+        self::parseAndWrite($str, 'error', true);
         return $this;
     }
 
@@ -513,9 +527,13 @@ abstract class AbstractCommandLineController
      */
     public function writeThinError($str)
     {
-        if ($this->verbose===true) self::writeBreak();
-        self::parseAndWrite( $str, 'error_str' );
-        if ($this->verbose===true) self::writeBreak();
+        if ($this->verbose===true) {
+            self::writeBreak();
+        }
+        self::parseAndWrite($str, 'error_str');
+        if ($this->verbose===true) {
+            self::writeBreak();
+        }
         return $this;
     }
 
@@ -525,7 +543,7 @@ abstract class AbstractCommandLineController
      */
     public function writeInfo($str)
     {
-        self::parseAndWrite( $str, 'info' );
+        self::parseAndWrite($str, 'info');
         return $this;
     }
 
@@ -535,8 +553,9 @@ abstract class AbstractCommandLineController
      */
     public function writeComment($str)
     {
-        if ($this->verbose===true)
-        self::parseAndWrite( $str, 'comment' );
+        if ($this->verbose===true) {
+            self::parseAndWrite($str, 'comment');
+        }
         return $this;
     }
 
@@ -546,7 +565,7 @@ abstract class AbstractCommandLineController
      */
     public function writeHighlight($str)
     {
-        self::parseAndWrite( $str, 'highlight' );
+        self::parseAndWrite($str, 'highlight');
         return $this;
     }
 
@@ -555,7 +574,9 @@ abstract class AbstractCommandLineController
      */
     public function writeBreak()
     {
-        if ($this->verbose===true) $this->stream->write(PHP_EOL);
+        if ($this->verbose===true) {
+            $this->stream->write(PHP_EOL);
+        }
         return $this;
     }
 
@@ -567,9 +588,9 @@ abstract class AbstractCommandLineController
         if ($this->verbose!==true) {
             $this->stream->__exit();
         } else {
-            $this->debugWrite( '>> [writeStop] exit with no error' );
+            $this->debugWrite('>> [writeStop] exit with no error');
             $this->stream->__exit(
-                $this->formater->message( '<info>-- out --</info>' )
+                $this->formater->message('<info>-- out --</info>')
             );
         }
         return $this;
@@ -584,7 +605,9 @@ abstract class AbstractCommandLineController
      */
     public function verboseWrite($str = null, $new_line = true)
     {
-        if ($this->verbose===true) $this->write( $str, $new_line );
+        if ($this->verbose===true) {
+            $this->write($str, $new_line);
+        }
         return $this;
     }
 
@@ -595,9 +618,11 @@ abstract class AbstractCommandLineController
      * @param   bool $new_line
      * @return  $this
      */
-    public function debugWrite($str = null, $new_line = true )
+    public function debugWrite($str = null, $new_line = true)
     {
-        if ($this->debug===true) $this->write( $str, $new_line );
+        if ($this->debug===true) {
+            $this->write($str, $new_line);
+        }
         return $this;
     }
 
@@ -661,41 +686,45 @@ abstract class AbstractCommandLineController
         return $str;
     }
 
-    public function writeNothingToDo(  )
+    public function writeNothingToDo()
     {
         self::__init();
-        self::writeThinError( '> Nothing to do ! (run "--help" option to see help)' );
+        self::writeThinError('> Nothing to do ! (run "--help" option to see help)');
         $this->stream->__exit();
     }
 
     public function runArgumentHelp($arg = null)
     {
-        $help_descr = $this->getOptionHelp( $arg );
+        $help_descr = $this->getOptionHelp($arg);
         if ($help_descr!=$arg) {
-            $this->debugWrite( ">> [help] displaying help for option \"$arg\"" );
-            $help_ctt = Helper::formatHelpString( ucfirst($arg), $help_descr, $this->formater );
-            self::write( $this->formater->parse($help_ctt) );
+            $this->debugWrite(">> [help] displaying help for option \"$arg\"");
+            $help_ctt = Helper::formatHelpString(ucfirst($arg), $help_descr, $this->formater);
+            self::write($this->formater->parse($help_ctt));
             self::writeStop();
         }
-        $this->debugWrite( ">> [help] no help found for option \"$arg\"" );
+        $this->debugWrite(">> [help] no help found for option \"$arg\"");
         return false;
     }
 
     public function usage($opt = null)
     {
         if (!empty($opt)) {
-            if (!is_array($opt)) $opt = array( $opt=>'' );
+            if (!is_array($opt)) {
+                $opt = array( $opt=>'' );
+            }
             $opt_keys = array_keys($opt);
             $ok=false;
             while ($ok===false) {
-                if (count($opt_keys)==0) break;
-                $current_option = array_shift( $opt_keys );
-                $ok = self::runArgumentHelp( $current_option );
+                if (count($opt_keys)==0) {
+                    break;
+                }
+                $current_option = array_shift($opt_keys);
+                $ok = self::runArgumentHelp($current_option);
             }
         }
-        $this->debugWrite( '>> [help] displaying global help' );
+        $this->debugWrite('>> [help] displaying global help');
         $help_str = Helper::getHelpInfo($this->options, $this->formater, $this);
-        self::write( $this->formater->parse($help_str) );
+        self::write($this->formater->parse($help_str));
         self::writeStop();
     }
 
@@ -705,7 +734,9 @@ abstract class AbstractCommandLineController
 
     protected function _initOptions()
     {
-        if (!isset($this->options)) $this->options = array();
+        if (!isset($this->options)) {
+            $this->options = array();
+        }
         return $this;
     }
 
@@ -729,15 +760,15 @@ abstract class AbstractCommandLineController
     protected function _treatOptions()
     {
         $this->params = self::getopt();
-        $this->debugWrite( ">> Command line arguments are [".var_export($this->params,1)."]" );
+        $this->debugWrite(">> Command line arguments are [".var_export($this->params, 1)."]");
 
         $_meths=array();
-        foreach($this->params as $_opt_name=>$_opt_val) {
+        foreach ($this->params as $_opt_name=>$_opt_val) {
             $new_opt_names = array(
                 $_opt_name, $_opt_name.':', $_opt_name.'::'
             );
 
-            foreach($new_opt_names as $_opt_new_name) {
+            foreach ($new_opt_names as $_opt_new_name) {
                 if (array_key_exists($_opt_new_name, $this->options['argv_options'])) {
                     $_ind = $this->options['argv_options'][$_opt_new_name];
                     $_meths[ $_ind ] = $_opt_val;
@@ -758,25 +789,23 @@ abstract class AbstractCommandLineController
         }
 
         if (!empty($_meths)) {
-
             if (array_key_exists('help', $_meths)) {
                 $_cls_meth = 'runHelpCommand';
                 $args = $_meths;
                 unset($args['help']);
-                self::addDoneMethod( $_cls_meth );
+                self::addDoneMethod($_cls_meth);
                 self::__init();
-                $this->$_cls_meth( $args );
+                $this->$_cls_meth($args);
             } else {
-                foreach($_meths as $_meth=>$_args) {
+                foreach ($_meths as $_meth=>$_args) {
                     $_cls_meth = 'run'.ucfirst($_meth).'Command';
-                    if (method_exists($this, $_cls_meth) AND !in_array($_cls_meth, $this->done_methods)) {
-                        self::addDoneMethod( $_cls_meth );
+                    if (method_exists($this, $_cls_meth) and !in_array($_cls_meth, $this->done_methods)) {
+                        self::addDoneMethod($_cls_meth);
                         self::__init();
-                        $this->$_cls_meth( $_args );
+                        $this->$_cls_meth($_args);
                     }
                 }
             }
-
         }
     }
 
@@ -787,9 +816,9 @@ abstract class AbstractCommandLineController
 
     public function getopt()
     {
-        return Helper::getopt( array_merge(
+        return Helper::getopt(array_merge(
             $this->basic_options, $this->options
-        ) );
+        ));
     }
 
     public function getOptionMethod($arg = null)
@@ -808,6 +837,4 @@ abstract class AbstractCommandLineController
     {
         return Helper::getOptionHelp($arg, $this);
     }
-
 }
-

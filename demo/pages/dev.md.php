@@ -41,7 +41,7 @@ $logger = new Library\Logger($log_options);
 $ok = $logger->log(Library\Logger::DEBUG, "my message");
 <?php
 $ok = $logger->log(Library\Logger::DEBUG, 'my message');
-echo '// => '.var_export($ok,1)."\n";
+echo '// => '.var_export($ok, 1)."\n";
 ?>
 
 // write a log message with placeholders
@@ -52,36 +52,38 @@ $ok = $logger->log(Library\Logger::DEBUG, "my message with placeholders : {one} 
 <?php
 class TestClass
 {
-    var $msg;
-    function __construct( $str ){
+    public $msg;
+    public function __construct($str)
+    {
         $this->msg = $str;
     }
-    function __toString(){
+    public function __toString()
+    {
         return $this->msg;
     }
 }
 $ok = $logger->log(Library\Logger::DEBUG, "my message with placeholders : {one} and {two}", array(
     'one' => 'my value for first placeholder',
-    'two' => new TestClass( 'my test class with a toString method' )
+    'two' => new TestClass('my test class with a toString method')
 ));
-echo '// => '.var_export($ok,1)."\n";
+echo '// => '.var_export($ok, 1)."\n";
 ?>
 
 // write logs in a specific "test" file
 $ok = $logger->log(Library\Logger::DEBUG, "my message", array(), "test");
 <?php
 $ok = $logger->log(Library\Logger::DEBUG, 'my message', array(), 'test');
-echo '// => '.var_export($ok,1)."\n";
+echo '// => '.var_export($ok, 1)."\n";
 ?>
 
 $ok = $logger->log( Library\Logger::DEBUG, "[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf " );
 $ok = $logger->log( Library\Logger::ERROR, "a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf " );
 $ok = $logger->log( Library\Logger::INFO, "a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ", $_GET, "test" );
 <?php
-$ok = $logger->log( Library\Logger::DEBUG, '[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
-$ok = $logger->log( Library\Logger::ERROR, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
-$ok = $logger->log( Library\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test' );
-echo '// => '.var_export($ok,1)."\n";
+$ok = $logger->log(Library\Logger::DEBUG, '[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ');
+$ok = $logger->log(Library\Logger::ERROR, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ');
+$ok = $logger->log(Library\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test');
+echo '// => '.var_export($ok, 1)."\n";
 ?>
 
 // write many logs to test rotation
@@ -91,10 +93,10 @@ for ($i=0; $i<1000; $i++) {
     $ok = $logger->log( Library\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test' );
 }
 <?php
-for ($i=0; $i<1000; $i++){
-    $ok = $logger->log( Library\Logger::DEBUG, '[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
-    $ok = $logger->log( Library\Logger::ERROR, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ' );
-    $ok = $logger->log( Library\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test' );
+for ($i=0; $i<1000; $i++) {
+    $ok = $logger->log(Library\Logger::DEBUG, '[from ?] a simple message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ');
+    $ok = $logger->log(Library\Logger::ERROR, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ');
+    $ok = $logger->log(Library\Logger::INFO, 'a long message qsmldkf jfqksmldkfjqmlskdf jmlqksjmdlfkj jKMlkjqmlsdkjf ', $_GET, 'test');
 }
 ?>
 
@@ -134,13 +136,13 @@ for ($i=0; $i<1000; $i++) {
 $filename = 'tmp/mytestfile.txt';
 $rotator = new Library\FileRotator(
     $filename, Library\FileRotator::ROTATE_PERIODIC, array(
-		'period_duration' => 60, // in seconds (here 1 day)
-		'filename_mask' => '%s.@date@', // mask used for filenames
-		                                // @date@ will be replaced by current date formated with 'date_format'
-		                                // @i@ will be replaced by rotation iterator
-		'date_format' => 'ymdHi',
-		'backup_time' => 10, // number of backuped files
-	)
+        'period_duration' => 60, // in seconds (here 1 day)
+        'filename_mask' => '%s.@date@', // mask used for filenames
+                                        // @date@ will be replaced by current date formated with 'date_format'
+                                        // @i@ will be replaced by rotation iterator
+        'date_format' => 'ymdHi',
+        'backup_time' => 10, // number of backuped files
+    )
 );
 /*
 for ($i=0; $i<1000; $i++) {

@@ -69,7 +69,9 @@ class Config
                 );
             }
         }
-        if (empty($class_name)) $class_name = get_class(self::$__configurator);
+        if (empty($class_name)) {
+            $class_name = get_class(self::$__configurator);
+        }
 
         // init the registry
         if (empty(self::$__registry)) {
@@ -188,7 +190,9 @@ class Config
      */
     public static function validate(array $entries)
     {
-        if (!self::loaded()) return false;
+        if (!self::loaded()) {
+            return false;
+        }
         $base = self::$__configurator->getRequired();
         foreach ($entries as $var=>$val) {
             if (in_array($var, $base)) {
@@ -206,7 +210,9 @@ class Config
      */
     public static function overload(array $settings)
     {
-        if (!self::loaded()) return false;
+        if (!self::loaded()) {
+            return false;
+        }
         foreach ($settings as $var=>$val) {
             self::set($var, $val);
         }
@@ -219,7 +225,9 @@ class Config
      */
     public static function set($name, $value)
     {
-        if (!self::loaded()) return false;
+        if (!self::loaded()) {
+            return false;
+        }
         if (array_key_exists($name, self::$__registry)) {
             self::$__registry[$name] = $value;
         }
@@ -232,7 +240,9 @@ class Config
      */
     public static function get($name, $default = null)
     {
-        if (!self::loaded()) return false;
+        if (!self::loaded()) {
+            return false;
+        }
         return isset(self::$__registry[$name]) ? (
             is_string(self::$__registry[$name]) ?
                 trim(self::$__registry[$name]) : self::$__registry[$name]
@@ -245,12 +255,12 @@ class Config
      */
     public static function getDefault($name)
     {
-        if (!self::loaded()) return false;
+        if (!self::loaded()) {
+            return false;
+        }
         $configs = self::$__configurator->getDefaults();
         return isset($configs[$name]) ? (
             is_string($configs[$name]) ? trim($configs[$name]) : $configs[$name]
         ) : null;
     }
-
 }
-

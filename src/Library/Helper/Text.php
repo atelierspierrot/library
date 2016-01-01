@@ -125,10 +125,10 @@ class Text
      */
     public static function slugify($string = '')
     {
-        $string = preg_replace('~[^\\pL\d]+~u', '-', $string); 
+        $string = preg_replace('~[^\\pL\d]+~u', '-', $string);
         if (function_exists('iconv')) {
             $string = iconv('utf-8', 'us-ascii//TRANSLIT', $string);
-        } 
+        }
         $string = preg_replace('~[^-\w]+~', '', strtolower(trim($string, '-')));
         return $string;
     }
@@ -183,6 +183,4 @@ class Text
         $func = create_function('$c', 'return "'.$replace.'" . strtolower($c[1]);');
         return trim(preg_replace_callback('/([A-Z])/', $func, $name), $replace);
     }
-
 }
-

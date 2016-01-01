@@ -65,6 +65,4 @@ interface FactoryInterface
      * @return null|string
      */
     public function findBuilder($name, $flag = self::ERROR_ON_FAILURE, array &$logs = array());
-
 }
-

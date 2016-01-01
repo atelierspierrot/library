@@ -169,7 +169,9 @@ class FileRotator
      */
     public function mustRotate()
     {
-        if (!file_exists($this->file_path)) return false;
+        if (!file_exists($this->file_path)) {
+            return false;
+        }
 
         if ($this->flag & self::ROTATE_FILESIZE) {
             $s = @filesize($this->file_path);
@@ -192,7 +194,9 @@ class FileRotator
      */
     public function getFilename($file_name, $rotation_index = 0)
     {
-        if ($rotation_index===0) return $file_name;
+        if ($rotation_index===0) {
+            return $file_name;
+        }
         $rotation_date = date(
             $this->options['date_format'],
             time() - ($this->options['period_duration'] * $rotation_index)
@@ -205,6 +209,4 @@ class FileRotator
             )
         );
     }
-
 }
-

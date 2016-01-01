@@ -95,7 +95,7 @@ class ConditionalComment
             $count=0;
             foreach ($condition as $_cond) {
                 if ($count===0) {
-                    $condition_str .= sprintf(self::$conditional_item, 
+                    $condition_str .= sprintf(self::$conditional_item,
                         self::parseSingleCondition($_cond));
                 } else {
                     $condition_str .= self::parseSingleCondition($operator.$_cond);
@@ -160,7 +160,7 @@ class ConditionalComment
                 );
                 $add_ie = false;
             }
-        }        
+        }
         foreach (self::$operator_shortcuts as $key=>$val) {
             if (strpos($condition, $key)!==false) {
                 $condition_item = str_replace($key, '', $condition);
@@ -172,6 +172,4 @@ class ConditionalComment
         }
         return $condition;
     }
-
 }
-

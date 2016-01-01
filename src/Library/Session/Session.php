@@ -104,8 +104,8 @@ class Session
      */
      public function addSessionTable($index, $value)
      {
-        $this->session_table[$index] = $value;
-        return $this;
+         $this->session_table[$index] = $value;
+         return $this;
      }
 
     /**
@@ -115,7 +115,7 @@ class Session
      */
      public function getSessionTable()
      {
-        return $this->session_table;
+         return $this->session_table;
      }
 
     /**
@@ -125,7 +125,7 @@ class Session
      */
     public function getId()
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         return session_id();
@@ -172,10 +172,10 @@ class Session
      */
     public function start()
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->open();
         }
-        if ( ! $this->isLoaded()) {
+        if (! $this->isLoaded()) {
             $this->read();
         }
         return $this;
@@ -257,7 +257,7 @@ class Session
      */
     public function clear()
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         session_destroy();
@@ -272,7 +272,7 @@ class Session
      */
     public function regenerateId()
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         session_regenerate_id();
@@ -286,7 +286,7 @@ class Session
      */
     public function getAttributes()
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         return $this->attributes;
@@ -300,7 +300,7 @@ class Session
      */
     public function has($param)
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         return isset($this->attributes[$param]);
@@ -314,7 +314,7 @@ class Session
      */
     public function get($param)
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         return isset($this->attributes[$param]) ? $this->attributes[$param] : null;
@@ -329,7 +329,7 @@ class Session
      */
     public function set($param, $value)
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         $this->attributes[$param] = $value;
@@ -344,7 +344,7 @@ class Session
      */
     public function remove($param)
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         if (isset($this->attributes[$param])) {
@@ -391,6 +391,4 @@ class Session
     {
         return unserialize(base64_decode($_content));
     }
-
 }
-

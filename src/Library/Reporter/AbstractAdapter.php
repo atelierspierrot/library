@@ -106,6 +106,4 @@ abstract class AbstractAdapter
      * @return string Must return the content string built
      */
     abstract public function renderTag($content, $tag_type = 'default');
-
 }
-

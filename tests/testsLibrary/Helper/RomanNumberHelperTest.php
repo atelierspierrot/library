@@ -62,5 +62,4 @@ class RomanNumberHelperTest
         $this->assertNotEquals($this->str, \Library\Helper\RomanNumber::intToRoman($this->int+1));
         $this->assertNotEquals($this->str.'K', \Library\Helper\RomanNumber::intToRoman($this->int));
     }
-
 }

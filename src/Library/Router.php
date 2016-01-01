@@ -332,7 +332,7 @@ class Router
                     if (is_string($_val)) {
                         $final_params[$this->urlEncode($arg)] = $this->urlEncode($_val);
                     } elseif (is_array($_val)) {
-                        foreach($_val as $_j=>$_value) {
+                        foreach ($_val as $_j=>$_value) {
                             $final_params[$this->urlEncode($arg).'['.(is_string($_j) ? $_j : '').']'] = $this->urlEncode($_val);
                         }
                     }
@@ -341,7 +341,9 @@ class Router
             $url .= '?'.http_build_query($final_params, '', $separator);
         }
 
-        if (!empty($hash)) $url .= '#'.$hash;
+        if (!empty($hash)) {
+            $url .= '#'.$hash;
+        }
         return $url;
     }
 
@@ -440,6 +442,4 @@ MESSAGE;
         }
         return urlencode($str);
     }
-
 }
-

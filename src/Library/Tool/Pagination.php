@@ -192,28 +192,28 @@ class Pagination
 // Iterator Interface
 // -----------------
 
-    public function current ()
+    public function current()
     {
         return $this;
     }
 
-    public function key ()
+    public function key()
     {
         return $this->iterator_offset;
     }
 
-    public function next ()
+    public function next()
     {
         $this->iterator_offset += $this->getLimit();
     }
 
-    public function rewind ()
+    public function rewind()
     {
         $this->_process();
         $this->iterator_offset = 0;
     }
 
-    public function valid ()
+    public function valid()
     {
         return ($this->getPageNumber() <= $this->getPagesNumber());
     }
@@ -237,6 +237,4 @@ class Pagination
     {
         return round($this->iterator_offset / $this->getLimit())+1;
     }
-
 }
-

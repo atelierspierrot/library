@@ -1164,7 +1164,7 @@ class Table
                 $column_index--;
             }
             $column = array();
-            foreach($this->tbody as $line) {
+            foreach ($this->tbody as $line) {
                 $column[] = isset($line[$column_index]) ? $line[$column_index] : '';
             }
             return $column;
@@ -1225,7 +1225,9 @@ class Table
      */
     protected function _getSetOfLines($content)
     {
-        if (!is_array($content)) $content = array( $content );
+        if (!is_array($content)) {
+            $content = array( $content );
+        }
         reset($content);
         if (!is_array(current($content))) {
             $content = array( 0=>$content );
@@ -1260,7 +1262,9 @@ class Table
      */
     protected function _getPaddedLine($content)
     {
-        if (!is_array($content)) $content = array( $content );
+        if (!is_array($content)) {
+            $content = array( $content );
+        }
         if ($this->column_size===0 && $this->line_size===0 && $this->cell_size===0) {
             $this->_parseTableSizes();
         }
@@ -1292,7 +1296,9 @@ class Table
      */
     protected function _parseTableSizes($reset = false)
     {
-        if ($reset) $this->_resetSizes();
+        if ($reset) {
+            $this->_resetSizes();
+        }
         $this->line_size = count($this->tbody);
         foreach (self::$_table_parts as $part) {
             if (!empty($this->{$part}) && is_array($this->{$part})) {
@@ -1339,9 +1345,9 @@ class Table
                     $stack_line[] = 'vseparator';
                     foreach ($part_line as $i=>$part_cell) {
                         if (count($part_line)<$this->getColumnSize() && $i===count($part_line)-1) {
-                            $stack_line[] = str_pad(' '.$part_cell, 
-                                ( ($this->getColumnSize() - count($part_line) + 1) * $this->getCellSize())
-                                     + ($this->getColumnSize() - count($part_line)), 
+                            $stack_line[] = str_pad(' '.$part_cell,
+                                (($this->getColumnSize() - count($part_line) + 1) * $this->getCellSize())
+                                     + ($this->getColumnSize() - count($part_line)),
                                 ' ', $str_pad_flag);
                         } else {
                             $stack_line[] = ' '.$part_cell.' ';
@@ -1385,7 +1391,7 @@ class Table
                 }
                 $str .= '+';
             }
-        }        
+        }
         return $str;
     }
 
@@ -1624,6 +1630,4 @@ class Table
     {
         return call_user_func_array(array($this, 'getTableCellSize'), func_get_args());
     }
-
 }
-

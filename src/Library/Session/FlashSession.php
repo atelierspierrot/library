@@ -97,7 +97,7 @@ class FlashSession
      */
     public function hasFlash()
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         return !empty($this->old_flashes);
@@ -111,7 +111,7 @@ class FlashSession
      */
     public function getFlash($index)
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         $_oldf = null;
@@ -132,7 +132,7 @@ class FlashSession
      */
     public function setFlash($value, $index = null)
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         if (!empty($index)) {
@@ -150,7 +150,7 @@ class FlashSession
      */
     public function allFlashes()
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         if (!empty($this->old_flashes)) {
@@ -168,13 +168,11 @@ class FlashSession
      */
     public function clearFlashes()
     {
-        if ( ! $this->isOpened()) {
+        if (! $this->isOpened()) {
             $this->start();
         }
         $this->flashes = array();
         $this->old_flashes = array();
         return $this;
     }
-
 }
-

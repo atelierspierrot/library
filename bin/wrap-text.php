@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-ini_set('display_errors',1);
+ini_set('display_errors', 1);
 error_reporting(E_ALL & ~E_STRICT);
 
 if (empty($argv) || count($argv)<2) {
@@ -34,4 +34,3 @@ $content = file_get_contents($input_file);
 $wrapped_content = \Library\Helper\Text::wrap($content, $line_length);
 //echo $wrapped_content;
 file_put_contents($output_file, $wrapped_content);
-

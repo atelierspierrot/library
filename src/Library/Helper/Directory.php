@@ -185,7 +185,7 @@ class Directory
         }
         if (file_exists($path) && is_dir($path)) {
             $iterator = new \RecursiveIteratorIterator(
-                new \RecursiveDirectoryIterator($path), 
+                new \RecursiveDirectoryIterator($path),
                 \RecursiveIteratorIterator::SELF_FIRST | \FilesystemIterator::CURRENT_AS_FILEINFO | \FilesystemIterator::SKIP_DOTS
             );
             foreach ($iterator as $item) {
@@ -205,7 +205,7 @@ class Directory
                         $logs[$_path] = sprintf('Can not unlink file "%s".', $_path);
                     }
                 }
-            } 
+            }
             clearstatcache();
             return $ok;
         } else {
@@ -227,7 +227,7 @@ class Directory
     public static function chmod(
         $path = null, $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES,
         $recursive = true, $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array &$logs = array()
-    ){
+    ) {
         if (is_null($path)) {
             return null;
         }
@@ -238,10 +238,10 @@ class Directory
             }
             if ($ok && true===$recursive) {
                 $iterator = new \RecursiveIteratorIterator(
-                    new \RecursiveDirectoryIterator($path), 
+                    new \RecursiveDirectoryIterator($path),
                     \RecursiveIteratorIterator::SELF_FIRST | \FilesystemIterator::CURRENT_AS_FILEINFO | \FilesystemIterator::SKIP_DOTS
                 );
-                foreach($iterator as $item) {
+                foreach ($iterator as $item) {
                     if (in_array($item->getFilename(), array('.', '..'))) {
                         continue;
                     }
@@ -254,7 +254,7 @@ class Directory
                             $logs[] = sprintf('Can not change mode on file "%s" (trying to set them on "%d").', $item, $file_mode);
                         }
                     }
-                } 
+                }
             }
             clearstatcache();
         } else {
@@ -262,6 +262,4 @@ class Directory
         }
         return $ok;
     }
-
 }
-

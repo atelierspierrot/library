@@ -101,6 +101,4 @@ interface InvokableInterface
      * @return self Returns `$this` for method chaining
      */
     public function __unset($name);
-    
 }
-

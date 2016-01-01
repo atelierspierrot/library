@@ -39,6 +39,4 @@ class CommandNotFoundException
             $code, $previous
         );
     }
-
 }
-

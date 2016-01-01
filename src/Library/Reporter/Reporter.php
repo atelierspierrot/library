@@ -213,7 +213,7 @@ class Reporter
     public function setAdapter(AbstractAdapter $adapter)
     {
         $cls = get_class($adapter);
-        foreach(self::$default_masks as $_mask) {
+        foreach (self::$default_masks as $_mask) {
             if (null===@constant($cls.'::mask_'.$_mask)) {
                 throw new \LogicException(
                     sprintf('Reporter adapter "%s" must define a mask named "%s"!', $cls, $_mask)
@@ -276,8 +276,12 @@ class Reporter
      */
     public function render($content, $tag_type = 'default', $args = null)
     {
-        if (is_null($args)) $args = array();
-        if (!is_array($args)) $args = array( $args );
+        if (is_null($args)) {
+            $args = array();
+        }
+        if (!is_array($args)) {
+            $args = array( $args );
+        }
         $output = $this->getAdapter()->renderTag($content, $tag_type, $args);
         $this->setOutput($output);
         if ($this->getFlag() & self::OUTPUT_APPEND) {
@@ -298,8 +302,12 @@ class Reporter
      */
     public function write($content, $tag_type = 'default', $args = null)
     {
-        if (is_null($args)) $args = array();
-        if (!is_array($args)) $args = array( $args );
+        if (is_null($args)) {
+            $args = array();
+        }
+        if (!is_array($args)) {
+            $args = array( $args );
+        }
         $output = $this->getAdapter()->renderTag($content, $tag_type, $args);
         echo PHP_EOL.$output.PHP_EOL;
     }
@@ -332,12 +340,16 @@ class Reporter
      */
     public function renderMulti($content, $tag_type = 'default', array $multi = array(), $args = null, $placeholder_mask = '@%s@')
     {
-        if (is_null($args)) $args = array();
-        if (!is_array($args)) $args = array( $args );
+        if (is_null($args)) {
+            $args = array();
+        }
+        if (!is_array($args)) {
+            $args = array( $args );
+        }
 
         // rendering all placeholders
         $placeholders_table = array();
-        foreach($multi as $item=>$item_args) {
+        foreach ($multi as $item=>$item_args) {
             $placeholders_table[$item] = call_user_func_array(
                 array($this->getAdapter(), 'renderTag'),
                 $item_args
@@ -360,6 +372,4 @@ class Reporter
             return $output;
         }
     }
-
 }
-

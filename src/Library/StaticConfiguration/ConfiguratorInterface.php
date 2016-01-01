@@ -48,6 +48,4 @@ interface ConfiguratorInterface
      * @return array
      */
     public static function getRequired();
-
 }
-

@@ -37,17 +37,17 @@ class Formater
     /**
      * Written messages
      */
-    var $messages           = array();
+    public $messages           = array();
 
     /**
      * Tabulation alias
      */
-    static $tab             = '    ';
+    public static $tab             = '    ';
 
     /**
      * New line alias
      */
-    static $nl              = PHP_EOL;
+    public static $nl              = PHP_EOL;
 
     /**
      * @var bool
@@ -173,7 +173,7 @@ class Formater
     public function __construct(array $options = array())
     {
         if (is_array($options) && count($options)) {
-            foreach($options as $k=>$option) {
+            foreach ($options as $k=>$option) {
                 $this->addOption($k, $option);
             }
         }
@@ -186,8 +186,9 @@ class Formater
 
     public function __destruct()
     {
-        if ($this->fetched===false)
+        if ($this->fetched===false) {
             return self::fetch();
+        }
     }
 
     public function addOption($option_name, $option_value)
@@ -229,7 +230,7 @@ class Formater
 
     public function setMessage($text = null, $foreground = null, $background = null, $option = null)
     {
-        $this->messages[] = self::format($text, $foreground, $background, $option );
+        $this->messages[] = self::format($text, $foreground, $background, $option);
     }
 
     public function newLine()
@@ -243,16 +244,16 @@ class Formater
 
     public function message($text = null, $foreground = null, $background = null, $option = null)
     {
-        return $this->format($text, $foreground, $background, $option );
+        return $this->format($text, $foreground, $background, $option);
     }
 
     public function prompt($text = null, $default = null)
     {
         if (!empty($default)) {
-            $text .= ' <prompt>[ </prompt>'.self::buildTaggedString( $default, 'prompt_default' ).'<prompt> ]</prompt>';
+            $text .= ' <prompt>[ </prompt>'.self::buildTaggedString($default, 'prompt_default').'<prompt> ]</prompt>';
         }
-        $text = self::buildTaggedString( $text, 'prompt' );
-        return self::message( self::parse( trim($text).' <prompt>?</prompt> ' ) );
+        $text = self::buildTaggedString($text, 'prompt');
+        return self::message(self::parse(trim($text).' <prompt>?</prompt> '));
     }
 
 // ------------------------------------
@@ -275,15 +276,15 @@ class Formater
             $styles = $this->options[strtolower($match[1]).'_options'];
             return self::format(
                 (
-                    ($this->autospaced===true AND (!isset($styles['autospaced']) OR $styles['autospaced']!==false))
-                    ? self::spacedStr($match[2]) : $match[2] ),
+                    ($this->autospaced===true and (!isset($styles['autospaced']) or $styles['autospaced']!==false))
+                    ? self::spacedStr($match[2]) : $match[2]),
                 isset($styles['foreground']) ? $styles['foreground'] : null,
                 isset($styles['background']) ? $styles['background'] : null,
                 isset($styles['text_options']) ? $styles['text_options'] : null
             );
         } elseif (array_key_exists(strtolower($match[1]), $this->options['foreground_colors'])) {
             $styles = $this->options[strtolower($match[1]).'_options'];
-            return self::format( $match[2], $match[1] );
+            return self::format($match[2], $match[1]);
         }
 
         return $match[2];
@@ -293,13 +294,13 @@ class Formater
     {
         $line = str_pad('', strlen(self::$tab.$str.self::$tab));
         return
-            ( $newLines===true ?
-                ( !is_null($type) ? "<{$type}>" : '' ).$line.( !is_null($type) ? "</{$type}>" : '' ).self::$nl
+            ($newLines===true ?
+                (!is_null($type) ? "<{$type}>" : '').$line.(!is_null($type) ? "</{$type}>" : '').self::$nl
                 : ''
             )
-            .( !is_null($type) ? "<{$type}>" : '' ).self::$tab.$str.self::$tab.( !is_null($type) ? "</{$type}>" : '' )
-            .( $newLines===true ?
-                self::$nl.( !is_null($type) ? "<{$type}>" : '' ).$line.( !is_null($type) ? "</{$type}>" : '' )
+            .(!is_null($type) ? "<{$type}>" : '').self::$tab.$str.self::$tab.(!is_null($type) ? "</{$type}>" : '')
+            .($newLines===true ?
+                self::$nl.(!is_null($type) ? "<{$type}>" : '').$line.(!is_null($type) ? "</{$type}>" : '')
                 : ''
             );
     }
@@ -309,15 +310,17 @@ class Formater
         $codes = array();
 
         if (!empty($foreground)) {
-            self::setForegroundColor( $foreground );
-            if (!empty($this->foreground_color))
-            $codes[] = $this->foreground_color;
+            self::setForegroundColor($foreground);
+            if (!empty($this->foreground_color)) {
+                $codes[] = $this->foreground_color;
+            }
         }
 
         if (!empty($background)) {
-            self::setBackgroundColor( $background );
-            if (!empty($this->background_color))
-            $codes[] = $this->background_color;
+            self::setBackgroundColor($background);
+            if (!empty($this->background_color)) {
+                $codes[] = $this->background_color;
+            }
         }
 
         if (!empty($option)) {
@@ -326,8 +329,8 @@ class Formater
             if (!is_array($option)) {
                 $option = array( $option );
             }
-            foreach($option as $_opt) {
-                self::setTextOption( $_opt );
+            foreach ($option as $_opt) {
+                self::setTextOption($_opt);
             }
             if (!empty($this->text_options)) {
                 $codes = array_merge($codes, $this->text_options);
@@ -342,19 +345,19 @@ class Formater
     {
         $str='';
         if (!empty($this->messages)) {
-            foreach($this->messages as $i=>$_message) {
+            foreach ($this->messages as $i=>$_message) {
                 $str .= $_message
-                    .( ($i==(count($this->messages)-1) AND $last_nl===false) ? ' ' : self::$nl);
+                    .(($i==(count($this->messages)-1) and $last_nl===false) ? ' ' : self::$nl);
             }
         }
         $this->fetched = true;
         $this->messages = array();
         if ($display===true) {
             echo $str;
-            if ($exit===true) exit(0);
+            if ($exit===true) {
+                exit(0);
+            }
         }
         return $str;
     }
-
 }
-

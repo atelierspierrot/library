@@ -143,6 +143,4 @@ class Command
         }
         return $os_cmd;
     }
-    
 }
-

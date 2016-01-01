@@ -66,6 +66,4 @@ interface CommandLineControllerInterface
      * @return  array
      */
     public function getParameters();
-
 }
-

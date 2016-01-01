@@ -48,35 +48,35 @@ $str = "test";
 echo Library\Helper\Url::isUrl($str);
 <?php
 $str = "test";
-echo '=> '.var_export(Library\Helper\Url::isUrl($str),1);
+echo '=> '.var_export(Library\Helper\Url::isUrl($str), 1);
 ?>
 
 $str2 = "http://google.fr/";
 echo Library\Helper\Url::isUrl($str2);
 <?php
 $str2 = "http://google.fr/";
-echo '=> '.var_export(Library\Helper\Url::isUrl($str2),1);
+echo '=> '.var_export(Library\Helper\Url::isUrl($str2), 1);
 ?>
 
 echo $str = "test";
 echo Library\Helper\Url::isEmail($str);
 <?php
 $str = "test";
-echo '=> '.var_export(Library\Helper\Url::isEmail($str),1);
+echo '=> '.var_export(Library\Helper\Url::isEmail($str), 1);
 ?>
 
 $str2 = "mail@google.fr";
 echo Library\Helper\Url::isEmail($str2);
 <?php
 $str2 = "mail@google.fr";
-echo '=> '.var_export(Library\Helper\Url::isEmail($str2),1);
+echo '=> '.var_export(Library\Helper\Url::isEmail($str2), 1);
 ?>
 
 $str = "http://google.fr/azerty/../test/string/?url=this-url&q=search";
 echo Library\Helper\Url::resolvePath($str);
 <?php
 $str = "http://google.fr/azerty/../test/string/?url=this-url&q=search";
-echo '=> '.var_export(Library\Helper\Url::resolvePath($str),1);
+echo '=> '.var_export(Library\Helper\Url::resolvePath($str), 1);
 ?>
 
 ```
@@ -93,7 +93,7 @@ echo 'echo Library\Helper\Url::getParameter("b", $_urlstr);'."\n";
 echo '=> '.Library\Helper\Url::getParameter("b", $_urlstr);
 echo "\n\n";
 echo 'echo Library\Helper\Url::getParameter("c", $_urlstr);'."\n";
-echo '=> '.var_export(Library\Helper\Url::getParameter("c", $_urlstr),1);
+echo '=> '.var_export(Library\Helper\Url::getParameter("c", $_urlstr), 1);
 echo "\n\n";
 echo 'echo Library\Helper\Url::setParameter("a", "newval", $_urlstr);'."\n";
 echo '=> '.urldecode(Library\Helper\Url::setParameter("a", "newval", $_urlstr));
@@ -157,15 +157,15 @@ echo '=> '.Library\Helper\Text::slugify($specialstr)."\n";
 ```php
 <?php
 echo 'echo Library\Helper\Request::isCli();'."\n";
-echo '=> '.var_export(Library\Helper\Request::isCli(),1);
+echo '=> '.var_export(Library\Helper\Request::isCli(), 1);
 
 echo "\n\n";
 echo 'echo Library\Helper\Request::isAjax();'."\n";
-echo '=> '.var_export(Library\Helper\Request::isCli(),1);
+echo '=> '.var_export(Library\Helper\Request::isCli(), 1);
 
 echo "\n\n";
 echo 'echo Library\Helper\Request::getUserIp();'."\n";
-echo '=> '.var_export(Library\Helper\Request::getUserIp(),1);
+echo '=> '.var_export(Library\Helper\Request::getUserIp(), 1);
 ?>
 
 ```
@@ -177,7 +177,7 @@ echo '=> '.var_export(Library\Helper\Request::getUserIp(),1);
 echo 'echo $str = "My ! special éàè§ text file name";'."\n";
 echo 'echo Library\Helper\File::formatFilename($str);'."\n";
 $str = "My ! special éàè§ text file name";
-echo '=> '.var_export(Library\Helper\File::formatFilename($str),1);
+echo '=> '.var_export(Library\Helper\File::formatFilename($str), 1);
 ?>
 
 ```
@@ -218,16 +218,19 @@ var_export($logs);
 
 ```php
 <?php
-interface MyInterface {
+interface MyInterface
+{
     public function mustImplement();
 }
-class MyClass implements MyInterface {
+class MyClass implements MyInterface
+{
     public function mustImplement()
     {
         return;
     }
 }
-class MyChildClass extends MyClass {
+class MyChildClass extends MyClass
+{
     public function myChildMethod()
     {
         return;
@@ -250,52 +253,52 @@ echo 'interface MyInterface {'."\n"
     .'}'."\n";
 echo "\n";
 echo 'echo Library\Helper\Code::implementsInterface("MyClass", "MyInterface");'."\n";
-echo '=> '.var_export(Library\Helper\Code::implementsInterface('MyClass', 'MyInterface'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::implementsInterface('MyClass', 'MyInterface'), 1)."\n";
 echo 'echo Library\Helper\Code::implementsInterface("MyClass", "UnknownInterface");'."\n";
-echo '=> '.var_export(Library\Helper\Code::implementsInterface('MyClass', 'UnknownInterface'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::implementsInterface('MyClass', 'UnknownInterface'), 1)."\n";
 echo 'echo Library\Helper\Code::implementsInterface("UnknownClass", "MyInterface");'."\n";
-echo '=> '.var_export(Library\Helper\Code::implementsInterface('UnknownClass', 'MyInterface'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::implementsInterface('UnknownClass', 'MyInterface'), 1)."\n";
 echo "\n";
 echo 'echo Library\Helper\Code::extendsClass("MyChildClass", "MyClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'MyClass'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'MyClass'), 1)."\n";
 echo 'echo Library\Helper\Code::extendsClass("MyChildClass", "UnknownClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'UnknownClass'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('MyChildClass', 'UnknownClass'), 1)."\n";
 echo 'echo Library\Helper\Code::extendsClass("UnknownClass", "MyClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::extendsClass('UnknownClass', 'MyClass'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::extendsClass('UnknownClass', 'MyClass'), 1)."\n";
 echo "\n";
 $obj = new MyClass;
 echo '$obj = new MyClass;'."\n";
 echo 'echo Library\Helper\Code::isClassInstance($obj, "MyClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyClass'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyClass'), 1)."\n";
 echo 'echo Library\Helper\Code::isClassInstance($obj, "MyChildClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyChildClass'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'MyChildClass'), 1)."\n";
 echo 'echo Library\Helper\Code::isClassInstance($obj, "UnknownClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'UnknownClass'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($obj, 'UnknownClass'), 1)."\n";
 $no_obj = "my var";
 echo '$no_obj = "my var";'."\n";
 echo 'echo Library\Helper\Code::isClassInstance($no_obj, "MyClass");'."\n";
-echo '=> '.var_export(Library\Helper\Code::isClassInstance($no_obj, 'MyClass'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::isClassInstance($no_obj, 'MyClass'), 1)."\n";
 echo "\n";
 echo 'echo Library\Helper\Code::namespaceExists("Library\Helper");'."\n";
-echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\Helper'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\Helper'), 1)."\n";
 echo 'echo Library\Helper\Code::namespaceExists("Library\NotExists");'."\n";
-echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\NotExists'),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::namespaceExists('Library\NotExists'), 1)."\n";
 
 
-function MyMethod( $arg_one, $arg_two = 'default 2', $arg_three = 'default 3') 
+function MyMethod($arg_one, $arg_two = 'default 2', $arg_three = 'default 3')
 {
-    echo "=> calling ".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
+    echo "=> calling ".__FUNCTION__." with arguments ".var_export(func_get_args(), 1);
 }
 
 class MyTestClass
 {
-    function MyMethod( $arg_one, $arg_two = 'default 2', $arg_three = 'default 3') 
+    public function MyMethod($arg_one, $arg_two = 'default 2', $arg_three = 'default 3')
     {
-        echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
+        echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(), 1);
     }
-    function MyMethod2( $arg_one = 'default 1', $arg_two, $arg_three = 'default 3') 
+    public function MyMethod2($arg_one = 'default 1', $arg_two, $arg_three = 'default 3')
     {
-        echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(),1);
+        echo "=> calling ".__CLASS__."::".__FUNCTION__." with arguments ".var_export(func_get_args(), 1);
     }
 }
 
@@ -308,9 +311,9 @@ echo "\n";
 $rest = array();
 echo '$rest = array()'."\n";
 echo 'echo Library\Helper\Code::organizeArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), null, $logs = array());'."\n";
-echo '=> '.var_export(Library\Helper\Code::organizeArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), null, $rest),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::organizeArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), null, $rest), 1)."\n";
 echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
+echo '=> '.var_export($rest, 1)."\n";
 echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"));'."\n";
 Library\Helper\Code::fetchArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'));
 echo "\n";
@@ -330,9 +333,9 @@ echo "\n";
 $rest = array();
 echo '$rest = array()'."\n";
 echo 'echo Library\Helper\Code::organizeArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), "MyTestClass", $rest);'."\n";
-echo '=> '.var_export(Library\Helper\Code::organizeArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass', $rest),1)."\n";
+echo '=> '.var_export(Library\Helper\Code::organizeArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass', $rest), 1)."\n";
 echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
+echo '=> '.var_export($rest, 1)."\n";
 echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_one"=>"test", "arg_three"=>"test B", "arg_four"=>"test"), "MyTestClass");'."\n";
 Library\Helper\Code::fetchArguments('MyMethod', array('arg_one'=>'test', 'arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass');
 echo "\n";
@@ -343,7 +346,7 @@ echo 'echo Library\Helper\Code::fetchArguments("MyMethod", array("arg_three"=>"t
 Library\Helper\Code::fetchArguments('MyMethod', array('arg_three'=>'test B', 'arg_four'=>'test'), 'MyTestClass', $rest);
 echo "\n";
 echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
+echo '=> '.var_export($rest, 1)."\n";
 echo "\n";
 $rest = array();
 echo '$rest = array()'."\n";
@@ -351,7 +354,7 @@ echo 'echo Library\Helper\Code::fetchArguments("MyMethod", "test", "MyTestClass"
 Library\Helper\Code::fetchArguments('MyMethod', 'test', 'MyTestClass', $rest);
 echo "\n";
 echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
+echo '=> '.var_export($rest, 1)."\n";
 echo "\n";
 $rest = array();
 echo '$rest = array()'."\n";
@@ -359,7 +362,7 @@ echo 'echo Library\Helper\Code::fetchArguments("MyMethod2", "test", "MyTestClass
 Library\Helper\Code::fetchArguments('MyMethod2', 'test', 'MyTestClass', $rest);
 echo "\n";
 echo 'echo $rest;'."\n";
-echo '=> '.var_export($rest,1)."\n";
+echo '=> '.var_export($rest, 1)."\n";
 ?>
 
 ```
@@ -512,7 +515,7 @@ echo $table."\n";
 <?php
 echo '// get a cell content'."\n";
 echo '$table->getCell(2,2)'."\n";
-var_export($table->getCell(2,2));
+var_export($table->getCell(2, 2));
 echo "\n";
 echo '// get a line content'."\n";
 echo '$table->getLine(1)'."\n";
@@ -539,15 +542,18 @@ The `StaticConfiguration\Config` class defines a global fully static configurati
 
 ```php
 <?php
-class DefaultConfig implements \Library\StaticConfiguration\ConfiguratorInterface {
-    public static function getDefaults() {
+class DefaultConfig implements \Library\StaticConfiguration\ConfiguratorInterface
+{
+    public static function getDefaults()
+    {
         return array(
             'entry1' => array( 'library-assets' ),
             'entry2' => 'test',
             'entry3' => 'other test',
         );
     }
-    public static function getRequired() {
+    public static function getRequired()
+    {
         return array('entry1', 'entry2');
     }
 }
@@ -568,19 +574,19 @@ echo 'class DefaultConfig implements \Library\StaticConfiguration\ConfiguratorIn
     .'\Library\StaticConfiguration\Config::load("DefaultConfig");'."\n";
 echo "\n";
 echo 'echo \Library\StaticConfiguration\Config::get("entry1"))'."\n";
-echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry1'),1)."\n";
+echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry1'), 1)."\n";
 echo "\n";
 echo '\Library\StaticConfiguration\Config::set("entry2", "my value")'."\n";
 echo 'echo \Library\StaticConfiguration\Config::get("entry2"))'."\n";
 \Library\StaticConfiguration\Config::set('entry2', 'my value');
-echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry2'),1)."\n";
+echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry2'), 1)."\n";
 echo 'echo \Library\StaticConfiguration\Config::getDefault("entry2"))'."\n";
-echo '=> '.var_export(\Library\StaticConfiguration\Config::getDefault('entry2'),1)."\n";
+echo '=> '.var_export(\Library\StaticConfiguration\Config::getDefault('entry2'), 1)."\n";
 echo "\n";
 echo '\Library\StaticConfiguration\Config::set("entry4", "does not exist")'."\n";
 echo 'echo \Library\StaticConfiguration\Config::get("entry4"))'."\n";
 \Library\StaticConfiguration\Config::set('entry4', 'does not exist');
-echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry4'),1)."\n";
+echo '=> '.var_export(\Library\StaticConfiguration\Config::get('entry4'), 1)."\n";
 ?>
 
 ```
@@ -594,13 +600,13 @@ The `Command` class runs commands on your system.
 echo '$command = new Library\Command;'."\n";
 $command = new Library\Command;
 echo 'echo $command->run("whoami");'."\n";
-echo '=> '.var_export($command->run("whoami"),1);
+echo '=> '.var_export($command->run("whoami"), 1);
 echo "\n";
 echo 'echo $pwd = $command->getCommandPath("pwd");'."\n";
-echo '=> '.var_export($pwd = $command->getCommandPath("pwd"),1);
+echo '=> '.var_export($pwd = $command->getCommandPath("pwd"), 1);
 echo "\n";
 echo 'echo $command->run($pwd);'."\n";
-echo '=> '.var_export($command->run($pwd),1);
+echo '=> '.var_export($command->run($pwd), 1);
 
 ?>
 
@@ -936,7 +942,6 @@ class Mytest
         $this->_my_protected_prop = $b;
         $this->__my_private_prop = $c;
     }
-
 }
 
 $mytest = new Mytest(100, 110, 120);
@@ -1007,14 +1012,13 @@ class MytestInvokable extends Library\Object\AbstractInvokable
     }
 
     // public static property
-    static $my_static = 'public static value';
+    public static $my_static = 'public static value';
 
     // protected static property
     protected static $my_protected_static = 'protected static value';
 
     // private static property
     private static $my_private_static = 'private static value';
-
 }
 
 $mytest_invok = new MytestInvokable(100, 110, 120);
@@ -1091,24 +1095,24 @@ var_dump($mytest_invok);
 
 echo "\n";
 echo 'isset($mytest_invok->my_public_prop);'."\n";
-echo '// => ', var_export(isset($mytest_invok->my_public_prop),1), "\n";
+echo '// => ', var_export(isset($mytest_invok->my_public_prop), 1), "\n";
 echo '$mytest_invok->issetMyPublicProp();'."\n";
-echo '// => ', var_export($mytest_invok->issetMyPublicProp(),1), "\n";
+echo '// => ', var_export($mytest_invok->issetMyPublicProp(), 1), "\n";
 
 echo 'isset($mytest_invok->_my_protected_prop);'."\n";
-echo '// => ', var_export(isset($mytest_invok->_my_protected_prop),1), "\n";
+echo '// => ', var_export(isset($mytest_invok->_my_protected_prop), 1), "\n";
 echo '$mytest_invok->issetMyProtectedProp();'."\n";
-echo '// => ', var_export($mytest_invok->issetMyProtectedProp(),1), "\n";
+echo '// => ', var_export($mytest_invok->issetMyProtectedProp(), 1), "\n";
 
 echo 'isset($mytest_invok->__my_private_prop);'."\n";
-echo '// => ', var_export(isset($mytest_invok->__my_private_prop),1), "\n";
+echo '// => ', var_export(isset($mytest_invok->__my_private_prop), 1), "\n";
 echo '$mytest_invok->issetMyPrivateProp();'."\n";
-echo '// => ', var_export($mytest_invok->issetMyPrivateProp(),1), "\n";
+echo '// => ', var_export($mytest_invok->issetMyPrivateProp(), 1), "\n";
 
 echo 'isset($mytest_invok->non_existing_prop);'."\n";
-echo '// => ', var_export(isset($mytest_invok->non_existing_prop),1), "\n";
+echo '// => ', var_export(isset($mytest_invok->non_existing_prop), 1), "\n";
 echo '$mytest_invok->issetNonExistingProp();'."\n";
-echo '// => ', var_export($mytest_invok->issetNonExistingProp(),1), "\n";
+echo '// => ', var_export($mytest_invok->issetNonExistingProp(), 1), "\n";
 
 echo "\n";
 echo '$mytest_invok->unsetMyPublicProp();'."\n";
@@ -1245,21 +1249,21 @@ echo '$data = array('."\n"
     .'"two" => "value two",'."\n"
 .");"."\n";
 echo '$mynewregistry = new Library\Object\RegistryInvokable( $data, Library\Object\RegistryInvokable::PUBLIC_PROPERTIES );'."\n";
-$mynewregistry = new Library\Object\RegistryInvokable( $data, Library\Object\RegistryInvokable::PUBLIC_PROPERTIES );
+$mynewregistry = new Library\Object\RegistryInvokable($data, Library\Object\RegistryInvokable::PUBLIC_PROPERTIES);
 
 echo "\n";
 echo 'echo isset($mynewregistry->one)'."\n";
-echo '// => '.var_export(isset($mynewregistry->one),1)."\n";
+echo '// => '.var_export(isset($mynewregistry->one), 1)."\n";
 echo 'echo isset($mynewregistry->three)'."\n";
-echo '// => '.var_export(isset($mynewregistry->three),1)."\n";
+echo '// => '.var_export(isset($mynewregistry->three), 1)."\n";
 
 echo "\n";
 echo 'echo isset($mynewregistry->two)'."\n";
-echo '// => '.var_export(isset($mynewregistry->two),1)."\n";
+echo '// => '.var_export(isset($mynewregistry->two), 1)."\n";
 echo 'unset($mynewregistry->two)'."\n";
 unset($mynewregistry->two);
 echo 'echo isset($mynewregistry->two)'."\n";
-echo '// => '.var_export(isset($mynewregistry->two),1)."\n";
+echo '// => '.var_export(isset($mynewregistry->two), 1)."\n";
 
 echo "\n";
 echo "\n";
@@ -1268,9 +1272,9 @@ $myerrorregistry = new Library\Object\RegistryInvokable();
 $myerrorregistry->one = "value";
 echo '$myerrorregistry->one = "value"'."\n";
 echo 'echo $myerrorregistry->one'."\n";
-echo '// => '.var_export($myerrorregistry->one,1).' (null because direct access to properties is not allowed)'."\n";
+echo '// => '.var_export($myerrorregistry->one, 1).' (null because direct access to properties is not allowed)'."\n";
 echo 'echo $myerrorregistry->getOne()'."\n";
-echo '// => '.var_export($myerrorregistry->getOne(),1).' (magic getter acces is ok)'."\n";
+echo '// => '.var_export($myerrorregistry->getOne(), 1).' (magic getter acces is ok)'."\n";
 
 echo "\n";
 echo "\n";
@@ -1282,7 +1286,7 @@ echo 'echo $myerrorregistry2->one'."\n";
 //echo $myerrorregistry2->one."\n";
 echo '// => Uncaught exception "Library\Object\InvokableAccessException" with message "Direct access to property "one" on object "Library\Object\RegistryInvokable" is not allowed!"'."\n";
 echo 'echo $myerrorregistry2->getOne()'."\n";
-echo '// => '.var_export($myerrorregistry2->getOne(),1).' (magic getter acces is ok)'."\n";
+echo '// => '.var_export($myerrorregistry2->getOne(), 1).' (magic getter acces is ok)'."\n";
 
 ?>
 

@@ -164,5 +164,4 @@ return true;
         $ctt = trim(file_get_contents(self::$tmp_file));
         $this->assertEquals($this->lorem_ipsum, $ctt);
     }
-
 }

@@ -95,5 +95,4 @@ class TextHelperTest
         $this->checkNoArg('fromCamelCase');
         $this->assertEquals('my_camel_case_phrase', \Library\Helper\Text::fromCamelCase('MyCamelCasePhrase'));
     }
-
 }

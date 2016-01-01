@@ -39,22 +39,24 @@ class Helper
         $short_options = implode('', array_keys($options['argv_options']));
         $long_options = array_keys($options['argv_long_options']);
         if (!empty($options['commands'])) {
-            foreach(array_keys($options['commands']) as $_cmd) {
+            foreach (array_keys($options['commands']) as $_cmd) {
                 array_push($long_options, $_cmd);
             }
         }
         if (!empty($options['aliases'])) {
-            foreach(array_keys($options['aliases']) as $_ali) {
+            foreach (array_keys($options['aliases']) as $_ali) {
                 array_push($long_options, $_ali);
             }
         }
-        return getopt( $short_options, $long_options );
+        return getopt($short_options, $long_options);
     }
 
     public static function getOptionMethod(array $options, $arg = null)
     {
-        if (empty($arg)) return null;
-        foreach(array($arg, $arg.':', $arg.'::') as $_arg) {
+        if (empty($arg)) {
+            return null;
+        }
+        foreach (array($arg, $arg.':', $arg.'::') as $_arg) {
             if (array_key_exists($_arg, $options['argv_options'])) {
                 return $options['argv_options'][$_arg];
             } elseif (array_key_exists($_arg, $options['argv_long_options'])) {
@@ -75,7 +77,7 @@ class Helper
         if (method_exists($caller, $_meth_descr)) {
             $ctt = $caller->$_meth_descr();
         } else {
-            $code_parser = new CodeParser( get_class($caller).':run'.ucfirst($arg).'Command', CodeParser::PARSE_METHOD );
+            $code_parser = new CodeParser(get_class($caller).':run'.ucfirst($arg).'Command', CodeParser::PARSE_METHOD);
             if ($str = $code_parser->get_shortDescription()) {
                 $ctt = $str;
             } else {
@@ -93,7 +95,7 @@ class Helper
             );
         }
         $params = self::getopt($options);
-        foreach($params as $_opt_name=>$_opt_val) {
+        foreach ($params as $_opt_name=>$_opt_val) {
             $_meth=null;
             if (array_key_exists($_opt_name, $options['argv_options'])) {
                 $_meth = $options['argv_options'][$_opt_name];
@@ -103,9 +105,9 @@ class Helper
 
             if (!empty($_meth)) {
                 $_cls_meth = 'run'.ucfirst($_meth).'Command';
-                if (method_exists($caller, $_cls_meth) AND !in_array($_cls_meth, $caller->getDoneMethods())) {
-                    $caller->addDoneMethod( $_cls_meth );
-                    $caller->$_cls_meth( $_opt_val );
+                if (method_exists($caller, $_cls_meth) and !in_array($_cls_meth, $caller->getDoneMethods())) {
+                    $caller->addDoneMethod($_cls_meth);
+                    $caller->$_cls_meth($_opt_val);
                 }
             }
         }
@@ -122,7 +124,7 @@ class Helper
         if (method_exists($caller, $_meth_descr)) {
             $ctt = $caller->$_meth_descr();
         } else {
-            $code_parser = new CodeParser( get_class($caller).':run'.ucfirst($arg).'Command', CodeParser::PARSE_METHOD );
+            $code_parser = new CodeParser(get_class($caller).':run'.ucfirst($arg).'Command', CodeParser::PARSE_METHOD);
             if ($str = $code_parser->get_longDescription()) {
                 $ctt = $str;
             } else {
@@ -142,67 +144,76 @@ class Helper
             );
         }
         $tmp_options_list = $tmp_commands_list = $tmp_alias_list = array();
-        foreach($options['argv_options'] as $_optn=>$_methodn) {
+        foreach ($options['argv_options'] as $_optn=>$_methodn) {
             if (in_array($_methodn, $options['commands'])) {
-                if (!isset($tmp_commands_list[$_methodn]))
+                if (!isset($tmp_commands_list[$_methodn])) {
                     $tmp_commands_list[$_methodn] = array();
+                }
                 $tmp_commands_list[$_methodn][] = '-'.$_optn;
             } elseif (in_array($_methodn, $options['aliases'])) {
-                if (!isset($tmp_alias_list[$_methodn]))
+                if (!isset($tmp_alias_list[$_methodn])) {
                     $tmp_alias_list[$_methodn] = array();
+                }
                 $tmp_alias_list[$_methodn][] = '-'.$_optn;
             } else {
-                if (!isset($tmp_options_list[$_methodn]))
+                if (!isset($tmp_options_list[$_methodn])) {
                     $tmp_options_list[$_methodn] = array();
+                }
                 $tmp_options_list[$_methodn][] = '-'.$_optn;
             }
         }
-        foreach($options['argv_long_options'] as $_loptn=>$_lmethodn) {
-            if (!isset($tmp_options_list[$_lmethodn]))
+        foreach ($options['argv_long_options'] as $_loptn=>$_lmethodn) {
+            if (!isset($tmp_options_list[$_lmethodn])) {
                 $tmp_options_list[$_lmethodn] = array();
+            }
             $tmp_options_list[$_lmethodn][] = '--'.$_loptn;
         }
 
         $options_list = array();
-        foreach($tmp_options_list as $_meth=>$_options) {
-            $title = str_replace( ':', '', implode('|', $_options) );
-            if (substr_count(implode('|', $_options),'::'))
+        foreach ($tmp_options_list as $_meth=>$_options) {
+            $title = str_replace(':', '', implode('|', $_options));
+            if (substr_count(implode('|', $_options), '::')) {
                 $title .= ' <opt.arg>';
-            elseif (substr_count(implode('|', $_options),':'))
+            } elseif (substr_count(implode('|', $_options), ':')) {
                 $title .= ' <arg>';
-            $options_list[$title] = self::getOptionDescription( $_meth, $caller );
+            }
+            $options_list[$title] = self::getOptionDescription($_meth, $caller);
         }
 
-        foreach($options['commands'] as $_optn=>$_methodn) {
-            if (!isset($tmp_commands_list[$_methodn]))
+        foreach ($options['commands'] as $_optn=>$_methodn) {
+            if (!isset($tmp_commands_list[$_methodn])) {
                 $tmp_commands_list[$_methodn] = array();
+            }
             $tmp_commands_list[$_methodn][] = $_optn;
         }
 
         $commands_list = array();
-        foreach($tmp_commands_list as $_meth=>$_options) {
-            $title = str_replace( ':', '', implode('|', $_options) );
-            if (substr_count(implode('|', $_options),'::'))
+        foreach ($tmp_commands_list as $_meth=>$_options) {
+            $title = str_replace(':', '', implode('|', $_options));
+            if (substr_count(implode('|', $_options), '::')) {
                 $title .= ' <opt.arg>';
-            elseif (substr_count(implode('|', $_options),':'))
+            } elseif (substr_count(implode('|', $_options), ':')) {
                 $title .= ' <arg>';
-            $commands_list[$title] = self::getOptionDescription( $_meth, $caller );
+            }
+            $commands_list[$title] = self::getOptionDescription($_meth, $caller);
         }
 
-        foreach($options['aliases'] as $_optn=>$_methodn) {
-            if (!isset($tmp_alias_list[$_methodn]))
+        foreach ($options['aliases'] as $_optn=>$_methodn) {
+            if (!isset($tmp_alias_list[$_methodn])) {
                 $tmp_alias_list[$_methodn] = array();
+            }
             $tmp_alias_list[$_methodn][] = $_optn;
         }
 
         $alias_list = array();
-        foreach($tmp_alias_list as $_meth=>$_options) {
-            $title = str_replace( ':', '', implode('|', $_options) );
-            if (substr_count(implode('|', $_options),'::'))
+        foreach ($tmp_alias_list as $_meth=>$_options) {
+            $title = str_replace(':', '', implode('|', $_options));
+            if (substr_count(implode('|', $_options), '::')) {
                 $title .= ' <opt.arg>';
-            elseif (substr_count(implode('|', $_options),':'))
+            } elseif (substr_count(implode('|', $_options), ':')) {
                 $title .= ' <arg>';
-            $alias_list[$title] = self::getOptionDescription( $_meth, $caller );
+            }
+            $alias_list[$title] = self::getOptionDescription($_meth, $caller);
         }
 
         $help_str = self::formatHelpString(
@@ -226,47 +237,61 @@ You can write as many options you like : <var>-x --env=all</var>.',
 
     public static function formatHelpString($title = null, $contents = null, Formater $formater)
     {
-        if (empty($contents)) return '';
-        if (empty($title)) $title = 'Help';
-        if (!is_array($contents)) $contents = array( $contents );
+        if (empty($contents)) {
+            return '';
+        }
+        if (empty($title)) {
+            $title = 'Help';
+        }
+        if (!is_array($contents)) {
+            $contents = array( $contents );
+        }
 
         $help_ctt='';
-        foreach( $contents as $ctt_ttl=>$ctt_ctt ) {
+        foreach ($contents as $ctt_ttl=>$ctt_ctt) {
             if (!empty($ctt_ctt)) {
-                if (!empty($ctt_ttl))
+                if (!empty($ctt_ttl)) {
                     $help_ctt .= "<bold>{$ctt_ttl}:</bold>".Formater::$nl;
-                if (is_string($ctt_ctt))
+                }
+                if (is_string($ctt_ctt)) {
                     $help_ctt .= $ctt_ctt.Formater::$nl;
-                else {
+                } else {
                     $ctt_str='';
 
                     // les cles sont des chaines ?
                     $keys_are_strings = false;
                     $_strs = array_keys($ctt_ctt);
-                    for($i=0;$i<count($_strs);$i++)
-                        if (is_string($_strs[$i]))
+                    for ($i=0;$i<count($_strs);$i++) {
+                        if (is_string($_strs[$i])) {
                             $keys_are_strings = true;
+                        }
+                    }
 
                     // taille max si chaines
                     if ($keys_are_strings === true) {
                         $maxlength=0;
-                        foreach($_strs as $_ttl)
-                            if (strlen($_ttl)>$maxlength) $maxlength=strlen($_ttl);
-                        foreach($ctt_ctt as $opt_ttl=>$opt_ctt) {
-                            if (is_array($opt_ctt)) {
-                                for($_k=0;$_k<count($opt_ctt);$_k++) {
-                                    if ($_k==0)
-                                        $ctt_str .= '  <list_title>'.str_pad($opt_ttl, $maxlength).'</list_title>  '.$opt_ctt[$_k].Formater::$nl;
-                                    else
-                                        $ctt_str .= '  '.str_pad('', $maxlength).'  '.$opt_ctt[$_k].Formater::$nl;
-                                }
-                            } else
-                                $ctt_str .= '  <list_title>'.str_pad($opt_ttl, $maxlength).'</list_title>  '.$opt_ctt.Formater::$nl;
+                        foreach ($_strs as $_ttl) {
+                            if (strlen($_ttl)>$maxlength) {
+                                $maxlength=strlen($_ttl);
+                            }
                         }
-
+                        foreach ($ctt_ctt as $opt_ttl=>$opt_ctt) {
+                            if (is_array($opt_ctt)) {
+                                for ($_k=0;$_k<count($opt_ctt);$_k++) {
+                                    if ($_k==0) {
+                                        $ctt_str .= '  <list_title>'.str_pad($opt_ttl, $maxlength).'</list_title>  '.$opt_ctt[$_k].Formater::$nl;
+                                    } else {
+                                        $ctt_str .= '  '.str_pad('', $maxlength).'  '.$opt_ctt[$_k].Formater::$nl;
+                                    }
+                                }
+                            } else {
+                                $ctt_str .= '  <list_title>'.str_pad($opt_ttl, $maxlength).'</list_title>  '.$opt_ctt.Formater::$nl;
+                            }
+                        }
                     } else {
-                        foreach($ctt_ctt as $opt_ttl=>$opt_ctt)
+                        foreach ($ctt_ctt as $opt_ttl=>$opt_ctt) {
                             $ctt_str .= '  '.$opt_ctt.Formater::$nl;
+                        }
                     }
                     $help_ctt .= $ctt_str.Formater::$nl;
                 }
@@ -281,6 +306,4 @@ You can write as many options you like : <var>-x --env=all</var>.',
 EOT;
         return $help_str;
     }
-
 }
-
