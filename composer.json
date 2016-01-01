@@ -20,11 +20,18 @@
     },
     "require-dev": {
         "psr/log": "dev-master",
-        "sami/sami": "2.*",
-        "phpunit/phpunit": "3.7.*",
-        "phpmd/phpmd" : "1.4.*"
+        "sami/sami": "@stable",
+        "phpunit/phpunit": "@stable",
+        "phpmd/phpmd" : "@stable",
+        "fabpot/php-cs-fixer": "@stable"
     },
-    "autoload": { "psr-0": {  "Library": "src" } },
+    "autoload": { "psr-4": { "Library\\": "src/Library/" } },
+    "scripts": {
+        "test": "php vendor/bin/phpunit",
+        "build-doc": "php vendor/bin/sami.php update .sami.php",
+        "update-doc": "php vendor/bin/sami.php update .sami.php",
+        "cs-fixer": "php vendor/bin/php-cs-fixer fix -v"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.1-dev"
