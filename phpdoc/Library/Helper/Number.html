@@ -1,157 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\Helper\Number | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\Helper\Number | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../Library/Helper.html">Library\Helper</a>\Number</h1>
+    <body id="class" data-name="class:Library_Helper_Number" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
-    <strong>Number</strong></p>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Library.html">Library</a></li>
+                                        <li><a href="../../Library/Helper.html">Helper</a></li>
+    
+                <li>Number</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Number</h1>
+    </div>
+
+    <p>    class
+    <strong>Number</strong>
+</p>
 
             <div class="description">
-            <p>Number helper</p>
-            <p>As for all helpers, all methods are statics.</p>
+            <p>Number helper</p>            <p>As for all helpers, all methods are statics.</p>
 
 <p>For convenience, the best practice is to use:</p>
 
 <pre><code>use Library\Helper\Number as NumberHelper;
 </code></pre>
-</p>
-        </div>
+</p>        </div>
+    
     
     
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isOdd">isOdd</a>(int $val = null)
-                    <p>Test if an integer is an "odd number"</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isEven">isEven</a>(int $val = null)
-                    <p>Test if an integer is an "even number"</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isPrime">isPrime</a>(int $val = null)
-                    <p>Test if an integer is a "prime number"</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;int
-                </td>
-                <td class="last">
-                    <a href="#method_getFibonacciItem">getFibonacciItem</a>(int $val = null)
-                    <p>Get the <code>$val</code> element of the Fibonacci suite</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;int
-                </td>
-                <td class="last">
-                    <a href="#method_getLuhnKey">getLuhnKey</a>(int $val = null)
-                    <p>Luhn formula: get the Luhn digit of an integer</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isLuhn">isLuhn</a>(int $val = null)
-                    <p>Check that the last number in a suite is its Luhn key</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;int
-                </td>
-                <td class="last">
-                    <a href="#method_getSumOfDigits">getSumOfDigits</a>(<abbr title="Library\Helper\$val">$val</abbr> $val = null)
-                    <p>Calculate the sum of the digits of a number (its absolute entire value)</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isSelfDescribing">isSelfDescribing</a>(<abbr title="Library\Helper\$val">$val</abbr> $val = null)
-                    <p>Test if a number is "self-describing":</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isJollyJumperSeries">isJollyJumperSeries</a>(array $items = array())
-                    <p>Test if a series of numbers is a "Jolly Jumper":</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isOdd">isOdd</a>(
+    int $val = null)
+                                            <p>Test if an integer is an "odd number"</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isEven">isEven</a>(
+    int $val = null)
+                                            <p>Test if an integer is an "even number"</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isPrime">isPrime</a>(
+    int $val = null)
+                                            <p>Test if an integer is a "prime number"</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getFibonacciItem">getFibonacciItem</a>(
+    int $val = null)
+                                            <p>Get the <code>$val</code> element of the Fibonacci suite</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getLuhnKey">getLuhnKey</a>(
+    int $val = null)
+                                            <p>Luhn formula: get the Luhn digit of an integer</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isLuhn">isLuhn</a>(
+    int $val = null)
+                                            <p>Check that the last number in a suite is its Luhn key</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getSumOfDigits">getSumOfDigits</a>($val = null)
+                                            <p>Calculate the sum of the digits of a number (its absolute entire value)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isSelfDescribing">isSelfDescribing</a>($val = null)
+                                            <p>Test if a number is "self-describing":</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isJollyJumperSeries">isJollyJumperSeries</a>(
+    array $items = array())
+                                            <p>Test if a series of numbers is a "Jolly Jumper":</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_isOdd">
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_isOdd">
         <div class="location">at line 46</div>
-        <code>        static    public            bool
-    <strong>isOdd</strong>(int $val = null)</code>
+        <code>        static            
+    bool
+    <strong>isOdd</strong>(
+    int $val = null)</code>
     </h3>
     <div class="details">
-        <p>Test if an integer is an "odd number"</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Test if an integer is an "odd number"</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$val</td>
                 <td>
 </td>
@@ -161,9 +224,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -174,21 +238,25 @@
                     </div>
     </div>
 
-                <h3 id="method_isEven">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isEven">
         <div class="location">at line 60</div>
-        <code>        static    public            bool
-    <strong>isEven</strong>(int $val = null)</code>
+        <code>        static            
+    bool
+    <strong>isEven</strong>(
+    int $val = null)</code>
     </h3>
     <div class="details">
-        <p>Test if an integer is an "even number"</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Test if an integer is an "even number"</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$val</td>
                 <td>
 </td>
@@ -198,9 +266,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -211,21 +280,25 @@
                     </div>
     </div>
 
-                <h3 id="method_isPrime">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isPrime">
         <div class="location">at line 74</div>
-        <code>        static    public            bool
-    <strong>isPrime</strong>(int $val = null)</code>
+        <code>        static            
+    bool
+    <strong>isPrime</strong>(
+    int $val = null)</code>
     </h3>
     <div class="details">
-        <p>Test if an integer is a "prime number"</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Test if an integer is a "prime number"</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$val</td>
                 <td>
 </td>
@@ -235,9 +308,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -248,21 +322,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getFibonacciItem">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getFibonacciItem">
         <div class="location">at line 99</div>
-        <code>        static    public            int
-    <strong>getFibonacciItem</strong>(int $val = null)</code>
+        <code>        static            
+    int
+    <strong>getFibonacciItem</strong>(
+    int $val = null)</code>
     </h3>
     <div class="details">
-        <p>Get the <code>$val</code> element of the Fibonacci suite</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the <code>$val</code> element of the Fibonacci suite</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$val</td>
                 <td>
 </td>
@@ -272,9 +350,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>int</td>
+            <td>
+    int</td>
             <td>
 </td>
         </tr>
@@ -285,20 +364,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getLuhnKey">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getLuhnKey">
         <div class="location">at line 123</div>
-        <code>        static    public            int
-    <strong>getLuhnKey</strong>(int $val = null)</code>
+        <code>        static            
+    int
+    <strong>getLuhnKey</strong>(
+    int $val = null)</code>
     </h3>
     <div class="details">
-        <p>Luhn formula: get the Luhn digit of an integer</p>
-        <p>7992739871 => 3</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Luhn formula: get the Luhn digit of an integer</p>                    <p>7992739871 => 3</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$val</td>
                 <td>
 </td>
@@ -308,9 +392,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>int</td>
+            <td>
+    int</td>
             <td>
 </td>
         </tr>
@@ -320,7 +405,7 @@
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>&lt;http://en.wikipedia.org/wiki/Luhn_algorithm&gt;</td>
                 <td></td>
@@ -330,21 +415,25 @@
                     </div>
     </div>
 
-                <h3 id="method_isLuhn">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isLuhn">
         <div class="location">at line 154</div>
-        <code>        static    public            bool
-    <strong>isLuhn</strong>(int $val = null)</code>
+        <code>        static            
+    bool
+    <strong>isLuhn</strong>(
+    int $val = null)</code>
     </h3>
     <div class="details">
-        <p>Check that the last number in a suite is its Luhn key</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Check that the last number in a suite is its Luhn key</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$val</td>
                 <td>The number to check INCLUDING Luhn's key at last</td>
             </tr>
@@ -353,9 +442,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -366,21 +456,23 @@
                     </div>
     </div>
 
-                <h3 id="method_getSumOfDigits">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSumOfDigits">
         <div class="location">at line 169</div>
-        <code>        static    public            int
-    <strong>getSumOfDigits</strong>(<abbr title="Library\Helper\$val">$val</abbr> $val = null)</code>
+        <code>        static            
+    int
+    <strong>getSumOfDigits</strong>($val = null)</code>
     </h3>
     <div class="details">
-        <p>Calculate the sum of the digits of a number (its absolute entire value)</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Calculate the sum of the digits of a number (its absolute entire value)</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Library\Helper\$val">$val</abbr></td>
+                <td></td>
                 <td>$val</td>
                 <td>
 </td>
@@ -390,9 +482,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>int</td>
+            <td>
+    int</td>
             <td>
 </td>
         </tr>
@@ -403,25 +496,28 @@
                     </div>
     </div>
 
-                <h3 id="method_isSelfDescribing">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isSelfDescribing">
         <div class="location">at line 195</div>
-        <code>        static    public            bool
-    <strong>isSelfDescribing</strong>(<abbr title="Library\Helper\$val">$val</abbr> $val = null)</code>
+        <code>        static            
+    bool
+    <strong>isSelfDescribing</strong>($val = null)</code>
     </h3>
     <div class="details">
-        <p>Test if a number is "self-describing":</p>
-        <p>assuming digit positions are labeled 0 to N-1,
+                    <div class="method-description">
+                                    <p>Test if a number is "self-describing":</p>                    <p>assuming digit positions are labeled 0 to N-1,
 the digit in each position is equal to the number of times that digit appears in the number</p>
 
 <p>2020 => true
 22 => false
-1210 => true</p>
-        <div class="tags">
+1210 => true</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Library\Helper\$val">$val</abbr></td>
+                <td></td>
                 <td>$val</td>
                 <td>
 </td>
@@ -431,9 +527,10 @@ the digit in each position is equal to the number of times that digit appears in
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -444,21 +541,26 @@ the digit in each position is equal to the number of times that digit appears in
                     </div>
     </div>
 
-                <h3 id="method_isJollyJumperSeries">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isJollyJumperSeries">
         <div class="location">at line 220</div>
-        <code>        static    public            bool
-    <strong>isJollyJumperSeries</strong>(array $items = array())</code>
+        <code>        static            
+    bool
+    <strong>isJollyJumperSeries</strong>(
+    array $items = array())</code>
     </h3>
     <div class="details">
-        <p>Test if a series of numbers is a "Jolly Jumper":</p>
-        <p>A sequence of n > 0 integers where the absolute values of the
-differences between successive elements take on all possible values 1 through n - 1.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Test if a series of numbers is a "Jolly Jumper":</p>                    <p>A sequence of n > 0 integers where the absolute values of the
+differences between successive elements take on all possible values 1 through n - 1.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$items</td>
                 <td>
 </td>
@@ -468,9 +570,10 @@ differences between successive elements take on all possible values 1 through n 
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -481,10 +584,17 @@ differences between successive elements take on all possible values 1 through n 
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

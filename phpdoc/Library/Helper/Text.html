@@ -1,148 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\Helper\Text | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\Helper\Text | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../Library/Helper.html">Library\Helper</a>\Text</h1>
+    <body id="class" data-name="class:Library_Helper_Text" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
-    <strong>Text</strong></p>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Library.html">Library</a></li>
+                                        <li><a href="../../Library/Helper.html">Helper</a></li>
+    
+                <li>Text</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Text</h1>
+    </div>
+
+    <p>    class
+    <strong>Text</strong>
+</p>
 
             <div class="description">
-            <p>Text helper</p>
-            <p>As for all helpers, all methods are statics.</p>
+            <p>Text helper</p>            <p>As for all helpers, all methods are statics.</p>
 
 <p>For convenience, the best practice is to use:</p>
 
 <pre><code>use Library\Helper\Text as TextHelper;
 </code></pre>
-</p>
-        </div>
+</p>        </div>
+    
     
     
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_cut">cut</a>(string $string = &#039;&#039;, int $length = 120, string $end_str = &#039; ...&#039;)
-                    <p>Truncate a string at a maximum length, adding it a suffix like '...'</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_wrap">wrap</a>(<abbr title="Library\Helper\$str">$str</abbr> $str = &#039;&#039;, int $line_length = 75, string $separator = PHP_EOL)
-                    <p>
-</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_stripSpecialChars">stripSpecialChars</a>(string $string = &#039;&#039;, string $authorized = &#039;&#039;)
-                    <p>Strip all special characters in a string</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_slugify">slugify</a>(string $string = &#039;&#039;)
-                    <p>Get a slugified string</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_getHumanReadable">getHumanReadable</a>(string $string = &#039;&#039;)
-                    <p>Transform a string to a human readable one</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_toCamelCase">toCamelCase</a>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $capitalize_first_char = true)
-                    <p>Transform a name in CamelCase</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_fromCamelCase">fromCamelCase</a>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $lowerize_first_char = true)
-                    <p>Transform a name from CamelCase to other</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_cut">cut</a>(
+    string $string = &#039;&#039;, 
+    int $length = 120, 
+    string $end_str = &#039; ...&#039;)
+                                            <p>Truncate a string at a maximum length, adding it a suffix like '.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_wrap">wrap</a>($str = &#039;&#039;, 
+    int $line_length = 75, 
+    string $separator = PHP_EOL)
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_stripSpecialChars">stripSpecialChars</a>(
+    string $string = &#039;&#039;, 
+    string $authorized = &#039;&#039;)
+                                            <p>Strip all special characters in a string</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_slugify">slugify</a>(
+    string $string = &#039;&#039;)
+                                            <p>Get a slugified string</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getHumanReadable">getHumanReadable</a>(
+    string $string = &#039;&#039;)
+                                            <p>Transform a string to a human readable one</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toCamelCase">toCamelCase</a>(
+    string $name = &#039;&#039;, 
+    string $replace = &#039;_&#039;, 
+    bool $capitalize_first_char = true)
+                                            <p>Transform a name in CamelCase</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_fromCamelCase">fromCamelCase</a>(
+    string $name = &#039;&#039;, 
+    string $replace = &#039;_&#039;, 
+    bool $lowerize_first_char = true)
+                                            <p>Transform a name from CamelCase to other</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_cut">
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_cut">
         <div class="location">at line 48</div>
-        <code>        static    public            string
-    <strong>cut</strong>(string $string = &#039;&#039;, int $length = 120, string $end_str = &#039; ...&#039;)</code>
+        <code>        static            
+    string
+    <strong>cut</strong>(
+    string $string = &#039;&#039;, 
+    int $length = 120, 
+    string $end_str = &#039; ...&#039;)</code>
     </h3>
     <div class="details">
-        <p>Truncate a string at a maximum length, adding it a suffix like '...'</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Truncate a string at a maximum length, adding it a suffix like '.</p>                    <p>..'</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$string</td>
                 <td>The string to cut</td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$length</td>
                 <td>The maximum length to keep (<code>120</code> by default)</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$end_str</td>
                 <td>The suffix to add if the string was cut (<code>...</code> by default)</td>
             </tr>
@@ -151,9 +226,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
@@ -164,34 +240,37 @@
                     </div>
     </div>
 
-                <h3 id="method_wrap">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_wrap">
         <div class="location">at line 74</div>
-        <code>        static    public            string
-    <strong>wrap</strong>(<abbr title="Library\Helper\$str">$str</abbr> $str = &#039;&#039;, int $line_length = 75, string $separator = PHP_EOL)</code>
+        <code>        static            
+    string
+    <strong>wrap</strong>($str = &#039;&#039;, 
+    int $line_length = 75, 
+    string $separator = PHP_EOL)</code>
     </h3>
     <div class="details">
-        <p>
-</p>
-        <p>
-</p>
-        <div class="tags">
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Library\Helper\$str">$str</abbr></td>
+                <td></td>
                 <td>$str</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$line_length</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$separator</td>
                 <td>
 </td>
@@ -201,9 +280,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
@@ -214,26 +294,33 @@
                     </div>
     </div>
 
-                <h3 id="method_stripSpecialChars">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_stripSpecialChars">
         <div class="location">at line 99</div>
-        <code>        static    public            string
-    <strong>stripSpecialChars</strong>(string $string = &#039;&#039;, string $authorized = &#039;&#039;)</code>
+        <code>        static            
+    string
+    <strong>stripSpecialChars</strong>(
+    string $string = &#039;&#039;, 
+    string $authorized = &#039;&#039;)</code>
     </h3>
     <div class="details">
-        <p>Strip all special characters in a string</p>
-        <p>This will replace all accentuated letters by their non-accentuated
-equivalent and delete all other special characters (including space by default).</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Strip all special characters in a string</p>                    <p>This will replace all accentuated letters by their non-accentuated
+equivalent and delete all other special characters (including space by default).</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$string</td>
                 <td>The string to format</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$authorized</td>
                 <td>Some authorized characters</td>
             </tr>
@@ -242,9 +329,10 @@ equivalent and delete all other special characters (including space by default).
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
@@ -255,20 +343,25 @@ equivalent and delete all other special characters (including space by default).
                     </div>
     </div>
 
-                <h3 id="method_slugify">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_slugify">
         <div class="location">at line 126</div>
-        <code>        static    public            string
-    <strong>slugify</strong>(string $string = &#039;&#039;)</code>
+        <code>        static            
+    string
+    <strong>slugify</strong>(
+    string $string = &#039;&#039;)</code>
     </h3>
     <div class="details">
-        <p>Get a slugified string</p>
-        <p>By Miguel Santirso (http://sourcecookbook.com/en/recipes/8/function-to-slugify-strings-in-php)</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get a slugified string</p>                    <p>By Miguel Santirso (http://sourcecookbook.com/en/recipes/8/function-to-slugify-strings-in-php)</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$string</td>
                 <td>The string to format</td>
             </tr>
@@ -277,9 +370,10 @@ equivalent and delete all other special characters (including space by default).
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
@@ -290,21 +384,25 @@ equivalent and delete all other special characters (including space by default).
                     </div>
     </div>
 
-                <h3 id="method_getHumanReadable">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getHumanReadable">
         <div class="location">at line 142</div>
-        <code>        static    public            string
-    <strong>getHumanReadable</strong>(string $string = &#039;&#039;)</code>
+        <code>        static            
+    string
+    <strong>getHumanReadable</strong>(
+    string $string = &#039;&#039;)</code>
     </h3>
     <div class="details">
-        <p>Transform a string to a human readable one</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Transform a string to a human readable one</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$string</td>
                 <td>The string to transform</td>
             </tr>
@@ -313,9 +411,10 @@ equivalent and delete all other special characters (including space by default).
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>The transformed version of <code>$string</code></td>
         </tr>
     </table>
@@ -325,31 +424,39 @@ equivalent and delete all other special characters (including space by default).
                     </div>
     </div>
 
-                <h3 id="method_toCamelCase">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toCamelCase">
         <div class="location">at line 155</div>
-        <code>        static    public            string
-    <strong>toCamelCase</strong>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $capitalize_first_char = true)</code>
+        <code>        static            
+    string
+    <strong>toCamelCase</strong>(
+    string $name = &#039;&#039;, 
+    string $replace = &#039;_&#039;, 
+    bool $capitalize_first_char = true)</code>
     </h3>
     <div class="details">
-        <p>Transform a name in CamelCase</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Transform a name in CamelCase</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The string to transform</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$replace</td>
                 <td>Replacement character</td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$capitalize_first_char</td>
                 <td>May the first letter be in upper case (default is <code>true</code>)</td>
             </tr>
@@ -358,9 +465,10 @@ equivalent and delete all other special characters (including space by default).
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>The CamelCase version of <code>$name</code></td>
         </tr>
     </table>
@@ -370,31 +478,39 @@ equivalent and delete all other special characters (including space by default).
                     </div>
     </div>
 
-                <h3 id="method_fromCamelCase">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_fromCamelCase">
         <div class="location">at line 175</div>
-        <code>        static    public            string
-    <strong>fromCamelCase</strong>(string $name = &#039;&#039;, string $replace = &#039;_&#039;, bool $lowerize_first_char = true)</code>
+        <code>        static            
+    string
+    <strong>fromCamelCase</strong>(
+    string $name = &#039;&#039;, 
+    string $replace = &#039;_&#039;, 
+    bool $lowerize_first_char = true)</code>
     </h3>
     <div class="details">
-        <p>Transform a name from CamelCase to other</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Transform a name from CamelCase to other</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The string to transform</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$replace</td>
                 <td>Replacement character</td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$lowerize_first_char</td>
                 <td>May the first letter be in lower case (default is <code>true</code>)</td>
             </tr>
@@ -403,9 +519,10 @@ equivalent and delete all other special characters (including space by default).
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>The un-CamelCase version of <code>$name</code></td>
         </tr>
     </table>
@@ -415,10 +532,17 @@ equivalent and delete all other special characters (including space by default).
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

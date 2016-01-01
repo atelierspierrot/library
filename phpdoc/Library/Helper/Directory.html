@@ -1,45 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\Helper\Directory | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\Helper\Directory | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../Library/Helper.html">Library\Helper</a>\Directory</h1>
+    <body id="class" data-name="class:Library_Helper_Directory" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
-    <strong>Directory</strong></p>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Library.html">Library</a></li>
+                                        <li><a href="../../Library/Helper.html">Helper</a></li>
+    
+                <li>Directory</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Directory</h1>
+    </div>
+
+    <p>    class
+    <strong>Directory</strong>
+</p>
 
             <div class="description">
-            <p>Directory helper</p>
-            <p>As for all helpers, all methods are statics.</p>
+            <p>Directory helper</p>            <p>As for all helpers, all methods are statics.</p>
 
 <p>For convenience, the best practice is to use:</p>
 
 <pre><code>use Library\Helper\Directory as DirectoryHelper;
 </code></pre>
-</p>
-        </div>
+</p>        </div>
+    
     
             <h2>Constants</h2>
 
-            <table>
+            <table class="table table-condensed">
                     <tr>
                 <td>DEFAULT_UNIX_CHMOD_DIRECTORIES</td>
                 <td class="last">
@@ -64,107 +116,129 @@
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_slashDirname">slashDirname</a>(string $dirname = null)
-                    <p>Get a dirname with one and only trailing slash</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isGitClone">isGitClone</a>(string $path = null)
-                    <p>Test if a path seems to be a git clone</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_isDotPath">isDotPath</a>(string $path = null)
-                    <p>Test if a filename seems to have a dot as first character</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_ensureExists">ensureExists</a>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)
-                    <p>Build a directory with its whole hierarchy if necessary</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_create">create</a>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)
-                    <p>Create a directory if necessary</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_remove">remove</a>(string $path = null, array $logs = array())
-                    <p>Remove a directory with its whole contents</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_purge">purge</a>(string $path = null, array $logs = array())
-                    <p>Remove a directory contents but not the directory itself</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;bool
-                </td>
-                <td class="last">
-                    <a href="#method_chmod">chmod</a>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true, int $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array $logs = array())
-                    <p>Change rights on a directory</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_slashDirname">slashDirname</a>(
+    string $dirname = null)
+                                            <p>Get a dirname with one and only trailing slash</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isGitClone">isGitClone</a>(
+    string $path = null)
+                                            <p>Test if a path seems to be a git clone</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_isDotPath">isDotPath</a>(
+    string $path = null)
+                                            <p>Test if a filename seems to have a dot as first character</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_ensureExists">ensureExists</a>(
+    string $path = null, 
+    int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, 
+    bool $recursive = true)
+                                            <p>Build a directory with its whole hierarchy if necessary</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_create">create</a>(
+    string $path = null, 
+    int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, 
+    bool $recursive = true)
+                                            <p>Create a directory if necessary</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_remove">remove</a>(
+    string $path = null, 
+    array $logs = array())
+                                            <p>Remove a directory with its whole contents</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_purge">purge</a>(
+    string $path = null, 
+    array $logs = array())
+                                            <p>Remove a directory contents but not the directory itself</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_chmod">chmod</a>(
+    string $path = null, 
+    int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, 
+    bool $recursive = true, 
+    int $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, 
+    array $logs = array())
+                                            <p>Change rights on a directory</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_slashDirname">
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_slashDirname">
         <div class="location">at line 56</div>
-        <code>        static    public            string
-    <strong>slashDirname</strong>(string $dirname = null)</code>
+        <code>        static            
+    string
+    <strong>slashDirname</strong>(
+    string $dirname = null)</code>
     </h3>
     <div class="details">
-        <p>Get a dirname with one and only trailing slash</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get a dirname with one and only trailing slash</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$dirname</td>
                 <td>
 </td>
@@ -174,9 +248,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
@@ -187,21 +262,25 @@
                     </div>
     </div>
 
-                <h3 id="method_isGitClone">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isGitClone">
         <div class="location">at line 70</div>
-        <code>        static    public            bool
-    <strong>isGitClone</strong>(string $path = null)</code>
+        <code>        static            
+    bool
+    <strong>isGitClone</strong>(
+    string $path = null)</code>
     </h3>
     <div class="details">
-        <p>Test if a path seems to be a git clone</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Test if a path seems to be a git clone</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$path</td>
                 <td>
 </td>
@@ -211,9 +290,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -224,21 +304,25 @@
                     </div>
     </div>
 
-                <h3 id="method_isDotPath">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isDotPath">
         <div class="location">at line 85</div>
-        <code>        static    public            bool
-    <strong>isDotPath</strong>(string $path = null)</code>
+        <code>        static            
+    bool
+    <strong>isDotPath</strong>(
+    string $path = null)</code>
     </h3>
     <div class="details">
-        <p>Test if a filename seems to have a dot as first character</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Test if a filename seems to have a dot as first character</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$path</td>
                 <td>
 </td>
@@ -248,9 +332,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -261,33 +346,41 @@
                     </div>
     </div>
 
-                <h3 id="method_ensureExists">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_ensureExists">
         <div class="location">at line 105</div>
-        <code>        static    public            bool
-    <strong>ensureExists</strong>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)</code>
+        <code>        static            
+    bool
+    <strong>ensureExists</strong>(
+    string $path = null, 
+    int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, 
+    bool $recursive = true)</code>
     </h3>
     <div class="details">
-        <p>Build a directory with its whole hierarchy if necessary</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build a directory with its whole hierarchy if necessary</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$path</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$mode</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$recursive</td>
                 <td>
 </td>
@@ -297,9 +390,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -310,33 +404,41 @@
                     </div>
     </div>
 
-                <h3 id="method_create">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_create">
         <div class="location">at line 124</div>
-        <code>        static    public            bool
-    <strong>create</strong>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true)</code>
+        <code>        static            
+    bool
+    <strong>create</strong>(
+    string $path = null, 
+    int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, 
+    bool $recursive = true)</code>
     </h3>
     <div class="details">
-        <p>Create a directory if necessary</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Create a directory if necessary</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$path</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$mode</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$recursive</td>
                 <td>
 </td>
@@ -346,9 +448,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -359,27 +462,33 @@
                     </div>
     </div>
 
-                <h3 id="method_remove">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_remove">
         <div class="location">at line 139</div>
-        <code>        static    public            bool
-    <strong>remove</strong>(string $path = null, array $logs = array())</code>
+        <code>        static            
+    bool
+    <strong>remove</strong>(
+    string $path = null, 
+    array $logs = array())</code>
     </h3>
     <div class="details">
-        <p>Remove a directory with its whole contents</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Remove a directory with its whole contents</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$path</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$logs</td>
                 <td>Logs registry passed by reference</td>
             </tr>
@@ -388,9 +497,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -401,27 +511,33 @@
                     </div>
     </div>
 
-                <h3 id="method_purge">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_purge">
         <div class="location">at line 181</div>
-        <code>        static    public            bool
-    <strong>purge</strong>(string $path = null, array $logs = array())</code>
+        <code>        static            
+    bool
+    <strong>purge</strong>(
+    string $path = null, 
+    array $logs = array())</code>
     </h3>
     <div class="details">
-        <p>Remove a directory contents but not the directory itself</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Remove a directory contents but not the directory itself</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$path</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$logs</td>
                 <td>Logs registry passed by reference</td>
             </tr>
@@ -430,9 +546,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -443,45 +560,57 @@
                     </div>
     </div>
 
-                <h3 id="method_chmod">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_chmod">
         <div class="location">at line 227</div>
-        <code>        static    public            bool
-    <strong>chmod</strong>(string $path = null, int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, bool $recursive = true, int $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, array $logs = array())</code>
+        <code>        static            
+    bool
+    <strong>chmod</strong>(
+    string $path = null, 
+    int $mode = self::DEFAULT_UNIX_CHMOD_DIRECTORIES, 
+    bool $recursive = true, 
+    int $file_mode = self::DEFAULT_UNIX_CHMOD_FILES, 
+    array $logs = array())</code>
     </h3>
     <div class="details">
-        <p>Change rights on a directory</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Change rights on a directory</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$path</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$mode</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$recursive</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$file_mode</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$logs</td>
                 <td>Logs registry passed by reference</td>
             </tr>
@@ -490,9 +619,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -503,10 +633,17 @@
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

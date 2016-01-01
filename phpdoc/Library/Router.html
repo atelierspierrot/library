@@ -1,291 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\Router | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../classes.html">Classes</a></li>
-                            <li><a href="../namespaces.html">Namespaces</a></li>
-                        <li><a href="../interfaces.html">Interfaces</a></li>
-            <li><a href="../traits.html">Traits</a></li>
-            <li><a href="../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\Router | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../Library.html">Library</a>\Router</h1>
+    <body id="class" data-name="class:Library_Router" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../Library.html">Library</a></li>
+    
+                <li>Router</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Router</h1>
+    </div>
+
+    <p>    class
     <strong>Router</strong>        implements
-        <abbr title="Patterns\Interfaces\RouterInterface">RouterInterface</abbr></p>
+        <abbr title="Patterns\Interfaces\RouterInterface">RouterInterface</abbr>
+</p>
 
             <div class="description">
-            <p>The global router class</p>
-            <p>
-</p>
-        </div>
+            <p>The global router class</p>                    </div>
+    
     
     
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
-                    <a href="#method___construct">__construct</a>(string $route = null, array $routes_table = array(), array $arguments_table = array(), array $matchers_table = array())
-                    <p>Construction</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <abbr title="Patterns\Commons\Collection">Collection</abbr>
-                </td>
-                <td class="last">
-                    <a href="#method_getCollection">getCollection</a>(array $collection)
-                    <p>Get a collection object if it was not</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method_setUrl">setUrl</a>(string $url)
-                    <p>Set the current URL</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    string
-                </td>
-                <td class="last">
+    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(
+    string $route = null, 
+    array $routes_table = array(), 
+    array $arguments_table = array(), 
+    array $matchers_table = array())
+                                            <p>Construction</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="Patterns\Commons\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getCollection">getCollection</a>(
+    array $collection)
+                                            <p>Get a collection object if it was not</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setUrl">setUrl</a>(
+    string $url)
+                                            <p>Set the current URL</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getUrl">getUrl</a>()
-                    <p>Get the current URL</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method_setRoute">setRoute</a>(string $route)
-                    <p>Set the current route</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    string
-                </td>
-                <td class="last">
+                                            <p>Get the current URL</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setRoute">setRoute</a>(
+    string $route)
+                                            <p>Set the current route</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getRoute">getRoute</a>()
-                    <p>Get the current route</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method_setRouteParsed">setRouteParsed</a>(array $infos)
-                    <p>Set the current route parsed infos</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    array
-                </td>
-                <td class="last">
+                                            <p>Get the current route</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setRouteParsed">setRouteParsed</a>(
+    array $infos)
+                                            <p>Set the current route parsed infos</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    array
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getRouteParsed">getRouteParsed</a>()
-                    <p>Get the current route parsed infos</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method_setRoutes">setRoutes</a>(<abbr title="Patterns\Commons\Collection">Collection</abbr> $collection)
-                    <p>Set the routes collection</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <abbr title="Patterns\Commons\Collection">Collection</abbr>
-                </td>
-                <td class="last">
+                                            <p>Get the current route parsed infos</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setRoutes">setRoutes</a>(
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr> $collection)
+                                            <p>Set the routes collection</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="Patterns\Commons\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getRoutes">getRoutes</a>()
-                    <p>Get the routes collection</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method_setArgumentsMap">setArgumentsMap</a>(<abbr title="Patterns\Commons\Collection">Collection</abbr> $collection)
-                    <p>Set the arguments correspondances table like ( true arg in URL => true arg name in the app )</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <abbr title="Patterns\Commons\Collection">Collection</abbr>
-                </td>
-                <td class="last">
+                                            <p>Get the routes collection</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setArgumentsMap">setArgumentsMap</a>(
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr> $collection)
+                                            <p>Set the arguments correspondances table like ( true arg in URL => true arg name in the app )</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="Patterns\Commons\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getArgumentsMap">getArgumentsMap</a>()
-                    <p>Get the arguments table</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method_setMatchers">setMatchers</a>(<abbr title="Patterns\Commons\Collection">Collection</abbr> $collection)
-                    <p>Set a collection of masks to parse and match a route URL</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <abbr title="Patterns\Commons\Collection">Collection</abbr>
-                </td>
-                <td class="last">
+                                            <p>Get the arguments table</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setMatchers">setMatchers</a>(
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr> $collection)
+                                            <p>Set a collection of masks to parse and match a route URL</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="Patterns\Commons\Collection">Collection</abbr>
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getMatchers">getMatchers</a>()
-                    <p>Get the route matcher</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    bool
-                </td>
-                <td class="last">
-                    <a href="#method_routeExists">routeExists</a>(string $route)
-                    <p>Check if a route exists</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    string
-                </td>
-                <td class="last">
-                    <a href="#method_generateUrl">generateUrl</a>(mixed $route_infos, string $base_uri = null, string $hash = null, string $separator = &#039;&amp;amp;&#039;)
-                    <p>Build a new route URL</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <abbr title="Library\false">false</abbr>|mixed
-                </td>
-                <td class="last">
-                    <a href="#method_matchUrl">matchUrl</a>(mixed $pathinfo)
-                    <p>Test if an URL has a corresponding route</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-                </td>
-                <td class="last">
+                                            <p>Get the route matcher</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_routeExists">routeExists</a>(
+    string $route)
+                                            <p>Check if a route exists</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_generateUrl">generateUrl</a>(
+    mixed $route_infos, 
+    string $base_uri = null, 
+    string $hash = null, 
+    string $separator = &#039;&amp;amp;&#039;)
+                                            <p>Build a new route URL</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="Library\false">false</abbr>|mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_matchUrl">matchUrl</a>(
+    mixed $pathinfo)
+                                            <p>Test if an URL has a corresponding route</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_distribute">distribute</a>()
-                    <p>Actually dispatch the current route</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    void
-                </td>
-                <td class="last">
-                    <a href="#method_forward">forward</a>(mixed $pathinfo, string $hash = null)
-                    <p>Forward the application to a new route (no HTTP redirect)</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    void
-                </td>
-                <td class="last">
-                    <a href="#method_redirect">redirect</a>(mixed $pathinfo, string $hash = null)
-                    <p>Make a redirection to a new route (HTTP redirect)</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_urlEncode">urlEncode</a>(string $str = null, bool $keep_mask = true)
-                    <p>Special 'urlencode' function to only encode strings and let any "%s" mask not encoded</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p>Actually dispatch the current route</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_forward">forward</a>(
+    mixed $pathinfo, 
+    string $hash = null)
+                                            <p>Forward the application to a new route (no HTTP redirect)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_redirect">redirect</a>(
+    mixed $pathinfo, 
+    string $hash = null)
+                                            <p>Make a redirection to a new route (HTTP redirect)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_urlEncode">urlEncode</a>(
+    string $str = null, 
+    bool $keep_mask = true)
+                                            <p>Special 'urlencode' function to only encode strings and let any "%s" mask not encoded</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method___construct">
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
         <div class="location">at line 78</div>
-        <code>            public            
-    <strong>__construct</strong>(string $route = null, array $routes_table = array(), array $arguments_table = array(), array $matchers_table = array())</code>
+        <code>                    
+    
+    <strong>__construct</strong>(
+    string $route = null, 
+    array $routes_table = array(), 
+    array $arguments_table = array(), 
+    array $matchers_table = array())</code>
     </h3>
     <div class="details">
-        <p>Construction</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Construction</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$route</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$routes_table</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$arguments_table</td>
                 <td>
 </td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$matchers_table</td>
                 <td>
 </td>
@@ -298,21 +381,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getCollection">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getCollection">
         <div class="location">at line 101</div>
-        <code>            public            <abbr title="Patterns\Commons\Collection">Collection</abbr>
-    <strong>getCollection</strong>(array $collection)</code>
+        <code>                    
+    <abbr title="Patterns\Commons\Collection">Collection</abbr>
+    <strong>getCollection</strong>(
+    array $collection)</code>
     </h3>
     <div class="details">
-        <p>Get a collection object if it was not</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get a collection object if it was not</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$collection</td>
                 <td>
 </td>
@@ -322,9 +409,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><abbr title="Patterns\Commons\Collection">Collection</abbr></td>
+            <td>
+    <abbr title="Patterns\Commons\Collection">Collection</abbr></td>
             <td>
 </td>
         </tr>
@@ -335,21 +423,25 @@
                     </div>
     </div>
 
-                <h3 id="method_setUrl">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setUrl">
         <div class="location">at line 120</div>
-        <code>            public            <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-    <strong>setUrl</strong>(string $url)</code>
+        <code>                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+    <strong>setUrl</strong>(
+    string $url)</code>
     </h3>
     <div class="details">
-        <p>Set the current URL</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the current URL</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$url</td>
                 <td>
 </td>
@@ -359,9 +451,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
+            <td>
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -372,22 +465,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getUrl">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getUrl">
         <div class="location">at line 131</div>
-        <code>            public            string
+        <code>                    
+    string
     <strong>getUrl</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the current URL</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the current URL</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
@@ -398,21 +494,25 @@
                     </div>
     </div>
 
-                <h3 id="method_setRoute">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setRoute">
         <div class="location">at line 142</div>
-        <code>            public            <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-    <strong>setRoute</strong>(string $route)</code>
+        <code>                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+    <strong>setRoute</strong>(
+    string $route)</code>
     </h3>
     <div class="details">
-        <p>Set the current route</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the current route</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$route</td>
                 <td>
 </td>
@@ -422,9 +522,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
+            <td>
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -435,22 +536,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getRoute">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRoute">
         <div class="location">at line 153</div>
-        <code>            public            string
+        <code>                    
+    string
     <strong>getRoute</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the current route</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the current route</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>
 </td>
         </tr>
@@ -461,21 +565,25 @@
                     </div>
     </div>
 
-                <h3 id="method_setRouteParsed">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setRouteParsed">
         <div class="location">at line 164</div>
-        <code>            public            <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-    <strong>setRouteParsed</strong>(array $infos)</code>
+        <code>                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+    <strong>setRouteParsed</strong>(
+    array $infos)</code>
     </h3>
     <div class="details">
-        <p>Set the current route parsed infos</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the current route parsed infos</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$infos</td>
                 <td>
 </td>
@@ -485,9 +593,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
+            <td>
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -498,22 +607,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getRouteParsed">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRouteParsed">
         <div class="location">at line 175</div>
-        <code>            public            array
+        <code>                    
+    array
     <strong>getRouteParsed</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the current route parsed infos</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the current route parsed infos</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>array</td>
+            <td>
+    array</td>
             <td>
 </td>
         </tr>
@@ -524,21 +636,25 @@
                     </div>
     </div>
 
-                <h3 id="method_setRoutes">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setRoutes">
         <div class="location">at line 186</div>
-        <code>            public            <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-    <strong>setRoutes</strong>(<abbr title="Patterns\Commons\Collection">Collection</abbr> $collection)</code>
+        <code>                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+    <strong>setRoutes</strong>(
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr> $collection)</code>
     </h3>
     <div class="details">
-        <p>Set the routes collection</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the routes collection</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Patterns\Commons\Collection">Collection</abbr></td>
+                <td>
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr></td>
                 <td>$collection</td>
                 <td>
 </td>
@@ -548,9 +664,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
+            <td>
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -561,22 +678,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getRoutes">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRoutes">
         <div class="location">at line 197</div>
-        <code>            public            <abbr title="Patterns\Commons\Collection">Collection</abbr>
+        <code>                    
+    <abbr title="Patterns\Commons\Collection">Collection</abbr>
     <strong>getRoutes</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the routes collection</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the routes collection</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><abbr title="Patterns\Commons\Collection">Collection</abbr></td>
+            <td>
+    <abbr title="Patterns\Commons\Collection">Collection</abbr></td>
             <td>
 </td>
         </tr>
@@ -587,21 +707,25 @@
                     </div>
     </div>
 
-                <h3 id="method_setArgumentsMap">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setArgumentsMap">
         <div class="location">at line 208</div>
-        <code>            public            <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-    <strong>setArgumentsMap</strong>(<abbr title="Patterns\Commons\Collection">Collection</abbr> $collection)</code>
+        <code>                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+    <strong>setArgumentsMap</strong>(
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr> $collection)</code>
     </h3>
     <div class="details">
-        <p>Set the arguments correspondances table like ( true arg in URL => true arg name in the app )</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set the arguments correspondances table like ( true arg in URL => true arg name in the app )</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Patterns\Commons\Collection">Collection</abbr></td>
+                <td>
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr></td>
                 <td>$collection</td>
                 <td>
 </td>
@@ -611,9 +735,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
+            <td>
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -624,22 +749,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getArgumentsMap">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getArgumentsMap">
         <div class="location">at line 219</div>
-        <code>            public            <abbr title="Patterns\Commons\Collection">Collection</abbr>
+        <code>                    
+    <abbr title="Patterns\Commons\Collection">Collection</abbr>
     <strong>getArgumentsMap</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the arguments table</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the arguments table</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><abbr title="Patterns\Commons\Collection">Collection</abbr></td>
+            <td>
+    <abbr title="Patterns\Commons\Collection">Collection</abbr></td>
             <td>
 </td>
         </tr>
@@ -650,21 +778,25 @@
                     </div>
     </div>
 
-                <h3 id="method_setMatchers">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setMatchers">
         <div class="location">at line 230</div>
-        <code>            public            <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
-    <strong>setMatchers</strong>(<abbr title="Patterns\Commons\Collection">Collection</abbr> $collection)</code>
+        <code>                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+    <strong>setMatchers</strong>(
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr> $collection)</code>
     </h3>
     <div class="details">
-        <p>Set a collection of masks to parse and match a route URL</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set a collection of masks to parse and match a route URL</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Patterns\Commons\Collection">Collection</abbr></td>
+                <td>
+    <abbr title="Library\Patterns\Commons\Collection">Collection</abbr></td>
                 <td>$collection</td>
                 <td>
 </td>
@@ -674,9 +806,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
+            <td>
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -687,22 +820,25 @@
                     </div>
     </div>
 
-                <h3 id="method_getMatchers">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getMatchers">
         <div class="location">at line 241</div>
-        <code>            public            <abbr title="Patterns\Commons\Collection">Collection</abbr>
+        <code>                    
+    <abbr title="Patterns\Commons\Collection">Collection</abbr>
     <strong>getMatchers</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the route matcher</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the route matcher</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><abbr title="Patterns\Commons\Collection">Collection</abbr></td>
+            <td>
+    <abbr title="Patterns\Commons\Collection">Collection</abbr></td>
             <td>
 </td>
         </tr>
@@ -713,21 +849,25 @@
                     </div>
     </div>
 
-                <h3 id="method_routeExists">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_routeExists">
         <div class="location">at line 252</div>
-        <code>            public            bool
-    <strong>routeExists</strong>(string $route)</code>
+        <code>                    
+    bool
+    <strong>routeExists</strong>(
+    string $route)</code>
     </h3>
     <div class="details">
-        <p>Check if a route exists</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Check if a route exists</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$route</td>
                 <td>The route to test</td>
             </tr>
@@ -736,9 +876,10 @@
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>
 </td>
         </tr>
@@ -749,36 +890,48 @@
                     </div>
     </div>
 
-                <h3 id="method_generateUrl">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_generateUrl">
         <div class="location">at line 317</div>
-        <code>            public            string
-    <strong>generateUrl</strong>(mixed $route_infos, string $base_uri = null, string $hash = null, string $separator = &#039;&amp;amp;&#039;)</code>
+        <code>                    
+    string
+    <strong>generateUrl</strong>(
+    mixed $route_infos, 
+    string $base_uri = null, 
+    string $hash = null, 
+    string $separator = &#039;&amp;amp;&#039;)</code>
     </h3>
     <div class="details">
-        <p>Build a new route URL</p>
-        <p>The class will pass arguments values to any <code>$this-&gt;toUrlParam($value)</code> method for the
-parameter named <code>param</code>.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Build a new route URL</p>                    <p>The class will pass arguments values to any <code>$this-&gt;toUrlParam($value)</code> method for the
+parameter named <code>param</code>.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$route_infos</td>
-                <td>The information about the route to analyze, can be a string route or an array of arguments like <code>param =&gt; value</code></td>
+                <td>The information about the route to analyze, can be a string route or an array
+                 of arguments like <code>param =&gt; value</code></td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$base_uri</td>
                 <td>The URI to add the new route to</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$hash</td>
                 <td>A hash tag to add to the generated URL</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$separator</td>
                 <td>The argument/value separator (default is escaped ampersand : '&amp;')</td>
             </tr>
@@ -787,9 +940,10 @@ parameter named <code>param</code>.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>The application valid URL for the route</td>
         </tr>
     </table>
@@ -799,21 +953,25 @@ parameter named <code>param</code>.</p>
                     </div>
     </div>
 
-                <h3 id="method_matchUrl">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_matchUrl">
         <div class="location">at line 354</div>
-        <code>            public            <abbr title="Library\false">false</abbr>|mixed
-    <strong>matchUrl</strong>(mixed $pathinfo)</code>
+        <code>                    
+    <abbr title="Library\false">false</abbr>|mixed
+    <strong>matchUrl</strong>(
+    mixed $pathinfo)</code>
     </h3>
     <div class="details">
-        <p>Test if an URL has a corresponding route</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Test if an URL has a corresponding route</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$pathinfo</td>
                 <td>
 </td>
@@ -823,9 +981,10 @@ parameter named <code>param</code>.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><abbr title="Library\false">false</abbr>|mixed</td>
+            <td>
+    <abbr title="Library\false">false</abbr>|mixed</td>
             <td>
 </td>
         </tr>
@@ -836,22 +995,25 @@ parameter named <code>param</code>.</p>
                     </div>
     </div>
 
-                <h3 id="method_distribute">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_distribute">
         <div class="location">at line 369</div>
-        <code>            public            <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
+        <code>                    
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a>
     <strong>distribute</strong>()</code>
     </h3>
     <div class="details">
-        <p>Actually dispatch the current route</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Actually dispatch the current route</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
+            <td>
+    <a href="../Library/Router.html"><abbr title="Library\Router">Router</abbr></a></td>
             <td>
 </td>
         </tr>
@@ -860,9 +1022,9 @@ parameter named <code>param</code>.</p>
             
                             <h4>Exceptions</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><a href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
+                <td><a target="_blank" href="http://php.net/RuntimeException"><abbr title="RuntimeException">RuntimeException</abbr></a></td>
                 <td>if no route has been found</td>
             </tr>
             </table>
@@ -871,26 +1033,32 @@ parameter named <code>param</code>.</p>
                     </div>
     </div>
 
-                <h3 id="method_forward">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_forward">
         <div class="location">at line 392</div>
-        <code>            public            void
-    <strong>forward</strong>(mixed $pathinfo, string $hash = null)</code>
+        <code>                    
+    void
+    <strong>forward</strong>(
+    mixed $pathinfo, 
+    string $hash = null)</code>
     </h3>
     <div class="details">
-        <p>Forward the application to a new route (no HTTP redirect)</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Forward the application to a new route (no HTTP redirect)</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$pathinfo</td>
                 <td>The path information to forward to</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$hash</td>
                 <td>A hash tag to add to the generated URL</td>
             </tr>
@@ -899,9 +1067,10 @@ parameter named <code>param</code>.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -912,26 +1081,32 @@ parameter named <code>param</code>.</p>
                     </div>
     </div>
 
-                <h3 id="method_redirect">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_redirect">
         <div class="location">at line 403</div>
-        <code>            public            void
-    <strong>redirect</strong>(mixed $pathinfo, string $hash = null)</code>
+        <code>                    
+    void
+    <strong>redirect</strong>(
+    mixed $pathinfo, 
+    string $hash = null)</code>
     </h3>
     <div class="details">
-        <p>Make a redirection to a new route (HTTP redirect)</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Make a redirection to a new route (HTTP redirect)</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$pathinfo</td>
                 <td>The path information to redirect to</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$hash</td>
                 <td>A hash tag to add to the generated URL</td>
             </tr>
@@ -940,9 +1115,10 @@ parameter named <code>param</code>.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -953,26 +1129,32 @@ parameter named <code>param</code>.</p>
                     </div>
     </div>
 
-                <h3 id="method_urlEncode">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_urlEncode">
         <div class="location">at line 430</div>
-        <code>        static    public            string
-    <strong>urlEncode</strong>(string $str = null, bool $keep_mask = true)</code>
+        <code>        static            
+    string
+    <strong>urlEncode</strong>(
+    string $str = null, 
+    bool $keep_mask = true)</code>
     </h3>
     <div class="details">
-        <p>Special 'urlencode' function to only encode strings and let any "%s" mask not encoded</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Special 'urlencode' function to only encode strings and let any "%s" mask not encoded</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$str</td>
                 <td>The URL or argument to encode</td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$keep_mask</td>
                 <td>
 </td>
@@ -982,9 +1164,10 @@ parameter named <code>param</code>.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>The encoded URL if so</td>
         </tr>
     </table>
@@ -994,10 +1177,17 @@ parameter named <code>param</code>.</p>
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

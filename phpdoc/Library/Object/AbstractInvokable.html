@@ -1,35 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\Object\AbstractInvokable | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\Object\AbstractInvokable | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../Library/Object.html">Library\Object</a>\AbstractInvokable</h1>
+    <body id="class" data-name="class:Library_Object_AbstractInvokable" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>abstract     class
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Library.html">Library</a></li>
+                                        <li><a href="../../Library/Object.html">Object</a></li>
+    
+                <li>AbstractInvokable</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>AbstractInvokable</h1>
+    </div>
+
+    <p>    class
     <strong>AbstractInvokable</strong>        implements
-        <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a></p>
+        <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a>
+</p>
 
             <div class="description">
-            <p>Magic handling of properties access</p>
-            <p><h2>Presentation</h2>
+            <p>Magic handling of properties access</p>            <p><h2>Presentation</h2>
 
 <p>This model constructs an accessible object in which you can dynamically set and get
 properties on the fly without errors.</p>
@@ -40,124 +92,141 @@ properties on the fly without errors.</p>
 
 <p>All setter methods returns the object itself for chainability.</p>
 
-<p>To use static magic caller, your constructor must not require any argument.</p>
-        </div>
+<p>To use static magic caller, your constructor must not require any argument.</p>        </div>
+    
     
     
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
-                    mixed
-                </td>
-                <td class="last">
-                    <a href="#method___invoke">__invoke</a>(string $name)
-                    <p>Magic getter when calling an object as a function</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    mixed
-                </td>
-                <td class="last">
-                    <a href="#method___call">__call</a>(string $name, array $arguments)
-                    <p>Magic handler when calling a non-existing method on an object</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;mixed
-                </td>
-                <td class="last">
-                    <a href="#method___callStatic">__callStatic</a>(string $name, array $arguments)
-                    <p>Magic handler when calling a non-eixsting method statically on an object</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    mixed
-                </td>
-                <td class="last">
-                    <a href="#method___get">__get</a>(string $name)
-                    <p>Magic getter</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../../Library/Object/AbstractInvokable.html"><abbr title="Library\Object\AbstractInvokable">AbstractInvokable</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method___set">__set</a>(string $name, mixed $value)
-                    <p>Magic setter</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    bool
-                </td>
-                <td class="last">
-                    <a href="#method___isset">__isset</a>(string $name)
-                    <p>Magic checker</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <a href="../../Library/Object/AbstractInvokable.html"><abbr title="Library\Object\AbstractInvokable">AbstractInvokable</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method___unset">__unset</a>(string $name)
-                    <p>Magic unsetter</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    string
-                </td>
-                <td class="last">
-                    <a href="#method_findPropertyName">findPropertyName</a>(string $name)
-                    <p>Search a property name in the current object with one or tow leading underscores</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;string
-                </td>
-                <td class="last">
-                    <a href="#method_findPropertyNameStatic">findPropertyNameStatic</a>(string $name, string|object $object)
-                    <p>Search a property name in the current object with one or tow leading underscores</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___invoke">__invoke</a>(
+    string $name)
+                                            <p>Magic getter when calling an object as a function</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___call">__call</a>(
+    string $name, 
+    array $arguments)
+                                            <p>Magic handler when calling a non-existing method on an object</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___callStatic">__callStatic</a>(
+    string $name, 
+    array $arguments)
+                                            <p>Magic handler when calling a non-eixsting method statically on an object</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___get">__get</a>(
+    string $name)
+                                            <p>Magic getter</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___set">__set</a>(
+    string $name, 
+    mixed $value)
+                                            <p>Magic setter</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___isset">__isset</a>(
+    string $name)
+                                            <p>Magic checker</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___unset">__unset</a>(
+    string $name)
+                                            <p>Magic unsetter</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_findPropertyName">findPropertyName</a>(
+    string $name)
+                                            <p>Search a property name in the current object with one or tow leading underscores</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_findPropertyNameStatic">findPropertyNameStatic</a>(
+    string $name, 
+    string|object $object)
+                                            <p>Search a property name in the current object with one or tow leading underscores</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method___invoke">
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___invoke">
         <div class="location">at line 68</div>
-        <code>            public            mixed
-    <strong>__invoke</strong>(string $name)</code>
+        <code>                    
+    mixed
+    <strong>__invoke</strong>(
+    string $name)</code>
     </h3>
     <div class="details">
-        <p>Magic getter when calling an object as a function</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic getter when calling an object as a function</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The property name called on the object</td>
             </tr>
@@ -166,9 +235,10 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>
+    mixed</td>
             <td>This will return the result of the magic getter, or nothing if nothing can be done</td>
         </tr>
     </table>
@@ -177,7 +247,7 @@ properties on the fly without errors.</p>
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.magic.php&gt;</td>
                 <td></td>
@@ -191,25 +261,32 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
-                <h3 id="method___call">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___call">
         <div class="location">at line 96</div>
-        <code>            public            mixed
-    <strong>__call</strong>(string $name, array $arguments)</code>
+        <code>                    
+    mixed
+    <strong>__call</strong>(
+    string $name, 
+    array $arguments)</code>
     </h3>
     <div class="details">
-        <p>Magic handler when calling a non-existing method on an object</p>
-        <p>Magic method handling <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code>.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic handler when calling a non-existing method on an object</p>                    <p>Magic method handling <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code>.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The non-existing method name called on the object</td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$arguments</td>
                 <td>The arguments array passed calling the method</td>
             </tr>
@@ -218,10 +295,11 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
-            <td>This will return the result of a magic method, or nothing if nothing can be done</td>
+            <td>
+    mixed</td>
+            <td>Must return the result of a magic method, or nothing if nothing can be done</td>
         </tr>
     </table>
 
@@ -229,7 +307,7 @@ properties on the fly without errors.</p>
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -259,25 +337,32 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
-                <h3 id="method___callStatic">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___callStatic">
         <div class="location">at line 141</div>
-        <code>        static    public            mixed
-    <strong>__callStatic</strong>(string $name, array $arguments)</code>
+        <code>        static            
+    mixed
+    <strong>__callStatic</strong>(
+    string $name, 
+    array $arguments)</code>
     </h3>
     <div class="details">
-        <p>Magic handler when calling a non-eixsting method statically on an object</p>
-        <p>Magic static handling of <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code>.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic handler when calling a non-eixsting method statically on an object</p>                    <p>Magic static handling of <code>getProp(default)</code>, <code>setProp(value)</code>, <code>unsetProp()</code>, <code>issetProp()</code> or <code>resetProp()</code>.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The non-existing method name called on the object</td>
             </tr>
                     <tr>
-                <td>array</td>
+                <td>
+    array</td>
                 <td>$arguments</td>
                 <td>The arguments array passed calling the method</td>
             </tr>
@@ -286,10 +371,11 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
-            <td>This will return the result of a magic method, or nothing if nothing can be done</td>
+            <td>
+    mixed</td>
+            <td>Must return the result of a magic method, or nothing if nothing can be done</td>
         </tr>
     </table>
 
@@ -297,7 +383,7 @@ properties on the fly without errors.</p>
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -307,20 +393,25 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
-                <h3 id="method___get">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___get">
         <div class="location">at line 176</div>
-        <code>            public            mixed
-    <strong>__get</strong>(string $name)</code>
+        <code>                    
+    mixed
+    <strong>__get</strong>(
+    string $name)</code>
     </h3>
     <div class="details">
-        <p>Magic getter</p>
-        <p>Magic method called when <code>$this-&gt;prop</code> is invoked.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic getter</p>                    <p>Magic method called when <code>$this-&gt;prop</code> is invoked.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The name of the property to get</td>
             </tr>
@@ -329,9 +420,10 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>
+    mixed</td>
             <td>This will return the result of a magic method, or nothing if nothing can be done</td>
         </tr>
     </table>
@@ -340,7 +432,7 @@ properties on the fly without errors.</p>
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -354,25 +446,32 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
-                <h3 id="method___set">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___set">
         <div class="location">at line 193</div>
-        <code>            public            <a href="../../Library/Object/AbstractInvokable.html"><abbr title="Library\Object\AbstractInvokable">AbstractInvokable</abbr></a>
-    <strong>__set</strong>(string $name, mixed $value)</code>
+        <code>                    
+    <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a>
+    <strong>__set</strong>(
+    string $name, 
+    mixed $value)</code>
     </h3>
     <div class="details">
-        <p>Magic setter</p>
-        <p>Magic method called when <code>$this-&gt;arg = value</code> is invoked.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic setter</p>                    <p>Magic method called when <code>$this-&gt;arg = value</code> is invoked.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The name of the property to get</td>
             </tr>
                     <tr>
-                <td>mixed</td>
+                <td>
+    mixed</td>
                 <td>$value</td>
                 <td>The value to set for the property</td>
             </tr>
@@ -381,9 +480,10 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../../Library/Object/AbstractInvokable.html"><abbr title="Library\Object\AbstractInvokable">AbstractInvokable</abbr></a></td>
+            <td>
+    <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a></td>
             <td>Returns <code>$this</code> for method chaining</td>
         </tr>
     </table>
@@ -392,7 +492,7 @@ properties on the fly without errors.</p>
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -406,20 +506,25 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
-                <h3 id="method___isset">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___isset">
         <div class="location">at line 209</div>
-        <code>            public            bool
-    <strong>__isset</strong>(string $name)</code>
+        <code>                    
+    bool
+    <strong>__isset</strong>(
+    string $name)</code>
     </h3>
     <div class="details">
-        <p>Magic checker</p>
-        <p>Magic method called when <code>isset($this-&gt;prop)</code> or <code>empty($this-&gt;prop)</code> are invoked.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic checker</p>                    <p>Magic method called when <code>isset($this-&gt;prop)</code> or <code>empty($this-&gt;prop)</code> are invoked.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The name of the property to get</td>
             </tr>
@@ -428,9 +533,10 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>bool</td>
+            <td>
+    bool</td>
             <td>This will return <code>true</code> if the property exists, <code>false</code> otherwise</td>
         </tr>
     </table>
@@ -439,7 +545,7 @@ properties on the fly without errors.</p>
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -453,20 +559,25 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
-                <h3 id="method___unset">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___unset">
         <div class="location">at line 225</div>
-        <code>            public            <a href="../../Library/Object/AbstractInvokable.html"><abbr title="Library\Object\AbstractInvokable">AbstractInvokable</abbr></a>
-    <strong>__unset</strong>(string $name)</code>
+        <code>                    
+    <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a>
+    <strong>__unset</strong>(
+    string $name)</code>
     </h3>
     <div class="details">
-        <p>Magic unsetter</p>
-        <p>Magic method called when <code>unset($this-&gt;prop)</code> is invoked.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Magic unsetter</p>                    <p>Magic method called when <code>unset($this-&gt;prop)</code> is invoked.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The name of the property to get</td>
             </tr>
@@ -475,9 +586,10 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><a href="../../Library/Object/AbstractInvokable.html"><abbr title="Library\Object\AbstractInvokable">AbstractInvokable</abbr></a></td>
+            <td>
+    <a href="../../Library/Object/InvokableInterface.html"><abbr title="Library\Object\InvokableInterface">InvokableInterface</abbr></a></td>
             <td>Returns <code>$this</code> for method chaining</td>
         </tr>
     </table>
@@ -486,7 +598,7 @@ properties on the fly without errors.</p>
             
                             <h4>See also</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
                 <td>&lt;http://www.php.net/manual/en/language.oop5.overloading.php&gt;</td>
                 <td></td>
@@ -500,21 +612,25 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
-                <h3 id="method_findPropertyName">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_findPropertyName">
         <div class="location">at line 415</div>
-        <code>            public            string
-    <strong>findPropertyName</strong>(string $name)</code>
+        <code>                    
+    string
+    <strong>findPropertyName</strong>(
+    string $name)</code>
     </h3>
     <div class="details">
-        <p>Search a property name in the current object with one or tow leading underscores</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Search a property name in the current object with one or tow leading underscores</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The property name to transform</td>
             </tr>
@@ -523,9 +639,10 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>The transformed property name</td>
         </tr>
     </table>
@@ -535,26 +652,32 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
-                <h3 id="method_findPropertyNameStatic">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_findPropertyNameStatic">
         <div class="location">at line 427</div>
-        <code>        static    public            string
-    <strong>findPropertyNameStatic</strong>(string $name, string|object $object)</code>
+        <code>        static            
+    string
+    <strong>findPropertyNameStatic</strong>(
+    string $name, 
+    string|object $object)</code>
     </h3>
     <div class="details">
-        <p>Search a property name in the current object with one or tow leading underscores</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Search a property name in the current object with one or tow leading underscores</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$name</td>
                 <td>The property name to transform</td>
             </tr>
                     <tr>
-                <td>string|object</td>
+                <td>
+    string|object</td>
                 <td>$object</td>
                 <td>The object or a class name to work on</td>
             </tr>
@@ -563,9 +686,10 @@ properties on the fly without errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>The transformed property name</td>
         </tr>
     </table>
@@ -575,10 +699,17 @@ properties on the fly without errors.</p>
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

@@ -1,163 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Library\CommandLine\Stream | Library</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../traits.html">Traits</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Library\CommandLine\Stream | Library</title>
 
-        <div id="title">Library</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
 
-            <div class="type">Class</div>
-    <h1><a href="../../Library/CommandLine.html">Library\CommandLine</a>\Stream</h1>
+    <body id="class" data-name="class:Library_CommandLine_Stream" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>    class
-    <strong>Stream</strong></p>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Library</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../../Library.html">Library</a></li>
+                                        <li><a href="../../Library/CommandLine.html">CommandLine</a></li>
+    
+                <li>Stream</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Stream</h1>
+    </div>
+
+    <p>    class
+    <strong>Stream</strong>
+</p>
 
             <div class="description">
-            <p>Command line streams manager</p>
-            <p>Use this class to write on <code>STDOUT</code> or <code>STDERR</code> and read from <code>STDIN</code>.</p>
-        </div>
+            <p>Command line streams manager</p>            <p>Use this class to write on <code>STDOUT</code> or <code>STDERR</code> and read from <code>STDIN</code>.</p>        </div>
+    
     
     
             <h2>Properties</h2>
 
-            <table>
+            <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_stream">
-                                                            
+                                                                                
+    
                 </td>
                 <td>$stream</td>
                 <td class="last">STDOUT stream for writing</td>
+                <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_error">
-                                                            
+                                                                                
+    
                 </td>
                 <td>$error</td>
                 <td class="last">STDERR stream for writing</td>
+                <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_input">
-                                                            
+                                                                                
+    
                 </td>
                 <td>$input</td>
                 <td class="last">STDIN stream for reading</td>
+                <td></td>
             </tr>
             </table>
 
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+    
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method___construct">__construct</a>()
-                    <p>The three streams are initiated</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    void
-                </td>
-                <td class="last">
-                    <a href="#method___exit">__exit</a>(string $str = null)
-                    <p>Exit the script execution</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    void
-                </td>
-                <td class="last">
-                    <a href="#method_error">error</a>(string $str, int $status = 1, bool $new_line = true)
-                    <p>Write a message on <code>STDERR</code> and exit with an error status</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    void
-                </td>
-                <td class="last">
-                    <a href="#method_write">write</a>(string $str, bool $new_line = true)
-                    <p>Write a message on <code>STDOUT</code></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    void
-                </td>
-                <td class="last">
-                    <a href="#method_prompt">prompt</a>(string $str)
-                    <p>Write a message on <code>STDOUT</code> and wait for a user input on <code>STDIN</code></p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    string
-                </td>
-                <td class="last">
+                                            <p>The three streams are initiated</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___exit">__exit</a>(
+    string $str = null)
+                                            <p>Exit the script execution</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_error">error</a>(
+    string $str, 
+    int $status = 1, 
+    bool $new_line = true)
+                                            <p>Write a message on <code>STDERR</code> and exit with an error status</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_write">write</a>(
+    string $str, 
+    bool $new_line = true)
+                                            <p>Write a message on <code>STDOUT</code></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_prompt">prompt</a>(
+    string $str)
+                                            <p>Write a message on <code>STDOUT</code> and wait for a user input on <code>STDIN</code></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    string
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_getUserResponse">getUserResponse</a>()
-                    <p>Get last user input on <code>STDIN</code></p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p>Get last user input on <code>STDIN</code></p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method___construct">
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
         <div class="location">at line 66</div>
-        <code>            public            
+        <code>                    
+    
     <strong>__construct</strong>()</code>
     </h3>
     <div class="details">
-        <p>The three streams are initiated</p>
-        <p>They are created with the defaults <code>STDIN</code>, <code>STDOUT</code> and <code>STDERR</code> if present or
-opened as file streams otherwise.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>The three streams are initiated</p>                    <p>They are created with the defaults <code>STDIN</code>, <code>STDOUT</code> and <code>STDERR</code> if present or
+opened as file streams otherwise.</p>            </div>
+                <div class="tags">
             
             
             
                     </div>
     </div>
 
-                <h3 id="method___exit">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___exit">
         <div class="location">at line 79</div>
-        <code>            public            void
-    <strong>__exit</strong>(string $str = null)</code>
+        <code>                    
+    void
+    <strong>__exit</strong>(
+    string $str = null)</code>
     </h3>
     <div class="details">
-        <p>Exit the script execution</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Exit the script execution</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$str</td>
                 <td>Optional string to write before exit</td>
             </tr>
@@ -166,9 +238,10 @@ opened as file streams otherwise.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -179,31 +252,39 @@ opened as file streams otherwise.</p>
                     </div>
     </div>
 
-                <h3 id="method_error">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_error">
         <div class="location">at line 93</div>
-        <code>            public            void
-    <strong>error</strong>(string $str, int $status = 1, bool $new_line = true)</code>
+        <code>                    
+    void
+    <strong>error</strong>(
+    string $str, 
+    int $status = 1, 
+    bool $new_line = true)</code>
     </h3>
     <div class="details">
-        <p>Write a message on <code>STDERR</code> and exit with an error status</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Write a message on <code>STDERR</code> and exit with an error status</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$str</td>
                 <td>The error message string to write</td>
             </tr>
                     <tr>
-                <td>int</td>
+                <td>
+    int</td>
                 <td>$status</td>
                 <td>The error status for exit (default is <code>1</code>) ; you can set it on <code>0</code> to not exit</td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$new_line</td>
                 <td>Pass a new line befor exit (default is <code>true</code>)</td>
             </tr>
@@ -212,9 +293,10 @@ opened as file streams otherwise.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -225,26 +307,32 @@ opened as file streams otherwise.</p>
                     </div>
     </div>
 
-                <h3 id="method_write">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_write">
         <div class="location">at line 107</div>
-        <code>            public            void
-    <strong>write</strong>(string $str, bool $new_line = true)</code>
+        <code>                    
+    void
+    <strong>write</strong>(
+    string $str, 
+    bool $new_line = true)</code>
     </h3>
     <div class="details">
-        <p>Write a message on <code>STDOUT</code></p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Write a message on <code>STDOUT</code></p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$str</td>
                 <td>The error message string to write</td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>
+    bool</td>
                 <td>$new_line</td>
                 <td>Pass a new line befor exit (default is <code>true</code>)</td>
             </tr>
@@ -253,9 +341,10 @@ opened as file streams otherwise.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -266,21 +355,25 @@ opened as file streams otherwise.</p>
                     </div>
     </div>
 
-                <h3 id="method_prompt">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_prompt">
         <div class="location">at line 119</div>
-        <code>            public            void
-    <strong>prompt</strong>(string $str)</code>
+        <code>                    
+    void
+    <strong>prompt</strong>(
+    string $str)</code>
     </h3>
     <div class="details">
-        <p>Write a message on <code>STDOUT</code> and wait for a user input on <code>STDIN</code></p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Write a message on <code>STDOUT</code> and wait for a user input on <code>STDIN</code></p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$str</td>
                 <td>The error message string to write</td>
             </tr>
@@ -289,9 +382,10 @@ opened as file streams otherwise.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td>
+    void</td>
             <td>
 </td>
         </tr>
@@ -302,22 +396,25 @@ opened as file streams otherwise.</p>
                     </div>
     </div>
 
-                <h3 id="method_getUserResponse">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getUserResponse">
         <div class="location">at line 130</div>
-        <code>            public            string
+        <code>                    
+    string
     <strong>getUserResponse</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get last user input on <code>STDIN</code></p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get last user input on <code>STDIN</code></p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>string</td>
+            <td>
+    string</td>
             <td>The last user input from <code>STDIN</code></td>
         </tr>
     </table>
@@ -327,10 +424,17 @@ opened as file streams otherwise.</p>
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>
